@@ -9,56 +9,27 @@
     <include layout="@layout/toolbar"/>
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:weightSum="1"
-        android:gravity="center_vertical|center"
-        android:id="@+id/linearLayout">
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Выберите сервис"
-            android:id="@+id/textView"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center|center_horizontal"
-            android:layout_weight="0.33"
-            android:textSize="27sp"
-            android:textColor="#00709e"
-            android:textStyle="bold"
-            android:background="@drawable/edittextstyle"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp" />
-
-    </LinearLayout>
-
-    <TableLayout
+        android:id="@+id/menuLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:id="@+id/tableLayout"
-        android:padding="5dp"
-        android:shrinkColumns="*"
-        android:stretchColumns="*"
-        android:layout_marginBottom="120dp"
-        android:gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center">
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center">
+        <LinearLayout
+            android:id="@+id/firstLineLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/button_fine"
+                android:layout_width="100dp"
+                android:layout_height="83dp"
 
                 android:layout_span="1"
-                android:id="@+id/button_fine"
                 android:textSize="13sp"
                 android:textColor="#FFFFFF"
                 android:gravity="top|center"
@@ -68,11 +39,11 @@
                 android:paddingTop="20dp"/>
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_span="1"
-
                 android:id="@+id/button_driver"
+                android:layout_width="100dp"
+                android:layout_height="83dp"
+
+                android:layout_span="1"
                 android:textSize="13sp"
                 android:textColor="#FFFFFF"
                 android:gravity="top|center"
@@ -80,19 +51,20 @@
                 android:layout_marginBottom="15dp"
                 android:layout_marginLeft="25dp"
                 android:paddingTop="20dp" />
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="2">
+        <LinearLayout
+            android:id="@+id/secondLineLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
             <Button
-
                 android:id="@+id/button_car"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="100dp"
+                android:layout_height="83dp"
+
                 android:layout_span="1"
                 android:textSize="13sp"
                 android:textColor="#FFFFFF"
@@ -103,10 +75,10 @@
                 android:paddingTop="20dp" />
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
                 android:id="@+id/button_message"
+                android:layout_width="100dp"
+                android:layout_height="83dp"
+
                 android:layout_span="1"
                 android:textSize="13sp"
                 android:textColor="#FFFFFF"
@@ -117,8 +89,7 @@
                 android:paddingTop="20dp"
                 android:longClickable="false"
                 android:lines="2" />
-        </TableRow>
-
-    </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
