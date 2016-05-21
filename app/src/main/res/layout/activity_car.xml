@@ -34,7 +34,8 @@
                 android:id="@+id/imageButtonLens"
                 android:src="@drawable/lens"
                 android:adjustViewBounds="true"
-                android:scaleType="centerInside"                />
+                android:scaleType="centerInside"
+                />
 
         </LinearLayout>
 
@@ -96,24 +97,32 @@
             android:id="@+id/CuptureEditText"
             android:layout_weight="1" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Проверить"
-            android:id="@+id/CheckButton"
-            android:background="@drawable/button_next"
-            android:textColor="@drawable/textbutton"
-            android:layout_weight="1" />
-
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        >
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Проверить"
+        android:id="@+id/CheckButton"
+        android:background="@drawable/button_next"
+        android:textColor="@drawable/text_button" />
 
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
         android:gravity="center_horizontal">
+
+
 
         <View
             android:layout_width="0dp"
@@ -179,5 +188,6 @@
 
     </LinearLayout>
 
+    </LinearLayout>
 
 </RelativeLayout>
