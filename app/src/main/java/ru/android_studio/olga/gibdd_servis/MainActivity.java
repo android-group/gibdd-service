@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 break;
             case R.id.button_car:
                 Log.i(TAG, "button_car");
+                Intent intentCarActivity = new Intent(this, CarActivity.class);
+                startActivity(intentCarActivity);
                 break;
             case R.id.button_message:
                 Log.i(TAG, "button_message");
