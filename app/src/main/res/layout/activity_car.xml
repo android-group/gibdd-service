@@ -29,6 +29,7 @@
                 android:layout_weight="1" />
 
             <ImageButton
+                android:backgroundTint="@color/white"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:id="@+id/imageButtonLens"
@@ -131,6 +132,7 @@
         </View>
 
         <ImageButton
+            android:backgroundTint="@color/white"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:id="@+id/imageButton"
@@ -145,6 +147,7 @@
         </View>
 
         <ImageButton
+            android:backgroundTint="@color/white"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:id="@+id/imageButton2"
@@ -159,6 +162,7 @@
         </View>
 
         <ImageButton
+            android:backgroundTint="@color/white"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:id="@+id/imageButton3"
@@ -173,6 +177,7 @@
         </View>
 
         <ImageButton
+            android:backgroundTint="@color/white"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:id="@+id/imageButton4"
