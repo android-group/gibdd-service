@@ -21,22 +21,13 @@
             android:layout_gravity="center">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Идентификационный номер (VIN)"
                 android:textSize="18sp"
                 android:id="@+id/VINTextView"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical" />
-
-            <ImageButton
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:id="@+id/imageButtonLens"
-                android:src="@drawable/lens"
-                android:adjustViewBounds="true"
-                android:scaleType="centerInside"
-                />
 
         </LinearLayout>
 
