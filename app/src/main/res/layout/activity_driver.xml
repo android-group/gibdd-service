@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -11,45 +11,51 @@
     <LinearLayout
         android:id="@+id/menuLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="20dp">
+        android:layout_margin="20dp"
+        android:layout_below="@+id/toolbar_my">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Серия водительского удостоверения"
-            android:id="@+id/textView" />
+            android:textSize="18sp"
+            android:id="@+id/SeriesLicenseTextView" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText4" />
+            android:id="@+id/SeriesLicenseEditText" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Номер водительского удостоверения"
-            android:id="@+id/textView5" />
+            android:textSize="18sp"
+            android:id="@+id/NumberLicenseTextView" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText5" />
+            android:id="@+id/NumberLicenseEditText" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Дата выдачи"
-            android:id="@+id/textView6" />
+            android:textSize="18sp"
+            android:id="@+id/DateOfIssueTextView" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:id="@+id/DateOfIssueLinearLayout">
+
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/DateOfIssueEditText"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -62,27 +68,28 @@
                 android:layout_height="45dp"
                 android:cropToPadding="true"
                 android:src="@drawable/calendar"
-                android:layout_gravity="center" />
+                android:scaleType="centerInside"/>
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Введите символы с картинки"
-            android:id="@+id/textView7" />
+            android:textSize="18sp"
+            android:id="@+id/CuptureTextView" />
 
         <ImageView
             android:layout_width="182dp"
             android:layout_height="50dp"
-            android:id="@+id/imageView5"
+            android:id="@+id/CuptureImageView"
             android:src="@drawable/capture" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
+            android:inputType="text"
             android:ems="10"
-            android:id="@+id/editText7" />
+            android:id="@+id/CuptureEditText" />
 
         <Button
             android:id="@+id/btnNext"
@@ -91,48 +98,82 @@
             android:layout_gravity="bottom|center"
             android:background="@drawable/button_next"
             android:paddingTop="10dp"
+            android:textColor="@drawable/text_button"
             android:text="@string/btn_check"/>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="10dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView9"
-                android:src="@drawable/menu_ruble_off"
-                android:paddingTop="5dp"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView7"
-                android:src="@drawable/menu_driver_on"
-                android:paddingTop="5dp"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView6"
-                android:src="@drawable/menu_auto_off"
-                android:paddingTop="5dp"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView8"
-                android:src="@drawable/menu_question_off"
-                android:paddingTop="5dp"
-                android:layout_weight="1" />
-
-        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+        <LinearLayout
+            android:id="@+id/NavigationLinearLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="10dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_ruble_off"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton2"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_driver_on"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton3"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_auto_off"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton4"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_question_off"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+
+        </LinearLayout>
+
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package ru.android_studio.olga.gibdd_servis;
 
 import android.content.Intent;
+import android.media.tv.TvContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,12 +20,10 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_my);
         setSupportActionBar(toolbar);
         getSupportActionBar().setLogo(R.mipmap.main_logo);
-
         findViewById(R.id.button_driver).setOnClickListener(this);
         findViewById(R.id.button_car).setOnClickListener(this);
         findViewById(R.id.button_fine).setOnClickListener(this);
         findViewById(R.id.button_message).setOnClickListener(this);
-
     }
 
 

@@ -8,6 +8,6 @@
     android:layout_height="?android:actionBarSize"
     app:titleTextColor="@color/toolbarText"
     app:contentInsetStart="0dp"
-    android:gravity="center"
+    android:gravity="left"
     android:background="@color/toolbarBackground"
     />
