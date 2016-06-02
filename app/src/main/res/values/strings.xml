@@ -4,4 +4,6 @@
     <string name="check_car">Проверка машины</string>
     <string name="choose_service">Выберите сервис</string>
     <string name="btn_check">Проверить</string>
+    <string name="check_fine">Проверка штрафов</string>
+    <string name="check_question">Прием обращений</string>
 </resources>

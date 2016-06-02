@@ -2,11 +2,9 @@ package ru.android_studio.olga.gibdd_servis;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
-public class DriverActivity extends AppCompatActivity implements View.OnClickListener {
+public class DriverActivity extends ActivityWithMenu {
 
     private static final String TAG = "DriverActivity";
 
@@ -22,10 +20,12 @@ public class DriverActivity extends AppCompatActivity implements View.OnClickLis
         supportActionBar.setDisplayHomeAsUpEnabled(true);
         supportActionBar.setDisplayShowTitleEnabled(true);
         supportActionBar.setIcon(R.mipmap.driver_logo);
+
+        setMenuConfig();
     }
 
     @Override
-    public void onClick(View v) {
-
+    int getCurrentMenuId() {
+        return R.id.menu_driver;
     }
 }
