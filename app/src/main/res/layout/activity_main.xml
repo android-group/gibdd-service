@@ -12,69 +12,73 @@
         android:id="@+id/menuLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/firstLineLinearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            >
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/button_fine"
-                android:layout_width="150dp"
-                android:layout_height="124dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:gravity="top|center"
                 android:background="@drawable/fine"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="15dp"
-                android:paddingTop="20dp"/>
+                android:layout_weight="1"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
 
             <Button
                 android:id="@+id/button_driver"
-                android:layout_width="150dp"
-                android:layout_height="124dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:gravity="top|center"
                 android:background="@drawable/driver"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="25dp"
-                android:paddingTop="20dp" />
+                android:layout_weight="1"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/secondLineLinearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            >
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/button_car"
-                android:layout_width="150dp"
-                android:layout_height="124dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:gravity="top|center"
                 android:background="@drawable/car"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="25dp"
-                android:paddingTop="20dp" />
+                android:layout_weight="1"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_horizontal" />
 
             <Button
                 android:id="@+id/button_message"
-                android:layout_width="150dp"
-                android:layout_height="124dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:gravity="top|center"
                 android:background="@drawable/message"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="15dp"
-                android:paddingTop="20dp"
-                android:longClickable="false"/>
+                android:longClickable="false"
+                android:layout_weight="1"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_horizontal" />
         </LinearLayout>
     </LinearLayout>
 
