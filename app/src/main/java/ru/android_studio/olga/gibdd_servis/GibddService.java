@@ -12,15 +12,16 @@ import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
-public class GibddRequestService {
+public class GibddService {
+
+    private static final String CHECK_AUTO = "http://www.gibdd.ru/check/auto/";
 
     public static final String PHPSESS_ID = "PHPSESSID";
     public static final String USER_AGENT = "Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1";
     public static String phpsessId;
 
     private String mainRequest() throws IOException {
-        URL url = new URL("http://www.gibdd.ru/check/auto/");
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        HttpURLConnection urlConnection = (HttpURLConnection) new URL(CHECK_AUTO).openConnection();
         urlConnection.setRequestMethod("GET");
         urlConnection.setRequestProperty("User-Agent", USER_AGENT);
 

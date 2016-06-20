@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class AutoGibddRequestService extends GibddRequestService {
+public class AutoGibddService extends GibddService {
 
     String vin;
     String captcha;
