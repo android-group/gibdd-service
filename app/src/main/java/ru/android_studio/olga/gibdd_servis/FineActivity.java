@@ -17,6 +17,6 @@ public class FineActivity extends ActivityWithMenu {
 
     @Override
     int getCurrentMenuId() {
-        return R.id.menu_fine;
+        return R.id.menu_fine_btn;
     }
 }

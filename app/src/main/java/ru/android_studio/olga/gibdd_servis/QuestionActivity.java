@@ -17,6 +17,6 @@ public class QuestionActivity  extends ActivityWithMenu {
 
     @Override
     int getCurrentMenuId() {
-        return R.id.menu_question;
+        return R.id.menu_question_btn;
     }
 }

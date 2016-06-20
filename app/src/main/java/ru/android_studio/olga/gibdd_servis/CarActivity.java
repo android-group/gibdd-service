@@ -42,6 +42,6 @@ public class CarActivity extends ActivityWithMenu {
 
     @Override
     int getCurrentMenuId() {
-        return R.id.menu_car;
+        return R.id.menu_car_btn;
     }
 }

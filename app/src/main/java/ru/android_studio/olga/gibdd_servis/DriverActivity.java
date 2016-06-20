@@ -26,6 +26,6 @@ public class DriverActivity extends ActivityWithMenu {
 
     @Override
     int getCurrentMenuId() {
-        return R.id.menu_driver;
+        return R.id.menu_driver_btn;
     }
 }

@@ -123,7 +123,7 @@
             <ImageButton
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:id="@+id/menu_fine"
+                android:id="@+id/menu_fine_btn"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/menu_ruble_off"/>
@@ -137,7 +137,7 @@
             <ImageButton
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:id="@+id/menu_driver"
+                android:id="@+id/menu_driver_btn"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/menu_driver_on"/>
@@ -151,7 +151,7 @@
             <ImageButton
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:id="@+id/menu_car"
+                android:id="@+id/menu_car_btn"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/menu_auto_off"/>
@@ -165,7 +165,7 @@
             <ImageButton
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:id="@+id/menu_question"
+                android:id="@+id/menu_question_btn"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/menu_question_off"/>

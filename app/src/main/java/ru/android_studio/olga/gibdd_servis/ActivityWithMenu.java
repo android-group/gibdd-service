@@ -15,10 +15,10 @@ public abstract class ActivityWithMenu extends AppCompatActivity implements View
     abstract int getCurrentMenuId();
 
     public void setMenuConfig() {
-        findViewById(R.id.menu_car).setOnClickListener(this);
-        findViewById(R.id.menu_driver).setOnClickListener(this);
-        findViewById(R.id.menu_fine).setOnClickListener(this);
-        findViewById(R.id.menu_question).setOnClickListener(this);
+        findViewById(R.id.menu_car_btn).setOnClickListener(this);
+        findViewById(R.id.menu_driver_btn).setOnClickListener(this);
+        findViewById(R.id.menu_fine_btn).setOnClickListener(this);
+        findViewById(R.id.menu_question_btn).setOnClickListener(this);
     }
 
     @Override
@@ -29,19 +29,19 @@ public abstract class ActivityWithMenu extends AppCompatActivity implements View
         }
 
         switch (v.getId()) {
-            case R.id.menu_driver:
+            case R.id.menu_driver_btn:
                 Intent intentDriverActivity = new Intent(this, DriverActivity.class);
                 startActivity(intentDriverActivity);
                 break;
-            case R.id.menu_question:
+            case R.id.menu_question_btn:
                 Intent intentQuestionActivity = new Intent(this, QuestionActivity.class);
                 startActivity(intentQuestionActivity);
                 break;
-            case R.id.menu_fine:
+            case R.id.menu_fine_btn:
                 Intent intentFineActivity = new Intent(this, FineActivity.class);
                 startActivity(intentFineActivity);
                 break;
-            case R.id.menu_car:
+            case R.id.menu_car_btn:
                 Intent intentCarActivity = new Intent(this, CarActivity.class);
                 startActivity(intentCarActivity);
                 break;

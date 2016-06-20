@@ -1,26 +1,74 @@
 apply plugin: 'com.android.application'
+apply plugin: 'spoon'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
 
     defaultConfig {
         applicationId "ru.android_studio.olga.gibdd_servis"
-        minSdkVersion 15
-        targetSdkVersion 23
+        minSdkVersion 18
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+spoon {
+    // for debug output
+    debug = true;
+    //adbTimeout = 30;
+
+    // To run a single test class
+    // className = 'fully.qualified.TestCase'
+
+    // To run a single method in TestCase
+    // methodName = 'testMyApp'
+
+    /* You can configure spoon to calculate code coverage by using codeCoverage property on spoon extension */
+    codeCoverage = false
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:appcompat-v7:24.0.0'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+
+    // Testing-only dependencies
+    androidTestCompile 'com.android.support:support-annotations:24.0.0'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+
+    // UiAutomator Testing
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
+    androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
+
+    // automate testing ui
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+
+    // parallel run tests
+    androidTestCompile 'com.squareup.spoon:spoon-client:1.5.4'
+
+    // Unit testing
+    testCompile "org.robolectric:robolectric:3.1"
+    testCompile "junit:junit:4.12"
+    testCompile "org.assertj:assertj-core:1.7.0"
 }
