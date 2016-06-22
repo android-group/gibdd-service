@@ -44,7 +44,7 @@ public class MenuPage extends AbstractPage {
         Spoon.screenshot(getActivity(), "before_click_menu_driver_btn");
 
         onView(withId(R.id.menu_driver_btn))
-                .perform(actionWithAssertions(click()));
+                .perform(click());
 
         Spoon.screenshot(getActivity(), "after_click_menu_driver_btn");
     }
