@@ -21,8 +21,11 @@ import ru.android_studio.olga.gibdd_servis.pageObject.MenuPage;
 @RunWith(AndroidJUnit4.class)
 public class TestUI<T extends Activity> {
 
+    public TestUI() {
+    }
+
     @Rule
-    public ActivityTestRule<T> activityTestRule = new ActivityTestRule<T>(clazz());
+    public ActivityTestRule<T> activityTestRule = new ActivityTestRule<>(clazz());
 
     private Class<T> clazz() {
         return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
@@ -32,25 +35,6 @@ public class TestUI<T extends Activity> {
 
     @Before
     public void setUp() {
-        System.out.println("Before");
-        wakeUpDevice();
-        load();
-    }
-
-    protected MenuPage menuPage;
-
-    /*
-    * Оживляем телефон прежде чем запустить тест
-    * */
-    private void load() {
-        activity = activityTestRule.getActivity();
-
-        // init Page objects
-        menuPage = new MenuPage(activity);
-
-    }
-
-    private void wakeUpDevice() {
         UiDevice uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         Point[] coordinates = new Point[4];
         coordinates[0] = new Point(248, 1520);
@@ -65,5 +49,39 @@ public class TestUI<T extends Activity> {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+        //wakeUpDevice();
+        activity = activityTestRule.getActivity();
+
+        // init Page objects
+        menuPage = new MenuPage(activity);
     }
+
+    protected MenuPage menuPage;
+
+    /*
+    * Оживляем телефон прежде чем запустить тест
+    * */
+    /*private void load() {
+        activity = activityTestRule.getActivity();
+
+        // init Page objects
+        menuPage = new MenuPage(activity);
+    }*/
+
+    /*private void wakeUpDevice() {
+        UiDevice uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+        Point[] coordinates = new Point[4];
+        coordinates[0] = new Point(248, 1520);
+        coordinates[1] = new Point(248, 929);
+        coordinates[2] = new Point(796, 1520);
+        coordinates[3] = new Point(796, 929);
+        try {
+            if (!uiDevice.isScreenOn()) {
+                uiDevice.wakeUp();
+                uiDevice.swipe(coordinates, 10);
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }*/
 }
