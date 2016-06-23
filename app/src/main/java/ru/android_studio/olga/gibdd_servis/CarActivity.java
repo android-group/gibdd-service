@@ -8,8 +8,11 @@ import android.widget.TextView;
 
 /**
  * Created by olga on 22.05.2016.
+ * @author olga
+ * @author Ruslan Suleymanov
+ * @version 0.1
  */
-public class CarActivity extends ActivityWithMenu {
+public class CarActivity extends ActivityWithMenuAndOCR {
 
     private static final String TAG = "CarActivity";
 

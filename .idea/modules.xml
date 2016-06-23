@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/gibdd-service.iml" filepath="$PROJECT_DIR$/gibdd-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gibdd-servis.iml" filepath="$PROJECT_DIR$/gibdd-servis.iml" />
     </modules>
   </component>
 </project>
