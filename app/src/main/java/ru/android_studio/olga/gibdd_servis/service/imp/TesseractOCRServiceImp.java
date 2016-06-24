@@ -52,13 +52,11 @@ public class TesseractOCRServiceImp implements OCRService {
     }
 
     @Override
-    public String extractText(Bitmap bitmap, String lang_code) {
+    public String extractText(Bitmap bitmap, LANGUAGE lang_code) {
         if (bitmap == null)
             throw new IllegalArgumentException("Illegal argument: bitmap == null");
         if (lang_code == null)
             throw new IllegalArgumentException("Illegal argument: lang_code == null");
-        if (lang_code.isEmpty())
-            throw new IllegalArgumentException("Illegal argument: lang_code is empty");
 
         if (tessBaseApi == null) {
             try {
@@ -71,7 +69,7 @@ public class TesseractOCRServiceImp implements OCRService {
             }
         }
 
-        tessBaseApi.init(DATA_PATH, lang_code);
+        tessBaseApi.init(DATA_PATH, lang_code.getLang());
 
 //       //EXTRA SETTINGS
 //        //For example if we only want to detect numbers
@@ -94,7 +92,7 @@ public class TesseractOCRServiceImp implements OCRService {
     }
 
     @Override
-    public String extractText(Uri imgUri, String lang_code) {
+    public String extractText(Uri imgUri, LANGUAGE langCode) {
         if (imgUri == null)
             throw new IllegalArgumentException("Illegal argument: imgUri == null");
         String result = null;
@@ -103,7 +101,7 @@ public class TesseractOCRServiceImp implements OCRService {
             options.inSampleSize = 4; // 1 - means max size. 4 - means maxsize/4 size. Don't use value <4, because you need more memory in the heap to store your data.
             Bitmap bitmap = BitmapFactory.decodeFile(imgUri.getPath(), options);
 
-            result = extractText(bitmap, lang_code);
+            result = extractText(bitmap, langCode);
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());
         }

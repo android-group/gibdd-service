@@ -11,6 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class GibddService {
 
@@ -18,7 +19,15 @@ public class GibddService {
 
     public static final String PHPSESS_ID = "PHPSESSID";
     public static final String USER_AGENT = "Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1";
-    public static String phpsessId;
+    private String sessionId;
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
 
     private String mainRequest() throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) new URL(CHECK_AUTO).openConnection();
@@ -49,8 +58,8 @@ public class GibddService {
         return resultPhpsessId;
     }
 
-    private InputStream saveImage() throws IOException {
-        String imageUrl = "http://www.gibdd.ru/proxy/check/getCaptcha.php?PHPSESSID=" + phpsessId;
+    private InputStream getCaptcha() throws IOException {
+        String imageUrl = "http://www.gibdd.ru/proxy/check/getCaptcha.php?PHPSESSID=" + getSessionId();
         URL url = new URL(imageUrl);
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         urlConnection.setRequestMethod("GET");
@@ -63,27 +72,38 @@ public class GibddService {
         urlConnection.setRequestProperty("Accept-Language", "ru,en-US;q=0.8,en;q=0.6");
         urlConnection.setRequestProperty("Connection", "keep-alive");
 
-        String cookie = String.format("captchaSessionId=%s; _ym_uid=1462452903560071241; PHPSESSID=%s; _ym_isad=1; _ga=GA1.2.74263411.1462452903; BITRIX_SM_REGKOD=00; BITRIX_SM_IP_REGKOD=77; siteType=pda", phpsessId, phpsessId);
+        String cookie = String.format("captchaSessionId=%s; _ym_uid=1462452903560071241; PHPSESSID=%s; _ym_isad=1; _ga=GA1.2.74263411.1462452903; BITRIX_SM_REGKOD=00; BITRIX_SM_IP_REGKOD=77; siteType=pda", getSessionId(), getSessionId());
         urlConnection.setRequestProperty("Cookie", cookie);
 
         return urlConnection.getInputStream();
     }
 
+    public Bitmap getCaptchaBitmap() {
+        Bitmap bitmap = null;
+        try {
+            bitmap = new RetrieveCaptchaTask().execute().get();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+
+    }
+
     private class RetrieveCaptchaTask extends AsyncTask<String, Void, Bitmap> {
         protected Bitmap doInBackground(String... urls) {
             try {
-                phpsessId = mainRequest();
+                setSessionId(mainRequest());
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            if (phpsessId == null) {
+            if (getSessionId() == null) {
                 System.out.println("ERROR");
                 return null;
             }
 
             try {
-                return BitmapFactory.decodeStream(saveImage());
+                return BitmapFactory.decodeStream(getCaptcha());
             } catch (IOException e) {
                 e.printStackTrace();
                 return null;
