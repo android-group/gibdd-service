@@ -27,6 +27,7 @@ public class TestUI<T extends Activity> {
     @Rule
     public ActivityTestRule<T> activityTestRule = new ActivityTestRule<>(clazz());
 
+    @SuppressWarnings("unchecked")
     private Class<T> clazz() {
         return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
