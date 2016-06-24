@@ -3,7 +3,8 @@
     android:id="@+id/question_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:scrollIndicators="right">
 
     <include layout="@layout/toolbar"
         android:id="@+id/include4" />
@@ -21,14 +22,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar_my"
             android:layout_margin="20dp">
-
+    
             <LinearLayout
                 android:id="@+id/VINLinerLayout"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center">
-
+    
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -37,9 +38,9 @@
                     android:id="@+id/VINTextView"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical" />
-
+    
             </LinearLayout>
-
+    
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,7 +48,7 @@
                 android:maxLength="17"
                 android:id="@+id/VINEditText"
                 android:layout_weight="1" />
-
+    
             <CheckBox
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,7 +57,7 @@
                 android:textColor="#777777"
                 android:id="@+id/VINCheckBox"
                 android:layout_weight="1" />
-
+    
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,7 +66,7 @@
                 android:id="@+id/NumberCarTextView"
                 android:layout_weight="1"
                 android:paddingTop="20dp" />
-
+    
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,7 +74,7 @@
                 android:maxLength="17"
                 android:id="@+id/NumberCarEditText"
                 android:layout_weight="1" />
-
+    
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,22 +84,22 @@
                 android:layout_weight="1"
                 android:paddingTop="5dp"
                  />
-
+    
             <ImageView
                 android:layout_width="182dp"
                 android:layout_height="50dp"
                 android:src="@drawable/capture"
                 android:id="@+id/CaptureImageView"
                 android:layout_weight="1" />
-
+    
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:id="@+id/CuptureEditText"
                 android:layout_weight="1" />
-
-
+    
+    
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,13 +107,13 @@
                 android:id="@+id/CheckButton"
                 android:background="@drawable/button_next"
                 android:textColor="@drawable/text_button" />
-
+    
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1" >
             </View>
-
+    
         </LinearLayout>
     </ScrollView>
 
@@ -123,8 +124,7 @@
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="10dp"
-        android:scrollIndicators="right">
+        android:layout_marginTop="10dp">
 
         <View
             android:layout_width="0dp"
