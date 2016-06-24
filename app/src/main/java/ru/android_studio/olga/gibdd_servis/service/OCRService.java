@@ -10,10 +10,22 @@ import android.net.Uri;
  * @version 0.1
  */
 public interface OCRService {
-    /** код английского языка по ISO 639-3 (см. http://www-01.sil.org/iso639-3/codes.asp?order=639_3&letter=r) */
-    final String LANGUAGE_CODE_ENGLISH = "eng";
-    /** код русского языка по ISO 639-3 (см. http://www-01.sil.org/iso639-3/codes.asp?order=639_3&letter=r) */
-    final String LANGUAGE_CODE_RUSSIAN = "rus";
+
+    enum LANGUAGE {
+        /** код английского языка по ISO 639-3 (см. http://www-01.sil.org/iso639-3/codes.asp?order=639_3&letter=r) */
+        LANGUAGE_CODE_ENGLISH("eng"),
+        /** код русского языка по ISO 639-3 (см. http://www-01.sil.org/iso639-3/codes.asp?order=639_3&letter=r) */
+        LANGUAGE_CODE_RUSSIAN("rus");
+
+        final String lang;
+        LANGUAGE(String lang) {
+            this.lang = lang;
+        }
+
+        public String getLang() {
+            return lang;
+        }
+    }
 
     /**
      * Разпознать текст на изображении
@@ -24,7 +36,7 @@ public interface OCRService {
      * @param lang_code код языка текста по ISO 639-3 (см. http://www-01.sil.org/iso639-3/codes.asp?order=639_3&letter=r)
      * @return разпознанный текст
      */
-    String extractText(Bitmap bitmap, String lang_code);
+    String extractText(Bitmap bitmap, LANGUAGE lang_code);
 
     /**
      * Разпознать текст на изображении
@@ -35,7 +47,7 @@ public interface OCRService {
      * @param lang_code код языка текста по ISO 639-3 (см. http://www-01.sil.org/iso639-3/codes.asp?order=639_3&letter=r)
      * @return разпознанный текст
      */
-    String extractText(Uri imgUri, String lang_code);
+    String extractText(Uri imgUri, LANGUAGE lang_code);
 
     /**
      * Подготовить сервис OCR
