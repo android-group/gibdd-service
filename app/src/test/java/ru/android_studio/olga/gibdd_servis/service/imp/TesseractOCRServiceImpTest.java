@@ -2,6 +2,10 @@ package ru.android_studio.olga.gibdd_servis.service.imp;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -9,6 +13,9 @@ import static org.mockito.Mockito.*;
 import org.junit.*;
 
 import java.io.IOException;
+
+import ru.android_studio.olga.gibdd_servis.R;
+import ru.android_studio.olga.gibdd_servis.service.OCRService;
 
 /**
  * Unit-tests for {@link TesseractOCRServiceImp}
@@ -46,9 +53,13 @@ public class TesseractOCRServiceImpTest {
         assertNull(String.format("get%1$s() must return null after call %2$s()", methodName, service.getClass().getSimpleName()), service.getContext());
     }
 
-    @Test @Ignore
-    public void testExtractText() {
-        fail("Not implemented!");
+    @Test
+    public void testExtractTextFromBitmap() {
+        final String methodName = "extractText";
+        Bitmap captchaBMP = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.c13249);
+        String value = service.extractText(captchaBMP, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
+        assertEquals(String.format("%1$s([%2$s], [%3$s]) must return \"%4$s\" after call set%1$s([%2$s])",
+            methodName, captchaBMP, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN, "13249"), null, value);
     }
 
     @Test @Ignore

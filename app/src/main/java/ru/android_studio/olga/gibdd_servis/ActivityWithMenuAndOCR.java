@@ -34,14 +34,16 @@ public abstract class ActivityWithMenuAndOCR extends ActivityWithMenu {
         getServiceOCR().prepare();
     }
 
-    public void asyncExtractText(Bitmap bitmap, OCRService.LANGUAGE langCode) {
+    public String asyncExtractText(Bitmap bitmap, OCRService.LANGUAGE langCode) {
         final ExtractTextAsyncTask extractTextAsyncTask = new ExtractTextAsyncTask();
         Request request = new Request(bitmap, langCode);
+        String result = null;
         try {
-            String result = extractTextAsyncTask.execute(request).get();
+            result = extractTextAsyncTask.execute(request).get();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return result;
     }
 
     class Request {

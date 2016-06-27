@@ -1,11 +1,15 @@
 package ru.android_studio.olga.gibdd_servis;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +26,8 @@ public class CarActivity extends ActivityWithMenuAndOCR {
     private GibddService gibddService = new GibddService();
     private Bitmap captchaBitmap;
     private ImageView captchaImageView;
+
+    private Button checkButton;
 
     private static final String TAG = "CarActivity";
 
@@ -51,7 +57,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
 
         setMenuConfig();
 
-        captchaImageView = (ImageView) findViewById(R.id.captcha_image_view);
+        captchaImageView = (ImageView) findViewById(R.id.CuptureImageView);
         captchaImageView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -60,6 +66,18 @@ public class CarActivity extends ActivityWithMenuAndOCR {
                 asyncExtractText(captchaBitmap, OCRService.LANGUAGE.LANGUAGE_CODE_ENGLISH);
             }
         });
+
+        checkButton = (Button) findViewById(R.id.CheckButton);
+        if (checkButton != null) {
+            checkButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bitmap captcha = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.c13249);
+                    String text = asyncExtractText(captcha, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
+                    Log.i(TAG, String.format("captcha text = %s", text));
+                }
+            });
+        }
     }
 
     @Override
