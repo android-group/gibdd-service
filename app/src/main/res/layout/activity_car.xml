@@ -5,188 +5,179 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar"
-        android:id="@+id/include" />
+    <include layout="@layout/toolbar" />
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView"
-        android:layout_below="@+id/include"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:scrollIndicators="right">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar_my"
-            android:layout_margin="20dp">
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/VINLinerLayout"
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/VINTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Идентификационный номер (VIN)"
-                    android:textSize="18sp"
-                    android:id="@+id/VINTextView"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:layout_gravity="center_vertical" />
+                    android:text="Идентификационный номер (VIN)"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
             <EditText
+                android:id="@+id/VINEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:inputType="number|text"
-                android:maxLength="17"
-                android:id="@+id/VINEditText"
-                android:layout_weight="1" />
+                android:maxLength="17" />
 
             <CheckBox
+                android:id="@+id/VINCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="VIN номер отсутствует"
-                android:textSize="17dp"
                 android:textColor="#777777"
-                android:id="@+id/VINCheckBox"
-                android:layout_weight="1" />
+                android:textSize="17dp" />
 
             <TextView
+                android:id="@+id/NumberCarTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Номер шасси или кузова"
-                android:textSize="18sp"
-                android:id="@+id/NumberCarTextView"
                 android:layout_weight="1"
-                android:paddingTop="20dp" />
+                android:paddingTop="20dp"
+                android:text="Номер шасси или кузова"
+                android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/NumberCarEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:inputType="number|text"
-                android:maxLength="17"
-                android:id="@+id/NumberCarEditText"
-                android:layout_weight="1" />
+                android:maxLength="17" />
 
             <TextView
+                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Введите символы с картинки"
-                android:id="@+id/textView4"
                 android:layout_weight="1"
                 android:paddingTop="5dp"
-                 />
+                android:text="Введите символы с картинки"
+                android:textSize="18sp" />
 
-        <ImageView
-            android:layout_width="182dp"
-            android:layout_height="50dp"
-            android:src="@drawable/capture"
-            android:id="@+id/captcha_image_view"
-            android:layout_weight="1" />
+            <ImageView
+                android:id="@+id/captcha_image_view"
+                android:layout_width="182dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/capture" />
 
             <EditText
+                android:id="@+id/CuptureEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:id="@+id/CuptureEditText"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:inputType="text" />
 
 
             <Button
+                android:id="@+id/CheckButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_check"
-                android:id="@+id/CheckButton"
                 android:background="@drawable/button_next"
+                android:text="@string/btn_check"
                 android:textColor="@drawable/text_button" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1" >
-            </View>
+                android:layout_weight="1"></View>
 
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:gravity="center_vertical|center_horizontal"
         android:layout_marginTop="10dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal"
         android:scrollIndicators="right">
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            android:layout_weight="1"></View>
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
             android:id="@+id/menu_fine_btn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_ruble_off"/>
+            android:src="@drawable/menu_ruble_off" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            android:layout_weight="1"></View>
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
             android:id="@+id/menu_driver_btn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_driver_off"/>
+            android:src="@drawable/menu_driver_off" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            android:layout_weight="1"></View>
 
         <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
             android:id="@+id/menu_car_btn"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_auto_on"/>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
-
-        <ImageButton
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:id="@+id/menu_question_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_question_off"/>
+            android:src="@drawable/menu_auto_on" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            android:layout_weight="1"></View>
+
+        <ImageButton
+            android:id="@+id/menu_question_btn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/menu_question_off" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"></View>
 
     </LinearLayout>
 

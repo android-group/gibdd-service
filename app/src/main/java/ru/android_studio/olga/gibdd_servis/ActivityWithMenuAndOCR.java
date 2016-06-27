@@ -39,6 +39,7 @@ public abstract class ActivityWithMenuAndOCR extends ActivityWithMenu {
         Request request = new Request(bitmap, langCode);
         try {
             String result = extractTextAsyncTask.execute(request).get();
+            Log.i("TAG", result);
         } catch (Exception e) {
             e.printStackTrace();
         }
