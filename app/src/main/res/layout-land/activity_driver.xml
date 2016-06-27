@@ -25,45 +25,45 @@
             android:orientation="vertical"
             android:layout_margin="20dp"
             android:layout_below="@+id/toolbar_my">
-
+    
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Серия водительского удостоверения"
                 android:textSize="18sp"
                 android:id="@+id/SeriesLicenseTextView" />
-
+    
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/SeriesLicenseEditText" />
-
+    
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Номер водительского удостоверения"
                 android:textSize="18sp"
                 android:id="@+id/NumberLicenseTextView" />
-
+    
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/NumberLicenseEditText" />
-
+    
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Дата выдачи"
                 android:textSize="18sp"
                 android:id="@+id/DateOfIssueTextView" />
-
+    
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_gravity="center"
                 android:id="@+id/DateOfIssueLinearLayout">
-
+    
                 <EditText
                     android:id="@+id/DateOfIssueEditText"
                     android:layout_width="250dp"
@@ -71,7 +71,7 @@
                     android:gravity="center"
                     android:layout_gravity="center">
                 </EditText>
-
+    
                 <ImageButton
                     android:id="@+id/imageButton1"
                     android:layout_width="54dp"
@@ -80,27 +80,27 @@
                     android:src="@drawable/calendar"
                     android:scaleType="centerInside"/>
             </LinearLayout>
-
+    
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Введите символы с картинки"
                 android:textSize="18sp"
                 android:id="@+id/CuptureTextView" />
-
+    
             <ImageView
                 android:layout_width="182dp"
                 android:layout_height="50dp"
                 android:id="@+id/CuptureImageView"
                 android:src="@drawable/capture" />
-
+    
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:ems="10"
                 android:id="@+id/CuptureEditText" />
-
+    
             <Button
                 android:id="@+id/btnNext"
                 android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                 android:paddingTop="10dp"
                 android:textColor="@drawable/text_button"
                 android:text="@string/btn_check"/>
-
+    
         </LinearLayout>
     </ScrollView>
 
@@ -123,7 +123,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:layout_marginTop="10dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignEnd="@id/menuLinearLayout">
+        android:layout_alignParentStart="true">
 
             <View
                 android:layout_width="0dp"
