@@ -1,15 +1,27 @@
 package ru.android_studio.olga.gibdd_servis;
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import ru.android_studio.olga.gibdd_servis.service.OCRService;
 
 /**
  * Created by olga on 22.05.2016.
+ * @author olga
+ * @author Ruslan Suleymanov
+ * @version 0.1
  */
-public class CarActivity extends ActivityWithMenu {
+public class CarActivity extends ActivityWithMenuAndOCR {
+
+    private GibddService gibddService = new GibddService();
+    private Bitmap captchaBitmap;
+    private ImageView captchaImageView;
 
     private static final String TAG = "CarActivity";
 
@@ -38,6 +50,16 @@ public class CarActivity extends ActivityWithMenu {
         vinTextView.setCompoundDrawables(null, null, drawable, null);
 
         setMenuConfig();
+
+        captchaImageView = (ImageView) findViewById(R.id.captcha_image_view);
+        captchaImageView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                captchaBitmap = gibddService.getCaptchaBitmap();
+                captchaImageView.setImageBitmap(captchaBitmap);
+                asyncExtractText(captchaBitmap, OCRService.LANGUAGE.LANGUAGE_CODE_ENGLISH);
+            }
+        });
     }
 
     @Override
