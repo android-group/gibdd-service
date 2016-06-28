@@ -11,6 +11,8 @@ import android.view.View;
  */
 public abstract class ActivityWithMenu extends AppCompatActivity implements View.OnClickListener {
 
+    protected final String TAG = getClass().getSimpleName();
+
     @IdRes
     abstract int getCurrentMenuId();
 
