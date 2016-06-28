@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     tools:context="ru.android_studio.olga.gibdd_servis.MainActivity">
 
-    <include layout="@layout/toolbar"
-        android:id="@+id/include2" />
+    <include layout="@layout/toolbar" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,7 +23,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="20dp"
-            android:layout_below="@+id/toolbar_my">
+            android:layout_below="@+id/toolbar">
     
             <TextView
                 android:layout_width="match_parent"

@@ -36,7 +36,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_my);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar supportActionBar = getSupportActionBar();
