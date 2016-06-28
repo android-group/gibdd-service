@@ -90,15 +90,14 @@
             <ImageView
                 android:layout_width="182dp"
                 android:layout_height="50dp"
-                android:id="@+id/CuptureImageView"
-                android:src="@drawable/capture" />
+                android:id="@+id/captcha_image_view" />
     
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:ems="10"
-                android:id="@+id/CuptureEditText" />
+                android:id="@+id/captcha_edit_text" />
     
             <Button
                 android:id="@+id/btnNext"
