@@ -1,4 +1,3 @@
-
 package ru.android_studio.olga.gibdd_servis.pageObject;
 
 import android.app.Activity;

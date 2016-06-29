@@ -20,7 +20,7 @@ public class MenuTestUI extends TestUI<MainActivity> {
 
     /**
      * Начиная с кнопки "Проверка автомобиля"
-     * */
+     */
     @Test
     public void testMenuCarBtn() {
         menuPage.clickMenuCarBtn();
