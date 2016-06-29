@@ -2,7 +2,9 @@ package ru.android_studio.olga.gibdd_servis;
 
 import android.content.Intent;
 import android.support.annotation.IdRes;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
@@ -52,5 +54,15 @@ public abstract class ActivityWithMenu extends AppCompatActivity implements View
                 startActivity(intentQuestionActivity);
                 break;
         }
+    }
+
+    protected void addToolbarByIconId(int iconId) {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar supportActionBar = getSupportActionBar();
+        supportActionBar.setDisplayHomeAsUpEnabled(true);
+        supportActionBar.setDisplayShowTitleEnabled(true);
+        supportActionBar.setIcon(iconId);
     }
 }

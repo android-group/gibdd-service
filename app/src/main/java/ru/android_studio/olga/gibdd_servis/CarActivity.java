@@ -42,13 +42,8 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        ActionBar supportActionBar = getSupportActionBar();
-        supportActionBar.setDisplayHomeAsUpEnabled(true);
-        supportActionBar.setDisplayShowTitleEnabled(true);
-        supportActionBar.setIcon(R.mipmap.auto_logo);
+        setMenuConfig();
+        addToolbarByIconId(R.mipmap.auto_logo);
 
         final float density = getResources().getDisplayMetrics().density;
         final Drawable drawable = getResources().getDrawable(R.drawable.lens);
@@ -61,7 +56,6 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         TextView vinTextView = (TextView) findViewById(R.id.VINTextView);
         vinTextView.setCompoundDrawables(null, null, drawable, null);
 
-        setMenuConfig();
 
         captchaImageView = (ImageView) findViewById(R.id.captcha_image_view);
         captchaImageView.setOnClickListener(new View.OnClickListener(){

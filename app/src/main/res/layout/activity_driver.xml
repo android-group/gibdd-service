@@ -7,14 +7,13 @@
     android:layout_height="match_parent"
     tools:context="ru.android_studio.olga.gibdd_servis.MainActivity">
 
-    <include layout="@layout/toolbar"
-        android:id="@+id/include2" />
+    <include layout="@layout/toolbar" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollView2"
-        android:layout_below="@+id/include2"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentStart="true"
         android:scrollIndicators="right"
         android:layout_above="@+id/NavigationLinearLayout">
@@ -137,7 +136,7 @@
                 android:id="@+id/menu_fine_btn"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/menu_ruble_off"
+                android:src="@drawable/menu_fine_off"
                 android:background="@android:color/transparent" />
 
             <View

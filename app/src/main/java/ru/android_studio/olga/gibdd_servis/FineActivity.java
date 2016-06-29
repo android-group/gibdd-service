@@ -4,6 +4,8 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.util.Log;
@@ -20,7 +22,6 @@ import ru.android_studio.olga.gibdd_servis.service.OCRService;
  * @version 0.1
  */
 public class FineActivity extends ActivityWithMenuAndOCR implements View.OnClickListener{
-public class FineActivity extends ActivityWithMenuAndOCR {
 
     private Button checkButton;
 
@@ -30,6 +31,8 @@ public class FineActivity extends ActivityWithMenuAndOCR {
         setContentView(R.layout.activity_fine);
 
         setMenuConfig();
+        addToolbarByIconId(R.mipmap.fine_logo);
+
         /*Добавить listener на кнопку
          *Добавить загрузку капчи
         * */

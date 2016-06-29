@@ -21,15 +21,8 @@ public class DriverActivity extends ActivityWithMenuAndOCR {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        ActionBar supportActionBar = getSupportActionBar();
-        supportActionBar.setDisplayHomeAsUpEnabled(true);
-        supportActionBar.setDisplayShowTitleEnabled(true);
-        supportActionBar.setIcon(R.mipmap.driver_logo);
-
         setMenuConfig();
+        addToolbarByIconId(R.mipmap.driver_logo);
     }
 
     @Override

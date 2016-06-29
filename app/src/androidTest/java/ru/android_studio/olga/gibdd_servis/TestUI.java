@@ -9,6 +9,7 @@ import android.support.test.runner.AndroidJUnit4;
 import android.support.test.uiautomator.UiDevice;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 
@@ -19,6 +20,7 @@ import ru.android_studio.olga.gibdd_servis.pageObject.MenuPage;
  * Класс предоставляет осномные возможности необходимые для тестирования интерфейса
  */
 @RunWith(AndroidJUnit4.class)
+@Ignore
 public class TestUI<T extends Activity> {
 
     public TestUI() {

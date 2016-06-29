@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     android:layout_height="?android:actionBarSize"
-    app:titleTextColor="@color/toolbarText"
-    app:contentInsetStart="0dp"
-    android:gravity="left"
     android:background="@color/toolbarBackground"
-    />
+    android:gravity="left"
+    app:contentInsetStart="0dp"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:titleTextColor="@color/toolbarText" />
