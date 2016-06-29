@@ -43,6 +43,7 @@ public abstract class ActivityWithMenuAndOCR extends ActivityWithMenu {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Log.i("TAG", result);
         return result;
     }
 
