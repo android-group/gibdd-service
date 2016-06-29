@@ -14,7 +14,8 @@
         android:id="@+id/scrollView3"
         android:layout_below="@+id/include3"
         android:layout_alignParentStart="true"
-        android:scrollIndicators="right">
+        android:scrollIndicators="right"
+        android:layout_above="@+id/NavigationLinearLayout">
 
         <LinearLayout
             android:orientation="vertical"
@@ -32,9 +33,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Идентификационный номер (VIN)"
-                    android:textSize="18sp"
-                    android:id="@+id/VINTextView"
+                    android:text="Государственный регистрационный знак"
+                    android:textSize="16sp"
+                    android:id="@+id/fine_Number_TV"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical" />
 
@@ -45,24 +46,16 @@
                 android:layout_height="wrap_content"
                 android:inputType="number|text"
                 android:maxLength="17"
-                android:id="@+id/VINEditText"
-                android:layout_weight="1" />
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="VIN номер отсутствует"
-                android:textSize="17dp"
-                android:textColor="#777777"
-                android:id="@+id/VINCheckBox"
-                android:layout_weight="1" />
+                android:id="@+id/fine_Number_ET"
+                android:layout_weight="1"
+                android:hint="A000AA 00"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Номер шасси или кузова"
+                android:text="Серия и номер свидетельства о регистрации"
                 android:textSize="18sp"
-                android:id="@+id/NumberCarTextView"
+                android:id="@+id/fine_SerialNumber_VT"
                 android:layout_weight="1"
                 android:paddingTop="20dp" />
 
@@ -71,15 +64,16 @@
                 android:layout_height="wrap_content"
                 android:inputType="number|text"
                 android:maxLength="17"
-                android:id="@+id/NumberCarEditText"
-                android:layout_weight="1" />
+                android:id="@+id/fine_SerialNumber_ET"
+                android:layout_weight="1"
+                android:hint="1234 123456"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:text="Введите символы с картинки"
-                android:id="@+id/textView4"
+                android:id="@+id/fine_Captcha_VT"
                 android:layout_weight="1"
                 android:paddingTop="5dp"
                  />
@@ -88,14 +82,14 @@
                 android:layout_width="182dp"
                 android:layout_height="50dp"
                 android:src="@drawable/capture"
-                android:id="@+id/CaptureImageView"
+                android:id="@+id/fine_Captcha_IV"
                 android:layout_weight="1" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:id="@+id/CuptureEditText"
+                android:id="@+id/fine_Captcha_ET"
                 android:layout_weight="1" />
 
 
@@ -103,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_check"
-                android:id="@+id/CheckButton"
+                android:id="@+id/fine_CheckButton_B"
                 android:background="@drawable/button_next"
                 android:textColor="@drawable/text_button" />
 
@@ -137,7 +131,8 @@
             android:id="@+id/menu_fine_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_ruble_off"/>
+            android:src="@android:drawable/presence_online"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
@@ -151,7 +146,8 @@
             android:id="@+id/menu_driver_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_driver_off"/>
+            android:src="@drawable/menu_driver_off"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
@@ -165,7 +161,8 @@
             android:id="@+id/menu_car_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_auto_on"/>
+            android:src="@drawable/menu_auto_off"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
@@ -179,7 +176,8 @@
             android:id="@+id/menu_question_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_question_off"/>
+            android:src="@drawable/menu_question_off"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"

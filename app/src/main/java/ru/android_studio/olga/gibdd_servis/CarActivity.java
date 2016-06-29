@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import ru.android_studio.olga.gibdd_servis.service.OCRService;
 
+
 /**
  * Created by olga on 22.05.2016.
  * @author olga
@@ -30,7 +31,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar supportActionBar = getSupportActionBar();
@@ -47,7 +48,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         drawable.setBounds(0, 0, width, height);
 
         TextView vinTextView = (TextView) findViewById(R.id.VINTextView);
-        vinTextView.setCompoundDrawables(null, null, drawable, null);
+        vinTextView.setCompoundDrawables(null, null, drawable, null);*/
 
         setMenuConfig();
 

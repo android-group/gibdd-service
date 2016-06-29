@@ -29,21 +29,25 @@ public abstract class ActivityWithMenu extends AppCompatActivity implements View
         }
 
         switch (v.getId()) {
-            case R.id.menu_driver_btn:
-                Intent intentDriverActivity = new Intent(this, DriverActivity.class);
-                startActivity(intentDriverActivity);
-                break;
-            case R.id.menu_question_btn:
-                Intent intentQuestionActivity = new Intent(this, QuestionActivity.class);
-                startActivity(intentQuestionActivity);
-                break;
+            //проверка штрафов
             case R.id.menu_fine_btn:
                 Intent intentFineActivity = new Intent(this, FineActivity.class);
                 startActivity(intentFineActivity);
                 break;
+            //проверка водителя
+            case R.id.menu_driver_btn:
+                Intent intentDriverActivity = new Intent(this, DriverActivity.class);
+                startActivity(intentDriverActivity);
+                break;
+            //проверка автомобиля
             case R.id.menu_car_btn:
                 Intent intentCarActivity = new Intent(this, CarActivity.class);
                 startActivity(intentCarActivity);
+                break;
+            //прием обращений
+            case R.id.menu_question_btn:
+                Intent intentQuestionActivity = new Intent(this, QuestionActivity.class);
+                startActivity(intentQuestionActivity);
                 break;
         }
     }

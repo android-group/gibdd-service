@@ -14,7 +14,8 @@
         android:layout_height="match_parent"
         android:id="@+id/scrollView4"
         android:layout_below="@+id/include4"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/NavigationLinearLayout">
 
         <LinearLayout
             android:orientation="vertical"
@@ -138,7 +139,8 @@
             android:id="@+id/menu_fine_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_ruble_off"/>
+            android:src="@drawable/menu_ruble_off"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
@@ -152,7 +154,8 @@
             android:id="@+id/menu_driver_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_driver_off"/>
+            android:src="@drawable/menu_driver_off"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
@@ -166,7 +169,8 @@
             android:id="@+id/menu_car_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_auto_on"/>
+            android:src="@drawable/menu_auto_off"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
@@ -180,7 +184,8 @@
             android:id="@+id/menu_question_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_question_off"/>
+            android:src="@android:drawable/presence_online"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"

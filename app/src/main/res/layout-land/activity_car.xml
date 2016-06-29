@@ -5,14 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
+    <include layout="@layout/toolbar"
+        android:id="@+id/include6" />
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:scrollIndicators="right">
+        android:scrollIndicators="right"
+        android:layout_below="@+id/include6"
+        android:layout_above="@+id/NavigationLinearLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,7 +135,8 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_ruble_off" />
+            android:src="@drawable/menu_ruble_off"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
@@ -145,7 +149,8 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_driver_off" />
+            android:src="@drawable/menu_driver_off"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
@@ -158,7 +163,8 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_auto_on" />
+            android:src="@drawable/menu_auto_on"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
@@ -171,7 +177,8 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_question_off" />
+            android:src="@drawable/menu_question_off"
+            android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
