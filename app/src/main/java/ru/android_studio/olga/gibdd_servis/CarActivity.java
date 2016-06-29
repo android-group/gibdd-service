@@ -1,13 +1,23 @@
 package ru.android_studio.olga.gibdd_servis;
 
 import android.graphics.Bitmap;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import ru.android_studio.olga.gibdd_servis.service.OCRService;
 
 import ru.android_studio.olga.gibdd_servis.service.OCRService;
 
@@ -24,6 +34,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
     private Bitmap captchaBitmap;
     private ImageView captchaImageView;
 
+    private Button checkButton;
     private static final String TAG = "CarActivity";
 
     @Override
@@ -31,7 +42,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car);
 
-        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar supportActionBar = getSupportActionBar();
@@ -48,7 +59,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         drawable.setBounds(0, 0, width, height);
 
         TextView vinTextView = (TextView) findViewById(R.id.VINTextView);
-        vinTextView.setCompoundDrawables(null, null, drawable, null);*/
+        vinTextView.setCompoundDrawables(null, null, drawable, null);
 
         setMenuConfig();
 
@@ -56,11 +67,30 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         captchaImageView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                captchaBitmap = gibddService.getCaptchaBitmap();
-                captchaImageView.setImageBitmap(captchaBitmap);
-                asyncExtractText(captchaBitmap, OCRService.LANGUAGE.LANGUAGE_CODE_ENGLISH);
+                loadCaptcha();
             }
         });
+        loadCaptcha();
+
+        checkButton = (Button) findViewById(R.id.CheckButton);
+        if (checkButton != null) {
+            checkButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bitmap captcha = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.c13249);
+                    String text = asyncExtractText(captcha, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
+                    Log.i(TAG, String.format("captcha text = %s", text));
+                }
+            });
+        }
+    }
+
+    private void loadCaptcha() {
+        captchaBitmap = gibddService.getCaptchaBitmap();
+        captchaBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.c13249);
+        captchaImageView.setImageBitmap(captchaBitmap);
+        String result = asyncExtractText(captchaBitmap, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
+        Toast.makeText(getApplicationContext(), "result: " + result, Toast.LENGTH_SHORT).show();
     }
 
     @Override

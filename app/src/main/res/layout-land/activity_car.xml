@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar"
-        android:id="@+id/include6" />
+    <include layout="@layout/toolbar" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -88,11 +87,10 @@
                 android:id="@+id/captcha_image_view"
                 android:layout_width="182dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:src="@drawable/capture" />
+                android:layout_weight="1" />
 
             <EditText
-                android:id="@+id/CuptureEditText"
+                android:id="@+id/captcha_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

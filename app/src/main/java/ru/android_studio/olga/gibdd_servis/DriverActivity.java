@@ -12,7 +12,7 @@ import android.widget.EditText;
  * @author Ruslan Suleymanov
  * @version 0.1
  */
-public class DriverActivity extends ActivityWithMenu {
+public class DriverActivity extends ActivityWithMenuAndOCR {
 
     private static final String TAG = "DriverActivity";
 
@@ -21,13 +21,13 @@ public class DriverActivity extends ActivityWithMenu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        //ActionBar supportActionBar = getSupportActionBar();
-        //supportActionBar.setDisplayHomeAsUpEnabled(true);
-        //supportActionBar.setDisplayShowTitleEnabled(true);
-        //supportActionBar.setIcon(R.mipmap.driver_logo);
+        ActionBar supportActionBar = getSupportActionBar();
+        supportActionBar.setDisplayHomeAsUpEnabled(true);
+        supportActionBar.setDisplayShowTitleEnabled(true);
+        supportActionBar.setIcon(R.mipmap.driver_logo);
 
         setMenuConfig();
     }
