@@ -8,8 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
-import butterknife.BindView;
-
 /**
  * Created by y.andreev on 03.06.2016.
  */
@@ -20,8 +18,7 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
     @IdRes
     abstract int getCurrentMenuId();
 
-
-    @BindView(R.id.menu_car_btn)
+    /*@BindView(R.id.menu_car_btn)
     View menuCarBtn;
     @BindView(R.id.menu_driver_btn)
     View menuDriverBtn;
@@ -30,13 +27,18 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
     @BindView(R.id.menu_question_btn)
     View menuQuestionBtn;
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    Toolbar toolbar;*/
 
     public void setMenuConfig() {
-        menuCarBtn.setOnClickListener(menuOnClickListener);
+
+        findViewById(R.id.menu_car_btn).setOnClickListener(menuOnClickListener);
+        findViewById(R.id.menu_driver_btn).setOnClickListener(menuOnClickListener);
+        findViewById(R.id.menu_fine_btn).setOnClickListener(menuOnClickListener);
+        findViewById(R.id.menu_question_btn).setOnClickListener(menuOnClickListener);
+        /*menuCarBtn.setOnClickListener(menuOnClickListener);
         menuDriverBtn.setOnClickListener(menuOnClickListener);
         menuFindBtn.setOnClickListener(menuOnClickListener);
-        menuQuestionBtn.setOnClickListener(menuOnClickListener);
+        menuQuestionBtn.setOnClickListener(menuOnClickListener);*/
     }
 
     private View.OnClickListener menuOnClickListener = new View.OnClickListener() {
@@ -73,6 +75,7 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
     };
 
     protected void addToolbarByIconId(int iconId) {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar supportActionBar = getSupportActionBar();
         supportActionBar.setDisplayHomeAsUpEnabled(true);

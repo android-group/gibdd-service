@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.BindView;
 import ru.android_studio.olga.gibdd_servis.service.OCRService;
 
 
@@ -29,10 +28,8 @@ public class CarActivity extends ActivityWithMenuAndOCR {
 
     private Bitmap captchaBitmap;
 
-    @BindView(R.id.captcha_image_view)
     private ImageView captchaImageView;
 
-    @BindView(R.id.check_button)
     private Button checkButton;
 
     private static final String TAG = "CarActivity";
@@ -41,9 +38,8 @@ public class CarActivity extends ActivityWithMenuAndOCR {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car);
-
-        setMenuConfig();
         addToolbarByIconId(R.mipmap.auto_logo);
+        setMenuConfig();
 
         final float density = getResources().getDisplayMetrics().density;
         final Drawable drawable = getResources().getDrawable(R.drawable.lens);
@@ -56,7 +52,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         TextView vinTextView = (TextView) findViewById(R.id.VINTextView);
         vinTextView.setCompoundDrawables(null, null, drawable, null);
 
-
+        captchaImageView = (ImageView) findViewById(R.id.captcha_image_view);
         captchaImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,15 +60,15 @@ public class CarActivity extends ActivityWithMenuAndOCR {
             }
         });
         loadCaptcha();
-
-            checkButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Bitmap captcha = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.c13249);
-                    String text = asyncExtractText(captcha, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
-                    Log.i(TAG, String.format("captcha text = %s", text));
-                }
-            });
+        checkButton = (Button) findViewById(R.id.check_button);
+        checkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bitmap captcha = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.c13249);
+                String text = asyncExtractText(captcha, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
+                Log.i(TAG, String.format("captcha text = %s", text));
+            }
+        });
     }
 
     private void loadCaptcha() {

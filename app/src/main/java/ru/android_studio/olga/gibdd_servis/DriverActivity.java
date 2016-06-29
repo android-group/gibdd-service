@@ -20,9 +20,8 @@ public class DriverActivity extends ActivityWithMenuAndOCR {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver);
-
-        setMenuConfig();
         addToolbarByIconId(R.mipmap.driver_logo);
+        setMenuConfig();
     }
 
     @Override

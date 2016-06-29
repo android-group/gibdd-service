@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import butterknife.ButterKnife;
 import ru.android_studio.olga.gibdd_servis.service.OCRService;
 import ru.android_studio.olga.gibdd_servis.service.imp.TesseractOCRServiceImp;
 
@@ -31,7 +30,6 @@ public abstract class ActivityWithMenuAndOCR extends ActivityWithMenu {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
 
         setServiceOCR(new TesseractOCRServiceImp(this));
         getServiceOCR().prepare();

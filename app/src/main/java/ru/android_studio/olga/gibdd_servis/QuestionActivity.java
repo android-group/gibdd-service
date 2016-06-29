@@ -12,9 +12,8 @@ public class QuestionActivity  extends ActivityWithMenu {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-
-        setMenuConfig();
         addToolbarByIconId(R.mipmap.question_logo);
+        setMenuConfig();
     }
 
     @Override
