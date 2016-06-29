@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ru.android_studio.olga.gibdd_servis.service.OCRService;
 
@@ -57,15 +58,14 @@ public class CarActivity extends ActivityWithMenuAndOCR {
 
         setMenuConfig();
 
-        captchaImageView = (ImageView) findViewById(R.id.CuptureImageView);
+        captchaImageView = (ImageView) findViewById(R.id.captcha_image_view);
         captchaImageView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                captchaBitmap = gibddService.getCaptchaBitmap();
-                captchaImageView.setImageBitmap(captchaBitmap);
-                asyncExtractText(captchaBitmap, OCRService.LANGUAGE.LANGUAGE_CODE_ENGLISH);
+                loadCaptcha();
             }
         });
+        loadCaptcha();
 
         checkButton = (Button) findViewById(R.id.CheckButton);
         if (checkButton != null) {
@@ -78,6 +78,14 @@ public class CarActivity extends ActivityWithMenuAndOCR {
                 }
             });
         }
+    }
+
+    private void loadCaptcha() {
+        captchaBitmap = gibddService.getCaptchaBitmap();
+        captchaBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.c13249);
+        captchaImageView.setImageBitmap(captchaBitmap);
+        String result = asyncExtractText(captchaBitmap, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
+        Toast.makeText(getApplicationContext(), "result: " + result, Toast.LENGTH_SHORT).show();
     }
 
     @Override
