@@ -12,11 +12,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
 import ru.android_studio.olga.gibdd_servis.service.OCRService;
 
 
 /**
  * Created by olga on 22.05.2016.
+ *
  * @author olga
  * @author Ruslan Suleymanov
  * @version 0.1
@@ -24,10 +26,15 @@ import ru.android_studio.olga.gibdd_servis.service.OCRService;
 public class CarActivity extends ActivityWithMenuAndOCR {
 
     private GibddService gibddService = new GibddService();
+
     private Bitmap captchaBitmap;
+
+    @BindView(R.id.captcha_image_view)
     private ImageView captchaImageView;
 
+    @BindView(R.id.check_button)
     private Button checkButton;
+
     private static final String TAG = "CarActivity";
 
     @Override
@@ -50,8 +57,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         vinTextView.setCompoundDrawables(null, null, drawable, null);
 
 
-        captchaImageView = (ImageView) findViewById(R.id.captcha_image_view);
-        captchaImageView.setOnClickListener(new View.OnClickListener(){
+        captchaImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadCaptcha();
@@ -59,8 +65,6 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         });
         loadCaptcha();
 
-        checkButton = (Button) findViewById(R.id.CheckButton);
-        if (checkButton != null) {
             checkButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -69,7 +73,6 @@ public class CarActivity extends ActivityWithMenuAndOCR {
                     Log.i(TAG, String.format("captcha text = %s", text));
                 }
             });
-        }
     }
 
     private void loadCaptcha() {
