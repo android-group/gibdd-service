@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/NavigationLinearLayout"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_vertical|center_horizontal"
+    android:layout_marginTop="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" >
+    </View>
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:id="@+id/menu_fine_btn"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/menu_fine_on"
+        android:background="@android:color/transparent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" >
+    </View>
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:id="@+id/menu_driver_btn"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/menu_driver_off"
+        android:background="@android:color/transparent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" >
+    </View>
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:id="@+id/menu_car_btn"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/menu_auto_off"
+        android:background="@android:color/transparent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" >
+    </View>
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:id="@+id/menu_question_btn"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/menu_question_off"
+        android:background="@android:color/transparent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" >
+    </View>
+
+</LinearLayout>
