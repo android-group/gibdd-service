@@ -1,12 +1,17 @@
 package ru.android_studio.olga.gibdd_servis;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+
+import ru.android_studio.olga.gibdd_servis.service.imp.TesseractOCRServiceImp;
 
 /**
  * Created by y.andreev on 03.06.2016.
@@ -14,6 +19,15 @@ import android.view.View;
 public abstract class ActivityWithMenu extends AppCompatActivity {
 
     protected final String TAG = getClass().getSimpleName();
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+        );
+    }
 
     @IdRes
     abstract int getCurrentMenuId();

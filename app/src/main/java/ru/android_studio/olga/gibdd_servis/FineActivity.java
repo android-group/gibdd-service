@@ -61,7 +61,7 @@ public class FineActivity extends ActivityWithMenuAndOCR implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.fine_CheckButton_B) {
+        if (v.getId() == R.id.check_button) {
             EditText GosNumber_ET = (EditText) v.findViewById(R.id.fine_Number_ET);
             String GosNumber = GosNumber_ET.getText().toString();
             EditText Serial_Number_ET = (EditText) v.findViewById(R.id.fine_SerialNumber_ET);
