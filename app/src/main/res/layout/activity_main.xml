@@ -13,14 +13,17 @@
         android:id="@+id/menuLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center">
 
         <LinearLayout
             android:id="@+id/firstLineLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_gravity="center">
 
             <Button
                 android:id="@+id/menu_fine_btn"
@@ -32,7 +35,8 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center" />
 
             <Button
                 android:id="@+id/menu_driver_btn"
@@ -44,7 +48,8 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center" />
         </LinearLayout>
 
         <LinearLayout
@@ -52,7 +57,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/menu_car_btn"
@@ -65,7 +72,7 @@
                 android:layout_marginBottom="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center" />
 
             <Button
                 android:id="@+id/menu_question_btn"
@@ -79,7 +86,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
