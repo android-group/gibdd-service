@@ -47,7 +47,7 @@
         <activity android:name=".question.QuestionActivityNext" android:label="@string/check_question">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".question.QuestionActivity" />
         </activity>
     </application>
 
