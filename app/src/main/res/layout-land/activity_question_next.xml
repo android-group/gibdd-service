@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/car_activity"
+    android:id="@+id/fine_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,129 +8,147 @@
     <include layout="@layout/toolbar" />
 
     <ScrollView
-        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollIndicators="right"
+        android:id="@+id/scrollView5"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentStart="true"
+        android:scrollIndicators="right"
         android:layout_above="@+id/NavigationLinearLayout">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/VINLinerLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/VINTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:text="Идентификационный номер (VIN)"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/VINEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number|text"
-                android:maxLength="17" />
-
-            <CheckBox
-                android:id="@+id/VINCheckBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="VIN номер отсутствует"
-                android:textColor="#777777"
-                android:textSize="17dp" />
+            android:layout_margin="20dp">
 
             <TextView
-                android:id="@+id/NumberCarTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Обращение адресовано"
+                android:textSize="17sp"
+                android:id="@+id/RecipientTextView"
                 android:layout_weight="1"
-                android:paddingTop="20dp"
-                android:text="Номер шасси или кузова"
-                android:textSize="18sp" />
+                android:layout_gravity="center_vertical" />
 
             <EditText
-                android:id="@+id/NumberCarEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number|text"
-                android:maxLength="17" />
+                android:inputType="text"
+                android:id="@+id/RecipientEditText"
+                android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Цель обращения"
+                android:textSize="17sp"
+                android:id="@+id/GoalOfRequestTextView"
                 android:layout_weight="1"
-                android:paddingTop="5dp"
+                android:paddingTop="0dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:id="@+id/GoalOfRequestEditText"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Текст обращения"
+                android:textSize="17sp"
+                android:id="@+id/TextOfRequestTextView"
+                android:layout_weight="1"
+                android:paddingTop="0dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:id="@+id/TextOfRequestEditText"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Добавить файл"
+                android:textSize="17sp"
+                android:id="@+id/FileTextView"
+                android:layout_weight="1"
+                android:paddingTop="0dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:id="@+id/FiletEditText"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
                 android:text="Введите символы с картинки"
-                android:textSize="18sp" />
+                android:id="@+id/CuptureTextView"
+                android:layout_weight="1"
+                android:paddingTop="0dp"
+                />
 
             <ImageView
-                android:id="@+id/captcha_image_view"
                 android:layout_width="182dp"
                 android:layout_height="50dp"
+                android:src="@drawable/capture"
+                android:id="@+id/CaptureImageView"
                 android:layout_weight="1" />
 
             <EditText
-                android:id="@+id/captcha_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="text" />
+                android:inputType="text"
+                android:id="@+id/CuptureEditText"
+                android:layout_weight="1" />
 
 
             <Button
-                android:id="@+id/check_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/btn_send"
+                android:id="@+id/CheckButton"
                 android:background="@drawable/button_check"
-                android:text="@string/btn_check"
                 android:textColor="@drawable/text_button" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1"></View>
+                android:layout_weight="1" >
+            </View>
 
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
         android:gravity="center_vertical|center_horizontal"
-        android:orientation="horizontal">
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignEnd="@id/menuLinearLayout">
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            android:layout_weight="1" >
+        </View>
 
         <ImageButton
-            android:id="@+id/menu_fine_btn"
             android:layout_width="60dp"
             android:layout_height="match_parent"
+            android:id="@+id/menu_fine_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:src="@drawable/menu_fine_off"
@@ -139,12 +157,13 @@
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            android:layout_weight="1" >
+        </View>
 
         <ImageButton
-            android:id="@+id/menu_driver_btn"
             android:layout_width="60dp"
             android:layout_height="match_parent"
+            android:id="@+id/menu_driver_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:src="@drawable/menu_driver_off"
@@ -153,35 +172,38 @@
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            android:layout_weight="1" >
+        </View>
 
         <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:id="@+id/menu_car_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_auto_on"
+            android:src="@drawable/menu_auto_off"
             android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            android:layout_weight="1" >
+        </View>
 
         <ImageButton
-            android:id="@+id/menu_question_btn"
             android:layout_width="60dp"
             android:layout_height="match_parent"
+            android:id="@+id/menu_question_btn"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/menu_question_off"
+            android:src="@drawable/menu_question_on"
             android:background="@android:color/transparent" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            android:layout_weight="1" >
+        </View>
 
     </LinearLayout>
 

@@ -6,4 +6,6 @@
     <string name="btn_check">Проверить</string>
     <string name="check_fine">Проверка штрафов</string>
     <string name="check_question">Прием обращений</string>
+    <string name="btn_next">Далее</string>
+    <string name="btn_send">отправить</string>
 </resources>

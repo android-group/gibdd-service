@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis;
+package ru.android_studio.olga.gibdd_servis.car;
 
 import android.os.AsyncTask;
 
@@ -13,7 +13,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class AutoGibddService extends GibddService {
+import ru.android_studio.olga.gibdd_servis.GibddService;
+
+public class CarGibddService extends GibddService {
 
     String vin;
     String captcha;

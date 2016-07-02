@@ -1,10 +1,13 @@
-package ru.android_studio.olga.gibdd_servis;
+package ru.android_studio.olga.gibdd_servis.driver;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.*;
 import android.widget.EditText;
+
+import ru.android_studio.olga.gibdd_servis.ActivityWithMenuAndOCR;
+import ru.android_studio.olga.gibdd_servis.R;
 
 /**
  * Created by Yury Andreev on 20.05.2016.
@@ -25,7 +28,7 @@ public class DriverActivity extends ActivityWithMenuAndOCR {
     }
 
     @Override
-    int getCurrentMenuId() {
+    protected int getCurrentMenuId() {
         return R.id.menu_driver_btn;
     }
 

@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis;
+package ru.android_studio.olga.gibdd_servis.car;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import ru.android_studio.olga.gibdd_servis.ActivityWithMenuAndOCR;
+import ru.android_studio.olga.gibdd_servis.GibddService;
+import ru.android_studio.olga.gibdd_servis.R;
 import ru.android_studio.olga.gibdd_servis.service.OCRService;
 
 
@@ -38,9 +41,11 @@ public class CarActivity extends ActivityWithMenuAndOCR {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car);
+
         addToolbarByIconId(R.mipmap.auto_logo);
         setMenuConfig();
 
+        /*
         final float density = getResources().getDisplayMetrics().density;
         final Drawable drawable = getResources().getDrawable(R.drawable.lens);
 
@@ -64,23 +69,23 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bitmap captcha = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.c13249);
-                String text = asyncExtractText(captcha, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
+                //Bitmap captcha = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.c13249);
+                String text = asyncExtractText(captchaBitmap, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
                 Log.i(TAG, String.format("captcha text = %s", text));
             }
-        });
+        });*/
     }
 
     private void loadCaptcha() {
         captchaBitmap = gibddService.getCaptchaBitmap();
-        captchaBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.c13249);
+        //captchaBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.c13249);
         captchaImageView.setImageBitmap(captchaBitmap);
         String result = asyncExtractText(captchaBitmap, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
         Toast.makeText(getApplicationContext(), "result: " + result, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    int getCurrentMenuId() {
+    protected int getCurrentMenuId() {
         return R.id.menu_car_btn;
     }
 }

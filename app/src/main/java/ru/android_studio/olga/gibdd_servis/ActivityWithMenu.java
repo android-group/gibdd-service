@@ -11,7 +11,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
-import ru.android_studio.olga.gibdd_servis.service.imp.TesseractOCRServiceImp;
+import ru.android_studio.olga.gibdd_servis.car.CarActivity;
+import ru.android_studio.olga.gibdd_servis.driver.DriverActivity;
+import ru.android_studio.olga.gibdd_servis.fine.FineActivity;
+import ru.android_studio.olga.gibdd_servis.question.QuestionActivity;
 
 /**
  * Created by y.andreev on 03.06.2016.
@@ -30,7 +33,7 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
     }
 
     @IdRes
-    abstract int getCurrentMenuId();
+    protected abstract int getCurrentMenuId();
 
     /*@BindView(R.id.menu_car_btn)
     View menuCarBtn;

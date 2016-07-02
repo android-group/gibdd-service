@@ -103,7 +103,7 @@
                 android:id="@+id/check_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_next"
+                android:background="@drawable/button_check"
                 android:text="@string/btn_check"
                 android:textColor="@drawable/text_button" />
 

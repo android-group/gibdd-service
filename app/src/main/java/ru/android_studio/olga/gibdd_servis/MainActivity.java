@@ -13,6 +13,7 @@ import ru.android_studio.olga.gibdd_servis.service.imp.TesseractOCRServiceImp;
 
 public class MainActivity extends ActivityWithMenu {
 
+    public static TesseractOCRServiceImp ocrService;
     private static final String TAG = "MainActivity";
 
     @Override
@@ -26,29 +27,33 @@ public class MainActivity extends ActivityWithMenu {
 
         setMenuConfig();
 
-        PrepareOCRAsyncTask ocrAsyncTask = new PrepareOCRAsyncTask();
-        try {
-            ocrAsyncTask.execute(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(TAG, e.getMessage(), e);
+        if (ocrService == null) {
+            PrepareOCRAsyncTask ocrAsyncTask = new PrepareOCRAsyncTask();
+            try {
+                ocrAsyncTask.execute(this);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e(TAG, e.getMessage(), e);
+            }
         }
     }
 
     @Override
     protected void onDestroy() {
-        try {
-            TesseractOCRServiceImp.getInstance().close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.e(TAG, "Error by Tesseract OCR service closing", e);
+        if(ocrService != null) {
+            try {
+                ocrService.close();
+            } catch (Throwable e) {
+                e.printStackTrace();
+                Log.e(TAG, "Error by Tesseract OCR service closing", e);
+            }
         }
         super.onDestroy();
     }
 
 
     @Override
-    int getCurrentMenuId() {
+    protected int getCurrentMenuId() {
         return 0;
     }
 
@@ -56,9 +61,9 @@ public class MainActivity extends ActivityWithMenu {
 
         @Override
         protected OCRService doInBackground(Context... params) {
-            OCRService service = TesseractOCRServiceImp.getInstance(params[0]);
-            service.prepare();
-            return service;
+            ocrService = TesseractOCRServiceImp.getInstance(params[0]);
+            ocrService.prepare();
+            return ocrService;
         }
 
     }

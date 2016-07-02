@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis;
+package ru.android_studio.olga.gibdd_servis.fine;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import ru.android_studio.olga.gibdd_servis.ActivityWithMenuAndOCR;
+import ru.android_studio.olga.gibdd_servis.R;
 import ru.android_studio.olga.gibdd_servis.service.OCRService;
 
 /**
@@ -55,7 +57,7 @@ public class FineActivity extends ActivityWithMenuAndOCR implements View.OnClick
 
 
     @Override
-    int getCurrentMenuId() {
+    protected int getCurrentMenuId() {
         return R.id.menu_fine_btn;
     }
 
