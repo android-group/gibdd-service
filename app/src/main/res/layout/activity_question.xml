@@ -111,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_next"
-                android:id="@+id/CheckButton"
+                android:id="@+id/btn_next"
                 android:background="@drawable/button_next"
                 android:textColor="@drawable/text_button_next" />
 
