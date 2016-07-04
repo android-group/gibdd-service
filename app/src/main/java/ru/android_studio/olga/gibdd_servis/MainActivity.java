@@ -6,8 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
-import java.io.IOException;
-
+import butterknife.ButterKnife;
 import ru.android_studio.olga.gibdd_servis.service.OCRService;
 import ru.android_studio.olga.gibdd_servis.service.imp.TesseractOCRServiceImp;
 
@@ -21,9 +20,10 @@ public class MainActivity extends ActivityWithMenu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
+
+        toolbar.setLogo(R.mipmap.main_logo);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setLogo(R.mipmap.main_logo);
 
         setMenuConfig();
 
@@ -40,7 +40,7 @@ public class MainActivity extends ActivityWithMenu {
 
     @Override
     protected void onDestroy() {
-        if(ocrService != null) {
+        if (ocrService != null) {
             try {
                 ocrService.close();
             } catch (Throwable e) {

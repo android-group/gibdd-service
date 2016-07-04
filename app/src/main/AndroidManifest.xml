@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".BootApplication"
         android:allowBackup="true"
         android:icon="@mipmap/main_logo"
         android:label="Сервисы ГИБДД"
@@ -24,30 +25,30 @@
         </activity>
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".driver.DriverActivity" android:label="@string/check_driver">
+        <activity android:name=".driver.activity.DriverActivity" android:label="@string/check_driver">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".car.CarActivity" android:label="@string/check_car">
+        <activity android:name=".car.activity.CarActivity" android:label="@string/check_car">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".fine.FineActivity" android:label="@string/check_fine">
+        <activity android:name=".fine.activity.FineActivity" android:label="@string/check_fine">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".question.QuestionActivity" android:label="@string/check_question">
+        <activity android:name=".question.activity.QuestionActivity" android:label="@string/check_question">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".question.QuestionActivityNext" android:label="@string/check_question">
+        <activity android:name=".question.activity.QuestionActivityNext" android:label="@string/check_question">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".question.QuestionActivity" />
+                android:value=".question.activity.QuestionActivity" />
         </activity>
     </application>
 

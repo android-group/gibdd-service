@@ -1,10 +1,12 @@
-package ru.android_studio.olga.gibdd_servis.question;
+package ru.android_studio.olga.gibdd_servis.question.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.view.View;
+import android.widget.Button;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ru.android_studio.olga.gibdd_servis.ActivityWithMenu;
 import ru.android_studio.olga.gibdd_servis.R;
 
@@ -13,15 +15,20 @@ import ru.android_studio.olga.gibdd_servis.R;
  */
 public class QuestionActivity  extends ActivityWithMenu implements View.OnClickListener {
 
+    @BindView(R.id.btn_next)
+    Button nextBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
+        ButterKnife.bind(this);
+
         addToolbarByIconId(R.mipmap.question_logo);
         setMenuConfig();
 
-        findViewById(R.id.btn_next).setOnClickListener(this);
+        nextBtn.setOnClickListener(this);
     }
 
     @Override

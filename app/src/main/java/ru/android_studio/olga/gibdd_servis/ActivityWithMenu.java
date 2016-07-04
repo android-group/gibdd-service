@@ -11,10 +11,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
-import ru.android_studio.olga.gibdd_servis.car.CarActivity;
-import ru.android_studio.olga.gibdd_servis.driver.DriverActivity;
-import ru.android_studio.olga.gibdd_servis.fine.FineActivity;
-import ru.android_studio.olga.gibdd_servis.question.QuestionActivity;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import ru.android_studio.olga.gibdd_servis.car.activity.CarActivity;
+import ru.android_studio.olga.gibdd_servis.driver.activity.DriverActivity;
+import ru.android_studio.olga.gibdd_servis.fine.activity.FineActivity;
+import ru.android_studio.olga.gibdd_servis.question.activity.QuestionActivity;
 
 /**
  * Created by y.andreev on 03.06.2016.
@@ -26,38 +28,41 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
-        );
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     @IdRes
     protected abstract int getCurrentMenuId();
 
-    /*@BindView(R.id.menu_car_btn)
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.menu_car_btn)
     View menuCarBtn;
+
     @BindView(R.id.menu_driver_btn)
     View menuDriverBtn;
+
     @BindView(R.id.menu_fine_btn)
     View menuFindBtn;
+
     @BindView(R.id.menu_question_btn)
     View menuQuestionBtn;
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;*/
 
+
+    /**
+     * Добавляем обработку кликов ко кнопкам меню
+     */
     public void setMenuConfig() {
-
-        findViewById(R.id.menu_car_btn).setOnClickListener(menuOnClickListener);
-        findViewById(R.id.menu_driver_btn).setOnClickListener(menuOnClickListener);
-        findViewById(R.id.menu_fine_btn).setOnClickListener(menuOnClickListener);
-        findViewById(R.id.menu_question_btn).setOnClickListener(menuOnClickListener);
-        /*menuCarBtn.setOnClickListener(menuOnClickListener);
+        menuCarBtn.setOnClickListener(menuOnClickListener);
         menuDriverBtn.setOnClickListener(menuOnClickListener);
         menuFindBtn.setOnClickListener(menuOnClickListener);
-        menuQuestionBtn.setOnClickListener(menuOnClickListener);*/
+        menuQuestionBtn.setOnClickListener(menuOnClickListener);
     }
 
+    /**
+     * Листнер для обработки кликов по меню
+     */
     private View.OnClickListener menuOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -91,8 +96,12 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
         }
     };
 
+    /**
+     * Добавить тулбар на страницу
+     *
+     * @param iconId - id картинки for example R.mipmap.auto_logo
+     */
     protected void addToolbarByIconId(int iconId) {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar supportActionBar = getSupportActionBar();
         supportActionBar.setDisplayHomeAsUpEnabled(true);

@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis.fine;
+package ru.android_studio.olga.gibdd_servis.fine.activity;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ru.android_studio.olga.gibdd_servis.ActivityWithMenuAndOCR;
 import ru.android_studio.olga.gibdd_servis.R;
 import ru.android_studio.olga.gibdd_servis.service.OCRService;
@@ -23,12 +25,16 @@ import ru.android_studio.olga.gibdd_servis.service.OCRService;
  */
 public class FineActivity extends ActivityWithMenuAndOCR implements View.OnClickListener {
 
-    private Button checkButton;
+    @BindView(R.id.check_button)
+    Button checkButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fine);
+
+        ButterKnife.bind(this);
+
         addToolbarByIconId(R.mipmap.fine_logo);
         setMenuConfig();
 
@@ -36,7 +42,6 @@ public class FineActivity extends ActivityWithMenuAndOCR implements View.OnClick
          *Добавить загрузку капчи
         * */
 
-        checkButton = (Button) findViewById(R.id.check_button);
         checkButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

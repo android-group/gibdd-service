@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis.driver;
+package ru.android_studio.olga.gibdd_servis.driver.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.*;
 import android.widget.EditText;
 
+import butterknife.ButterKnife;
 import ru.android_studio.olga.gibdd_servis.ActivityWithMenuAndOCR;
 import ru.android_studio.olga.gibdd_servis.R;
 
@@ -23,6 +24,9 @@ public class DriverActivity extends ActivityWithMenuAndOCR {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver);
+
+        ButterKnife.bind(this);
+
         addToolbarByIconId(R.mipmap.driver_logo);
         setMenuConfig();
     }

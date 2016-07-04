@@ -1,7 +1,8 @@
-package ru.android_studio.olga.gibdd_servis.question;
+package ru.android_studio.olga.gibdd_servis.question.activity;
 
 import android.os.Bundle;
 
+import butterknife.ButterKnife;
 import ru.android_studio.olga.gibdd_servis.ActivityWithMenu;
 import ru.android_studio.olga.gibdd_servis.R;
 
@@ -14,6 +15,8 @@ public class QuestionActivityNext extends ActivityWithMenu {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_next);
+
+        ButterKnife.bind(this);
 
         addToolbarByIconId(R.mipmap.question_logo);
         setMenuConfig();
