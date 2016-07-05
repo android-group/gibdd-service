@@ -6,19 +6,15 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import ru.android_studio.olga.gibdd_servis.ActivityWithMenuAndOCR;
-import ru.android_studio.olga.gibdd_servis.R;
 
 import static ru.android_studio.olga.gibdd_servis.camera.FileHelper.getOutputMediaFileUri;
 
 /**
  * Created by y.andreev on 06.07.2016.
- *
+ * <p>
  * Activity with menu and OCR and camera
  */
 public abstract class ActivityCamera extends ActivityWithMenuAndOCR {
