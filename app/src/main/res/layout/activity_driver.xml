@@ -77,6 +77,7 @@
                     android:layout_width="54dp"
                     android:layout_height="45dp"
                     android:cropToPadding="true"
+                    android:onClick="onClick"
                     android:src="@drawable/calendar"
                     android:scaleType="centerInside"/>
             </LinearLayout>
