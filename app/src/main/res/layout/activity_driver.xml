@@ -38,6 +38,18 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/SeriesLicenseEditText" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="С камеры"
+                android:id="@+id/camera"
+                android:layout_gravity="right" />
+
+            <ImageView
+                android:id="@+id/result_camera"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,7 +85,7 @@
                 </EditText>
 
                 <ImageButton
-                    android:id="@+id/imageButton1"
+                    android:id="@+id/calendar"
                     android:layout_width="54dp"
                     android:layout_height="45dp"
                     android:cropToPadding="true"
@@ -122,8 +134,7 @@
             android:layout_alignParentBottom="true"
             android:gravity="center_vertical|center_horizontal"
             android:layout_marginTop="10dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignEnd="@id/menuLinearLayout">
+            android:layout_alignParentEnd="true">
 
             <View
                 android:layout_width="0dp"

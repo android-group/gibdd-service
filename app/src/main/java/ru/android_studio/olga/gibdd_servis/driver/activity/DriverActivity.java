@@ -1,18 +1,23 @@
 package ru.android_studio.olga.gibdd_servis.driver.activity;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.*;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.Calendar;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ru.android_studio.olga.gibdd_servis.ActivityWithMenuAndOCR;
 import ru.android_studio.olga.gibdd_servis.R;
+import ru.android_studio.olga.gibdd_servis.camera.Camera;
 
 /**
  * Created by Yury Andreev on 20.05.2016.
@@ -20,24 +25,30 @@ import ru.android_studio.olga.gibdd_servis.R;
  * @author Ruslan Suleymanov
  * @version 0.1
  */
-public class DriverActivity extends ActivityWithMenuAndOCR implements View.OnClickListener{
+public class DriverActivity extends ActivityWithMenuAndOCR {
 
     private static final String TAG = "DriverActivity";
+
     int year;
     int month;
     int day;
-    EditText et;
 
+    @BindView(R.id.result_camera)
+    ImageView resultCamera;
 
+    @BindView(R.id.DateOfIssueEditText)
+    EditText dateOfIssueEditText;
+
+    @BindView(R.id.camera)
+    Button camera;
 
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
-
         public void onDateSet(DatePicker view, int years, int monthOfYear,
                               int dayOfMonth) {
             year = years;
             month = monthOfYear;
             day = dayOfMonth;
-            et.setText("Today is " + day + "/" + month + "/" + year);
+            dateOfIssueEditText.setText("Today is " + day + "/" + month + "/" + year);
         }
     };
 
@@ -51,9 +62,6 @@ public class DriverActivity extends ActivityWithMenuAndOCR implements View.OnCli
         addToolbarByIconId(R.mipmap.driver_logo);
         setMenuConfig();
 
-        findViewById(R.id.imageButton1).setOnClickListener(this);
-        et = (EditText)findViewById(R.id.DateOfIssueEditText);
-
         final Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);
         month = c.get(Calendar.MONTH);
@@ -61,21 +69,33 @@ public class DriverActivity extends ActivityWithMenuAndOCR implements View.OnCli
 
     }
 
-
-
-    @Override
-    public void onClick(View v) {
-       if (v.getId() == R.id.imageButton1) {
-           DatePickerDialog dialog = new DatePickerDialog(this, listener, year, month, day);
-           dialog.show();
-      }
+    @OnClick(R.id.camera)
+    public void openCamera() {
+        Log.d(TAG, "openCamera");
+        Camera.open(this);
     }
 
+    /**
+     * Receiving activity result method will be called after closing the camera
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "onActivityResult");
+        Bitmap photo = Camera.showResult(requestCode, resultCode, this);
+        if(photo != null) {
+            resultCamera.setImageBitmap(photo);
+        }
+    }
+
+    @OnClick(R.id.calendar)
+    public void openCalendar() {
+        Log.d(TAG, "openCalendar");
+        DatePickerDialog dialog = new DatePickerDialog(this, listener, year, month, day);
+        dialog.show();
+    }
 
     @Override
     protected int getCurrentMenuId() {
         return R.id.menu_driver_btn;
     }
-
-
 }

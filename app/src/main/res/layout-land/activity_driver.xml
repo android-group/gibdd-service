@@ -37,6 +37,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/SeriesLicenseEditText" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="С камеры"
+                android:id="@+id/camera"
+                android:layout_gravity="right" />
+
+            <ImageView
+                android:id="@+id/result_camera"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
     
             <TextView
                 android:layout_width="match_parent"
@@ -73,7 +85,7 @@
                 </EditText>
     
                 <ImageButton
-                    android:id="@+id/imageButton1"
+                    android:id="@+id/calendar"
                     android:layout_width="54dp"
                     android:layout_height="45dp"
                     android:cropToPadding="true"
