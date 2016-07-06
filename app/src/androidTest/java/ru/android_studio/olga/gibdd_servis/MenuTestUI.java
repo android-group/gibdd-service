@@ -5,6 +5,7 @@ import android.support.test.rule.ActivityTestRule;
 import org.junit.Rule;
 import org.junit.Test;
 
+import ru.android_studio.olga.gibdd_servis.car.activity.CarActivity;
 import ru.android_studio.olga.gibdd_servis.pageObject.MenuPage;
 
 /**

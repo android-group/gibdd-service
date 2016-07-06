@@ -3,7 +3,8 @@
     android:id="@+id/question_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:scrollIndicators="right">
 
     <include layout="@layout/toolbar" />
 
@@ -22,90 +23,97 @@
             android:layout_below="@+id/toolbar"
             android:layout_margin="20dp">
 
-            <LinearLayout
-                android:id="@+id/VINLinerLayout"
-                android:orientation="horizontal"
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Идентификационный номер (VIN)"
-                    android:textSize="18sp"
-                    android:id="@+id/VINTextView"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical" />
-
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:text="Фамилия"
+                android:textSize="18sp"
+                android:id="@+id/SurnameTextView"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number|text"
-                android:maxLength="17"
-                android:id="@+id/VINEditText"
+                android:inputType="textPersonName"
+                android:id="@+id/SurnameEditText"
                 android:layout_weight="1" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="VIN номер отсутствует"
-                android:textSize="17dp"
-                android:textColor="#777777"
-                android:id="@+id/VINCheckBox"
-                android:layout_weight="1" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Номер шасси или кузова"
+                android:text="Имя"
                 android:textSize="18sp"
-                android:id="@+id/NumberCarTextView"
+                android:id="@+id/NameTextView"
                 android:layout_weight="1"
                 android:paddingTop="20dp" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number|text"
-                android:maxLength="17"
-                android:id="@+id/NumberCarEditText"
+                android:inputType="textPersonName"
+                android:id="@+id/NameEditText"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Отчество"
+                android:textSize="18sp"
+                android:id="@+id/MiddleNameTextView"
+                android:layout_weight="1"
+                android:paddingTop="20dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/MiddleNameEditText"
                 android:layout_weight="1" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="Введите символы с картинки"
-                android:id="@+id/textView4"
+                android:text="Контактный телефон"
+                android:id="@+id/PhoneTextView"
                 android:layout_weight="1"
                 android:paddingTop="5dp"
-                 />
-
-            <ImageView
-                android:layout_width="182dp"
-                android:layout_height="50dp"
-                android:src="@drawable/capture"
-                android:id="@+id/CaptureImageView"
-                android:layout_weight="1" />
+                />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:id="@+id/captcha_edit_text"
+                android:inputType="phone"
+                android:id="@+id/PhoneEditText"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Получить ответ"
+                android:id="@+id/AnswerTextView"
+                android:layout_weight="1"
+                android:paddingTop="5dp"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:id="@+id/AnswerEditText"
                 android:layout_weight="1" />
 
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_check"
-                android:id="@+id/CheckButton"
+                android:text="@string/btn_next"
+                android:id="@+id/btn_next"
                 android:background="@drawable/button_next"
-                android:textColor="@drawable/text_button" />
+                android:textColor="@drawable/text_button_next" />
 
             <View
                 android:layout_width="0dp"
@@ -124,7 +132,8 @@
         android:layout_alignParentBottom="true"
         android:gravity="center_vertical|center_horizontal"
         android:layout_marginTop="10dp"
-        android:scrollIndicators="right">
+        android:layout_alignParentEnd="true"
+        android:layout_alignEnd="@id/menuLinearLayout">
 
         <View
             android:layout_width="0dp"

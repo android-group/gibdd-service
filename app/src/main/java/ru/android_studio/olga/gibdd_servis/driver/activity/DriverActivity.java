@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis;
+package ru.android_studio.olga.gibdd_servis.driver.activity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -9,6 +9,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import java.util.Calendar;
+
+import butterknife.ButterKnife;
+import ru.android_studio.olga.gibdd_servis.ActivityWithMenuAndOCR;
+import ru.android_studio.olga.gibdd_servis.R;
 
 /**
  * Created by Yury Andreev on 20.05.2016.
@@ -42,8 +46,10 @@ public class DriverActivity extends ActivityWithMenuAndOCR implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver);
 
-        //setMenuConfig();
-        //addToolbarByIconId(R.mipmap.driver_logo);
+        ButterKnife.bind(this);
+
+        addToolbarByIconId(R.mipmap.driver_logo);
+        setMenuConfig();
 
         findViewById(R.id.imageButton1).setOnClickListener(this);
         et = (EditText)findViewById(R.id.DateOfIssueEditText);
@@ -67,7 +73,7 @@ public class DriverActivity extends ActivityWithMenuAndOCR implements View.OnCli
 
 
     @Override
-    int getCurrentMenuId() {
+    protected int getCurrentMenuId() {
         return R.id.menu_driver_btn;
     }
 

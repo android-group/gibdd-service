@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis;
+package ru.android_studio.olga.gibdd_servis.car.service;
 
 import android.os.AsyncTask;
 
@@ -12,9 +12,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
-public class AutoGibddService extends GibddService {
+import ru.android_studio.olga.gibdd_servis.AbstractGibddService;
+import ru.android_studio.olga.gibdd_servis.car.model.CarRequest;
+import ru.android_studio.olga.gibdd_servis.car.model.CarResponse;
 
+public class CarAbstractGibddService extends AbstractGibddService {
+
+    private static final String CHECK_AUTO = "http://www.gibdd.ru/check/auto/";
     String vin;
     String captcha;
     String phpsessid;
@@ -39,6 +45,22 @@ public class AutoGibddService extends GibddService {
             "Аннулирование"
     };
 
+    @Override
+    public String getRequestUrl() {
+        return CHECK_AUTO;
+    }
+
+    public CarResponse carResponse;
+
+    public void request(CarRequest carRequest, CarResponse carResponse) {
+        this.carResponse = carResponse;
+        try {
+            new RequestTask().execute(carRequest.getVin(), carRequest.getCaptcha(), carRequest.getSessionId()).get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
     private class RequestTask extends AsyncTask<String, Void, String> {
         protected String doInBackground(String... urls) {
             try {
@@ -55,9 +77,9 @@ public class AutoGibddService extends GibddService {
                 try {
                     JSONObject resultJsonObject = new JSONObject(resultJson);
                     if (restricted(resultJsonObject)) {
-
+                        //carResponse
                     } else if (wanted(resultJsonObject)) {
-
+                        //carResponse
                     } else {
                         //empty();
                     }
@@ -130,7 +152,7 @@ public class AutoGibddService extends GibddService {
             urlConnection.setRequestMethod("POST");
             urlConnection.setRequestProperty("User-Agent", USER_AGENT);
             urlConnection.setRequestProperty("X-Compress", "0");
-            urlConnection.setRequestProperty("Referer", "http://www.gibdd.ru/check/auto/");
+            urlConnection.setRequestProperty("Referer", CHECK_AUTO);
             urlConnection.setRequestProperty("Host", "www.gibdd.ru");
             urlConnection.setRequestProperty("Accept", "application/json, text/javascript, */*; q=0.01");
             urlConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");

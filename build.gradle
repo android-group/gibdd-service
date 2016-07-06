@@ -8,6 +8,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.1.2'
 
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath "io.realm:realm-gradle-plugin:0.88.2"
         classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.0'
     }
 }
@@ -15,9 +17,16 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
         mavenCentral()
     }
 }
+
+/*repositories {
+    maven {
+        url 'https://repo.spring.io/libs-milestone'
+    }
+}*/
 
 task clean(type: Delete) {
     delete rootProject.buildDir

@@ -96,8 +96,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_check"
-                android:id="@+id/fine_CheckButton_B"
-                android:background="@drawable/button_next"
+                android:id="@+id/check_button"
+                android:background="@drawable/button_check"
                 android:textColor="@drawable/text_button" />
 
             <View

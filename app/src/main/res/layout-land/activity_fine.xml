@@ -3,8 +3,7 @@
     android:id="@+id/fine_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:scrollIndicators="right">
+    android:orientation="vertical">
 
     <include layout="@layout/toolbar" />
 
@@ -14,6 +13,7 @@
         android:id="@+id/scrollView3"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentStart="true"
+        android:scrollIndicators="right"
         android:layout_above="@+id/NavigationLinearLayout">
 
         <LinearLayout
@@ -21,98 +21,91 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp">
-    
+
             <LinearLayout
                 android:id="@+id/VINLinerLayout"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center">
-    
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Идентификационный номер (VIN)"
-                    android:textSize="18sp"
-                    android:id="@+id/VINTextView"
+                    android:text="Государственный регистрационный знак"
+                    android:textSize="16sp"
+                    android:id="@+id/fine_Number_TV"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical" />
-    
+
             </LinearLayout>
-    
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number|text"
                 android:maxLength="17"
-                android:id="@+id/VINEditText"
-                android:layout_weight="1" />
-    
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="VIN номер отсутствует"
-                android:textSize="17dp"
-                android:textColor="#777777"
-                android:id="@+id/VINCheckBox"
-                android:layout_weight="1" />
-    
+                android:id="@+id/fine_Number_ET"
+                android:layout_weight="1"
+                android:hint="A000AA 00"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Номер шасси или кузова"
+                android:text="Серия и номер свидетельства о регистрации"
                 android:textSize="18sp"
-                android:id="@+id/NumberCarTextView"
+                android:id="@+id/fine_SerialNumber_VT"
                 android:layout_weight="1"
                 android:paddingTop="20dp" />
-    
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number|text"
                 android:maxLength="17"
-                android:id="@+id/NumberCarEditText"
-                android:layout_weight="1" />
-    
+                android:id="@+id/fine_SerialNumber_ET"
+                android:layout_weight="1"
+                android:hint="1234 123456"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:text="Введите символы с картинки"
-                android:id="@+id/textView4"
+                android:id="@+id/fine_Captcha_VT"
                 android:layout_weight="1"
                 android:paddingTop="5dp"
                  />
-    
+
             <ImageView
                 android:layout_width="182dp"
                 android:layout_height="50dp"
                 android:src="@drawable/capture"
-                android:id="@+id/CaptureImageView"
+                android:id="@+id/fine_Captcha_IV"
                 android:layout_weight="1" />
-    
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:id="@+id/captcha_edit_text"
+                android:id="@+id/fine_Captcha_ET"
                 android:layout_weight="1" />
-    
-    
+
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_check"
-                android:id="@+id/CheckButton"
-                android:background="@drawable/button_next"
+                android:id="@+id/check_button"
+                android:background="@drawable/button_check"
                 android:textColor="@drawable/text_button" />
-    
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1" >
             </View>
-    
+
         </LinearLayout>
     </ScrollView>
 

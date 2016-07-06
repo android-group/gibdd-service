@@ -1,5 +1,6 @@
 package ru.android_studio.olga.gibdd_servis;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,8 +31,26 @@ public abstract class ActivityWithMenuAndOCR extends ActivityWithMenu {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setServiceOCR(new TesseractOCRServiceImp(this));
-        getServiceOCR().prepare();
+
+        PrepareOCRAsyncTask ocrAsyncTask = new PrepareOCRAsyncTask();
+        try {
+            ocrAsyncTask.execute(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(TAG, e.getMessage(), e);
+        }
+
+    }
+
+    private class PrepareOCRAsyncTask extends AsyncTask<Context, Void, OCRService> {
+
+        @Override
+        protected OCRService doInBackground(Context... params) {
+            setServiceOCR(TesseractOCRServiceImp.getInstance(params[0]));
+            getServiceOCR().prepare();
+            return getServiceOCR();
+        }
+
     }
 
     public String asyncExtractText(Bitmap bitmap, OCRService.LANGUAGE langCode) {
