@@ -22,6 +22,8 @@ import ru.android_studio.olga.gibdd_servis.service.OCRService;
 /**
  * Created by olga on 22.05.2016.
  *
+ * Проверка машины
+ *
  * @author olga
  * @author Ruslan Suleymanov
  * @author Yury Andreev

@@ -1,9 +1,6 @@
-package ru.android_studio.olga.gibdd_servis;
+package ru.android_studio.olga.gibdd_servis.gibdd;
 
 import android.widget.ImageView;
-
-import ru.android_studio.olga.gibdd_servis.model.Request;
-import ru.android_studio.olga.gibdd_servis.model.Response;
 
 /**
  * Created by y.andreev on 02.07.2016.

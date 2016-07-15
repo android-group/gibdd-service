@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".BootApplication"
         android:allowBackup="true"
         android:icon="@mipmap/main_logo"
         android:label="Сервисы ГИБДД"

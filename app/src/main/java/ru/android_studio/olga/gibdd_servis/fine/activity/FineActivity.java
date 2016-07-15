@@ -19,6 +19,8 @@ import ru.android_studio.olga.gibdd_servis.service.OCRService;
 /**
  * Created by y.andreev on 03.06.2016.
  *
+ * Проверка штрафов
+ *
  * @author y.andreev
  * @author Ruslan Suleymanov
  * @version 0.1

@@ -20,6 +20,8 @@ import ru.android_studio.olga.gibdd_servis.question.activity.QuestionActivity;
 
 /**
  * Created by y.andreev on 03.06.2016.
+ *
+ * Активити с Нижним меню
  */
 public abstract class ActivityWithMenu extends AppCompatActivity {
 

@@ -12,6 +12,8 @@ import ru.android_studio.olga.gibdd_servis.R;
 
 /**
  * Created by y.andreev on 03.06.2016.
+ *
+ * Прием обращений
  */
 public class QuestionActivity  extends ActivityWithMenu implements View.OnClickListener {
 

@@ -13,6 +13,14 @@ import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
+import ru.android_studio.olga.gibdd_servis.gibdd.RequestService;
+
+/**
+ * Абстрактный класс для взаимодействия с ГИБДД
+ *
+ * скорее всего у всех сервисов ГИБДД капча запрашивается одинаково
+ * и запросы с ответами могут происходить подобным образом
+ */
 public abstract class AbstractGibddService implements RequestService {
 
     protected static final String USER_AGENT = "Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1";

@@ -1,6 +1,6 @@
 package ru.android_studio.olga.gibdd_servis.car.model;
 
-import ru.android_studio.olga.gibdd_servis.model.Request;
+import ru.android_studio.olga.gibdd_servis.gibdd.Request;
 
 /**
  * Created by y.andreev on 03.07.2016.

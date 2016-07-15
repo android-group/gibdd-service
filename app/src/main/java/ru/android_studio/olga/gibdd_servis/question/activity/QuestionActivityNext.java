@@ -8,6 +8,8 @@ import ru.android_studio.olga.gibdd_servis.R;
 
 /**
  * Created by olga on 02.07.2016.
+ *
+ * Прием обращений следующая страница
  */
 public class QuestionActivityNext extends ActivityWithMenu {
 

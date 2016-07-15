@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis;
+package ru.android_studio.olga.gibdd_servis.gibdd;
 
 /**
  * Created by y.andreev on 02.07.2016.

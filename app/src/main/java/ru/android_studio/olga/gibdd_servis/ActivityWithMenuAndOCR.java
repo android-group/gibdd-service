@@ -13,6 +13,10 @@ import ru.android_studio.olga.gibdd_servis.service.imp.TesseractOCRServiceImp;
 
 /**
  * Created by Ruslan Suleymanov on 23.06.16.
+ *
+ * Активити с Нижним меню и Тесерактом.
+ * Тесеракт сейчас будет отдельным сервисом, по этому от этого класса может быть нужно будет отказаться.
+ *
  * @author Ruslan Suleymanov
  * @version 0.1
  */

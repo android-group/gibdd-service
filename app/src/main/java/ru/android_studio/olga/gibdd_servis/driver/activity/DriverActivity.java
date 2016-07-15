@@ -20,7 +20,10 @@ import ru.android_studio.olga.gibdd_servis.R;
 import ru.android_studio.olga.gibdd_servis.camera.Camera;
 
 /**
- * Created by Yury Andreev on 20.05.2016.
+ * Created on 20.05.2016.
+ *
+ * Проверка водителя
+ *
  * @author Yury Andreev
  * @author Ruslan Suleymanov
  * @version 0.1

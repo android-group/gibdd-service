@@ -18,6 +18,11 @@ import ru.android_studio.olga.gibdd_servis.AbstractGibddService;
 import ru.android_studio.olga.gibdd_servis.car.model.CarRequest;
 import ru.android_studio.olga.gibdd_servis.car.model.CarResponse;
 
+/**
+ * Сервис в котором нужно описать взаимодействие с ГИБДД
+ *
+ * Запрос: Проверка машины
+ */
 public class CarAbstractGibddService extends AbstractGibddService {
 
     private static final String CHECK_AUTO = "http://www.gibdd.ru/check/auto/";
