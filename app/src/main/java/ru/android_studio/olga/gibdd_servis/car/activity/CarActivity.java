@@ -31,7 +31,7 @@ import ru.android_studio.olga.gibdd_servis.service.OCRService;
  */
 public class CarActivity extends ActivityWithMenuAndOCR {
 
-    private CarAbstractGibddService gibddService = new CarAbstractGibddService();
+    //private CarAbstractGibddService gibddService = new CarAbstractGibddService();
 
     @BindView(R.id.captcha_image_view)
     ImageView captchaImageView;
@@ -46,16 +46,16 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         addToolbarByIconId(R.mipmap.auto_logo);
         setMenuConfig();
 
-        loadCaptcha();
+        //loadCaptcha();
     }
 
     /**
      * Загрузить картинку капчи
      */
-    @OnClick(R.id.captcha_image_view)
+    /*@OnClick(R.id.captcha_image_view)
     void loadCaptcha() {
         gibddService.retrieveCaptcha(captchaImageView);
-    }
+    }*/
 
     /**
      * Загрузить картинку капчи
@@ -69,11 +69,11 @@ public class CarActivity extends ActivityWithMenuAndOCR {
     /**
      * Распознать капчу через тесеракт
      */
-    private void recognizeCaptcha() {
+    /*private void recognizeCaptcha() {
         Bitmap captchaBitmap = gibddService.retrieveCaptcha();
         String result = asyncExtractText(captchaBitmap, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
         Toast.makeText(getApplicationContext(), "result: " + result, Toast.LENGTH_SHORT).show();
-    }
+    }*/
 
     @Override
     protected int getCurrentMenuId() {
