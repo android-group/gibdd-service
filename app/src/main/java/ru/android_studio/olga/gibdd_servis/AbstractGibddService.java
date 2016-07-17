@@ -13,7 +13,6 @@ import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
-import ru.android_studio.olga.gibdd_servis.gibdd.RequestService;
 
 /**
  * Абстрактный класс для взаимодействия с ГИБДД

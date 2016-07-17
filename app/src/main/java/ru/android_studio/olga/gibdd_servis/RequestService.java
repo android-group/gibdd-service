@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis.gibdd;
+package ru.android_studio.olga.gibdd_servis;
 
 import android.widget.ImageView;
 
