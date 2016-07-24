@@ -23,26 +23,26 @@
             android:layout_margin="20dp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/VINLinerLayout"
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/check_type_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:entries="@array/check_type"/>
 
-                <TextView
-                    android:id="@+id/VINTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:text="Идентификационный номер (VIN)"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/vin_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Идентификационный номер (VIN)"
+                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/VINEditText"
+                android:id="@+id/vin_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -50,7 +50,7 @@
                 android:maxLength="17" />
 
             <CheckBox
-                android:id="@+id/VINCheckBox"
+                android:id="@+id/vin_check_box"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -59,24 +59,7 @@
                 android:textSize="17dp" />
 
             <TextView
-                android:id="@+id/NumberCarTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingTop="20dp"
-                android:text="Номер шасси или кузова"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/NumberCarEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number|text"
-                android:maxLength="17" />
-
-            <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/captcha_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -88,15 +71,16 @@
                 android:id="@+id/captcha_image_view"
                 android:layout_width="182dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:src="@drawable/capture" />
+                android:layout_weight="1" />
 
             <EditText
                 android:id="@+id/captcha_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:inputType="text" />
+                android:inputType="number"
+                android:maxLength="5"
+                android:maxLines="1" />
 
 
             <Button

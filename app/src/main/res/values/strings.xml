@@ -11,4 +11,10 @@
     <string name="capture_picture_btn">Проверить</string>
     <string name="image_preview">image preview</string>
     <string name="camera_detection">Распознование</string>
+    <string-array name="check_type">
+        <item>Проверка истории регистрации в ГИБДД</item>
+        <item>Проверка нахождения в розыске</item>
+        <item>Проверка наличия ограничений</item>
+        <item>Проверка на участие в дорожно-транспортных происшествиях</item>
+    </string-array>
 </resources>

@@ -23,7 +23,7 @@
             android:layout_margin="20dp">
 
             <LinearLayout
-                android:id="@+id/VINLinerLayout"
+                android:id="@+id/vin_liner_layout"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

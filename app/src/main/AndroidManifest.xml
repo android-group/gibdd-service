@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.android_studio.olga.gibdd_servis">
+    package="ru.android_studio.gibdd_servis">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -48,6 +48,11 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".question.activity.QuestionActivity" />
+        </activity>
+        <activity android:name=".car.activity.CarResultActivity" android:label="@string/check_car">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".car.activity.CarActivity" />
         </activity>
     </application>
 

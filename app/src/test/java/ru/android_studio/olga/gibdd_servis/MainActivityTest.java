@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis;
+package ru.android_studio.gibdd_servis;
 
 import org.junit.Before;
 import org.junit.Ignore;

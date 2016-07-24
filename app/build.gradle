@@ -8,7 +8,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "ru.android_studio.olga.gibdd_servis"
+        applicationId "ru.android_studio.gibdd_servis"
         minSdkVersion 15
         targetSdkVersion 23
         versionName "1.0.0"

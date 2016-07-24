@@ -1,4 +1,4 @@
-package ru.android_studio.olga.gibdd_servis.service.imp;
+package ru.android_studio.gibdd_servis.service.imp;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -14,8 +14,8 @@ import org.junit.*;
 
 import java.io.IOException;
 
-import ru.android_studio.olga.gibdd_servis.R;
-import ru.android_studio.olga.gibdd_servis.service.OCRService;
+import ru.android_studio.gibdd_servis.R;
+import ru.android_studio.gibdd_servis.service.OCRService;
 
 /**
  * Unit-tests for {@link TesseractOCRServiceImp}
