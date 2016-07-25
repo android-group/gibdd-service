@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/android-group/gibdd-service.svg?branch=master)](https://travis-ci.org/android-group/gibdd-service)
 # gibdd-service
 Взаимодействие с сервисами ГИБДД
 
