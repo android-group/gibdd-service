@@ -5,21 +5,29 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.io.IOException;
 
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.service.OCRService;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 /**
  * Unit-tests for {@link TesseractOCRServiceImp}
  * <br>Created by Ruslan Suleymanov on 22.06.16.
+ *
  * @author Ruslan Suleymanov
  * @version 0.1
  */
@@ -59,15 +67,17 @@ public class TesseractOCRServiceImpTest {
         Bitmap captchaBMP = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.c13249);
         String value = service.extractText(captchaBMP, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
         assertEquals(String.format("%1$s([%2$s], [%3$s]) must return \"%4$s\" after call set%1$s([%2$s])",
-            methodName, captchaBMP, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN, "13249"), null, value);
+                methodName, captchaBMP, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN, "13249"), null, value);
     }
 
-    @Test @Ignore
+    @Test
+    @Ignore
     public void testExtractText1() {
         fail("Not implemented!");
     }
 
-    @Test @Ignore
+    @Test
+    @Ignore
     public void testPrepare() throws IOException {
         AssetManager assetManager = mock(AssetManager.class);
         when(assetManager.list(TesseractOCRServiceImp.TESSDATA)).thenReturn(new String[0]);
@@ -81,12 +91,14 @@ public class TesseractOCRServiceImpTest {
         verify(service, times(1)).copyTessDataFiles(TesseractOCRServiceImp.TESSDATA);
     }
 
-    @Test @Ignore
+    @Test
+    @Ignore
     public void testPrepareDirectory() {
         fail("Not implemented!");
     }
 
-    @Test @Ignore
+    @Test
+    @Ignore
     public void testCopyTessDataFiles() {
         fail("Not implemented!");
     }
