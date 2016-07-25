@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.car.gibdd;
+package ru.android_studio.gibdd_servis.fine.gibdd;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -7,34 +7,35 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import ru.android_studio.gibdd_servis.car.model.CarRequest;
-import ru.android_studio.gibdd_servis.car.model.CarResponse;
+import ru.android_studio.gibdd_servis.fine.model.RequestFine;
+import ru.android_studio.gibdd_servis.fine.model.ResponseFine;
+import ru.android_studio.gibdd_servis.gibdd.CommonRequest;
 
 /**
  * Данный проект эммулирует взаимодействие пользователя с сайтом гибдд на странице "ПРОВЕРКА ТРАНСПОРТНОГО СРЕДСТВА".
  */
-public class CarInfoService {
+public class InfoFineService {
 
-    public static CarResponse clientRequest(CarRequest carRequest) throws IOException {
-        String client = String.format("http://check.gibdd.ru/proxy/check/auto/%s", carRequest.getCheckType().getValue());
-        URL url = new URL(client);
+    public static ResponseFine clientRequest(RequestFine requestFine) throws IOException {
+        URL url = new URL("http://www.gibdd.ru/proxy/check/fines/2.0/client.php");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         urlConnection.setRequestMethod("POST");
         urlConnection.setRequestProperty("User-Agent", CommonRequest.USER_AGENT);
         urlConnection.setRequestProperty("X-Compress", "0");
-        urlConnection.setRequestProperty("Referer", "http://www.gibdd.ru/check/auto/");
+        urlConnection.setRequestProperty("Referer", "http://www.gibdd.ru/check/fines/");
         urlConnection.setRequestProperty("Host", "www.gibdd.ru");
         urlConnection.setRequestProperty("Accept", "image/webp,image/*,*/*;q=0.8");
         urlConnection.setRequestProperty("Accept-Encoding", "gzip, deflate, sdch");
         urlConnection.setRequestProperty("Accept-Language", "ru,en-US;q=0.8,en;q=0.6");
         urlConnection.setRequestProperty("Connection", "keep-alive");
-        String cookie = String.format("JSESSIONID=%s; _ga=GA1.2.1593191729.1468750977; _ym_uid=1468750977525215266; _ym_isad=1", carRequest.getJsessionid());
+        String cookie = String.format("JSESSIONID=%s; _ga=GA1.2.1593191729.1468750977; _ym_uid=1468750977525215266; _ym_isad=1", requestFine.getJsessionid());
         urlConnection.setRequestProperty("Cookie", cookie);
 
         // Send post request
         urlConnection.setDoOutput(true);
         DataOutputStream wr = new DataOutputStream(urlConnection.getOutputStream());
-        String urlParameters = String.format("vin=%s&captchaWord=%s&checkType=%s", carRequest.getVin(), carRequest.getCaptchaWord(), carRequest.getCheckType());
+        String req = String.format("fines:%s:%s:%s", requestFine.getRegnum(), requestFine.getRegreg(), requestFine.getStsnum());
+        String urlParameters = String.format("req=%s&captchaWord=%s&regnum=%s&regreg=%s&stsnum=%s", req, requestFine.getCaptchaWord(), requestFine.getRegnum(), requestFine.getRegreg(), requestFine.getStsnum());
         wr.writeBytes(urlParameters);
         wr.flush();
         wr.close();
@@ -45,9 +46,9 @@ public class CarInfoService {
         System.out.println("Post parameters : " + urlParameters);
         System.out.println("Response Code : " + responseCode);
 
-        CarResponse carResponse = new CarResponse();
-        carResponse.setResultText(getText(urlConnection));
-        return carResponse;
+        ResponseFine responseDriver = new ResponseFine();
+        responseDriver.setResultText(getText(urlConnection));
+        return responseDriver;
     }
 
     private static String getText(HttpURLConnection urlConnection) throws IOException {

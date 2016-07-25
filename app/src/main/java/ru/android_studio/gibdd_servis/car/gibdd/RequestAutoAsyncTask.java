@@ -9,20 +9,19 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-import ru.android_studio.gibdd_servis.car.activity.CarResultActivity;
-import ru.android_studio.gibdd_servis.car.model.CarRequest;
-import ru.android_studio.gibdd_servis.car.model.CarResponse;
-import ru.android_studio.gibdd_servis.fine.activity.FineActivity;
+import ru.android_studio.gibdd_servis.car.activity.ResultAutoActivity;
+import ru.android_studio.gibdd_servis.car.model.RequestAuto;
+import ru.android_studio.gibdd_servis.car.model.ResponseAuto;
 
 /**
  * Запрос проверки автомобиля с сайта ГИБДД
  */
-public class CarRequestAsyncTask extends AsyncTask<CarRequest, Void, CarResponse> {
+public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseAuto> {
 
-    private static final String TAG = "CarRequestAsyncTask";
+    private static final String TAG = "RequestDriverAsyncTask";
     private Context context;
 
-    public CarRequestAsyncTask(Context context) {
+    public RequestAutoAsyncTask(Context context) {
         this.context = context;
     }
 
@@ -41,15 +40,15 @@ public class CarRequestAsyncTask extends AsyncTask<CarRequest, Void, CarResponse
     }
 
     @Override
-    protected CarResponse doInBackground(CarRequest... params) {
+    protected ResponseAuto doInBackground(RequestAuto... params) {
         Log.d(TAG, "START doInBackground");
         if(params.length == 0) {
-            throw new IllegalArgumentException("CarRequest can't be null");
+            throw new IllegalArgumentException("RequestDriver can't be null");
         }
-        CarRequest carRequest = params[0];
+        RequestAuto requestAuto = params[0];
 
         try {
-            return CarInfoService.clientRequest(carRequest);
+            return InfoAutoService.clientRequest(requestAuto);
         } catch (IOException e) {
             Log.e(TAG, "Error to get captcha", e);
             Toast.makeText(context, "Can't load captcha image, please try again later", Toast.LENGTH_SHORT).show();
@@ -58,17 +57,16 @@ public class CarRequestAsyncTask extends AsyncTask<CarRequest, Void, CarResponse
     }
 
     @Override
-    protected void onPostExecute(CarResponse result) {
+    protected void onPostExecute(ResponseAuto result) {
         Log.d(TAG, "START onPostExecute");
 
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
 
-        Intent intentCarResultActivity = new Intent(context, CarResultActivity.class);
-        intentCarResultActivity.putExtra("result_text", result.getResultText());
-
-        context.startActivity(intentCarResultActivity);
+        Intent intent = new Intent(context, ResultAutoActivity.class);
+        intent.putExtra("result_text", result.getResultText());
+        context.startActivity(intent);
 
         Log.d(TAG, "END onPostExecute");
     }

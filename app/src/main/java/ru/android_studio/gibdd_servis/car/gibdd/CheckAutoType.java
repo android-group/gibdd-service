@@ -1,6 +1,6 @@
 package ru.android_studio.gibdd_servis.car.gibdd;
 
-public enum CheckType {
+public enum CheckAutoType {
     HISTORY("history"), // Проверка истории регистрации в ГИБДД
     WANTED("wanted"), // Проверка нахождения в розыске
     RESTRICT("restrict"), // Проверка наличия ограничений
@@ -8,7 +8,7 @@ public enum CheckType {
 
     private final String value;
 
-    CheckType(String value) {
+    CheckAutoType(String value) {
         this.value = value;
     }
 

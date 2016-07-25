@@ -23,17 +23,27 @@
         </activity>
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".driver.activity.DriverActivity" android:label="@string/check_driver">
+        <activity android:name=".driver.activity.RequestDriverActivity" android:label="@string/check_driver">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".car.activity.CarActivity" android:label="@string/check_car">
+        <activity android:name=".driver.activity.ResultDriverActivity" android:label="@string/check_driver">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".driver.activity.RequestDriverActivity" />
+        </activity>
+        <activity android:name=".car.activity.RequestAutoActivity" android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".fine.activity.FineActivity" android:label="@string/check_fine">
+        <activity android:name=".car.activity.ResultAutoActivity" android:label="@string/check_auto">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".car.activity.RequestAutoActivity" />
+        </activity>
+        <activity android:name=".fine.activity.RequestFineActivity" android:label="@string/check_fine">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -47,11 +57,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".question.activity.QuestionActivity" />
-        </activity>
-        <activity android:name=".car.activity.CarResultActivity" android:label="@string/check_car">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".car.activity.CarActivity" />
         </activity>
     </application>
 

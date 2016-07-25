@@ -5,7 +5,7 @@ import android.support.test.rule.ActivityTestRule;
 import org.junit.Rule;
 import org.junit.Test;
 
-import ru.android_studio.gibdd_servis.car.activity.CarActivity;
+import ru.android_studio.gibdd_servis.car.activity.RequestAutoActivity;
 import ru.android_studio.gibdd_servis.pageObject.MenuPage;
 
 /**
@@ -17,7 +17,7 @@ public class MenuTestUI extends TestUI<MainActivity> {
     }
 
     @Rule
-    public ActivityTestRule<CarActivity> carActivityTestRule = new ActivityTestRule<>(CarActivity.class);
+    public ActivityTestRule<RequestAutoActivity> carActivityTestRule = new ActivityTestRule<>(RequestAutoActivity.class);
 
     /**
      * Начиная с кнопки "Проверка автомобиля"

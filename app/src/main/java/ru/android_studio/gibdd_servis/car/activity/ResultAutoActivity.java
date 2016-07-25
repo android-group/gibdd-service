@@ -9,7 +9,7 @@ import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCR;
 import ru.android_studio.gibdd_servis.R;
 
 
-public class CarResultActivity extends ActivityWithMenuAndOCR {
+public class ResultAutoActivity extends ActivityWithMenuAndOCR {
 
     @BindView(R.id.result_text_view)
     TextView textView;
@@ -17,7 +17,7 @@ public class CarResultActivity extends ActivityWithMenuAndOCR {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_car_result);
+        setContentView(R.layout.activity_auto_result);
 
         ButterKnife.bind(this);
 

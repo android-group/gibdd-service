@@ -1,23 +1,21 @@
-package ru.android_studio.gibdd_servis.car.model;
-
-import ru.android_studio.gibdd_servis.car.gibdd.CheckType;
+package ru.android_studio.gibdd_servis.question.model;
 
 /**
  * Created by y.andreev on 03.07.2016.
  */
-public class CarRequest {
+public class RequestQuestion {
 
-    private String vin;
+    private String num;
     private String captchaWord;
-    private CheckType checkType;
+    private String date;
     private String jsessionid;
 
-    public String getVin() {
-        return vin;
+    public String getNum() {
+        return num;
     }
 
-    public void setVin(String vin) {
-        this.vin = vin;
+    public void setNum(String vin) {
+        this.num = vin;
     }
 
     public String getCaptchaWord() {
@@ -28,12 +26,12 @@ public class CarRequest {
         this.captchaWord = captchaWord;
     }
 
-    public CheckType getCheckType() {
-        return checkType;
+    public String getDate() {
+        return date;
     }
 
-    public void setCheckType(CheckType checkType) {
-        this.checkType = checkType;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getJsessionid() {

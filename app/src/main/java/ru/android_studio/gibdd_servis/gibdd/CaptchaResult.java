@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.car.gibdd;
+package ru.android_studio.gibdd_servis.gibdd;
 
 import android.graphics.Bitmap;
 

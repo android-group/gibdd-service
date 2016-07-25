@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.car.gibdd;
+package ru.android_studio.gibdd_servis.gibdd;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,17 +17,18 @@ public class CaptchaAsyncTask extends AsyncTask<Void, Void, CaptchaResult> {
     private static final String TAG = "CaptchaAsyncTask";
     private Context context;
     private ImageView captchaImageView;
-    //private CaptchaResult captchaResult;
+
     /**
      * Окно отображается при открытом асинх таске
      */
     private ProgressDialog progressDialog;
+    private CheckType checkType;
 
-    public CaptchaAsyncTask(Context context, ImageView captchaImageView) {
+    public CaptchaAsyncTask(Context context, ImageView captchaImageView, CheckType checkType) {
         super();
         this.context = context;
         this.captchaImageView = captchaImageView;
-        //this.captchaResult = captchaResult;
+        this.checkType = checkType;
     }
 
     @Override
@@ -44,8 +45,8 @@ public class CaptchaAsyncTask extends AsyncTask<Void, Void, CaptchaResult> {
         Log.d(TAG, "START doInBackground");
 
         try {
-            return CaptchaService.captchaRequest();
-        } catch (IOException e) {
+            return CaptchaService.captchaRequest(checkType);
+        } catch (IOException | NotFoundResult e) {
             Log.e(TAG, "Error to get captcha", e);
             Toast.makeText(context, "Can't load captcha image, please try again later", Toast.LENGTH_SHORT).show();
             return null;

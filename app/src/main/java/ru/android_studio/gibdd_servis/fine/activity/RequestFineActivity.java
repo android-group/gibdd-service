@@ -25,7 +25,7 @@ import ru.android_studio.gibdd_servis.service.OCRService;
  * @author Ruslan Suleymanov
  * @version 0.1
  */
-public class FineActivity extends ActivityWithMenuAndOCR implements View.OnClickListener {
+public class RequestFineActivity extends ActivityWithMenuAndOCR implements View.OnClickListener {
 
     @BindView(R.id.check_button)
     Button checkButton;
@@ -56,7 +56,7 @@ public class FineActivity extends ActivityWithMenuAndOCR implements View.OnClick
                 String text = asyncExtractText(captcha, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
 
                 Log.i(TAG, String.format("captcha text = %s", text));
-                Toast toast = Toast.makeText(FineActivity.this, text, Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(RequestFineActivity.this, text, Toast.LENGTH_LONG);
                 toast.show();
             }
         });

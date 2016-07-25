@@ -3,15 +3,11 @@ package ru.android_studio.gibdd_servis.car.activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
 
@@ -20,11 +16,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCR;
 import ru.android_studio.gibdd_servis.R;
-import ru.android_studio.gibdd_servis.car.gibdd.CaptchaAsyncTask;
-import ru.android_studio.gibdd_servis.car.gibdd.CaptchaResult;
-import ru.android_studio.gibdd_servis.car.gibdd.CarRequestAsyncTask;
-import ru.android_studio.gibdd_servis.car.gibdd.CheckType;
-import ru.android_studio.gibdd_servis.car.model.CarRequest;
+import ru.android_studio.gibdd_servis.car.model.RequestAuto;
+import ru.android_studio.gibdd_servis.gibdd.CaptchaAsyncTask;
+import ru.android_studio.gibdd_servis.car.gibdd.RequestAutoAsyncTask;
+import ru.android_studio.gibdd_servis.car.gibdd.CheckAutoType;
+import ru.android_studio.gibdd_servis.gibdd.CheckType;
 
 
 /**
@@ -37,36 +33,35 @@ import ru.android_studio.gibdd_servis.car.model.CarRequest;
  * @author Yury Andreev
  * @version 0.1
  */
-public class CarActivity extends ActivityWithMenuAndOCR {
+public class RequestAutoActivity extends ActivityWithMenuAndOCR {
 
-    private static final String TAG = "CarActivity";
+    private static final String TAG = "RequestAutoActivity";
 
     /**
      * Картинка с капчей
      */
     @BindView(R.id.captcha_image_view)
     ImageView captchaImageView;
+
     @BindView(R.id.vin_edit_text)
     EditText vinEditText;
+
     @BindView(R.id.captcha_edit_text)
     EditText captchaEditText;
+
     @BindView(R.id.vin_check_box)
     CheckBox vinCheckBox;
+
     @BindView(R.id.vin_text_view)
     TextView vinTextView;
 
     @BindView(R.id.check_type_spinner)
     Spinner checkTypeSpinner;
 
-    /**
-     * Ответ на запрос капчи от сайта ГИБДД
-     */
-    //private CaptchaResult callbackCaptchaResult = new CaptchaResult();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_car);
+        setContentView(R.layout.activity_auto);
 
         ButterKnife.bind(this);
 
@@ -76,6 +71,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
     }
 
     private CaptchaAsyncTask captchaAsyncTask;
+
     /**
      * Загрузить картинку капчи
      */
@@ -84,7 +80,7 @@ public class CarActivity extends ActivityWithMenuAndOCR {
         Log.d(TAG, "START loadCaptcha");
 
         // if use execute when method in AsyncTask 'doInBackground' will not call
-        captchaAsyncTask = new CaptchaAsyncTask(this, captchaImageView);
+        captchaAsyncTask = new CaptchaAsyncTask(this, captchaImageView, CheckType.AUTO);
         captchaAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         Log.d(TAG, "END loadCaptcha");
     }
@@ -103,17 +99,17 @@ public class CarActivity extends ActivityWithMenuAndOCR {
             e.printStackTrace();
         }
 
-        CarRequest carRequest = new CarRequest();
-        carRequest.setJsessionid(sessionId);
+        RequestAuto requestAuto = new RequestAuto();
+        requestAuto.setJsessionid(sessionId);
 
-        carRequest.setCaptchaWord(captchaEditText.getText().toString());
-        carRequest.setVin(vinEditText.getText().toString());
+        requestAuto.setCaptchaWord(captchaEditText.getText().toString());
+        requestAuto.setVin(vinEditText.getText().toString());
 
-        CheckType checkType = CheckType.values()[checkTypeSpinner.getSelectedItemPosition()];
-        carRequest.setCheckType(checkType);
+        CheckAutoType checkAutoType = CheckAutoType.values()[checkTypeSpinner.getSelectedItemPosition()];
+        requestAuto.setCheckAutoType(checkAutoType);
 
-        final CarRequestAsyncTask carRequestAsyncTask = new CarRequestAsyncTask(this);
-        carRequestAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, carRequest);
+        final RequestAutoAsyncTask requestAutoAsyncTask = new RequestAutoAsyncTask(this);
+        requestAutoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestAuto);
         Log.d(TAG, "END checkButton");
     }
 

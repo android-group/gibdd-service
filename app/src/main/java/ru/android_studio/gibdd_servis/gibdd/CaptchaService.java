@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.car.gibdd;
+package ru.android_studio.gibdd_servis.gibdd;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,7 +24,7 @@ public class CaptchaService {
      * @return CaptchaResult image captcha with jsessionid
      * @throws IOException
      */
-    public static CaptchaResult captchaRequest() throws IOException {
+    public static CaptchaResult captchaRequest(CheckType checkType) throws IOException, NotFoundResult {
         Log.d(TAG, "START captchaRequest");
 
         URL url = new URL("http://check.gibdd.ru/proxy/captcha.jpg");
@@ -32,7 +32,7 @@ public class CaptchaService {
         urlConnection.setRequestMethod("GET");
         urlConnection.setRequestProperty("User-Agent", CommonRequest.USER_AGENT);
         urlConnection.setRequestProperty("X-Compress", "0");
-        urlConnection.setRequestProperty("Referer", "http://www.gibdd.ru/check/auto/");
+        urlConnection.setRequestProperty("Referer", "http://www.gibdd.ru/check/"+ checkType.getTitle() +"/");
         urlConnection.setRequestProperty("Host", "www.gibdd.ru");
         urlConnection.setRequestProperty("Accept", "image/webp,image/*,*/*;q=0.8");
         urlConnection.setRequestProperty("Accept-Encoding", "gzip, deflate, sdch");

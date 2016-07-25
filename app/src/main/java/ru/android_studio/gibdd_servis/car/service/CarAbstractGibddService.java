@@ -12,11 +12,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.concurrent.ExecutionException;
 
 import ru.android_studio.gibdd_servis.AbstractGibddService;
-import ru.android_studio.gibdd_servis.car.model.CarRequest;
-import ru.android_studio.gibdd_servis.car.model.CarResponse;
+import ru.android_studio.gibdd_servis.car.model.RequestAuto;
+import ru.android_studio.gibdd_servis.car.model.ResponseAuto;
 
 /**
  * Сервис в котором нужно описать взаимодействие с ГИБДД
@@ -55,12 +54,12 @@ public class CarAbstractGibddService extends AbstractGibddService {
         return CHECK_AUTO;
     }
 
-    public CarResponse carResponse;
+    public ResponseAuto responseAuto;
 
-    public void request(CarRequest carRequest, CarResponse carResponse) {
-        this.carResponse = carResponse;
+    public void request(RequestAuto requestAuto, ResponseAuto responseAuto) {
+        this.responseAuto = responseAuto;
         /*try {
-            new RequestTask().execute(carRequest.getVin(), carRequest.getCaptcha(), carRequest.getSessionId()).get();
+            new RequestTask().execute(requestAuto.getNum(), requestAuto.getCaptcha(), requestAuto.getSessionId()).get();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }*/
@@ -82,9 +81,9 @@ public class CarAbstractGibddService extends AbstractGibddService {
                 try {
                     JSONObject resultJsonObject = new JSONObject(resultJson);
                     if (restricted(resultJsonObject)) {
-                        //carResponse
+                        //responseAuto
                     } else if (wanted(resultJsonObject)) {
-                        //carResponse
+                        //responseAuto
                     } else {
                         //empty();
                     }

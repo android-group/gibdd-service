@@ -12,10 +12,9 @@ import android.view.View;
 import android.view.WindowManager;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import ru.android_studio.gibdd_servis.car.activity.CarActivity;
-import ru.android_studio.gibdd_servis.driver.activity.DriverActivity;
-import ru.android_studio.gibdd_servis.fine.activity.FineActivity;
+import ru.android_studio.gibdd_servis.car.activity.RequestAutoActivity;
+import ru.android_studio.gibdd_servis.driver.activity.RequestDriverActivity;
+import ru.android_studio.gibdd_servis.fine.activity.RequestFineActivity;
 import ru.android_studio.gibdd_servis.question.activity.QuestionActivity;
 
 /**
@@ -76,17 +75,17 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
             switch (v.getId()) {
                 //проверка штрафов
                 case R.id.menu_fine_btn:
-                    Intent intentFineActivity = new Intent(getApplicationContext(), FineActivity.class);
+                    Intent intentFineActivity = new Intent(getApplicationContext(), RequestFineActivity.class);
                     startActivity(intentFineActivity);
                     break;
                 //проверка водителя
                 case R.id.menu_driver_btn:
-                    Intent intentDriverActivity = new Intent(getApplicationContext(), DriverActivity.class);
+                    Intent intentDriverActivity = new Intent(getApplicationContext(), RequestDriverActivity.class);
                     startActivity(intentDriverActivity);
                     break;
                 //проверка автомобиля
                 case R.id.menu_car_btn:
-                    Intent intentCarActivity = new Intent(getApplicationContext(), CarActivity.class);
+                    Intent intentCarActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
                     startActivity(intentCarActivity);
                     break;
                 //прием обращений

@@ -1,9 +1,9 @@
-package ru.android_studio.gibdd_servis.car.model;
+package ru.android_studio.gibdd_servis.driver.model;
 
 /**
  * Created by y.andreev on 03.07.2016.
  */
-public class CarResponse {
+public class ResponseDriver {
 
     private String resultText;
 
