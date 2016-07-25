@@ -4,6 +4,7 @@ before_install:
 after_failure:
   - cat /home/travis/build/android-group/gibdd-service/app/build/outputs/lint-results-debug.xml
   - cat /home/travis/build/android-group/gibdd-service/app/build/outputs/lint-results-debug.html
+  - cat /home/travis/build/android-group/gibdd-service/app/build/reports/tests/debug/index.html
 android:
   components:
     - tools
