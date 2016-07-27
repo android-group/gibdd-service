@@ -32,7 +32,6 @@ public class MainActivity extends ActivityWithMenu {
             try {
                 ocrAsyncTask.execute(this);
             } catch (Exception e) {
-                e.printStackTrace();
                 Log.e(TAG, e.getMessage(), e);
             }
         }
@@ -44,7 +43,6 @@ public class MainActivity extends ActivityWithMenu {
             try {
                 ocrService.close();
             } catch (Throwable e) {
-                e.printStackTrace();
                 Log.e(TAG, "Error by Tesseract OCR service closing", e);
             }
         }

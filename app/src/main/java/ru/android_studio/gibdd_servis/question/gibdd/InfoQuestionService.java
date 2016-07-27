@@ -1,5 +1,7 @@
 package ru.android_studio.gibdd_servis.question.gibdd;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,8 +18,11 @@ import ru.android_studio.gibdd_servis.question.model.ResponseQuestion;
  */
 public class InfoQuestionService {
 
+    private static final String REQUEST = "http://www.gibdd.ru/bitrix/templates/.default/components/gai/letter/send-1-2/ajax/post.php";
+    private final static String TAG = "InfoQuestionService";
+
     public static ResponseQuestion clientRequest(RequestQuestion requestDriver) throws IOException {
-        URL url = new URL("http://check.gibdd.ru/proxy/check/driver");
+        URL url = new URL(REQUEST);
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         urlConnection.setRequestMethod("POST");
         urlConnection.setRequestProperty("User-Agent", CommonRequest.USER_AGENT);
@@ -41,9 +46,9 @@ public class InfoQuestionService {
 
 
         int responseCode = urlConnection.getResponseCode();
-        System.out.println("\nSending 'POST' request to URL : " + url);
-        System.out.println("Post parameters : " + urlParameters);
-        System.out.println("Response Code : " + responseCode);
+        Log.d(TAG, "\nSending 'POST' request to URL : " + url);
+        Log.d(TAG, "Post parameters : " + urlParameters);
+        Log.d(TAG, "Response Code : " + responseCode);
 
         ResponseQuestion responseDriver = new ResponseQuestion();
         responseDriver.setResultText(getText(urlConnection));

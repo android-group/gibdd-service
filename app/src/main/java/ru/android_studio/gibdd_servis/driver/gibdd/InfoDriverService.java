@@ -1,5 +1,7 @@
 package ru.android_studio.gibdd_servis.driver.gibdd;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,8 +18,11 @@ import ru.android_studio.gibdd_servis.gibdd.CommonRequest;
  */
 public class InfoDriverService {
 
+    private static final String REQUEST = "http://check.gibdd.ru/proxy/check/driver";
+    private final static String TAG = "InfoDriverService";
+
     public static ResponseDriver clientRequest(RequestDriver requestDriver) throws IOException {
-        URL url = new URL("http://check.gibdd.ru/proxy/check/driver");
+        URL url = new URL(REQUEST);
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         urlConnection.setRequestMethod("POST");
         urlConnection.setRequestProperty("User-Agent", CommonRequest.USER_AGENT);
@@ -41,9 +46,9 @@ public class InfoDriverService {
 
 
         int responseCode = urlConnection.getResponseCode();
-        System.out.println("\nSending 'POST' request to URL : " + url);
-        System.out.println("Post parameters : " + urlParameters);
-        System.out.println("Response Code : " + responseCode);
+        Log.i(TAG, "\nSending 'POST' request to URL : " + url);
+        Log.i(TAG, "Post parameters : " + urlParameters);
+        Log.i(TAG, "Response Code : " + responseCode);
 
         ResponseDriver responseDriver = new ResponseDriver();
         responseDriver.setResultText(getText(urlConnection));

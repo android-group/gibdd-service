@@ -53,8 +53,8 @@ public class RequestDriverAsyncTask extends AsyncTask<RequestDriver, Void, Respo
         try {
             return InfoDriverService.clientRequest(requestDriver);
         } catch (IOException e) {
-            Log.e(TAG, "Error to get captcha", e);
-            Toast.makeText(context, "Can't load captcha image, please try again later", Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "Error client request", e);
+            Toast.makeText(context, "Can't to make client request, please try again later", Toast.LENGTH_SHORT).show();
             return null;
         }
     }

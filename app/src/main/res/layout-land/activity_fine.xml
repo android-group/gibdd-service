@@ -45,7 +45,16 @@
                 android:layout_height="wrap_content"
                 android:inputType="number|text"
                 android:maxLength="17"
-                android:id="@+id/fine_Number_ET"
+                android:id="@+id/gos_number_edit_text"
+                android:layout_weight="1"
+                android:hint="A000AA 00"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number|text"
+                android:maxLength="17"
+                android:id="@+id/gos_region_number_edit_text"
                 android:layout_weight="1"
                 android:hint="A000AA 00"/>
 
@@ -63,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number|text"
                 android:maxLength="17"
-                android:id="@+id/fine_SerialNumber_ET"
+                android:id="@+id/serial_number_edit_text"
                 android:layout_weight="1"
                 android:hint="1234 123456"/>
 
@@ -80,15 +89,14 @@
             <ImageView
                 android:layout_width="182dp"
                 android:layout_height="50dp"
-                android:src="@drawable/capture"
-                android:id="@+id/fine_Captcha_IV"
+                android:id="@+id/captcha_image_view"
                 android:layout_weight="1" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:id="@+id/fine_Captcha_ET"
+                android:id="@+id/captcha_edit_text"
                 android:layout_weight="1" />
 
 

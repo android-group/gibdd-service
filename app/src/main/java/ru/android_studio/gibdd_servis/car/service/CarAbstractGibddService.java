@@ -1,6 +1,7 @@
 package ru.android_studio.gibdd_servis.car.service;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,6 +17,9 @@ import java.net.URL;
 import ru.android_studio.gibdd_servis.AbstractGibddService;
 import ru.android_studio.gibdd_servis.car.model.RequestAuto;
 import ru.android_studio.gibdd_servis.car.model.ResponseAuto;
+import ru.android_studio.gibdd_servis.gibdd.CommonRequest;
+
+import static ru.android_studio.gibdd_servis.gibdd.CommonRequest.USER_AGENT;
 
 /**
  * Сервис в котором нужно описать взаимодействие с ГИБДД
@@ -23,7 +27,7 @@ import ru.android_studio.gibdd_servis.car.model.ResponseAuto;
  * Запрос: Проверка машины
  */
 public class CarAbstractGibddService extends AbstractGibddService {
-
+    private final static String TAG = "CarAbstractGibddService";
     private static final String CHECK_AUTO = "http://www.gibdd.ru/check/auto/";
     String vin;
     String captcha;
@@ -56,21 +60,12 @@ public class CarAbstractGibddService extends AbstractGibddService {
 
     public ResponseAuto responseAuto;
 
-    public void request(RequestAuto requestAuto, ResponseAuto responseAuto) {
-        this.responseAuto = responseAuto;
-        /*try {
-            new RequestTask().execute(requestAuto.getNum(), requestAuto.getCaptcha(), requestAuto.getSessionId()).get();
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        }*/
-    }
-
     private class RequestTask extends AsyncTask<String, Void, String> {
         protected String doInBackground(String... urls) {
             try {
                 return clientRequest(vin, captcha, phpsessid);
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.e(TAG, "Error client request", e);
                 return null;
             }
         }
@@ -88,9 +83,7 @@ public class CarAbstractGibddService extends AbstractGibddService {
                         //empty();
                     }
                 } catch (JSONException e) {
-                    //e.printStackTrace();
-                    //Toast.makeText(getBaseContext(), R.string.invalid_captcha, Toast.LENGTH_LONG).show();
-                    //finish();
+                    Log.e(TAG, "JSONException in request", e);
                 }
             }
         }
@@ -178,9 +171,9 @@ public class CarAbstractGibddService extends AbstractGibddService {
 
 
             int responseCode = urlConnection.getResponseCode();
-            System.out.println("\nSending 'POST' request to URL : " + url);
-            System.out.println("Post parameters : " + urlParameters);
-            System.out.println("Response Code : " + responseCode);
+            Log.d(TAG, "\nSending 'POST' request to URL : " + url);
+            Log.d(TAG, "Post parameters : " + urlParameters);
+            Log.d(TAG, "Response Code : " + responseCode);
 
             BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
 

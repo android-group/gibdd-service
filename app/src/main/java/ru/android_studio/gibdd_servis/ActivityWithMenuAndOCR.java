@@ -41,7 +41,6 @@ public abstract class ActivityWithMenuAndOCR extends ActivityWithMenu {
         try {
             ocrAsyncTask.execute(this);
         } catch (Exception e) {
-            e.printStackTrace();
             Log.e(TAG, e.getMessage(), e);
         }
 
@@ -65,7 +64,7 @@ public abstract class ActivityWithMenuAndOCR extends ActivityWithMenu {
         try {
             result = extractTextAsyncTask.execute(request).get();
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e(TAG, "Error extract text async task", e);
         }
         Log.i("TAG", result);
         return result;

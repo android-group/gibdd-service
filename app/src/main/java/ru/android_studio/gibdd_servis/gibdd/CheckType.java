@@ -2,7 +2,9 @@ package ru.android_studio.gibdd_servis.gibdd;
 
 public enum CheckType {
     AUTO("auto"),
-    DRIVER("driver");
+    DRIVER("driver"),
+    FINE("fine"),
+    QUESTION("question");
 
     private final String title;
 

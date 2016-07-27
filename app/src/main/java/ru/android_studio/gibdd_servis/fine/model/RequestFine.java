@@ -5,19 +5,30 @@ package ru.android_studio.gibdd_servis.fine.model;
  */
 public class RequestFine {
 
-    private String req; //fines:111111111:222:2122222222
+    /**
+     * Капча
+     */
     private String captchaWord;
+    /**
+     * Государственный регистрационный знак
+     */
     private String regnum;
+
+    /**
+     * Государственный регистрационный знак
+     * Регион
+     */
     private String regreg;
+
+    /**
+     * Серия и номер свидетельства о регистрации
+     */
     private String stsnum;
-    private String jsessionid;
+
+    private String phpSessId;
 
     public String getReq() {
-        return req;
-    }
-
-    public void setReq(String req) {
-        this.req = req;
+        return String.format("fines:%s:%s:%s", regnum, regreg, stsnum);
     }
 
     public String getCaptchaWord() {
@@ -52,11 +63,11 @@ public class RequestFine {
         this.stsnum = stsnum;
     }
 
-    public String getJsessionid() {
-        return jsessionid;
+    public String getPhpSessId() {
+        return phpSessId;
     }
 
-    public void setJsessionid(String jsessionid) {
-        this.jsessionid = jsessionid;
+    public void setPhpSessId(String phpSessId) {
+        this.phpSessId = phpSessId;
     }
 }

@@ -13,18 +13,18 @@ import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.concurrent.ExecutionException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCR;
+import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCRAndCaptcha;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.camera.Camera;
 import ru.android_studio.gibdd_servis.driver.gibdd.RequestDriverAsyncTask;
 import ru.android_studio.gibdd_servis.driver.model.RequestDriver;
-import ru.android_studio.gibdd_servis.gibdd.CaptchaAsyncTask;
+import ru.android_studio.gibdd_servis.gibdd.BaseCaptchaAsyncTask;
 import ru.android_studio.gibdd_servis.gibdd.CheckType;
+import ru.android_studio.gibdd_servis.gibdd.NewCaptchaAsyncTask;
 
 /**
  * Created on 20.05.2016.
@@ -35,9 +35,9 @@ import ru.android_studio.gibdd_servis.gibdd.CheckType;
  * @author Ruslan Suleymanov
  * @version 0.1
  */
-public class RequestDriverActivity extends ActivityWithMenuAndOCR {
+public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
 
-    private static final String TAG = "RequestDriverActivity";
+        private static final String TAG = "RequestDriverActivity";
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
 
     int year;
@@ -53,9 +53,6 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCR {
     @BindView(R.id.camera)
     Button camera;
 
-    @BindView(R.id.captcha_image_view)
-    ImageView captchaImageView;
-
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int years, int monthOfYear,
                               int dayOfMonth) {
@@ -70,44 +67,18 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCR {
         dateOfIssueEditText.setText(date);
     }
 
-    @BindView(R.id.captcha_edit_text)
-    EditText captchaEditText;
-
     @BindView(R.id.series_license_edit_text)
     EditText seriesEditText;
 
     @BindView(R.id.number_license_edit_text)
     EditText numberEditText;
 
-    private CaptchaAsyncTask captchaAsyncTask;
-
-    /**
-     * Загрузить картинку капчи
-     */
-    @OnClick(R.id.captcha_image_view)
-    void loadCaptcha() {
-        Log.d(TAG, "START loadCaptcha");
-
-        // if use execute when method in AsyncTask 'doInBackground' will not call
-        captchaAsyncTask = new CaptchaAsyncTask(this, captchaImageView, CheckType.DRIVER);
-        captchaAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        Log.d(TAG, "END loadCaptcha");
-    }
-
     @OnClick(R.id.check_button)
     void checkButton() {
         Log.d(TAG, "START checkButton");
 
-        String sessionId = null;
-        try {
-            sessionId = captchaAsyncTask.get().getSessionId();
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        }
-
         RequestDriver requestDriver = new RequestDriver();
-        requestDriver.setJsessionid(sessionId);
-
+        requestDriver.setJsessionid(getSessionId());
         requestDriver.setCaptchaWord(captchaEditText.getText().toString());
 
         String number = numberEditText.getText().toString();
@@ -166,5 +137,10 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCR {
     @Override
     protected int getCurrentMenuId() {
         return R.id.menu_driver_btn;
+    }
+
+    @Override
+    public BaseCaptchaAsyncTask getBaseCaptchaAsyncTask() {
+        return new NewCaptchaAsyncTask(this, captchaImageView, CheckType.DRIVER);
     }
 }

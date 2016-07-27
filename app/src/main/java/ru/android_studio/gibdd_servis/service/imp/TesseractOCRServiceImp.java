@@ -197,7 +197,7 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
                 try {
                     prepareDirectory(DATA_PATH + TESSDATA);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Log.e(TAG, "Error prepare directory", e);
                 }
 
                 copyTessDataFiles(TESSDATA);

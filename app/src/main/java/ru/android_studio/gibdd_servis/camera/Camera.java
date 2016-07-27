@@ -67,7 +67,7 @@ public abstract class Camera {
             options.inSampleSize = 8;
             return BitmapFactory.decodeFile(fileUri.getPath(), options);
         } catch (NullPointerException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Error get bitmap captured image", e);
         }
         return null;
     }

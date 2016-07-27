@@ -1,5 +1,7 @@
 package ru.android_studio.gibdd_servis.car.gibdd;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,8 +18,11 @@ import ru.android_studio.gibdd_servis.gibdd.CommonRequest;
  */
 public class InfoAutoService {
 
+    private static final String REQUEST = "http://check.gibdd.ru/proxy/check/auto/%s";
+    private final static String TAG = "InfoAutoService";
+
     public static ResponseAuto clientRequest(RequestAuto requestAuto) throws IOException {
-        String client = String.format("http://check.gibdd.ru/proxy/check/auto/%s", requestAuto.getCheckAutoType().getValue());
+        String client = String.format(REQUEST, requestAuto.getCheckAutoType().getValue());
         URL url = new URL(client);
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         urlConnection.setRequestMethod("POST");
@@ -42,9 +47,9 @@ public class InfoAutoService {
 
 
         int responseCode = urlConnection.getResponseCode();
-        System.out.println("\nSending 'POST' request to URL : " + url);
-        System.out.println("Post parameters : " + urlParameters);
-        System.out.println("Response Code : " + responseCode);
+        Log.d(TAG, "\nSending 'POST' request to URL : " + url);
+        Log.d(TAG, "Post parameters : " + urlParameters);
+        Log.d(TAG, "Response Code : " + responseCode);
 
         ResponseAuto responseAuto = new ResponseAuto();
         responseAuto.setResultText(getText(urlConnection));

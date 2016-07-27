@@ -36,6 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
+                android:hint="Иванов"
                 android:id="@+id/SurnameEditText"
                 android:layout_weight="1" />
 
@@ -54,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:id="@+id/NameEditText"
+                android:hint="Иван"
                 android:layout_weight="1" />
 
             <TextView
@@ -70,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:id="@+id/MiddleNameEditText"
+                android:hint="Петрович"
                 android:layout_weight="1" />
 
             <TextView
@@ -87,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:id="@+id/PhoneEditText"
+                android:hint="+7 (999) 000-00-00"
                 android:layout_weight="1" />
 
             <TextView
@@ -130,6 +134,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/border"
         android:gravity="center_vertical|center_horizontal"
         android:layout_marginTop="10dp"
         android:layout_alignParentEnd="true"

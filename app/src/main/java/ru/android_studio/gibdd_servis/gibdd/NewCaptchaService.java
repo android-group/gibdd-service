@@ -14,9 +14,9 @@ import java.util.Map;
 /**
  * Получить капчу и jsessionid
  */
-public class CaptchaService {
+public class NewCaptchaService {
 
-    private final static String TAG = "CaptchaService";
+    private final static String TAG = "NewCaptchaService";
 
     /**
      * Получить капчу и jsessionid

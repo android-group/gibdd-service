@@ -3,6 +3,7 @@ package ru.android_studio.gibdd_servis;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.IOException;
@@ -13,18 +14,21 @@ import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
+import static ru.android_studio.gibdd_servis.gibdd.CommonRequest.PHPSESS_ID;
+import static ru.android_studio.gibdd_servis.gibdd.CommonRequest.USER_AGENT;
+
 
 /**
  * Абстрактный класс для взаимодействия с ГИБДД
- *
+ * <p/>
  * скорее всего у всех сервисов ГИБДД капча запрашивается одинаково
  * и запросы с ответами могут происходить подобным образом
  */
 public abstract class AbstractGibddService implements RequestService {
 
-    protected static final String USER_AGENT = "Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1";
-    private static final String PHPSESS_ID = "PHPSESSID";
+    private static final String TAG = "AbstractGibddService";
     private String sessionId;
+    private ImageView imageView;
 
     private String getSessionId() {
         return sessionId;
@@ -49,7 +53,7 @@ public abstract class AbstractGibddService implements RequestService {
             String key = next.getKey();
             List<String> value = next.getValue();
             if (key != null && key.equals("Set-Cookie")) {
-                System.out.println("key: " + key);
+                Log.i(TAG, "key: " + key);
                 for (String s : value) {
                     if (s.startsWith(PHPSESS_ID)) {
                         int start = s.indexOf("=") + 1;
@@ -59,7 +63,7 @@ public abstract class AbstractGibddService implements RequestService {
                 }
             }
         }
-        System.out.println("resultPhpsessId: " + resultPhpsessId);
+        Log.i(TAG, "resultPhpsessId: " + resultPhpsessId);
         return resultPhpsessId;
     }
 
@@ -88,20 +92,9 @@ public abstract class AbstractGibddService implements RequestService {
         try {
             new RetrieveCaptchaTask().execute().get();
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e(TAG, "Error retrieve captcha", e);
         }
     }
-
-    public Bitmap retrieveCaptcha() {
-        try {
-            return new RetrieveCaptchaTask().execute().get();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    private ImageView imageView;
 
     private class RetrieveCaptchaTask extends AsyncTask<String, Void, Bitmap> {
 
@@ -109,19 +102,19 @@ public abstract class AbstractGibddService implements RequestService {
             try {
                 String newSessionId = getNewSessionId();
                 if (newSessionId == null) {
-                    System.out.println("ERROR");
+                    Log.e(TAG, "Can't get new session Id");
                     return null;
                 }
 
                 setSessionId(newSessionId);
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.e(TAG, "Can't get new session Id", e);
             }
 
             try {
                 return BitmapFactory.decodeStream(getCaptcha());
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.e(TAG, "Can't get captcha", e);
                 return null;
             }
         }

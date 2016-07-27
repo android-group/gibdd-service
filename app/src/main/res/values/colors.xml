@@ -2,11 +2,12 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#00709e</color>
 
     <color name="toolbarBackground">#00709e</color>
     <color name="toolbarText">#ffffff</color>
     <color name="white">#ffffff</color>
 
+    <color name="bottom_menu_border">#818181</color>
     <color name="colorSplashDrawableBlack">#ffffff</color>
 </resources>
