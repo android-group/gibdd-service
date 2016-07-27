@@ -27,8 +27,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Фамилия"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 android:id="@+id/SurnameTextView"
+                android:textColor="@color/black"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical" />
 
@@ -45,8 +47,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Имя"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 android:id="@+id/NameTextView"
+                android:textColor="@color/black"
                 android:layout_weight="1"
                 android:paddingTop="20dp" />
 
@@ -62,8 +66,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Отчество"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 android:id="@+id/MiddleNameTextView"
+                android:textColor="@color/black"
                 android:layout_weight="1"
                 android:paddingTop="20dp" />
 
@@ -79,8 +85,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:text="Контактный телефон"
                 android:id="@+id/PhoneTextView"
+                android:textColor="@color/black"
                 android:layout_weight="1"
                 android:paddingTop="5dp"
                 />
@@ -97,6 +105,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:text="Получить ответ"
                 android:id="@+id/AnswerTextView"
                 android:layout_weight="1"

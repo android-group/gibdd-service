@@ -9,5 +9,7 @@
     <color name="white">#ffffff</color>
 
     <color name="bottom_menu_border">#818181</color>
-    <color name="colorSplashDrawableBlack">#ffffff</color>
+    <color name="colorSplashDrawable">#ffffff</color>
+    <color name="black">#000</color>
+
 </resources>

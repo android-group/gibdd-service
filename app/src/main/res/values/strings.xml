@@ -7,7 +7,7 @@
     <string name="check_fine">Проверка штрафов</string>
     <string name="check_question">Прием обращений</string>
     <string name="btn_next">Далее</string>
-    <string name="btn_send">отправить</string>
+    <string name="btn_send">Отправить</string>
     <string name="capture_picture_btn">Проверить</string>
     <string name="image_preview">image preview</string>
     <string name="camera_detection">Распознование</string>
