@@ -11,11 +11,11 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollIndicators="right"
-        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/NavigationLinearLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/NavigationLinearLayout">
+        android:layout_below="@+id/toolbar"
+        android:scrollIndicators="right">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,8 +29,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:textSize="18sp"
-                android:entries="@array/check_type"/>
+                android:entries="@array/check_type"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/vin_text_view"
@@ -39,6 +39,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:text="Идентификационный номер (VIN)"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <EditText
@@ -65,6 +66,7 @@
                 android:layout_weight="1"
                 android:paddingTop="5dp"
                 android:text="Введите символы с картинки"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <ImageView
@@ -102,76 +104,83 @@
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:orientation="horizontal"
-        android:scrollIndicators="right">
+        android:orientation="vertical">
 
         <View
-            android:layout_width="0dp"
+            android:id="@+id/bottom_menu_border"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            android:background="@color/bottom_menu_border" />
 
-        <ImageButton
-            android:id="@+id/menu_fine_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_fine_off"
-            android:background="@android:color/transparent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:id="@+id/menu_driver_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_driver_off"
-            android:background="@android:color/transparent" />
+            <ImageButton
+                android:id="@+id/menu_fine_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_fine_off" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:id="@+id/menu_car_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="false"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_auto_on"
-            android:visibility="visible"
-            android:background="@android:color/transparent" />
+            <ImageButton
+                android:id="@+id/menu_driver_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_driver_off" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:id="@+id/menu_question_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_question_off"
-            android:background="@android:color/transparent" />
+            <ImageButton
+                android:id="@+id/menu_car_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="false"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_auto_on"
+                android:visibility="visible" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
+            <ImageButton
+                android:id="@+id/menu_question_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_question_off" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
+
+        </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

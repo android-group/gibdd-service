@@ -9,213 +9,207 @@
     <include layout="@layout/toolbar" />
 
     <ScrollView
+        android:id="@+id/scrollView4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView4"
-        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/NavigationLinearLayout"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/NavigationLinearLayout">
+        android:layout_below="@+id/toolbar">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar"
-            android:layout_margin="20dp">
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Фамилия"
-                android:textStyle="bold"
-                android:textSize="18sp"
                 android:id="@+id/SurnameTextView"
-                android:textColor="@color/black"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical" />
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="Иванов"
+
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Фамилия"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <EditText
                 android:id="@+id/SurnameEditText"
-                android:layout_weight="1" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Иванов"
+                android:inputType="textPersonName" />
 
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Имя"
-                android:textStyle="bold"
-                android:textSize="18sp"
                 android:id="@+id/NameTextView"
-                android:textColor="@color/black"
-                android:layout_weight="1"
-                android:paddingTop="20dp" />
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                android:text="Имя"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <EditText
                 android:id="@+id/NameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="Иван"
-                android:layout_weight="1" />
+                android:inputType="textPersonName" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Отчество"
-                android:textStyle="bold"
-                android:textSize="18sp"
                 android:id="@+id/MiddleNameTextView"
-                android:textColor="@color/black"
-                android:layout_weight="1"
-                android:paddingTop="20dp" />
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                android:text="Отчество"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <EditText
                 android:id="@+id/MiddleNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="Петрович"
-                android:layout_weight="1" />
+                android:inputType="textPersonName" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="Контактный телефон"
                 android:id="@+id/PhoneTextView"
-                android:textColor="@color/black"
-                android:layout_weight="1"
-                android:paddingTop="5dp"
-                />
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
+                android:layout_weight="1"
+                android:paddingTop="5dp"
+                android:text="Контактный телефон"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <EditText
                 android:id="@+id/PhoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="+7 (999) 000-00-00"
-                android:layout_weight="1" />
+                android:inputType="phone" />
 
             <TextView
+                android:id="@+id/AnswerTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:text="Получить ответ"
-                android:id="@+id/AnswerTextView"
                 android:layout_weight="1"
                 android:paddingTop="5dp"
-                />
+                android:text="Получить ответ"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/AnswerEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:id="@+id/AnswerEditText"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:inputType="phone" />
 
             <Button
+                android:id="@+id/btn_next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_next"
-                android:id="@+id/btn_next"
                 android:background="@drawable/button_next"
+                android:text="@string/btn_next"
                 android:textColor="@drawable/text_button_next" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1" >
-            </View>
+                android:layout_weight="1"></View>
 
         </LinearLayout>
     </ScrollView>
 
+
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/border"
-        android:gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignEnd="@id/menuLinearLayout">
+        android:orientation="vertical">
 
         <View
-            android:layout_width="0dp"
+            android:id="@+id/bottom_menu_border"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            android:background="@color/bottom_menu_border" />
 
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:id="@+id/menu_fine_btn"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_fine_off"
-            android:background="@android:color/transparent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:id="@+id/menu_driver_btn"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_driver_off"
-            android:background="@android:color/transparent" />
+            <ImageButton
+                android:id="@+id/menu_fine_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_fine_off" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:id="@+id/menu_car_btn"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_auto_off"
-            android:background="@android:color/transparent" />
+            <ImageButton
+                android:id="@+id/menu_driver_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_driver_off" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:id="@+id/menu_question_btn"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_question_on"
-            android:background="@android:color/transparent" />
+            <ImageButton
+                android:id="@+id/menu_car_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_auto_off" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
+            <ImageButton
+                android:id="@+id/menu_question_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_question_on" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
+
+        </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

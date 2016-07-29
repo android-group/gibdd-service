@@ -8,213 +8,212 @@
     <include layout="@layout/toolbar" />
 
     <ScrollView
+        android:id="@+id/scrollView5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView5"
-        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/NavigationLinearLayout"
         android:layout_alignParentStart="true"
-        android:scrollIndicators="right"
-        android:layout_above="@+id/NavigationLinearLayout">
+        android:layout_below="@+id/toolbar"
+        android:scrollIndicators="right">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp">
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Обращение адресовано"
-                android:textSize="17sp"
-                android:textStyle="bold"
                 android:id="@+id/RecipientTextView"
-                android:textColor="@color/black"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical" />
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_gravity="center_vertical"
+
+                android:layout_weight="1"
+                android:text="Обращение адресовано"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <EditText
                 android:id="@+id/RecipientEditText"
-                android:layout_weight="1" />
-
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Цель обращения"
-                android:textStyle="bold"
-                android:textSize="17sp"
+                android:layout_weight="1"
+                android:inputType="text" />
+
+            <TextView
                 android:id="@+id/GoalOfRequestTextView"
-                android:layout_weight="1"
-                android:paddingTop="0dp" />
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:id="@+id/GoalOfRequestEditText"
-                android:layout_weight="1" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Текст обращения"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:id="@+id/TextOfRequestTextView"
-                android:layout_weight="1"
-                android:paddingTop="0dp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:id="@+id/TextOfRequestEditText"
-                android:layout_weight="1" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Добавить файл"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:id="@+id/FileTextView"
-                android:layout_weight="1"
-                android:paddingTop="0dp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:id="@+id/FiletEditText"
-                android:layout_weight="1" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:text="Введите символы с картинки"
-                android:id="@+id/CuptureTextView"
-                android:textStyle="bold"
                 android:layout_weight="1"
                 android:paddingTop="0dp"
-                />
-
-            <ImageView
-                android:layout_width="182dp"
-                android:layout_height="50dp"
-                android:src="@drawable/capture"
-                android:id="@+id/CaptureImageView"
-                android:layout_weight="1" />
+                android:text="Цель обращения"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
 
             <EditText
+                android:id="@+id/GoalOfRequestEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:layout_weight="1"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/TextOfRequestTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:paddingTop="0dp"
+                android:text="Текст обращения"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/TextOfRequestEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/FileTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:paddingTop="0dp"
+                android:text="Добавить файл"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/FiletEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/CuptureTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="0dp"
+                android:text="Введите символы с картинки"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/CaptureImageView"
+                android:layout_width="182dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/capture" />
+
+            <EditText
                 android:id="@+id/CuptureEditText"
-                android:layout_weight="1" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="text" />
 
 
             <Button
+                android:id="@+id/CheckButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_send"
-                android:id="@+id/CheckButton"
                 android:background="@drawable/button_check"
+                android:text="@string/btn_send"
                 android:textColor="@drawable/text_button" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1" >
-            </View>
+                android:layout_weight="1"></View>
 
         </LinearLayout>
     </ScrollView>
 
+
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
-        android:gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignEnd="@id/menuLinearLayout">
+        android:orientation="vertical">
 
         <View
-            android:layout_width="0dp"
+            android:id="@+id/bottom_menu_border"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            android:background="@color/bottom_menu_border" />
 
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:id="@+id/menu_fine_btn"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_fine_off"
-            android:background="@android:color/transparent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:id="@+id/menu_driver_btn"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_driver_off"
-            android:background="@android:color/transparent" />
+            <ImageButton
+                android:id="@+id/menu_fine_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_fine_off" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:id="@+id/menu_car_btn"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_auto_off"
-            android:background="@android:color/transparent" />
+            <ImageButton
+                android:id="@+id/menu_driver_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_driver_off" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:id="@+id/menu_question_btn"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_question_on"
-            android:background="@android:color/transparent" />
+            <ImageButton
+                android:id="@+id/menu_car_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_auto_off" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
+            <ImageButton
+                android:id="@+id/menu_question_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_question_on" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
+
+        </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

@@ -31,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Серия водительского удостоверения"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <EditText
@@ -58,6 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Номер водительского удостоверения"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <EditText
@@ -74,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Дата выдачи"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -106,6 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Введите символы с картинки"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <ImageView
@@ -134,77 +138,86 @@
 
     </ScrollView>
 
+
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <View
-            android:layout_width="0dp"
+            android:id="@+id/bottom_menu_border"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            android:background="@color/bottom_menu_border" />
 
-        <ImageButton
-            android:id="@+id/menu_fine_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_fine_off" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:id="@+id/menu_driver_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_driver_on" />
+            <ImageButton
+                android:id="@+id/menu_fine_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_fine_off" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:id="@+id/menu_car_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_auto_off" />
+            <ImageButton
+                android:id="@+id/menu_driver_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_driver_on" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
-        <ImageButton
-            android:id="@+id/menu_question_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_question_off" />
+            <ImageButton
+                android:id="@+id/menu_car_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_auto_off" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"></View>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
 
+            <ImageButton
+                android:id="@+id/menu_question_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_question_off" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
+
+        </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>
