@@ -14,6 +14,8 @@ import static org.junit.Assert.fail;
  * @author Ruslan Suleymanov
  * @version 0.1
  */
+@Ignore
+// @TODO need to work
 public class MainActivityTest {
 
     private MainActivity activity;
@@ -24,7 +26,6 @@ public class MainActivityTest {
     }
 
     @Test
-    @Ignore
     public void testOnCreate() {
         fail("Not emplemented!");
     }
