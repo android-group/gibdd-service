@@ -2,6 +2,7 @@ package ru.android_studio.gibdd_servis;
 
 import android.support.test.rule.ActivityTestRule;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -11,6 +12,7 @@ import ru.android_studio.gibdd_servis.pageObject.MenuPage;
 /**
  * Тестирование переходов по меню
  */
+@Ignore
 public class MenuTestUI extends TestUI<MainActivity> {
 
     public MenuTestUI() {
