@@ -12,3 +12,7 @@ android:
     - build-tools-23.0.3
     - android-23
     - extra-android-m2repository
+env:
+  global:
+   # install timeout in minutes (2 minutes by default)
+    - ADB_INSTALL_TIMEOUT=8
