@@ -12,7 +12,6 @@ import ru.android_studio.gibdd_servis.pageObject.MenuPage;
 /**
  * Тестирование переходов по меню
  */
-@Ignore
 public class MenuTestUI extends TestUI<MainActivity> {
 
     public MenuTestUI() {

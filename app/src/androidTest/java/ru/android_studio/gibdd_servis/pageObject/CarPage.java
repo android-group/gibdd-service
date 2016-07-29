@@ -1,6 +1,7 @@
 package ru.android_studio.gibdd_servis.pageObject;
 
 import android.app.Activity;
+import android.support.test.espresso.matcher.ViewMatchers;
 
 import com.squareup.spoon.Spoon;
 
@@ -9,6 +10,7 @@ import ru.android_studio.gibdd_servis.R;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.actionWithAssertions;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 /**
  * Главное окно с облаком тегов
