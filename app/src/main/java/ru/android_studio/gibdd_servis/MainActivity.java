@@ -3,12 +3,11 @@ package ru.android_studio.gibdd_servis;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import butterknife.ButterKnife;
-import ru.android_studio.gibdd_servis.service.OCRService;
-import ru.android_studio.gibdd_servis.service.imp.TesseractOCRServiceImp;
+import ru.android_studio.gibdd_servis.ocr.OCRService;
+import ru.android_studio.gibdd_servis.ocr.imp.TesseractOCRServiceImp;
 
 public class MainActivity extends ActivityWithMenu {
 

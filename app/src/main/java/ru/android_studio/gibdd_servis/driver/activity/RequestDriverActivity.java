@@ -30,7 +30,7 @@ import ru.android_studio.gibdd_servis.gibdd.NewCaptchaAsyncTask;
  * Created on 20.05.2016.
  * <p/>
  * Проверка водителя
- *
+ * Проверка водительского удостоверения
  * @author Yury Andreev
  * @author Ruslan Suleymanov
  * @version 0.1

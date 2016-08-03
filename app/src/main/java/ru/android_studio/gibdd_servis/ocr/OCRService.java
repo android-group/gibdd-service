@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.service;
+package ru.android_studio.gibdd_servis.ocr;
 
 import android.graphics.Bitmap;
 import android.net.Uri;

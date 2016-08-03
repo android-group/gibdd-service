@@ -51,10 +51,10 @@ public abstract class BaseCaptchaAsyncTask extends AsyncTask<String, Void, Captc
     protected CaptchaResult doInBackground(String... urls) {
         try {
             return captchaRequest();
-        } catch (IOException e) {
+        } catch (IOException | NotFoundResult e) {
             Log.e(TAG, "can't get captcha", e);
+            return null;
         }
-        return null;
     }
 
     abstract CaptchaResult captchaRequest() throws IOException;

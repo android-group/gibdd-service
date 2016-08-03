@@ -48,7 +48,10 @@ public abstract class ActivityWithMenuAndOCRAndCaptcha extends ActivityWithMenuA
     protected String getSessionId() {
         String sessionId = null;
         try {
-            sessionId = getCaptchaResult().getSessionId();
+            CaptchaResult captchaResult = getCaptchaResult();
+            if(captchaResult != null) {
+                sessionId = captchaResult.getSessionId();
+            }
         } catch (InterruptedException | ExecutionException e) {
             Log.e(TAG, "can't get session id", e);
         }

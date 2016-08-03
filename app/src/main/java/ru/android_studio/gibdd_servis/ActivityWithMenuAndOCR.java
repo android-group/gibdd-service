@@ -1,15 +1,14 @@
 package ru.android_studio.gibdd_servis;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import ru.android_studio.gibdd_servis.service.OCRService;
-import ru.android_studio.gibdd_servis.service.imp.TesseractOCRServiceImp;
+import ru.android_studio.gibdd_servis.ocr.OCRService;
+import ru.android_studio.gibdd_servis.ocr.imp.TesseractOCRServiceImp;
 
 /**
  * Created by Ruslan Suleymanov on 23.06.16.

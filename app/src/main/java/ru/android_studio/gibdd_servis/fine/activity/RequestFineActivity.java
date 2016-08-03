@@ -21,7 +21,7 @@ import ru.android_studio.gibdd_servis.gibdd.OldCaptchaAsyncTask;
  * Created by y.andreev on 03.06.2016.
  * <p/>
  * Проверка штрафов
- *
+ * Проверка наличия неуплаченных штрафов по данным транспортного средства
  * @author y.andreev
  * @author Ruslan Suleymanov
  * @version 0.1

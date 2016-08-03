@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.service.imp;
+package ru.android_studio.gibdd_servis.ocr.imp;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import ru.android_studio.gibdd_servis.service.OCRService;
+import ru.android_studio.gibdd_servis.ocr.OCRService;
 
 /**
  * Сервис для работы с Tesseract OCR

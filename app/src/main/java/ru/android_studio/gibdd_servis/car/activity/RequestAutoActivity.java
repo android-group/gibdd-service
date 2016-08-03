@@ -25,7 +25,7 @@ import ru.android_studio.gibdd_servis.gibdd.NewCaptchaAsyncTask;
  * Created by olga on 22.05.2016.
  * <p/>
  * Проверка машины
- *
+ * Проверка наличия неуплаченных штрафов по данным транспортного средства
  * @author olga
  * @author Ruslan Suleymanov
  * @author Yury Andreev
@@ -64,14 +64,17 @@ public class RequestAutoActivity extends ActivityWithMenuAndOCRAndCaptcha {
         Log.d(TAG, "START checkButton");
 
         RequestAuto requestAuto = new RequestAuto();
-        requestAuto.setJsessionid(getSessionId());
-        requestAuto.setCaptchaWord(captchaEditText.getText().toString());
-        requestAuto.setVin(vinEditText.getText().toString());
-        requestAuto.setCheckAutoType(getCheckAutoType());
+        String sessionId = getSessionId();
+        if(sessionId != null) {
+            requestAuto.setJsessionid(sessionId);
+            requestAuto.setCaptchaWord(captchaEditText.getText().toString());
+            requestAuto.setVin(vinEditText.getText().toString());
+            requestAuto.setCheckAutoType(getCheckAutoType());
 
-        final RequestAutoAsyncTask requestAutoAsyncTask = new RequestAutoAsyncTask(this);
-        requestAutoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestAuto);
-        Log.d(TAG, "END checkButton");
+            final RequestAutoAsyncTask requestAutoAsyncTask = new RequestAutoAsyncTask(this);
+            requestAutoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestAuto);
+            Log.d(TAG, "END checkButton");
+        }
     }
 
     private CheckAutoType getCheckAutoType() {
