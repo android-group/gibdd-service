@@ -124,27 +124,26 @@
                 android:inputType="number"
                 android:maxLength="5"
                 android:maxLines="1" />
-
-            <Button
-                android:id="@+id/check_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                android:background="@drawable/button_check"
-                android:paddingTop="10dp"
-                android:text="@string/btn_check"
-                android:textColor="@drawable/text_button" />
         </LinearLayout>
 
     </ScrollView>
 
-
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="125dp"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/check_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:background="@drawable/button_check"
+            android:paddingTop="10dp"
+            android:text="@string/btn_check"
+            android:textColor="@drawable/text_button" />
 
         <View
             android:id="@+id/bottom_menu_border"

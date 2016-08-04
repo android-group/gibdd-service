@@ -113,20 +113,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="phone" />
-
-            <Button
-                android:id="@+id/btn_next"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_next"
-                android:text="@string/btn_next"
-                android:textColor="@drawable/text_button_next" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"></View>
-
         </LinearLayout>
     </ScrollView>
 
@@ -134,9 +120,17 @@
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="125dp"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_next"
+            android:text="@string/btn_next"
+            android:textColor="@drawable/text_button_next" />
 
         <View
             android:id="@+id/bottom_menu_border"

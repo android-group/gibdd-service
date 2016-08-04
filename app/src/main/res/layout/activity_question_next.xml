@@ -118,21 +118,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="text" />
-
-
-            <Button
-                android:id="@+id/CheckButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_check"
-                android:text="@string/btn_send"
-                android:textColor="@drawable/text_button" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"></View>
-
         </LinearLayout>
     </ScrollView>
 
@@ -140,9 +125,17 @@
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="125dp"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/CheckButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_check"
+            android:text="@string/btn_send"
+            android:textColor="@drawable/text_button" />
 
         <View
             android:id="@+id/bottom_menu_border"
