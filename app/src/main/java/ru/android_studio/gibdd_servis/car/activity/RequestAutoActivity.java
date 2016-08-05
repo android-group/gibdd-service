@@ -54,7 +54,7 @@ public class RequestAutoActivity extends ActivityWithMenuAndOCRAndCaptcha {
 
         ButterKnife.bind(this);
 
-        addToolbarByIconId(R.mipmap.auto_logo);
+        addToolbarByIconId(R.mipmap.ic_auto);
         setMenuConfig();
         loadCaptcha();
     }

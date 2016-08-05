@@ -21,7 +21,7 @@ public class MainActivity extends ActivityWithMenu {
 
         ButterKnife.bind(this);
 
-        toolbar.setLogo(R.mipmap.main_logo);
+        toolbar.setLogo(R.mipmap.ic_main);
         setSupportActionBar(toolbar);
 
         setMenuConfig();

@@ -98,7 +98,7 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
 
         ButterKnife.bind(this);
 
-        addToolbarByIconId(R.mipmap.driver_logo);
+        addToolbarByIconId(R.mipmap.ic_driver);
         setMenuConfig();
         loadCaptcha();
 

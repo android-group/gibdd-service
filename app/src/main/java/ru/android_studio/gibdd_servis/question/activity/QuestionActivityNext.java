@@ -20,7 +20,7 @@ public class QuestionActivityNext extends ActivityWithMenu {
 
         ButterKnife.bind(this);
 
-        addToolbarByIconId(R.mipmap.question_logo);
+        addToolbarByIconId(R.mipmap.ic_question);
         setMenuConfig();
     }
 

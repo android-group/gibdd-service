@@ -32,7 +32,7 @@ public class QuestionActivity  extends ActivityWithMenu implements View.OnClickL
 
         ButterKnife.bind(this);
 
-        addToolbarByIconId(R.mipmap.question_logo);
+        addToolbarByIconId(R.mipmap.ic_question);
         setMenuConfig();
 
         nextBtn.setOnClickListener(this);

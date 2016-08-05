@@ -24,7 +24,7 @@ public class ResultFineActivity extends ActivityWithMenuAndOCR {
         Bundle extras = getIntent().getExtras();
         textView.setText(extras.getString("result_text"));
 
-        addToolbarByIconId(R.mipmap.auto_logo);
+        addToolbarByIconId(R.mipmap.ic_fine);
         setMenuConfig();
 
     }

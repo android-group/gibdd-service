@@ -103,10 +103,11 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
      * @param iconId - id картинки for example R.mipmap.auto_logo
      */
     protected void addToolbarByIconId(int iconId) {
+        toolbar.setNavigationIcon(R.mipmap.ic_action_back);
+        toolbar.setLogo(iconId);
         setSupportActionBar(toolbar);
         ActionBar supportActionBar = getSupportActionBar();
         supportActionBar.setDisplayHomeAsUpEnabled(true);
         supportActionBar.setDisplayShowTitleEnabled(true);
-        supportActionBar.setIcon(iconId);
     }
 }
