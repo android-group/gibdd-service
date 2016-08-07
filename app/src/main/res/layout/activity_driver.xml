@@ -43,7 +43,7 @@
                 android:maxLines="1" />
 
             <Button
-                android:id="@+id/camera"
+                android:id="@+id/recognize_series_camera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -70,6 +70,13 @@
                 android:inputType="number"
                 android:maxLength="6"
                 android:maxLines="1" />
+
+            <Button
+                android:id="@+id/recognize_number_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="С камеры" />
 
             <TextView
                 android:id="@+id/DateOfIssueTextView"

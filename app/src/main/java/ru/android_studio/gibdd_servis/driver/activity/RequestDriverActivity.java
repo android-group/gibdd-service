@@ -33,47 +33,43 @@ import ru.android_studio.gibdd_servis.ocr.OCRService;
  * <p/>
  * Проверка водителя
  * Проверка водительского удостоверения
+ *
  * @author Yury Andreev
  * @author Ruslan Suleymanov
  * @version 0.1
  */
 public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
 
-        private static final String TAG = "RequestDriverActivity";
+    public static final String WITHOUT_NON_DIGIT_CHARACTERS = "[^\\d]";
+    private static final String TAG = "RequestDriverActivity";
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
-
     int year;
     int month;
     int day;
-
     @BindView(R.id.result_camera)
     ImageView resultCamera;
-
     @BindView(R.id.date_of_issue_edit_text)
     EditText dateOfIssueEditText;
-
-    @BindView(R.id.camera)
+    @BindView(R.id.recognize_series_camera)
     Button camera;
-
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int years, int monthOfYear,
                               int dayOfMonth) {
             year = years;
             month = monthOfYear;
             day = dayOfMonth;
-            setDate(String.format("%d.%d.%d", day , month, year));
+            setDate(String.format("%d.%d.%d", day, month, year));
         }
     };
+    @BindView(R.id.series_license_edit_text)
+    EditText seriesEditText;
+    @BindView(R.id.number_license_edit_text)
+    EditText numberEditText;
+    private RecognizeType recognizeType;
 
     private void setDate(String date) {
         dateOfIssueEditText.setText(date);
     }
-
-    @BindView(R.id.series_license_edit_text)
-    EditText seriesEditText;
-
-    @BindView(R.id.number_license_edit_text)
-    EditText numberEditText;
 
     @OnClick(R.id.check_button)
     void checkButton() {
@@ -111,9 +107,17 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
         setDate(SIMPLE_DATE_FORMAT.format(c.getTime()));
     }
 
-    @OnClick(R.id.camera)
-    public void openCamera() {
-        Log.d(TAG, "openCamera");
+    @OnClick(R.id.recognize_series_camera)
+    public void recognizeSeriesCamera() {
+        Log.d(TAG, "recognizeSeriesCamera");
+        recognizeType = RecognizeType.SERIES;
+        Camera.open(this);
+    }
+
+    @OnClick(R.id.recognize_number_camera)
+    public void recognizeNumberCamera() {
+        Log.d(TAG, "recognizeNumberCamera");
+        recognizeType = RecognizeType.NUMBER;
         Camera.open(this);
     }
 
@@ -127,7 +131,17 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
         if (photo != null) {
             resultCamera.setImageBitmap(photo);
         }
+
         String text = asyncExtractText(photo, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
+
+        String recognizedText = text.replaceAll(WITHOUT_NON_DIGIT_CHARACTERS, "");
+        if (recognizeType == RecognizeType.NUMBER) {
+            numberEditText.setText(recognizedText);
+            numberEditText.requestFocus();
+        } else if (recognizeType == RecognizeType.SERIES) {
+            seriesEditText.setText(recognizedText);
+            seriesEditText.requestFocus();
+        }
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
     }
 
@@ -146,5 +160,10 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
     @Override
     public BaseCaptchaAsyncTask getBaseCaptchaAsyncTask() {
         return new NewCaptchaAsyncTask(this, captchaImageView, CheckType.DRIVER);
+    }
+
+    private enum RecognizeType {
+        SERIES,
+        NUMBER
     }
 }
