@@ -128,9 +128,10 @@
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_next"
+            android:background="@color/button"
             android:text="@string/btn_next"
-            android:textColor="@drawable/text_button_next" />
+            android:textColor="@drawable/text_button"
+            android:shadowColor="@color/buttonShade" />
 
         <View
             android:id="@+id/bottom_menu_border"

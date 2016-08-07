@@ -137,10 +137,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:background="@drawable/button_check"
+                android:background="@color/button"
                 android:paddingTop="10dp"
                 android:text="@string/btn_check"
-                android:textColor="@drawable/text_button" />
+                android:textColor="@drawable/text_button"
+                android:shadowColor="@color/buttonShade" />
 
         </LinearLayout>
     </ScrollView>

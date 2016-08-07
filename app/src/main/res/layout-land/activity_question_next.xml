@@ -122,9 +122,10 @@
                 android:id="@+id/CheckButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_check"
+                android:background="@color/button"
                 android:text="@string/btn_send"
-                android:textColor="@drawable/text_button" />
+                android:textColor="@drawable/text_button"
+                android:shadowColor="@color/buttonShade" />
 
             <View
                 android:layout_width="0dp"

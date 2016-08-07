@@ -12,4 +12,6 @@
     <color name="colorSplashDrawable">#ffffff</color>
     <color name="black">#000</color>
 
+    <color name="button">#83b600</color>
+    <color name="buttonShade">#005073</color>
 </resources>
