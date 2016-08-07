@@ -198,7 +198,7 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
             Log.d(TAG, "prepare Tesseract OCR service ...");
             try {
                 Log.d(TAG, "3");
-                getLocker().writeLock().lock();
+//                getLocker().writeLock().lock();
                 Log.d(TAG, "4");
                 try {
                     prepareDirectory(DATA_PATH + TESSDATA);
@@ -241,7 +241,7 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
                 prepared = true;
                 Log.d(TAG, "Tesseract OCR service prepared");
             } finally {
-                getLocker().writeLock().unlock();
+//                getLocker().writeLock().unlock();
             }
         } finally {
             getLocker().readLock().unlock();
