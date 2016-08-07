@@ -11,7 +11,6 @@ import ru.android_studio.gibdd_servis.ocr.imp.TesseractOCRServiceImp;
 
 public class MainActivity extends ActivityWithMenu {
 
-    //public static TesseractOCRServiceImp ocrService;
     private static final String TAG = "MainActivity";
 
     @Override
@@ -25,44 +24,16 @@ public class MainActivity extends ActivityWithMenu {
         setSupportActionBar(toolbar);
 
         setMenuConfig();
-
-        /*if (ocrService == null) {
-            PrepareOCRAsyncTask ocrAsyncTask = new PrepareOCRAsyncTask();
-            try {
-                ocrAsyncTask.execute(this);
-            } catch (Exception e) {
-                Log.e(TAG, e.getMessage(), e);
-            }
-        }*/
     }
 
-    /*@Override
+    @Override
     protected void onDestroy() {
-        if (ocrService != null) {
-            try {
-                ocrService.close();
-            } catch (Throwable e) {
-                Log.e(TAG, "Error by Tesseract OCR service closing", e);
-            }
-        }
         super.onDestroy();
-    }*/
-
+    }
 
     @Override
     protected int getCurrentMenuId() {
         return 0;
     }
-
-    /*private class PrepareOCRAsyncTask extends AsyncTask<Context, Void, OCRService> {
-
-        @Override
-        protected OCRService doInBackground(Context... params) {
-            ocrService = TesseractOCRServiceImp.getInstance(params[0]);
-            ocrService.prepare();
-            return ocrService;
-        }
-
-    }*/
 
 }
