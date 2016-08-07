@@ -11,7 +11,7 @@ import ru.android_studio.gibdd_servis.ocr.imp.TesseractOCRServiceImp;
 
 public class MainActivity extends ActivityWithMenu {
 
-    public static TesseractOCRServiceImp ocrService;
+    //public static TesseractOCRServiceImp ocrService;
     private static final String TAG = "MainActivity";
 
     @Override
@@ -26,17 +26,17 @@ public class MainActivity extends ActivityWithMenu {
 
         setMenuConfig();
 
-        if (ocrService == null) {
+        /*if (ocrService == null) {
             PrepareOCRAsyncTask ocrAsyncTask = new PrepareOCRAsyncTask();
             try {
                 ocrAsyncTask.execute(this);
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage(), e);
             }
-        }
+        }*/
     }
 
-    @Override
+    /*@Override
     protected void onDestroy() {
         if (ocrService != null) {
             try {
@@ -46,7 +46,7 @@ public class MainActivity extends ActivityWithMenu {
             }
         }
         super.onDestroy();
-    }
+    }*/
 
 
     @Override
@@ -54,7 +54,7 @@ public class MainActivity extends ActivityWithMenu {
         return 0;
     }
 
-    private class PrepareOCRAsyncTask extends AsyncTask<Context, Void, OCRService> {
+    /*private class PrepareOCRAsyncTask extends AsyncTask<Context, Void, OCRService> {
 
         @Override
         protected OCRService doInBackground(Context... params) {
@@ -63,6 +63,6 @@ public class MainActivity extends ActivityWithMenu {
             return ocrService;
         }
 
-    }
+    }*/
 
 }

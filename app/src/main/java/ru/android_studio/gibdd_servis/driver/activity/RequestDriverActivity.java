@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -25,6 +26,7 @@ import ru.android_studio.gibdd_servis.driver.model.RequestDriver;
 import ru.android_studio.gibdd_servis.gibdd.BaseCaptchaAsyncTask;
 import ru.android_studio.gibdd_servis.gibdd.CheckType;
 import ru.android_studio.gibdd_servis.gibdd.NewCaptchaAsyncTask;
+import ru.android_studio.gibdd_servis.ocr.OCRService;
 
 /**
  * Created on 20.05.2016.
@@ -125,6 +127,8 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
         if (photo != null) {
             resultCamera.setImageBitmap(photo);
         }
+        String text = asyncExtractText(photo, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
     }
 
     @OnClick(R.id.calendar)

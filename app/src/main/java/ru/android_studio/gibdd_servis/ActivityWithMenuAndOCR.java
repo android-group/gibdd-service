@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.Toast;
 
 import ru.android_studio.gibdd_servis.ocr.OCRService;
 import ru.android_studio.gibdd_servis.ocr.imp.TesseractOCRServiceImp;
@@ -36,24 +37,30 @@ public abstract class ActivityWithMenuAndOCR extends ActivityWithMenu {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        PrepareOCRAsyncTask ocrAsyncTask = new PrepareOCRAsyncTask();
+        setServiceOCR(TesseractOCRServiceImp.getInstance(this));
+        getServiceOCR().prepare();
+        /*PrepareOCRAsyncTask ocrAsyncTask = new PrepareOCRAsyncTask();
         try {
-            ocrAsyncTask.execute(this);
+            ocrAsyncTask.execute();
         } catch (Exception e) {
             Log.e(TAG, e.getMessage(), e);
-        }
+        }*/
 
     }
 
-    private class PrepareOCRAsyncTask extends AsyncTask<Context, Void, OCRService> {
+    private class PrepareOCRAsyncTask extends AsyncTask<Void, Void, OCRService> {
 
         @Override
-        protected OCRService doInBackground(Context... params) {
-            setServiceOCR(TesseractOCRServiceImp.getInstance(params[0]));
+        protected OCRService doInBackground(Void... params) {
+            setServiceOCR(TesseractOCRServiceImp.getInstance(getApplicationContext()));
             getServiceOCR().prepare();
             return getServiceOCR();
         }
 
+        @Override
+        protected void onPostExecute(OCRService ocrService) {
+            Toast.makeText(getBaseContext(), "ORC is prepared", Toast.LENGTH_LONG).show();
+        }
     }
 
     public String asyncExtractText(Bitmap bitmap, OCRService.LANGUAGE langCode) {

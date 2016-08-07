@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.logging.Logger;
 
 import ru.android_studio.gibdd_servis.ocr.OCRService;
 
@@ -54,10 +55,10 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
     protected TesseractOCRServiceImp(Context context) {
         Log.i(TAG, "Constructor with Context called for Tesseract OCR service");
         try {
-            getLocker().writeLock().lock();
+            //getLocker().writeLock().lock();
             this.context = context;
         } finally {
-            getLocker().writeLock().unlock();
+            //getLocker().writeLock().unlock();
         }
     }
 
@@ -135,6 +136,7 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
             //        tessBaseApi.setVariable(TessBaseAPI.VAR_CHAR_BLACKLIST, "!@#$%^&*()_+=-qwertyuiop[]}{POIU" +
             //                "YTRWQasdASDfghFGHjklJKLl;L:'\"\\|~`xcvXCVbnmBNM,./<>?");
 
+            tessBaseApi.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "1234567890");
             Log.d(TAG, "Training file loaded");
             tessBaseApi.setImage(bitmap);
             String extractedText = "empty result";
@@ -187,33 +189,46 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
     public void prepare() {
         Log.i(TAG, "call prepare() ...");
         try {
-            getLocker().readLock().lock();
-            if (isPrepared())
+            Log.i(TAG, "1");
+            //getLocker().readLock().lock();
+            if (isPrepared()) {
+                Log.i(TAG, "2");
                 return;
-
+            }
             Log.i(TAG, "prepare Tesseract OCR service ...");
             try {
-                getLocker().writeLock().lock();
+                Log.i(TAG, "3");
+                //getLocker().writeLock().lock();
+                Log.i(TAG, "4");
                 try {
                     prepareDirectory(DATA_PATH + TESSDATA);
                 } catch (Exception e) {
+                    Log.i(TAG, "5");
                     Log.e(TAG, "Error prepare directory", e);
                 }
-
+                Log.i(TAG, "6");
                 copyTessDataFiles(TESSDATA);
-
-                TessBaseAPI tessBaseApi = null;
+                Log.i(TAG, "7");
+                TessBaseAPI tessBaseApi;
                 for (LANGUAGE lang : LANGUAGE.values()) {
+                    Log.i(TAG, "lang: " + lang.getLang());
                     tessBaseApi = tessMap.get(lang);
-
+                    Log.i(TAG, "8");
                     if (tessBaseApi == null) {
+                        Log.i(TAG, "9");
                         try {
+                            Log.i(TAG, "10");
                             tessBaseApi = new TessBaseAPI();
+                            Log.i(TAG, "11");
                         } catch (Exception e) {
+                            Log.i(TAG, "12");
                             Log.e(TAG, e.getMessage());
+                            Log.i(TAG, "13");
                             if (tessBaseApi == null) {
+                                Log.i(TAG, "14");
                                 Log.e(TAG, "TessBaseAPI is null. TessFactory not returning tess object.");
                             }
+                            Log.i(TAG, "15");
                             throw e;
                         }
                     }
@@ -226,10 +241,10 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
                 prepared = true;
                 Log.i(TAG, "Tesseract OCR service prepared");
             } finally {
-                getLocker().writeLock().unlock();
+                //getLocker().writeLock().unlock();
             }
         } finally {
-            getLocker().readLock().unlock();
+            //getLocker().readLock().unlock();
             Log.i(TAG, "prepare() finished");
         }
     }
@@ -241,6 +256,7 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
      * @throws Exception
      */
     protected void prepareDirectory(String path) {
+        Log.i(TAG, "prepareDirectory");
 
         File dir = new File(path);
         if (!dir.exists()) {
@@ -258,6 +274,7 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
      * @param path - name of directory with .traineddata files
      */
     protected void copyTessDataFiles(String path) {
+        Log.i(TAG, "copyTessDataFiles");
         try {
             String fileList[] = getContext().getAssets().list(path);
 
@@ -291,6 +308,7 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
     }
 
     public static boolean isPrepared() {
+        Log.i(TAG, "isPrepared");
         return prepared;
     }
 
