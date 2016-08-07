@@ -91,16 +91,17 @@
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <Button
             android:id="@+id/check_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/button"
+            android:background="@drawable/check_btn_shadow"
             android:text="@string/btn_check"
             android:textColor="@drawable/text_button"
-            android:shadowColor="@color/buttonShade" />
+            android:layout_weight="1" />
 
         <View
             android:id="@+id/bottom_menu_border"
