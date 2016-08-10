@@ -18,4 +18,5 @@
         <item>Проверка наличия ограничений</item>
         <item>Проверка на участие в дорожно-транспортных происшествиях</item>
     </string-array>
+    <string name="phonePattern">+7 (999) 000-00-00</string>
 </resources>

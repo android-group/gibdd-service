@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/NavigationLinearLayout"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar">
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -124,7 +124,7 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1"></View>
+                android:layout_weight="1" />
 
         </LinearLayout>
     </ScrollView>
@@ -151,7 +151,7 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1"></View>
+                android:layout_weight="1" />
 
             <ImageButton
                 android:id="@+id/menu_fine_btn"
@@ -160,12 +160,13 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:scaleType="centerInside"
-                android:src="@drawable/menu_fine_off" />
+                android:src="@drawable/menu_fine_off"
+                android:contentDescription="" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1"></View>
+                android:layout_weight="1" />
 
             <ImageButton
                 android:id="@+id/menu_driver_btn"
@@ -179,7 +180,7 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1"></View>
+                android:layout_weight="1" />
 
             <ImageButton
                 android:id="@+id/menu_car_btn"
@@ -188,12 +189,13 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:scaleType="centerInside"
-                android:src="@drawable/menu_auto_off" />
+                android:src="@drawable/menu_auto_off"
+                android:contentDescription="" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1"></View>
+                android:layout_weight="1" />
 
             <ImageButton
                 android:id="@+id/menu_question_btn"
@@ -202,12 +204,13 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:scaleType="centerInside"
-                android:src="@drawable/menu_question_on" />
+                android:src="@drawable/menu_question_on"
+                android:contentDescription="" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1"></View>
+                android:layout_weight="1" />
 
         </LinearLayout>
     </LinearLayout>
