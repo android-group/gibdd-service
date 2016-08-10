@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.car.gibdd;
+package ru.android_studio.gibdd_servis.auto.gibdd;
 
 public enum CheckAutoType {
     HISTORY("history"), // Проверка истории регистрации в ГИБДД

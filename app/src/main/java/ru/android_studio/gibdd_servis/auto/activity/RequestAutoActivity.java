@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.car.activity;
+package ru.android_studio.gibdd_servis.auto.activity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCRAndCaptcha;
 import ru.android_studio.gibdd_servis.R;
-import ru.android_studio.gibdd_servis.car.gibdd.CheckAutoType;
-import ru.android_studio.gibdd_servis.car.gibdd.RequestAutoAsyncTask;
-import ru.android_studio.gibdd_servis.car.model.RequestAuto;
+import ru.android_studio.gibdd_servis.auto.gibdd.CheckAutoType;
+import ru.android_studio.gibdd_servis.auto.gibdd.RequestAutoAsyncTask;
+import ru.android_studio.gibdd_servis.auto.model.RequestAuto;
 import ru.android_studio.gibdd_servis.gibdd.BaseCaptchaAsyncTask;
 import ru.android_studio.gibdd_servis.gibdd.CheckType;
 import ru.android_studio.gibdd_servis.gibdd.NewCaptchaAsyncTask;

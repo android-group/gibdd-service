@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.car.model;
+package ru.android_studio.gibdd_servis.auto.model;
 
 /**
  * Created by y.andreev on 03.07.2016.

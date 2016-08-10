@@ -6,7 +6,7 @@ import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
-import ru.android_studio.gibdd_servis.car.activity.RequestAutoActivity;
+import ru.android_studio.gibdd_servis.auto.activity.RequestAutoActivity;
 import ru.android_studio.gibdd_servis.pageObject.MenuPage;
 
 /**

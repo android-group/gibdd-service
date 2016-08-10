@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.car.activity;
+package ru.android_studio.gibdd_servis.auto.activity;
 
 import android.os.Bundle;
 import android.widget.TextView;

@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.car.gibdd;
+package ru.android_studio.gibdd_servis.auto.gibdd;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -9,9 +9,9 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-import ru.android_studio.gibdd_servis.car.activity.ResultAutoActivity;
-import ru.android_studio.gibdd_servis.car.model.RequestAuto;
-import ru.android_studio.gibdd_servis.car.model.ResponseAuto;
+import ru.android_studio.gibdd_servis.auto.activity.ResultAutoActivity;
+import ru.android_studio.gibdd_servis.auto.model.RequestAuto;
+import ru.android_studio.gibdd_servis.auto.model.ResponseAuto;
 
 /**
  * Запрос проверки автомобиля с сайта ГИБДД
