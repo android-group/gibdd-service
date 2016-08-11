@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import butterknife.BindView;
-import ru.android_studio.gibdd_servis.car.activity.RequestAutoActivity;
+import ru.android_studio.gibdd_servis.auto.activity.RequestAutoActivity;
 import ru.android_studio.gibdd_servis.driver.activity.RequestDriverActivity;
 import ru.android_studio.gibdd_servis.fine.activity.RequestFineActivity;
 import ru.android_studio.gibdd_servis.question.activity.QuestionActivity;

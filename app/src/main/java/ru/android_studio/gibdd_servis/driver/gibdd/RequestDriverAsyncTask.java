@@ -9,9 +9,6 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-import ru.android_studio.gibdd_servis.car.activity.ResultAutoActivity;
-import ru.android_studio.gibdd_servis.car.model.RequestAuto;
-import ru.android_studio.gibdd_servis.car.model.ResponseAuto;
 import ru.android_studio.gibdd_servis.driver.activity.ResultDriverActivity;
 import ru.android_studio.gibdd_servis.driver.model.RequestDriver;
 import ru.android_studio.gibdd_servis.driver.model.ResponseDriver;

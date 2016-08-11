@@ -33,15 +33,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".driver.activity.RequestDriverActivity" />
         </activity>
-        <activity android:name=".car.activity.RequestAutoActivity" android:label="@string/check_auto">
+        <activity android:name=".auto.activity.RequestAutoActivity" android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".car.activity.ResultAutoActivity" android:label="@string/check_auto">
+        <activity android:name=".auto.activity.ResultAutoActivity" android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".car.activity.RequestAutoActivity" />
+                android:value=".auto.activity.RequestAutoActivity" />
         </activity>
         <activity android:name=".fine.activity.RequestFineActivity" android:label="@string/check_fine">
             <meta-data

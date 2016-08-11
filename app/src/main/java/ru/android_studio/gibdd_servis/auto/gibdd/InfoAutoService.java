@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.car.gibdd;
+package ru.android_studio.gibdd_servis.auto.gibdd;
 
 import android.util.Log;
 
@@ -9,8 +9,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import ru.android_studio.gibdd_servis.car.model.RequestAuto;
-import ru.android_studio.gibdd_servis.car.model.ResponseAuto;
+import ru.android_studio.gibdd_servis.auto.model.RequestAuto;
+import ru.android_studio.gibdd_servis.auto.model.ResponseAuto;
 import ru.android_studio.gibdd_servis.gibdd.CommonRequest;
 
 /**

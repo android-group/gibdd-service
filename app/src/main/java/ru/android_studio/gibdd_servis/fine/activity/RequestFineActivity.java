@@ -10,8 +10,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCRAndCaptcha;
 import ru.android_studio.gibdd_servis.R;
-import ru.android_studio.gibdd_servis.car.gibdd.RequestAutoAsyncTask;
-import ru.android_studio.gibdd_servis.car.model.RequestAuto;
 import ru.android_studio.gibdd_servis.fine.gibdd.RequestFineAsyncTask;
 import ru.android_studio.gibdd_servis.fine.model.RequestFine;
 import ru.android_studio.gibdd_servis.gibdd.BaseCaptchaAsyncTask;

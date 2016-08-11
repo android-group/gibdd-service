@@ -1,6 +1,6 @@
-package ru.android_studio.gibdd_servis.car.model;
+package ru.android_studio.gibdd_servis.auto.model;
 
-import ru.android_studio.gibdd_servis.car.gibdd.CheckAutoType;
+import ru.android_studio.gibdd_servis.auto.gibdd.CheckAutoType;
 
 /**
  * Created by y.andreev on 03.07.2016.
