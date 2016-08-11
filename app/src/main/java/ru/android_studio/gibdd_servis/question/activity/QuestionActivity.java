@@ -51,6 +51,10 @@ public class QuestionActivity  extends ActivityWithMenu implements View.OnClickL
 
         phoneEditText.setTransformationMethod(new PhoneTransformationMethod(phonePattern));
         phoneEditText.addTextChangedListener(new TextWatcher() {
+
+            String resultString = "";
+            final Integer[] keyDel = new Integer[]{0};
+
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -58,47 +62,58 @@ public class QuestionActivity  extends ActivityWithMenu implements View.OnClickL
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                boolean isTextCorrect = false;
-                String phoneStr = phoneEditText.getText().toString(), resultString = "";
+                boolean isTextIncorrect;
+                String phoneStr = phoneEditText.getText().toString();
 
-                do {
-                    int j = 0;
-                    while(j < phoneStr.length())
-                        if(!Character.isDigit(phonePattern.charAt(i)) && !(phoneStr.charAt(i) == phonePattern.charAt(i)))
-                            break;
+                if(phoneStr.length() > phonePattern.length())
+                    phoneEditText.setError("Error message here!");
 
-                    if(j >= phoneStr.length())
-                        isTextCorrect = true;
+                int j = 0;
+                while(j < phoneStr.length()) {
+                    if (!Character.isDigit(phonePattern.charAt(j)) && (phoneStr.charAt(j) != phonePattern.charAt(j)))
+                        break;
+                    ++j;
+                }
 
+                isTextIncorrect = (j >= phoneStr.length());
 
+                if (isTextIncorrect) {
 
-                    if (!isTextCorrect) {
-                        final Integer[] keyDel = new Integer[1];
-                        phoneEditText.setOnKeyListener(new View.OnKeyListener() {
+                    phoneEditText.setOnKeyListener(new View.OnKeyListener() {
 
-                            @Override
-                            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                                keyDel[0] = (i == KeyEvent.KEYCODE_DEL) ? 1 : 0;
-                                return false;
-                            }
-                        });
+                        @Override
+                        public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                            keyDel[0] = (i == KeyEvent.KEYCODE_DEL) ? 1 : 0;
+                            return false;
+                        }
+                    });
 
-                        if (keyDel[0] == 0) {
-                            final int pos = phoneEditText.getText().length();
-                            if (pos < phonePattern.length() && !Character.isDigit(phonePattern.charAt(pos))) {
-                                String str = phoneEditText.getText().toString() + Character.toString(phonePattern.charAt(pos));
-                                phoneEditText.setText(str);
-                            }
-                        } else
-                            keyDel[0] = 0;
+                    String str = "";
+                    if (keyDel[0] == 0) {
+                        final int pos = phoneEditText.getText().length();
 
-                        resultString = phoneEditText.getText().toString();
+                        if(pos < phonePattern.length() && !Character.isDigit(phonePattern.charAt(pos))) {
+                            str = phoneEditText.getText().toString() + Character.toString(phonePattern.charAt(pos));
+                            phoneEditText.setText(str);
+                        }
 
                     } else {
-                        phoneEditText.setText(resultString);
+                        keyDel[0] = 0;
+                        str = phoneEditText.getText().toString();
+                        str = str.substring(0, str.length() - 1);
+                        phoneEditText.setText(str);
+                        phoneEditText.setSelection(str.length());
                     }
 
-                }while(!isTextCorrect);
+                    phoneEditText.setSelection(str.length());
+                    resultString = str;
+
+
+                }
+                else {
+                    phoneEditText.setText(resultString);
+                }
+
             }
 
             @Override
