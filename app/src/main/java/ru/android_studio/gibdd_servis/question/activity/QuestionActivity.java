@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.style.CharacterStyle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -49,78 +50,8 @@ public class QuestionActivity  extends ActivityWithMenu implements View.OnClickL
 
         nextBtn.setOnClickListener(this);
 
-        phoneEditText.setTransformationMethod(new PhoneTransformationMethod(phonePattern));
-        phoneEditText.addTextChangedListener(new TextWatcher() {
-
-            String resultString = "";
-            final Integer[] keyDel = new Integer[]{0};
-
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                boolean isTextIncorrect;
-                String phoneStr = phoneEditText.getText().toString();
-
-                if(phoneStr.length() > phonePattern.length())
-                    phoneEditText.setError("Error message here!");
-
-                int j = 0;
-                while(j < phoneStr.length()) {
-                    if (!Character.isDigit(phonePattern.charAt(j)) && (phoneStr.charAt(j) != phonePattern.charAt(j)))
-                        break;
-                    ++j;
-                }
-
-                isTextIncorrect = (j >= phoneStr.length());
-
-                if (isTextIncorrect) {
-
-                    phoneEditText.setOnKeyListener(new View.OnKeyListener() {
-
-                        @Override
-                        public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                            keyDel[0] = (i == KeyEvent.KEYCODE_DEL) ? 1 : 0;
-                            return false;
-                        }
-                    });
-
-                    String str = "";
-                    if (keyDel[0] == 0) {
-                        final int pos = phoneEditText.getText().length();
-
-                        if(pos < phonePattern.length() && !Character.isDigit(phonePattern.charAt(pos))) {
-                            str = phoneEditText.getText().toString() + Character.toString(phonePattern.charAt(pos));
-                            phoneEditText.setText(str);
-                        }
-
-                    } else {
-                        keyDel[0] = 0;
-                        str = phoneEditText.getText().toString();
-                        str = str.substring(0, str.length() - 1);
-                        phoneEditText.setText(str);
-                        phoneEditText.setSelection(str.length());
-                    }
-
-                    phoneEditText.setSelection(str.length());
-                    resultString = str;
-
-
-                }
-                else {
-                    phoneEditText.setText(resultString);
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+//        phoneEditText.setTransformationMethod(new PhoneTransformationMethod(phonePattern));
+        phoneEditText.addTextChangedListener(new PhoneFormatValidator());
     }
 
     @Override
@@ -131,11 +62,80 @@ public class QuestionActivity  extends ActivityWithMenu implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.btn_next :
                 Intent intent = new Intent(this, QuestionActivityNext.class);
                 startActivity(intent);
                 break;
+        }
+
+    }
+
+    private class PhoneFormatValidator implements TextWatcher {
+
+        private StringBuilder stringBuilder = new StringBuilder();
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+
+            synchronized (stringBuilder.getClass()){
+                // если идет удаление
+                if (before > count) {
+
+                    Integer lenght = before;
+                    do {
+                        stringBuilder.deleteCharAt(lenght - 1);
+                        lenght = stringBuilder.length();
+                    } while (lenght > 0 && !Character.isDigit(stringBuilder.charAt(lenght - 1)));
+
+                    phoneEditText.setText(stringBuilder.toString());
+                    phoneEditText.setSelection(stringBuilder.length());
+
+                    return;
+                } // before > count
+
+
+                // проверка на превышение длинны вводмого текста
+                if (!checkAvailileSize(charSequence, start, count)) {
+                    phoneEditText.setError("Some error text");
+                    return;
+                } else if (phoneEditText.getError() != null)
+                    phoneEditText.setError(null);
+
+                Character ch;
+                for (Integer i = start; i < phonePattern.length(); i++) {
+                    if (Character.isDigit(ch = phonePattern.charAt(i))) {
+                        stringBuilder.append(charSequence.charAt(start));
+                        break;
+                    }
+
+                    stringBuilder.append(ch.charValue());
+                }
+
+                phoneEditText.setText(stringBuilder.toString());
+                phoneEditText.setSelection(stringBuilder.length());
+            } // getCurrentFocus() == phoneEditText
+        }
+
+        private boolean checkAvailileSize(CharSequence charSequence, Integer start, Integer count) {
+            if(start + count > phonePattern.length()) {
+                phoneEditText.setText(charSequence.subSequence(0, start));
+                phoneEditText.setSelection(start);
+                return false;
+            }
+
+            return true;
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
         }
     }
 }
