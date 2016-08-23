@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.style.CharacterStyle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +13,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.android_studio.gibdd_servis.ActivityWithMenu;
 import ru.android_studio.gibdd_servis.R;
-import ru.android_studio.gibdd_servis.utils.textpatterns.PhoneTransformationMethod;
 
 /**
  * Created by y.andreev on 03.06.2016.
@@ -84,7 +81,7 @@ public class QuestionActivity  extends ActivityWithMenu implements View.OnClickL
         @Override
         public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
 
-            synchronized (stringBuilder.getClass()){
+            synchronized (this.getClass()){
                 // если идет удаление
                 if (before > count) {
 
@@ -102,7 +99,7 @@ public class QuestionActivity  extends ActivityWithMenu implements View.OnClickL
 
 
                 // проверка на превышение длинны вводмого текста
-                if (!checkAvailileSize(charSequence, start, count)) {
+                if (!checkAvailableSize(charSequence, start, count)) {
                     phoneEditText.setError("Some error text");
                     return;
                 } else if (phoneEditText.getError() != null)
@@ -123,8 +120,9 @@ public class QuestionActivity  extends ActivityWithMenu implements View.OnClickL
             } // getCurrentFocus() == phoneEditText
         }
 
-        private boolean checkAvailileSize(CharSequence charSequence, Integer start, Integer count) {
-            if(start + count > phonePattern.length()) {
+        private boolean checkAvailableSize(CharSequence charSequence, Integer start, Integer count) {
+
+            if(start + count < phonePattern.length()) {
                 phoneEditText.setText(charSequence.subSequence(0, start));
                 phoneEditText.setSelection(start);
                 return false;
