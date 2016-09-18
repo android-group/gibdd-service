@@ -12,7 +12,7 @@ import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.gibdd.BaseCaptchaAsyncTask;
 import ru.android_studio.gibdd_servis.gibdd.CaptchaResult;
 
-public abstract class ActivityWithMenuAndOCRAndCaptcha extends ActivityWithMenuAndOCR {
+public abstract class ActivityWithMenuAndOCRAndCaptcha extends ActivityWithMenu {
 
     private static final String TAG = "MenuAndOCRAndCaptcha";
 

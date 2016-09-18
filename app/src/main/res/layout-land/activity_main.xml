@@ -22,36 +22,33 @@
         android:paddingRight="10dp">
 
         <Button
-            android:id="@+id/menu_fine_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:background="@drawable/fine"
-            android:layout_weight="1"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="5dp" />
-
-        <Button
             android:id="@+id/menu_driver_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250px"
+            android:layout_height="250px"
             android:textSize="13sp"
             android:background="@drawable/driver"
-            android:layout_weight="1"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="5dp" />
+            android:padding="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp" />
 
         <Button
             android:id="@+id/menu_car_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250px"
+            android:layout_height="250px"
             android:textSize="13sp"
             android:background="@drawable/car"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:padding="30dp"
+            android:padding="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="50dp" />
+
+        <!--<Button
+            android:id="@+id/menu_fine_btn"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:textSize="13sp"
+            android:background="@drawable/fine"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="5dp" />
@@ -67,6 +64,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp" />-->
     </LinearLayout>
 </LinearLayout>

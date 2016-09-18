@@ -46,12 +46,12 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
     int year;
     int month;
     int day;
-    @BindView(R.id.result_camera)
-    ImageView resultCamera;
+    /*@BindView(R.id.result_camera)
+    ImageView resultCamera;*/
     @BindView(R.id.date_of_issue_edit_text)
     EditText dateOfIssueEditText;
-    @BindView(R.id.recognize_series_camera)
-    Button camera;
+    /*@BindView(R.id.recognize_series_camera)
+    Button camera;*/
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int years, int monthOfYear,
                               int dayOfMonth) {
@@ -65,15 +65,35 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
     EditText seriesEditText;
     @BindView(R.id.number_license_edit_text)
     EditText numberEditText;
+
     private RecognizeType recognizeType;
 
     private void setDate(String date) {
-        dateOfIssueEditText.setText(date);
+        dateOfIssueEditText.setHint(date);
     }
 
     @OnClick(R.id.check_button)
     void checkButton() {
         Log.d(TAG, "START checkButton");
+        if(captchaEditText.length() == 0 &&
+            seriesEditText.length() == 0 &&
+            numberEditText.length() == 0 &&
+            dateOfIssueEditText.length() == 0) {
+            Toast.makeText(this, "Пожалуйста, заполните все поля.", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(seriesEditText.length() == 0) {
+            Toast.makeText(this, "Пожалуйста, заполните серию.", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(numberEditText.length() == 0) {
+            Toast.makeText(this, "Пожалуйста, заполните номер", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(dateOfIssueEditText.length() == 0) {
+            Toast.makeText(this, "Пожалуйста, заполните дату выдачи", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(captchaEditText.length() == 0) {
+            Toast.makeText(this, "Пожалуйста, введите символы с картинки.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         RequestDriver requestDriver = new RequestDriver();
         requestDriver.setJsessionid(getSessionId());
@@ -84,6 +104,7 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
 
         requestDriver.setNum(series + number);
 
+        requestDriver.setDate(dateOfIssueEditText.getText().toString());
         final RequestDriverAsyncTask requestDriverAsyncTask = new RequestDriverAsyncTask(this);
         requestDriverAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestDriver);
         Log.d(TAG, "END checkButton");
@@ -107,7 +128,7 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
         setDate(SIMPLE_DATE_FORMAT.format(c.getTime()));
     }
 
-    @OnClick(R.id.recognize_series_camera)
+    /*@OnClick(R.id.recognize_series_camera)
     public void recognizeSeriesCamera() {
         Log.d(TAG, "recognizeSeriesCamera");
         recognizeType = RecognizeType.SERIES;
@@ -119,12 +140,12 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
         Log.d(TAG, "recognizeNumberCamera");
         recognizeType = RecognizeType.NUMBER;
         Camera.open(this);
-    }
+    }*/
 
     /**
      * Receiving activity result method will be called after closing the camera
      */
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "onActivityResult");
         Bitmap photo = Camera.showResult(requestCode, resultCode, this);
@@ -143,7 +164,7 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
             seriesEditText.requestFocus();
         }
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
-    }
+    }*/
 
     @OnClick(R.id.calendar)
     public void openCalendar() {

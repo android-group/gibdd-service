@@ -3,10 +3,12 @@ package ru.android_studio.gibdd_servis.auto.activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,8 +40,8 @@ public class RequestAutoActivity extends ActivityWithMenuAndOCRAndCaptcha {
     @BindView(R.id.vin_edit_text)
     EditText vinEditText;
 
-    @BindView(R.id.vin_check_box)
-    CheckBox vinCheckBox;
+    /*@BindView(R.id.vin_check_box)
+    CheckBox vinCheckBox;*/
 
     @BindView(R.id.vin_text_view)
     TextView vinTextView;
@@ -62,6 +64,16 @@ public class RequestAutoActivity extends ActivityWithMenuAndOCRAndCaptcha {
     @OnClick(R.id.check_button)
     void checkButton() {
         Log.d(TAG, "START checkButton");
+        if(captchaEditText.length() == 0 && vinEditText.length() == 0) {
+            Toast.makeText(this, "Пожалуйста, заполните все поля.", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(vinEditText.length() == 0) {
+            Toast.makeText(this, "Пожалуйста, заполните поле VIN номер.", Toast.LENGTH_SHORT).show();
+            return;
+        } else if(captchaEditText.length() == 0) {
+            Toast.makeText(this, "Пожалуйста, введите символы с картинки.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         RequestAuto requestAuto = new RequestAuto();
         String sessionId = getSessionId();
@@ -81,14 +93,14 @@ public class RequestAutoActivity extends ActivityWithMenuAndOCRAndCaptcha {
         return CheckAutoType.values()[checkTypeSpinner.getSelectedItemPosition()];
     }
 
-    @OnClick(R.id.vin_check_box)
+    /*@OnClick(R.id.vin_check_box)
     void changeValue() {
         if (vinCheckBox.isChecked()) {
             vinTextView.setText("Номер шасси или кузова");
         } else {
             vinTextView.setText("Идентификационный номер (VIN)");
         }
-    }
+    }*/
 
     @Override
     protected int getCurrentMenuId() {

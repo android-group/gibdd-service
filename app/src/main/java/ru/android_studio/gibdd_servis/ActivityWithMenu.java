@@ -31,6 +31,15 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
+//
+//    public void hideKeyboard() {
+//        menu.setVisibility(View.GONE);
+//    }
+//
+//    public void showKeyboard() {
+//        menu.setVisibility(View.VISIBLE);
+//    }
+
 
     @IdRes
     protected abstract int getCurrentMenuId();
@@ -38,64 +47,36 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    @BindView(R.id.menu_car_btn)
-    View menuCarBtn;
+//    @BindView(R.id.menu)
+//    View menu;
 
-    @BindView(R.id.menu_driver_btn)
-    View menuDriverBtn;
+//    @BindView(R.id.menu_car_btn)
+//    View menuCarBtn;
+//
+//    @BindView(R.id.menu_driver_btn)
+//    View menuDriverBtn;
 
-    @BindView(R.id.menu_fine_btn)
+    /*@BindView(R.id.menu_fine_btn)
     View menuFindBtn;
 
     @BindView(R.id.menu_question_btn)
-    View menuQuestionBtn;
+    View menuQuestionBtn;*/
 
 
     /**
      * Добавляем обработку кликов ко кнопкам меню
      */
     public void setMenuConfig() {
-        menuCarBtn.setOnClickListener(menuOnClickListener);
-        menuDriverBtn.setOnClickListener(menuOnClickListener);
-        menuFindBtn.setOnClickListener(menuOnClickListener);
-        menuQuestionBtn.setOnClickListener(menuOnClickListener);
+//        menuCarBtn.setOnClickListener(menuOnClickListener);
+//        menuDriverBtn.setOnClickListener(menuOnClickListener);
+//        menuFindBtn.setOnClickListener(menuOnClickListener);
+//        menuQuestionBtn.setOnClickListener(menuOnClickListener);
     }
 
     /**
      * Листнер для обработки кликов по меню
      */
-    private View.OnClickListener menuOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (getCurrentMenuId() == v.getId()) {
-                Log.i("ActivityWithMenu", "this is current menu");
-                return;
-            }
 
-            switch (v.getId()) {
-                //проверка штрафов
-                case R.id.menu_fine_btn:
-                    Intent intentFineActivity = new Intent(getApplicationContext(), RequestFineActivity.class);
-                    startActivity(intentFineActivity);
-                    break;
-                //проверка водителя
-                case R.id.menu_driver_btn:
-                    Intent intentDriverActivity = new Intent(getApplicationContext(), RequestDriverActivity.class);
-                    startActivity(intentDriverActivity);
-                    break;
-                //проверка автомобиля
-                case R.id.menu_car_btn:
-                    Intent intentCarActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
-                    startActivity(intentCarActivity);
-                    break;
-                //прием обращений
-                case R.id.menu_question_btn:
-                    Intent intentQuestionActivity = new Intent(getApplicationContext(), QuestionActivity.class);
-                    startActivity(intentQuestionActivity);
-                    break;
-            }
-        }
-    };
 
     /**
      * Добавить тулбар на страницу
