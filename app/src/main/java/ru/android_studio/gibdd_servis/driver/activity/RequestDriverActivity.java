@@ -40,18 +40,15 @@ import ru.android_studio.gibdd_servis.ocr.OCRService;
  */
 public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
 
-    public static final String WITHOUT_NON_DIGIT_CHARACTERS = "[^\\d]";
     private static final String TAG = "RequestDriverActivity";
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
     int year;
     int month;
     int day;
-    /*@BindView(R.id.result_camera)
-    ImageView resultCamera;*/
+
     @BindView(R.id.date_of_issue_edit_text)
     EditText dateOfIssueEditText;
-    /*@BindView(R.id.recognize_series_camera)
-    Button camera;*/
+
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int years, int monthOfYear,
                               int dayOfMonth) {
@@ -61,12 +58,12 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
             setDate(String.format("%d.%d.%d", day, month, year));
         }
     };
+
     @BindView(R.id.series_license_edit_text)
     EditText seriesEditText;
+
     @BindView(R.id.number_license_edit_text)
     EditText numberEditText;
-
-    private RecognizeType recognizeType;
 
     private void setDate(String date) {
         dateOfIssueEditText.setHint(date);
@@ -118,7 +115,6 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
         ButterKnife.bind(this);
 
         addToolbarByIconId(R.mipmap.ic_driver);
-        setMenuConfig();
         loadCaptcha();
 
         final Calendar c = Calendar.getInstance();
@@ -127,44 +123,6 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
         day = c.get(Calendar.DAY_OF_MONTH);
         setDate(SIMPLE_DATE_FORMAT.format(c.getTime()));
     }
-
-    /*@OnClick(R.id.recognize_series_camera)
-    public void recognizeSeriesCamera() {
-        Log.d(TAG, "recognizeSeriesCamera");
-        recognizeType = RecognizeType.SERIES;
-        Camera.open(this);
-    }
-
-    @OnClick(R.id.recognize_number_camera)
-    public void recognizeNumberCamera() {
-        Log.d(TAG, "recognizeNumberCamera");
-        recognizeType = RecognizeType.NUMBER;
-        Camera.open(this);
-    }*/
-
-    /**
-     * Receiving activity result method will be called after closing the camera
-     */
-    /*@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d(TAG, "onActivityResult");
-        Bitmap photo = Camera.showResult(requestCode, resultCode, this);
-        if (photo != null) {
-            resultCamera.setImageBitmap(photo);
-        }
-
-        String text = asyncExtractText(photo, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
-
-        String recognizedText = text.replaceAll(WITHOUT_NON_DIGIT_CHARACTERS, "");
-        if (recognizeType == RecognizeType.NUMBER) {
-            numberEditText.setText(recognizedText);
-            numberEditText.requestFocus();
-        } else if (recognizeType == RecognizeType.SERIES) {
-            seriesEditText.setText(recognizedText);
-            seriesEditText.requestFocus();
-        }
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
-    }*/
 
     @OnClick(R.id.calendar)
     public void openCalendar() {
@@ -181,10 +139,5 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
     @Override
     public BaseCaptchaAsyncTask getBaseCaptchaAsyncTask() {
         return new NewCaptchaAsyncTask(this, captchaImageView, CheckType.DRIVER);
-    }
-
-    private enum RecognizeType {
-        SERIES,
-        NUMBER
     }
 }

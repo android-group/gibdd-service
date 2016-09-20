@@ -12,6 +12,15 @@
     <string name="image_preview">image preview</string>
     <string name="camera_detection">Распознование</string>
     <string name="btn_back">BACK</string>
+    <string name="label_result">результат</string>
+    <string name="label_color">цвет</string>
+    <string name="label_body_number">номер</string>
+    <string name="label_year">год</string>
+    <string name="label_vin">vin</string>
+    <string name="label_model">модель</string>
+    <string name="label_category">категория</string>
+    <string name="label_type">тип</string>
+    <string name="label_power_kwt">повер квт</string>
     <string-array name="check_type">
         <item>Проверка истории регистрации в ГИБДД</item>
         <item>Проверка нахождения в розыске</item>

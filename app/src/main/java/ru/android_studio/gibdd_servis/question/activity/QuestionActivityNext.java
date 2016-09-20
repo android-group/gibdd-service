@@ -21,7 +21,6 @@ public class QuestionActivityNext extends ActivityWithMenu {
         ButterKnife.bind(this);
 
         addToolbarByIconId(R.mipmap.ic_question);
-        setMenuConfig();
     }
 
     protected int getCurrentMenuId() {

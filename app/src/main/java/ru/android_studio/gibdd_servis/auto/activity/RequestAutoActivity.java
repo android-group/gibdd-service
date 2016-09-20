@@ -57,7 +57,6 @@ public class RequestAutoActivity extends ActivityWithMenuAndOCRAndCaptcha {
         ButterKnife.bind(this);
 
         addToolbarByIconId(R.mipmap.ic_auto);
-        setMenuConfig();
         loadCaptcha();
     }
 
@@ -92,15 +91,6 @@ public class RequestAutoActivity extends ActivityWithMenuAndOCRAndCaptcha {
     private CheckAutoType getCheckAutoType() {
         return CheckAutoType.values()[checkTypeSpinner.getSelectedItemPosition()];
     }
-
-    /*@OnClick(R.id.vin_check_box)
-    void changeValue() {
-        if (vinCheckBox.isChecked()) {
-            vinTextView.setText("Номер шасси или кузова");
-        } else {
-            vinTextView.setText("Идентификационный номер (VIN)");
-        }
-    }*/
 
     @Override
     protected int getCurrentMenuId() {

@@ -31,52 +31,12 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
-//
-//    public void hideKeyboard() {
-//        menu.setVisibility(View.GONE);
-//    }
-//
-//    public void showKeyboard() {
-//        menu.setVisibility(View.VISIBLE);
-//    }
-
 
     @IdRes
     protected abstract int getCurrentMenuId();
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-
-//    @BindView(R.id.menu)
-//    View menu;
-
-//    @BindView(R.id.menu_car_btn)
-//    View menuCarBtn;
-//
-//    @BindView(R.id.menu_driver_btn)
-//    View menuDriverBtn;
-
-    /*@BindView(R.id.menu_fine_btn)
-    View menuFindBtn;
-
-    @BindView(R.id.menu_question_btn)
-    View menuQuestionBtn;*/
-
-
-    /**
-     * Добавляем обработку кликов ко кнопкам меню
-     */
-    public void setMenuConfig() {
-//        menuCarBtn.setOnClickListener(menuOnClickListener);
-//        menuDriverBtn.setOnClickListener(menuOnClickListener);
-//        menuFindBtn.setOnClickListener(menuOnClickListener);
-//        menuQuestionBtn.setOnClickListener(menuOnClickListener);
-    }
-
-    /**
-     * Листнер для обработки кликов по меню
-     */
-
 
     /**
      * Добавить тулбар на страницу

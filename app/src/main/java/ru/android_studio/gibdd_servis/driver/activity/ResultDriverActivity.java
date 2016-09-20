@@ -33,7 +33,6 @@ public class ResultDriverActivity extends ActivityWithMenu {
         textView.setText(jsonObject.getAsJsonPrimitive("message").getAsString());
 
         addToolbarByIconId(R.mipmap.ic_driver);
-        setMenuConfig();
 
     }
 

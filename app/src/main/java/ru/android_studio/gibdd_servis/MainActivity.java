@@ -18,7 +18,6 @@ import ru.android_studio.gibdd_servis.question.activity.QuestionActivity;
 
 public class MainActivity extends ActivityWithMenu {
 
-    //public static TesseractOCRServiceImp ocrService;
     private static final String TAG = "MainActivity";
 
     @BindView(R.id.menu_car_btn)
@@ -71,47 +70,11 @@ public class MainActivity extends ActivityWithMenu {
         menuDriverBtn.setOnClickListener(menuOnClickListener);
 
         toolbar.setLogo(R.mipmap.ic_main);
-        setSupportActionBar(toolbar);
-
-        setMenuConfig();
-
-        /*if (ocrService == null) {
-            PrepareOCRAsyncTask ocrAsyncTask = new PrepareOCRAsyncTask();
-            try {
-                ocrAsyncTask.execute(this);
-            } catch (Exception e) {
-                Log.e(TAG, e.getMessage(), e);
-            }
-        }*/
     }
-
-    /*@Override
-    protected void onDestroy() {
-        if (ocrService != null) {
-            try {
-                ocrService.close();
-            } catch (Throwable e) {
-                Log.e(TAG, "Error by Tesseract OCR service closing", e);
-            }
-        }
-        super.onDestroy();
-    }*/
 
 
     @Override
     protected int getCurrentMenuId() {
         return 0;
     }
-
-    /*private class PrepareOCRAsyncTask extends AsyncTask<Context, Void, OCRService> {
-
-        @Override
-        protected OCRService doInBackground(Context... params) {
-            ocrService = TesseractOCRServiceImp.getInstance(params[0]);
-            ocrService.prepare();
-            return ocrService;
-        }
-
-    }*/
-
 }
