@@ -4,9 +4,13 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by yuryandreev on 20/09/16.
@@ -40,7 +44,23 @@ public class ResultAutoHelper {
     public static ResultAutoObject parseSuccessResult(String resultText) {
         ResultAutoObject result = new ResultAutoObject();
         JsonObject jsonObject = new JsonParser().parse(resultText).getAsJsonObject();
+        String status = getIfExists(jsonObject.getAsJsonPrimitive("status"));
+        Log.i(TAG, "result status: " + status);
+        ResponseType type = ResponseType.getByStatus(status);
+        result.setType(type);
         mapSuccessResult(jsonObject, result);
+        return result;
+    }
+
+    @Nullable
+    public static ResultAutoObject parseFailureResult(String resultText) {
+        ResultAutoObject result = new ResultAutoObject();
+        JsonObject jsonObject = new JsonParser().parse(resultText).getAsJsonObject();
+        String status = getIfExists(jsonObject.getAsJsonPrimitive("status"));
+        Log.i(TAG, "result status: " + status);
+        ResponseType type = ResponseType.getByStatus(status);
+        result.setType(type);
+        mapFailureResult(jsonObject, result);
         return result;
     }
 
@@ -146,10 +166,21 @@ public class ResultAutoHelper {
 
     private static void mapOwnershipPeriod(JsonObject ownershipPeriods, ResultAutoObject target) {
         Log.i(TAG, "parse ownership period");
-        JsonArray ownershipPeriod = ownershipPeriods.getAsJsonArray("ownershipPeriod");
-        if (ownershipPeriod == null || ownershipPeriod.isJsonNull()) {
+        JsonArray ownershipPeriodsAsJsonArray = ownershipPeriods.getAsJsonArray("ownershipPeriod");
+        if (ownershipPeriodsAsJsonArray == null || ownershipPeriodsAsJsonArray.isJsonNull() || ownershipPeriodsAsJsonArray.size() < 1) {
             System.err.println("ownershipPeriod == null");
             return;
         }
+        List<OwnershipPeriod> ownershipPeriodList = new ArrayList<>(ownershipPeriodsAsJsonArray.size());
+        for (int i = 0; i < ownershipPeriodsAsJsonArray.size(); i++) {
+            JsonObject jsonElement = (JsonObject) ownershipPeriodsAsJsonArray.get(i);
+            OwnershipPeriod ownershipPeriod = new OwnershipPeriod();
+            ownershipPeriod.setId(String.valueOf(i));
+            ownershipPeriod.setFrom(getIfExists(jsonElement.getAsJsonPrimitive("from")));
+            ownershipPeriod.setTo(getIfExists(jsonElement.getAsJsonPrimitive("to")));
+            ownershipPeriod.setSimplePersonType(TypeOwner.getByTypeNumberString(getIfExists(jsonElement.getAsJsonPrimitive("simplePersonType"))));
+            ownershipPeriodList.add(ownershipPeriod);
+        }
+        target.setOwnershipPeriodList(ownershipPeriodList);
     }
 }

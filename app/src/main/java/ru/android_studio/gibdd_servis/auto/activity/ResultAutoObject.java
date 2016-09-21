@@ -59,6 +59,7 @@ public class ResultAutoObject {
                 "response='" + response + '\'' +
                 ", type=" + type +
                 ", vehicle=" + vehicle +
+                ", ownershipPeriodList=" + ownershipPeriodList +
                 ", message='" + message + '\'' +
                 '}';
     }
@@ -74,6 +75,8 @@ public class ResultAutoObject {
             return false;
         if (type != that.type) return false;
         if (vehicle != null ? !vehicle.equals(that.vehicle) : that.vehicle != null) return false;
+        if (ownershipPeriodList != null ? !ownershipPeriodList.equals(that.ownershipPeriodList) : that.ownershipPeriodList != null)
+            return false;
         return message != null ? message.equals(that.message) : that.message == null;
 
     }
@@ -83,6 +86,7 @@ public class ResultAutoObject {
         int result = response != null ? response.hashCode() : 0;
         result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (vehicle != null ? vehicle.hashCode() : 0);
+        result = 31 * result + (ownershipPeriodList != null ? ownershipPeriodList.hashCode() : 0);
         result = 31 * result + (message != null ? message.hashCode() : 0);
         return result;
     }
