@@ -46,7 +46,6 @@ public class ResultAutoActivity extends ActivityWithMenu {
         }
 
         addToolbarByIconId(R.mipmap.ic_auto);
-
     }
 
     @Override

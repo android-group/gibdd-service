@@ -1,10 +1,11 @@
-package ru.android_studio.gibdd_servis.auto.activity;
+package ru.android_studio.gibdd_servis;
+
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import ru.android_studio.gibdd_servis.auto.activity.ResponseType;
 
 /**
  * Created by yuryandreev on 20/09/16.

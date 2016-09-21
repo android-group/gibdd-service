@@ -43,14 +43,14 @@ public class ResultAutoHelper {
         ResponseType type = ResponseType.getByStatus(status);
         target.setType(type);
         System.out.println("type: " + type);
-        if (type == ResponseType.SUCCESS) {
+        /*if (type == ResponseType.SUCCESS) {
             mapSuccessResult(source, target);
         } else {
             mapFailureResult(source, target);
-        }
+        }*/
     }
 
-    private static void mapFailureResult(JsonObject source, ResultAutoObject target) {
+    public static void mapFailureResult(JsonObject source, ResultAutoObject target) {
         JsonPrimitive message = source.getAsJsonPrimitive("message");
         if (message == null || message.isJsonNull()) {
             System.err.println("message is null");
@@ -63,7 +63,7 @@ public class ResultAutoHelper {
         target.setMessage(strMessage);
     }
 
-    private static void mapSuccessResult(JsonObject source, ResultAutoObject target) {
+    public static void mapSuccessResult(JsonObject source, ResultAutoObject target) {
         Log.i(TAG, "parse success result");
         JsonObject requestResult = source.getAsJsonObject("RequestResult");
         if (requestResult == null || requestResult.isJsonNull()) {

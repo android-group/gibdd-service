@@ -10,8 +10,14 @@ import android.widget.Toast;
 import java.io.IOException;
 
 import ru.android_studio.gibdd_servis.auto.activity.ResultAutoActivity;
+import ru.android_studio.gibdd_servis.auto.activity.ResultAutoHelper;
+import ru.android_studio.gibdd_servis.auto.activity.ResultAutoObject;
 import ru.android_studio.gibdd_servis.auto.model.RequestAuto;
 import ru.android_studio.gibdd_servis.auto.model.ResponseAuto;
+import ru.android_studio.gibdd_servis.common.CaptchaNumberIsNotValid;
+import ru.android_studio.gibdd_servis.common.NoDataFoundActivity;
+
+import static android.widget.Toast.LENGTH_LONG;
 
 /**
  * Запрос проверки автомобиля с сайта ГИБДД
@@ -64,8 +70,34 @@ public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseA
             progressDialog.dismiss();
         }
 
-        Intent intent = new Intent(context, ResultAutoActivity.class);
-        intent.putExtra("result_text", result.getResultText());
+
+        String resultText = result.getResultText();
+
+        Class<?> clazz;
+
+        ResultAutoObject resultAutoObject = ResultAutoHelper.parseResult(resultText);
+        if(resultAutoObject == null) {
+            Toast.makeText(context, "Can't do something", LENGTH_LONG).show();
+            return;
+        }
+
+        switch (resultAutoObject.getType()) {
+            case SUCCESS:
+                clazz = ResultAutoActivity.class;
+                break;
+            case NO_DATA_FOUND:
+                clazz = NoDataFoundActivity.class;
+                break;
+            case CAPTCHA_NUMBER_IS_NOT_VALID:
+                clazz = CaptchaNumberIsNotValid.class;
+                break;
+            default:
+                Toast.makeText(context, "Can't do something", LENGTH_LONG).show();
+                return;
+        }
+
+        Intent intent = new Intent(context, clazz);
+        intent.putExtra("result_text", resultText);
         context.startActivity(intent);
 
         Log.d(TAG, "END onPostExecute");
