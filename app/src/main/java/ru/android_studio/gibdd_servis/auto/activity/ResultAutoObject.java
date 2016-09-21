@@ -1,5 +1,7 @@
 package ru.android_studio.gibdd_servis.auto.activity;
 
+import java.util.List;
+
 /**
  * Created by yuryandreev on 20/09/16.
  */
@@ -8,6 +10,7 @@ public class ResultAutoObject {
     private String response;
     private ResponseType type;
     private Vehicle vehicle;
+    private List<OwnershipPeriod> ownershipPeriodList;
     private String message;
 
     public Vehicle getVehicle() {
@@ -40,6 +43,14 @@ public class ResultAutoObject {
 
     public String getMessage() {
         return message;
+    }
+
+    public List<OwnershipPeriod> getOwnershipPeriodList() {
+        return ownershipPeriodList;
+    }
+
+    public void setOwnershipPeriodList(List<OwnershipPeriod> ownershipPeriodList) {
+        this.ownershipPeriodList = ownershipPeriodList;
     }
 
     @Override

@@ -1,12 +1,21 @@
 package ru.android_studio.gibdd_servis.auto.activity;
 
 /**
- * Created by yuryandreev on 20/09/16.
+ * Период владения транспортным средством
  */
 public class OwnershipPeriod {
+    private String id;
     private TypeOwner simplePersonType;
     private String from;
     private String to;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public TypeOwner getSimplePersonType() {
         return simplePersonType;

@@ -36,6 +36,14 @@ public class ResultAutoHelper {
         return result;
     }
 
+    @Nullable
+    public static ResultAutoObject parseSuccessResult(String resultText) {
+        ResultAutoObject result = new ResultAutoObject();
+        JsonObject jsonObject = new JsonParser().parse(resultText).getAsJsonObject();
+        mapSuccessResult(jsonObject, result);
+        return result;
+    }
+
     private static void mapResult(JsonObject source, ResultAutoObject target) {
         String status = getIfExists(source.getAsJsonPrimitive("status"));
         Log.i(TAG, "result status: " + status);

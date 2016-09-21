@@ -7,38 +7,12 @@
 
     <include layout="@layout/toolbar" />
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar"
-        android:background="@color/accent_material_dark"
-        android:layout_above="@+id/vehicle">
-
-
-        <TextView
-            android:id="@+id/result_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="158dp"
-            android:layout_alignTop="@+id/scrollView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/vehicle"
-            android:scrollIndicators="right" />
-    </ScrollView>
-
     <LinearLayout
         android:id="@+id/vehicle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff000"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -46,15 +20,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/label_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_color" />
+                android:id="@+id/label_color" />
 
             <TextView
-                android:id="@+id/color"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/color" />
         </LinearLayout>
 
         <LinearLayout
@@ -63,15 +36,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/label_body_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_body_number" />
+                android:id="@+id/label_body_number" />
 
             <TextView
-                android:id="@+id/body_number"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/body_number" />
         </LinearLayout>
 
         <LinearLayout
@@ -80,15 +52,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/label_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_year" />
+                android:id="@+id/label_year" />
 
             <TextView
-                android:id="@+id/year"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/year" />
         </LinearLayout>
 
         <LinearLayout
@@ -97,15 +68,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/label_vin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_vin" />
+                android:id="@+id/label_vin" />
 
             <TextView
-                android:id="@+id/vin"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/vin" />
         </LinearLayout>
 
         <LinearLayout
@@ -114,15 +84,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/label_model"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_model" />
+                android:id="@+id/label_model" />
 
             <TextView
-                android:id="@+id/model"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/model" />
         </LinearLayout>
 
         <LinearLayout
@@ -131,15 +100,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/label_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_category" />
+                android:id="@+id/label_category" />
 
             <TextView
-                android:id="@+id/category"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/category" />
         </LinearLayout>
 
         <LinearLayout
@@ -148,15 +116,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/label_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_type" />
+                android:id="@+id/label_type" />
 
             <TextView
-                android:id="@+id/type"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/type" />
         </LinearLayout>
 
         <LinearLayout
@@ -165,109 +132,71 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/label_power_kwt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_power_kwt" />
+                android:id="@+id/label_engine_number" />
 
             <TextView
-                android:id="@+id/power_kwt"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/engine_number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/label_engine_volume" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/engine_volume" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/label_power_hp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/power_hp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/label_power_kwt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/power_kwt" />
         </LinearLayout>
     </LinearLayout>
 
-    <!--<LinearLayout
-        android:id="@+id/NavigationLinearLayout"
+    <fragment android:name="ru.android_studio.gibdd_servis.ItemFragment"
+        android:id="@+id/article_fragment"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-
-        <View
-            android:id="@+id/bottom_menu_border"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/bottom_menu_border" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:orientation="horizontal">
-
-            &lt;!&ndash;<View&ndash;&gt;
-                &lt;!&ndash;android:layout_width="0dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_height="1dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_weight="1"></View>&ndash;&gt;
-
-            &lt;!&ndash;<ImageButton&ndash;&gt;
-                &lt;!&ndash;android:id="@+id/menu_fine_btn"&ndash;&gt;
-                &lt;!&ndash;android:layout_width="60dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
-                &lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;
-                &lt;!&ndash;android:background="@android:color/transparent"&ndash;&gt;
-                &lt;!&ndash;android:scaleType="centerInside"&ndash;&gt;
-                &lt;!&ndash;android:src="@drawable/menu_fine_off" />&ndash;&gt;
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"></View>
-
-            <ImageButton
-                android:id="@+id/menu_driver_btn"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                android:src="@drawable/menu_driver_off" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"></View>
-
-            <ImageButton
-                android:id="@+id/menu_car_btn"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="false"
-                android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                android:src="@drawable/menu_auto_on"
-                android:visibility="visible" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"></View>
-
-            &lt;!&ndash;<ImageButton&ndash;&gt;
-                &lt;!&ndash;android:id="@+id/menu_question_btn"&ndash;&gt;
-                &lt;!&ndash;android:layout_width="60dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
-                &lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;
-                &lt;!&ndash;android:background="@android:color/transparent"&ndash;&gt;
-                &lt;!&ndash;android:scaleType="centerInside"&ndash;&gt;
-                &lt;!&ndash;android:src="@drawable/menu_question_off" />&ndash;&gt;
-
-            &lt;!&ndash;<View&ndash;&gt;
-                &lt;!&ndash;android:layout_width="0dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_height="1dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_weight="1"></View>&ndash;&gt;
-
-        </LinearLayout>
-    </LinearLayout>-->
-
-    <!--<Button
-        android:id="@+id/check_button_back"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/check_btn_shadow"
-        android:text="@string/btn_back"
-        android:textColor="@drawable/text_button"
-        android:layout_below="@+id/scrollView"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />-->
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/vehicle" />
 </RelativeLayout>

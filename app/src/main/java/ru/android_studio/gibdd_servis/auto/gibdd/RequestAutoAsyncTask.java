@@ -85,14 +85,8 @@ public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseA
             case SUCCESS:
                 clazz = ResultAutoActivity.class;
                 break;
-            case NO_DATA_FOUND:
-                clazz = NoDataFoundActivity.class;
-                break;
-            case CAPTCHA_NUMBER_IS_NOT_VALID:
-                clazz = CaptchaNumberIsNotValid.class;
-                break;
             default:
-                Toast.makeText(context, "Can't do something", LENGTH_LONG).show();
+                Toast.makeText(context, resultAutoObject.getType().getText(), LENGTH_LONG).show();
                 return;
         }
 
