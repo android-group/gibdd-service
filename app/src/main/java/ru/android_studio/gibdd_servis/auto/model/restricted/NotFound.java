@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.auto.model.restrinct;
+package ru.android_studio.gibdd_servis.auto.model.restricted;
 
 public class NotFound {
     // "RequestResult"

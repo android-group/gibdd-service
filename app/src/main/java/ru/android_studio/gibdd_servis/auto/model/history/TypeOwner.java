@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.auto.activity;
+package ru.android_studio.gibdd_servis.auto.model.history;
 
 /**
  * Created by yuryandreev on 20/09/16.

@@ -63,7 +63,7 @@ public abstract class BaseCaptchaAsyncTask extends AsyncTask<String, Void, Captc
     protected void onPostExecute(CaptchaResult result) {
         Log.d(TAG, "START onPostExecute");
 
-        if(result != null) {
+        if (result != null) {
             captchaImageView.setImageBitmap(result.getImage());
         }
 

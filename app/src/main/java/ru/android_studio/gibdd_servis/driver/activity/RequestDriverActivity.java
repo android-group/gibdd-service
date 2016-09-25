@@ -1,15 +1,11 @@
 package ru.android_studio.gibdd_servis.driver.activity;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -18,15 +14,13 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCRAndCaptcha;
+import ru.android_studio.gibdd_servis.ActivityWithCaptcha;
 import ru.android_studio.gibdd_servis.R;
-import ru.android_studio.gibdd_servis.camera.Camera;
 import ru.android_studio.gibdd_servis.driver.gibdd.RequestDriverAsyncTask;
 import ru.android_studio.gibdd_servis.driver.model.RequestDriver;
 import ru.android_studio.gibdd_servis.gibdd.BaseCaptchaAsyncTask;
 import ru.android_studio.gibdd_servis.gibdd.CheckType;
 import ru.android_studio.gibdd_servis.gibdd.NewCaptchaAsyncTask;
-import ru.android_studio.gibdd_servis.ocr.OCRService;
 
 /**
  * Created on 20.05.2016.
@@ -38,7 +32,7 @@ import ru.android_studio.gibdd_servis.ocr.OCRService;
  * @author Ruslan Suleymanov
  * @version 0.1
  */
-public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
+public class RequestDriverActivity extends ActivityWithCaptcha {
 
     private static final String TAG = "RequestDriverActivity";
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
@@ -72,22 +66,22 @@ public class RequestDriverActivity extends ActivityWithMenuAndOCRAndCaptcha {
     @OnClick(R.id.check_button)
     void checkButton() {
         Log.d(TAG, "START checkButton");
-        if(captchaEditText.length() == 0 &&
-            seriesEditText.length() == 0 &&
-            numberEditText.length() == 0 &&
-            dateOfIssueEditText.length() == 0) {
+        if (captchaEditText.length() == 0 &&
+                seriesEditText.length() == 0 &&
+                numberEditText.length() == 0 &&
+                dateOfIssueEditText.length() == 0) {
             Toast.makeText(this, "Пожалуйста, заполните все поля.", Toast.LENGTH_SHORT).show();
             return;
-        } else if(seriesEditText.length() == 0) {
+        } else if (seriesEditText.length() == 0) {
             Toast.makeText(this, "Пожалуйста, заполните серию.", Toast.LENGTH_SHORT).show();
             return;
-        } else if(numberEditText.length() == 0) {
+        } else if (numberEditText.length() == 0) {
             Toast.makeText(this, "Пожалуйста, заполните номер", Toast.LENGTH_SHORT).show();
             return;
-        } else if(dateOfIssueEditText.length() == 0) {
+        } else if (dateOfIssueEditText.length() == 0) {
             Toast.makeText(this, "Пожалуйста, заполните дату выдачи", Toast.LENGTH_SHORT).show();
             return;
-        } else if(captchaEditText.length() == 0) {
+        } else if (captchaEditText.length() == 0) {
             Toast.makeText(this, "Пожалуйста, введите символы с картинки.", Toast.LENGTH_SHORT).show();
             return;
         }

@@ -12,7 +12,7 @@ import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.gibdd.BaseCaptchaAsyncTask;
 import ru.android_studio.gibdd_servis.gibdd.CaptchaResult;
 
-public abstract class ActivityWithMenuAndOCRAndCaptcha extends ActivityWithMenu {
+public abstract class ActivityWithCaptcha extends ActivityWithMenu {
 
     private static final String TAG = "MenuAndOCRAndCaptcha";
 
@@ -49,7 +49,7 @@ public abstract class ActivityWithMenuAndOCRAndCaptcha extends ActivityWithMenu 
         String sessionId = null;
         try {
             CaptchaResult captchaResult = getCaptchaResult();
-            if(captchaResult != null) {
+            if (captchaResult != null) {
                 sessionId = captchaResult.getSessionId();
             }
         } catch (InterruptedException | ExecutionException e) {

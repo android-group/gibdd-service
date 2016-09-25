@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ru.android_studio.gibdd_servis.auto.activity.OwnershipPeriod;
+import ru.android_studio.gibdd_servis.auto.model.history.OwnershipPeriod;
 
 /**
  * A fragment representing a list of Items.

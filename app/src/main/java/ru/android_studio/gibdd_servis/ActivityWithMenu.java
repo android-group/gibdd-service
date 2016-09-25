@@ -1,25 +1,18 @@
 package ru.android_studio.gibdd_servis;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
 import android.view.WindowManager;
 
 import butterknife.BindView;
-import ru.android_studio.gibdd_servis.auto.activity.RequestAutoActivity;
-import ru.android_studio.gibdd_servis.driver.activity.RequestDriverActivity;
-import ru.android_studio.gibdd_servis.fine.activity.RequestFineActivity;
-import ru.android_studio.gibdd_servis.question.activity.QuestionActivity;
 
 /**
  * Created by y.andreev on 03.06.2016.
- *
+ * <p/>
  * Активити с Нижним меню
  */
 public abstract class ActivityWithMenu extends AppCompatActivity {

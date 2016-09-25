@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis;
+package ru.android_studio.gibdd_servis.auto.response.history;
 
 import junit.framework.Assert;
 
@@ -7,34 +7,26 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.android_studio.gibdd_servis.auto.activity.AutoType;
-import ru.android_studio.gibdd_servis.auto.activity.OwnershipPeriod;
-import ru.android_studio.gibdd_servis.auto.activity.ResponseType;
-import ru.android_studio.gibdd_servis.auto.activity.ResultAutoHelper;
-import ru.android_studio.gibdd_servis.auto.activity.ResultAutoObject;
-import ru.android_studio.gibdd_servis.auto.activity.TypeOwner;
-import ru.android_studio.gibdd_servis.auto.activity.Vehicle;
+import ru.android_studio.gibdd_servis.auto.model.history.AutoType;
+import ru.android_studio.gibdd_servis.auto.model.history.OwnershipPeriod;
+import ru.android_studio.gibdd_servis.auto.model.history.ResponseStatus;
+import ru.android_studio.gibdd_servis.auto.model.history.ResultAutoHistory;
+import ru.android_studio.gibdd_servis.auto.model.history.TypeOwner;
+import ru.android_studio.gibdd_servis.auto.model.history.Vehicle;
+import ru.android_studio.gibdd_servis.auto.parser.ParseResultAutoHistory;
 
-/**
- * Created by yuryandreev on 19/09/16.
- */
-public class ResultAutoHelperTest {
+public class ParseResultAutoHistoryTest {
 
-    @Test
-    public void testParseResultIsNull() {
-        String data = "";
-        ResultAutoObject result = ResultAutoHelper.parseResult(data);
-        Assert.assertTrue(result == null);
-    }
+    ParseResultAutoHistory parseResultAutoHistory = ParseResultAutoHistory.getInstance();
 
     @Test
     public void testCaptchaNumberIsNotValid() {
-        ResultAutoObject result = ResultAutoHelper.parseFailureResult(GibddResponseData.CAPTCHA_NUMBER_IS_NOT_VALID);
+        ResultAutoHistory result = new ResultAutoHistory();
+        parseResultAutoHistory.parseFailureResult(ResponseDataHistory.CAPTCHA_NUMBER_IS_NOT_VALID, result);
         Assert.assertNotNull(result);
 
-        ResultAutoObject expected = new ResultAutoObject();
-        //expected.setResponse(GibddResponseData.CAPTCHA_NUMBER_IS_NOT_VALID);
-        expected.setType(ResponseType.CAPTCHA_NUMBER_IS_NOT_VALID);
+        ResultAutoHistory expected = new ResultAutoHistory();
+        expected.setType(ResponseStatus.CAPTCHA_NOT_VALID);
         expected.setMessage("Цифры с картинки введены неверно");
 
         Assert.assertEquals(expected, result);
@@ -42,12 +34,12 @@ public class ResultAutoHelperTest {
 
     @Test
     public void testParseResultIsSuccessMapping() {
-        ResultAutoObject result = ResultAutoHelper.parseSuccessResult(GibddResponseData.SUCCESS_DATA);
+        ResultAutoHistory result = new ResultAutoHistory();
+        parseResultAutoHistory.mapSuccessResult(ResponseDataHistory.SUCCESS, result);
         Assert.assertNotNull(result);
 
-        ResultAutoObject expected = new ResultAutoObject();
-        //expected.setResponse(GibddResponseData.SUCCESS_DATA);
-        expected.setType(ResponseType.SUCCESS);
+        ResultAutoHistory expected = new ResultAutoHistory();
+        expected.setType(ResponseStatus.SUCCESS);
 
         Vehicle vehicle = new Vehicle();
         vehicle.setColor("ЗЕЛЕНЫЙ");
@@ -66,12 +58,12 @@ public class ResultAutoHelperTest {
 
     @Test
     public void testParseResultIsSuccessMapping2() {
-        ResultAutoObject result = ResultAutoHelper.parseSuccessResult(GibddResponseData.SUCCESS_DATA_2);
+        ResultAutoHistory result = new ResultAutoHistory();
+        parseResultAutoHistory.mapSuccessResult(ResponseDataHistory.SUCCESS_2, result);
         Assert.assertNotNull(result);
 
-        ResultAutoObject expected = new ResultAutoObject();
-        //expected.setResponse(GibddResponseData.SUCCESS_DATA_2);
-        expected.setType(ResponseType.SUCCESS);
+        ResultAutoHistory expected = new ResultAutoHistory();
+        expected.setType(ResponseStatus.SUCCESS);
 
         Vehicle vehicle = new Vehicle();
         vehicle.setColor("СЕРЫЙ");
@@ -137,12 +129,12 @@ public class ResultAutoHelperTest {
 
     @Test
     public void testNoDataFound() {
-        ResultAutoObject result = ResultAutoHelper.parseFailureResult(GibddResponseData.NO_DATA_FOUND);
+        ResultAutoHistory result = new ResultAutoHistory();
+        parseResultAutoHistory.parseFailureResult(ResponseDataHistory.NO_DATA_FOUND, result);
         Assert.assertNotNull(result);
 
-        ResultAutoObject expected = new ResultAutoObject();
-        //expected.setResponse(GibddResponseData.NO_DATA_FOUND);
-        expected.setType(ResponseType.NO_DATA_FOUND);
+        ResultAutoHistory expected = new ResultAutoHistory();
+        expected.setType(ResponseStatus.NO_DATA_FOUND);
         expected.setMessage("404:No data found");
 
         Assert.assertEquals(expected, result);

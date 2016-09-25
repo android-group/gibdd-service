@@ -42,7 +42,7 @@ public class RequestDriverAsyncTask extends AsyncTask<RequestDriver, Void, Respo
     @Override
     protected ResponseDriver doInBackground(RequestDriver... params) {
         Log.d(TAG, "START doInBackground");
-        if(params.length == 0) {
+        if (params.length == 0) {
             throw new IllegalArgumentException("RequestDriver can't be null");
         }
         RequestDriver requestDriver = params[0];

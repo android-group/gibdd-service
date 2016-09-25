@@ -8,7 +8,7 @@ import ru.android_studio.gibdd_servis.R;
 
 /**
  * Created by olga on 02.07.2016.
- *
+ * <p/>
  * Прием обращений следующая страница
  */
 public class QuestionActivityNext extends ActivityWithMenu {

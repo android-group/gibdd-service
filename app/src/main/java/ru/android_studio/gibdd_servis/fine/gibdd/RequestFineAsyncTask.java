@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-import ru.android_studio.gibdd_servis.driver.activity.ResultDriverActivity;
 import ru.android_studio.gibdd_servis.fine.activity.ResultFineActivity;
 import ru.android_studio.gibdd_servis.fine.model.RequestFine;
 import ru.android_studio.gibdd_servis.fine.model.ResponseFine;
@@ -43,7 +42,7 @@ public class RequestFineAsyncTask extends AsyncTask<RequestFine, Void, ResponseF
     @Override
     protected ResponseFine doInBackground(RequestFine... params) {
         Log.d(TAG, "START doInBackground");
-        if(params.length == 0) {
+        if (params.length == 0) {
             throw new IllegalArgumentException("RequestFine can't be null");
         }
         RequestFine requestFine = params[0];

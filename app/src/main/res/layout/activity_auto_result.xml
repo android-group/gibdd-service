@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/car_activity"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical">
+    android:id="@+id/car_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-<include layout="@layout/toolbar" />
+    <include layout="@layout/toolbar" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -36,7 +36,7 @@ android:orientation="vertical">
         </LinearLayout>
     </ScrollView>
 
-<LinearLayout
+    <LinearLayout
         android:id="@+id/vehicle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -218,96 +218,96 @@ android:orientation="vertical">
                 android:layout_height="wrap_content"
                 android:id="@+id/power_kwt" />
         </LinearLayout>
-</LinearLayout>
-
-<!--<LinearLayout
-    android:id="@+id/NavigationLinearLayout"
-    android:layout_width="match_parent"
-    android:layout_height="75dp"
-    android:layout_alignParentBottom="true"
-    android:orientation="vertical">
-
-    <View
-        android:id="@+id/bottom_menu_border"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/bottom_menu_border" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="74dp"
-        android:orientation="horizontal">
-
-        &lt;!&ndash;<View&ndash;&gt;
-            &lt;!&ndash;android:layout_width="0dp"&ndash;&gt;
-            &lt;!&ndash;android:layout_height="1dp"&ndash;&gt;
-            &lt;!&ndash;android:layout_weight="1"></View>&ndash;&gt;
-
-        &lt;!&ndash;<ImageButton&ndash;&gt;
-            &lt;!&ndash;android:id="@+id/menu_fine_btn"&ndash;&gt;
-            &lt;!&ndash;android:layout_width="60dp"&ndash;&gt;
-            &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
-            &lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;
-            &lt;!&ndash;android:background="@android:color/transparent"&ndash;&gt;
-            &lt;!&ndash;android:scaleType="centerInside"&ndash;&gt;
-            &lt;!&ndash;android:src="@drawable/menu_fine_off" />&ndash;&gt;
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"></View>
-
-        <ImageButton
-            android:id="@+id/menu_driver_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_driver_off" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"></View>
-
-        <ImageButton
-            android:id="@+id/menu_car_btn"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="false"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu_auto_on"
-            android:visibility="visible" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"></View>
-
-        &lt;!&ndash;<ImageButton&ndash;&gt;
-            &lt;!&ndash;android:id="@+id/menu_question_btn"&ndash;&gt;
-            &lt;!&ndash;android:layout_width="60dp"&ndash;&gt;
-            &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
-            &lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;
-            &lt;!&ndash;android:background="@android:color/transparent"&ndash;&gt;
-            &lt;!&ndash;android:scaleType="centerInside"&ndash;&gt;
-            &lt;!&ndash;android:src="@drawable/menu_question_off" />&ndash;&gt;
-
-        &lt;!&ndash;<View&ndash;&gt;
-            &lt;!&ndash;android:layout_width="0dp"&ndash;&gt;
-            &lt;!&ndash;android:layout_height="1dp"&ndash;&gt;
-            &lt;!&ndash;android:layout_weight="1"></View>&ndash;&gt;
-
     </LinearLayout>
-</LinearLayout>-->
 
-<!--<Button
-    android:id="@+id/check_button_back"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:background="@drawable/check_btn_shadow"
-    android:textColor="@drawable/text_button"
-    android:layout_below="@+id/scrollView" />-->
+    <!--<LinearLayout
+        android:id="@+id/NavigationLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/bottom_menu_border"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bottom_menu_border" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal">
+
+            &lt;!&ndash;<View&ndash;&gt;
+                &lt;!&ndash;android:layout_width="0dp"&ndash;&gt;
+                &lt;!&ndash;android:layout_height="1dp"&ndash;&gt;
+                &lt;!&ndash;android:layout_weight="1"></View>&ndash;&gt;
+
+            &lt;!&ndash;<ImageButton&ndash;&gt;
+                &lt;!&ndash;android:id="@+id/menu_fine_btn"&ndash;&gt;
+                &lt;!&ndash;android:layout_width="60dp"&ndash;&gt;
+                &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
+                &lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;
+                &lt;!&ndash;android:background="@android:color/transparent"&ndash;&gt;
+                &lt;!&ndash;android:scaleType="centerInside"&ndash;&gt;
+                &lt;!&ndash;android:src="@drawable/menu_fine_off" />&ndash;&gt;
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
+
+            <ImageButton
+                android:id="@+id/menu_driver_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_driver_off" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
+
+            <ImageButton
+                android:id="@+id/menu_car_btn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="false"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu_auto_on"
+                android:visibility="visible" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
+
+            &lt;!&ndash;<ImageButton&ndash;&gt;
+                &lt;!&ndash;android:id="@+id/menu_question_btn"&ndash;&gt;
+                &lt;!&ndash;android:layout_width="60dp"&ndash;&gt;
+                &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
+                &lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;
+                &lt;!&ndash;android:background="@android:color/transparent"&ndash;&gt;
+                &lt;!&ndash;android:scaleType="centerInside"&ndash;&gt;
+                &lt;!&ndash;android:src="@drawable/menu_question_off" />&ndash;&gt;
+
+            &lt;!&ndash;<View&ndash;&gt;
+                &lt;!&ndash;android:layout_width="0dp"&ndash;&gt;
+                &lt;!&ndash;android:layout_height="1dp"&ndash;&gt;
+                &lt;!&ndash;android:layout_weight="1"></View>&ndash;&gt;
+
+        </LinearLayout>
+    </LinearLayout>-->
+
+    <!--<Button
+        android:id="@+id/check_button_back"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/check_btn_shadow"
+        android:textColor="@drawable/text_button"
+        android:layout_below="@+id/scrollView" />-->
 </RelativeLayout>

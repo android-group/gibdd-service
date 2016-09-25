@@ -1,24 +1,19 @@
 package ru.android_studio.gibdd_servis.auto.activity;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.android_studio.gibdd_servis.ActivityWithMenu;
 import ru.android_studio.gibdd_servis.ItemFragment;
-import ru.android_studio.gibdd_servis.MyItemRecyclerViewAdapter;
 import ru.android_studio.gibdd_servis.R;
+import ru.android_studio.gibdd_servis.auto.model.history.OwnershipPeriod;
+import ru.android_studio.gibdd_servis.auto.model.history.ResultAutoHistory;
+import ru.android_studio.gibdd_servis.auto.model.history.Vehicle;
+import ru.android_studio.gibdd_servis.auto.parser.ParseResultAutoHistory;
 
 
 public class ResultAutoActivity extends ActivityWithMenu implements ItemFragment.OnListFragmentInteractionListener {
@@ -46,6 +41,8 @@ public class ResultAutoActivity extends ActivityWithMenu implements ItemFragment
     @BindView(R.id.power_hp)
     TextView powerHpTextView;
 
+    ParseResultAutoHistory parseResultAutoHistory = ParseResultAutoHistory.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,18 +52,18 @@ public class ResultAutoActivity extends ActivityWithMenu implements ItemFragment
 
         Bundle extras = getIntent().getExtras();
         String resultText = extras.getString("result_text");
-
-        ResultAutoObject result = ResultAutoHelper.parseSuccessResult(resultText);
+        ResultAutoHistory result = new ResultAutoHistory();
+        parseResultAutoHistory.mapSuccessResult(resultText, result);
         fillVehicle(result.getVehicle());
-        //fillOwnershipPeriodList(result.getOwnershipPeriodList());
+        fillOwnershipPeriodList(result.getOwnershipPeriodList());
 
         addToolbarByIconId(R.mipmap.ic_auto);
     }
 
-    //Периоды владения транспортным средством
-    /*private void fillOwnershipPeriodList(List<OwnershipPeriod> ownershipPeriodList) {
+    // Периоды владения транспортным средством
+    private void fillOwnershipPeriodList(List<OwnershipPeriod> ownershipPeriodList) {
 
-    }*/
+    }
 
     private void fillVehicle(Vehicle vehicle) {
         typeTextView.setText(vehicle.getType().getText());

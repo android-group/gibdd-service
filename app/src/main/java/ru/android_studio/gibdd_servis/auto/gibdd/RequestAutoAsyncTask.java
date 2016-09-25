@@ -10,12 +10,11 @@ import android.widget.Toast;
 import java.io.IOException;
 
 import ru.android_studio.gibdd_servis.auto.activity.ResultAutoActivity;
-import ru.android_studio.gibdd_servis.auto.activity.ResultAutoHelper;
-import ru.android_studio.gibdd_servis.auto.activity.ResultAutoObject;
 import ru.android_studio.gibdd_servis.auto.model.RequestAuto;
 import ru.android_studio.gibdd_servis.auto.model.ResponseAuto;
-import ru.android_studio.gibdd_servis.common.CaptchaNumberIsNotValid;
-import ru.android_studio.gibdd_servis.common.NoDataFoundActivity;
+import ru.android_studio.gibdd_servis.auto.model.history.ResponseStatus;
+import ru.android_studio.gibdd_servis.auto.model.history.ResultAutoHistory;
+import ru.android_studio.gibdd_servis.auto.parser.ParseResultAutoHistory;
 
 import static android.widget.Toast.LENGTH_LONG;
 
@@ -26,15 +25,14 @@ public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseA
 
     private static final String TAG = "RequestDriverAsyncTask";
     private Context context;
-
-    public RequestAutoAsyncTask(Context context) {
-        this.context = context;
-    }
-
     /**
      * Окно отображается при открытом асинх таске
      */
     private ProgressDialog progressDialog;
+
+    public RequestAutoAsyncTask(Context context) {
+        this.context = context;
+    }
 
     @Override
     protected void onPreExecute() {
@@ -48,7 +46,7 @@ public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseA
     @Override
     protected ResponseAuto doInBackground(RequestAuto... params) {
         Log.d(TAG, "START doInBackground");
-        if(params.length == 0) {
+        if (params.length == 0) {
             throw new IllegalArgumentException("RequestDriver can't be null");
         }
         RequestAuto requestAuto = params[0];
@@ -70,30 +68,21 @@ public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseA
             progressDialog.dismiss();
         }
 
-
         String resultText = result.getResultText();
 
-        Class<?> clazz;
-
-        ResultAutoObject resultAutoObject = ResultAutoHelper.parseResult(resultText);
-        if(resultAutoObject == null) {
+        ResponseStatus responseStatus = ParseResultAutoHistory.getResponseStatus(resultText);
+        if (responseStatus == null) {
             Toast.makeText(context, "Can't do something", LENGTH_LONG).show();
             return;
         }
 
-        switch (resultAutoObject.getType()) {
-            case SUCCESS:
-                clazz = ResultAutoActivity.class;
-                break;
-            default:
-                Toast.makeText(context, resultAutoObject.getType().getText(), LENGTH_LONG).show();
-                return;
+        if (responseStatus == ResponseStatus.SUCCESS) {
+            Intent intent = new Intent(context, ResultAutoActivity.class);
+            intent.putExtra("result_text", resultText);
+            context.startActivity(intent);
+        } else {
+            Toast.makeText(context, responseStatus.getText(), LENGTH_LONG).show();
         }
-
-        Intent intent = new Intent(context, clazz);
-        intent.putExtra("result_text", resultText);
-        context.startActivity(intent);
-
         Log.d(TAG, "END onPostExecute");
     }
 }

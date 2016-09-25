@@ -8,7 +8,7 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCRAndCaptcha;
+import ru.android_studio.gibdd_servis.ActivityWithCaptcha;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.fine.gibdd.RequestFineAsyncTask;
 import ru.android_studio.gibdd_servis.fine.model.RequestFine;
@@ -20,11 +20,12 @@ import ru.android_studio.gibdd_servis.gibdd.OldCaptchaAsyncTask;
  * <p/>
  * Проверка штрафов
  * Проверка наличия неуплаченных штрафов по данным транспортного средства
+ *
  * @author y.andreev
  * @author Ruslan Suleymanov
  * @version 0.1
  */
-public class RequestFineActivity extends ActivityWithMenuAndOCRAndCaptcha {
+public class RequestFineActivity extends ActivityWithCaptcha {
 
     private static final String TAG = "RequestFineActivity";
 

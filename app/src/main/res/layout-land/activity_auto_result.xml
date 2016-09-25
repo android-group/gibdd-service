@@ -191,7 +191,8 @@
         </LinearLayout>
     </LinearLayout>
 
-    <fragment android:name="ru.android_studio.gibdd_servis.ItemFragment"
+    <fragment
+        android:name="ru.android_studio.gibdd_servis.ItemFragment"
         android:id="@+id/article_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

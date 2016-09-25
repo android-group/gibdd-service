@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import ru.android_studio.gibdd_servis.ItemFragment.OnListFragmentInteractionListener;
-import ru.android_studio.gibdd_servis.auto.activity.OwnershipPeriod;
-
 import java.util.List;
+
+import ru.android_studio.gibdd_servis.ItemFragment.OnListFragmentInteractionListener;
+import ru.android_studio.gibdd_servis.auto.model.history.OwnershipPeriod;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link OwnershipPeriod} and makes a call to the

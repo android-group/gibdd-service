@@ -1,47 +1,29 @@
 package ru.android_studio.gibdd_servis.auto.model.history;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
-import java.util.HashMap;
-import java.util.Map;
-
+/**
+ * Created by yuryandreev on 20/09/16.
+ */
 public class Vehicle {
-
-    // "chassisNumber"
-    private String chassisNumber;
-    // "engineVolume"
+    //Рабочий объем (см³):
     private String engineVolume;
-    // "color"
+    //Цвет
     private String color;
-    // "bodyNumber"
+    //Кузов
     private String bodyNumber;
-    // "year"
+    //Год выпуска
     private String year;
-    // "engineNumber"
+    // Номер двигателя
     private String engineNumber;
-    // "vin"
+    // VIN
     private String vin;
-    // "model"
+    //Марка, модель
     private String model;
-    // "category"
     private String category;
-    // "type"
-    private String type;
-    // "powerHp"
+    private AutoType type;
+    // Мощность кВт:
+    private String powerKwt;
+    // Мощность л.с.
     private String powerHp;
-
-    public String getChassisNumber() {
-        return chassisNumber;
-    }
-
-    public void setChassisNumber(String chassisNumber) {
-        this.chassisNumber = chassisNumber;
-    }
 
     public String getEngineVolume() {
         return engineVolume;
@@ -107,12 +89,20 @@ public class Vehicle {
         this.category = category;
     }
 
-    public String getType() {
+    public AutoType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(AutoType type) {
         this.type = type;
+    }
+
+    public String getPowerKwt() {
+        return powerKwt;
+    }
+
+    public void setPowerKwt(String powerKwt) {
+        this.powerKwt = powerKwt;
     }
 
     public String getPowerHp() {
@@ -121,5 +111,64 @@ public class Vehicle {
 
     public void setPowerHp(String powerHp) {
         this.powerHp = powerHp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Vehicle vehicle = (Vehicle) o;
+
+        if (engineVolume != null ? !engineVolume.equals(vehicle.engineVolume) : vehicle.engineVolume != null)
+            return false;
+        if (color != null ? !color.equals(vehicle.color) : vehicle.color != null) return false;
+        if (bodyNumber != null ? !bodyNumber.equals(vehicle.bodyNumber) : vehicle.bodyNumber != null)
+            return false;
+        if (year != null ? !year.equals(vehicle.year) : vehicle.year != null) return false;
+        if (engineNumber != null ? !engineNumber.equals(vehicle.engineNumber) : vehicle.engineNumber != null)
+            return false;
+        if (vin != null ? !vin.equals(vehicle.vin) : vehicle.vin != null) return false;
+        if (model != null ? !model.equals(vehicle.model) : vehicle.model != null) return false;
+        if (category != null ? !category.equals(vehicle.category) : vehicle.category != null)
+            return false;
+        if (type != vehicle.type) return false;
+        if (powerKwt != null ? !powerKwt.equals(vehicle.powerKwt) : vehicle.powerKwt != null)
+            return false;
+        return powerHp != null ? powerHp.equals(vehicle.powerHp) : vehicle.powerHp == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = engineVolume != null ? engineVolume.hashCode() : 0;
+        result = 31 * result + (color != null ? color.hashCode() : 0);
+        result = 31 * result + (bodyNumber != null ? bodyNumber.hashCode() : 0);
+        result = 31 * result + (year != null ? year.hashCode() : 0);
+        result = 31 * result + (engineNumber != null ? engineNumber.hashCode() : 0);
+        result = 31 * result + (vin != null ? vin.hashCode() : 0);
+        result = 31 * result + (model != null ? model.hashCode() : 0);
+        result = 31 * result + (category != null ? category.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (powerKwt != null ? powerKwt.hashCode() : 0);
+        result = 31 * result + (powerHp != null ? powerHp.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "engineVolume='" + engineVolume + '\'' +
+                ", color='" + color + '\'' +
+                ", bodyNumber='" + bodyNumber + '\'' +
+                ", year='" + year + '\'' +
+                ", engineNumber='" + engineNumber + '\'' +
+                ", vin='" + vin + '\'' +
+                ", model='" + model + '\'' +
+                ", category='" + category + '\'' +
+                ", type=" + type +
+                ", powerKwt='" + powerKwt + '\'' +
+                ", powerHp='" + powerHp + '\'' +
+                '}';
     }
 }

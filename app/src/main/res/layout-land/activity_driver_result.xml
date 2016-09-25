@@ -23,7 +23,6 @@
     </ScrollView>
 
 
-
     <!--<LinearLayout
         android:id="@+id/NavigationLinearLayout"
         android:layout_width="match_parent"

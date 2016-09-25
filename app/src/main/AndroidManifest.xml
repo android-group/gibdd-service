@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -21,48 +21,61 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".common.NoDataFoundActivity">
-        </activity>
-        <activity android:name=".common.CaptchaNumberIsNotValid">
-        </activity>
-        <activity android:name=".driver.activity.RequestDriverActivity" android:label="@string/check_driver">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".common.NoDataFoundActivity"></activity>
+        <activity android:name=".common.CaptchaNumberIsNotValid"></activity>
+        <activity
+            android:name=".driver.activity.RequestDriverActivity"
+            android:label="@string/check_driver">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".driver.activity.ResultDriverActivity" android:label="@string/check_driver">
+        <activity
+            android:name=".driver.activity.ResultDriverActivity"
+            android:label="@string/check_driver">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".driver.activity.RequestDriverActivity" />
         </activity>
-        <activity android:name=".auto.activity.RequestAutoActivity" android:label="@string/check_auto">
+        <activity
+            android:name=".auto.activity.RequestAutoActivity"
+            android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".auto.activity.ResultAutoActivity" android:label="@string/check_auto">
+        <activity
+            android:name=".auto.activity.ResultAutoActivity"
+            android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".auto.activity.RequestAutoActivity" />
         </activity>
-        <activity android:name=".fine.activity.RequestFineActivity" android:label="@string/check_fine">
+        <activity
+            android:name=".fine.activity.RequestFineActivity"
+            android:label="@string/check_fine">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".fine.activity.ResultFineActivity" android:label="@string/check_fine">
+        <activity
+            android:name=".fine.activity.ResultFineActivity"
+            android:label="@string/check_fine">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".fine.activity.RequestFineActivity" />
         </activity>
-        <activity android:name=".question.activity.QuestionActivity" android:label="@string/check_question">
+        <activity
+            android:name=".question.activity.QuestionActivity"
+            android:label="@string/check_question">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".question.activity.QuestionActivityNext" android:label="@string/check_question">
+        <activity
+            android:name=".question.activity.QuestionActivityNext"
+            android:label="@string/check_question">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".question.activity.QuestionActivity" />

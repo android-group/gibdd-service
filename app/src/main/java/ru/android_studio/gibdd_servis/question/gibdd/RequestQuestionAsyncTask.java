@@ -42,7 +42,7 @@ public class RequestQuestionAsyncTask extends AsyncTask<RequestQuestion, Void, R
     @Override
     protected ResponseQuestion doInBackground(RequestQuestion... params) {
         Log.d(TAG, "START doInBackground");
-        if(params.length == 0) {
+        if (params.length == 0) {
             throw new IllegalArgumentException("RequestDriver can't be null");
         }
         RequestQuestion requestDriver = params[0];

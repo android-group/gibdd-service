@@ -1,8 +1,6 @@
 package ru.android_studio.gibdd_servis;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,8 +10,6 @@ import butterknife.ButterKnife;
 import ru.android_studio.gibdd_servis.auto.activity.RequestAutoActivity;
 import ru.android_studio.gibdd_servis.driver.activity.RequestDriverActivity;
 import ru.android_studio.gibdd_servis.fine.activity.RequestFineActivity;
-import ru.android_studio.gibdd_servis.ocr.OCRService;
-import ru.android_studio.gibdd_servis.ocr.imp.TesseractOCRServiceImp;
 import ru.android_studio.gibdd_servis.question.activity.QuestionActivity;
 
 public class MainActivity extends ActivityWithMenu {

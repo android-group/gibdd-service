@@ -32,7 +32,7 @@ public class NewCaptchaService {
         urlConnection.setRequestMethod("GET");
         urlConnection.setRequestProperty("User-Agent", CommonRequest.USER_AGENT);
         urlConnection.setRequestProperty("X-Compress", "0");
-        urlConnection.setRequestProperty("Referer", "http://www.gibdd.ru/check/"+ checkType.getTitle() +"/");
+        urlConnection.setRequestProperty("Referer", "http://www.gibdd.ru/check/" + checkType.getTitle() + "/");
         urlConnection.setRequestProperty("Host", "www.gibdd.ru");
         urlConnection.setRequestProperty("Accept", "image/webp,image/*,*/*;q=0.8");
         urlConnection.setRequestProperty("Accept-Encoding", "gzip, deflate, sdch");

@@ -3,8 +3,6 @@ package ru.android_studio.gibdd_servis.auto.activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -13,7 +11,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCRAndCaptcha;
+import ru.android_studio.gibdd_servis.ActivityWithCaptcha;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.auto.gibdd.CheckAutoType;
 import ru.android_studio.gibdd_servis.auto.gibdd.RequestAutoAsyncTask;
@@ -28,20 +26,18 @@ import ru.android_studio.gibdd_servis.gibdd.NewCaptchaAsyncTask;
  * <p/>
  * Проверка машины
  * Проверка наличия неуплаченных штрафов по данным транспортного средства
+ *
  * @author olga
  * @author Ruslan Suleymanov
  * @author Yury Andreev
  * @version 0.1
  */
-public class RequestAutoActivity extends ActivityWithMenuAndOCRAndCaptcha {
+public class RequestAutoActivity extends ActivityWithCaptcha {
 
     private static final String TAG = "RequestAutoActivity";
 
     @BindView(R.id.vin_edit_text)
     EditText vinEditText;
-
-    /*@BindView(R.id.vin_check_box)
-    CheckBox vinCheckBox;*/
 
     @BindView(R.id.vin_text_view)
     TextView vinTextView;
@@ -63,20 +59,20 @@ public class RequestAutoActivity extends ActivityWithMenuAndOCRAndCaptcha {
     @OnClick(R.id.check_button)
     void checkButton() {
         Log.d(TAG, "START checkButton");
-        if(captchaEditText.length() == 0 && vinEditText.length() == 0) {
+        if (captchaEditText.length() == 0 && vinEditText.length() == 0) {
             Toast.makeText(this, "Пожалуйста, заполните все поля.", Toast.LENGTH_SHORT).show();
             return;
-        } else if(vinEditText.length() == 0) {
+        } else if (vinEditText.length() == 0) {
             Toast.makeText(this, "Пожалуйста, заполните поле VIN номер.", Toast.LENGTH_SHORT).show();
             return;
-        } else if(captchaEditText.length() == 0) {
+        } else if (captchaEditText.length() == 0) {
             Toast.makeText(this, "Пожалуйста, введите символы с картинки.", Toast.LENGTH_SHORT).show();
             return;
         }
 
         RequestAuto requestAuto = new RequestAuto();
         String sessionId = getSessionId();
-        if(sessionId != null) {
+        if (sessionId != null) {
             requestAuto.setJsessionid(sessionId);
             requestAuto.setCaptchaWord(captchaEditText.getText().toString());
             requestAuto.setVin(vinEditText.getText().toString());

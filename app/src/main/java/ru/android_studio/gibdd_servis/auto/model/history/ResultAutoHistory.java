@@ -1,14 +1,13 @@
-package ru.android_studio.gibdd_servis.auto.activity;
+package ru.android_studio.gibdd_servis.auto.model.history;
 
 import java.util.List;
+
+import ru.android_studio.gibdd_servis.auto.model.ResultAuto;
 
 /**
  * Created by yuryandreev on 20/09/16.
  */
-public class ResultAutoObject {
-
-    private String response;
-    private ResponseType type;
+public class ResultAutoHistory extends ResultAuto {
     private Vehicle vehicle;
     private List<OwnershipPeriod> ownershipPeriodList;
     private String message;
@@ -19,22 +18,6 @@ public class ResultAutoObject {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
-    }
-
-    public String getResponse() {
-        return response;
-    }
-
-    public void setResponse(String response) {
-        this.response = response;
-    }
-
-    public ResponseType getType() {
-        return type;
-    }
-
-    public void setType(ResponseType type) {
-        this.type = type;
     }
 
     public void setMessage(String message) {
@@ -55,7 +38,7 @@ public class ResultAutoObject {
 
     @Override
     public String toString() {
-        return "ResultAutoObject{" +
+        return "ResultAutoHistory{" +
                 "response='" + response + '\'' +
                 ", type=" + type +
                 ", vehicle=" + vehicle +
@@ -69,7 +52,7 @@ public class ResultAutoObject {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ResultAutoObject that = (ResultAutoObject) o;
+        ResultAutoHistory that = (ResultAutoHistory) o;
 
         if (response != null ? !response.equals(that.response) : that.response != null)
             return false;
