@@ -3,8 +3,14 @@ package ru.android_studio.gibdd_servis.auto.parser;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ru.android_studio.gibdd_servis.auto.model.Accidents;
 import ru.android_studio.gibdd_servis.auto.model.dtp.ResultAutoDTP;
 
 public class ParseResultAutoDTP extends ParseResultAuto<ResultAutoDTP> {
@@ -33,7 +39,18 @@ public class ParseResultAutoDTP extends ParseResultAuto<ResultAutoDTP> {
 
     @Override
     public void mapSuccessResult(JsonObject requestResult, ResultAutoDTP result) {
+        JsonArray accidents = requestResult.getAsJsonArray("Accidents");
+        List<Accidents> list = new ArrayList<>();
+        for (JsonElement accident : accidents) {
+            Accidents item = new Accidents();
+            list.add(item);
+        }
+        result.setAccidents(list);
 
+        String errorDescription = requestResult.getAsJsonPrimitive("errorDescription").getAsString();
+        result.setErrorDescription(errorDescription);
+        String statusCode = requestResult.getAsJsonPrimitive("statusCode").getAsString();
+        result.setStatusCode(statusCode);
     }
 
     @Override

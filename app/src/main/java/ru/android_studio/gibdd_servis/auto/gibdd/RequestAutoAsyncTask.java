@@ -13,7 +13,6 @@ import ru.android_studio.gibdd_servis.auto.activity.ResultAutoActivity;
 import ru.android_studio.gibdd_servis.auto.model.RequestAuto;
 import ru.android_studio.gibdd_servis.auto.model.ResponseAuto;
 import ru.android_studio.gibdd_servis.auto.model.history.ResponseStatus;
-import ru.android_studio.gibdd_servis.auto.model.history.ResultAutoHistory;
 import ru.android_studio.gibdd_servis.auto.parser.ParseResultAutoHistory;
 
 import static android.widget.Toast.LENGTH_LONG;
