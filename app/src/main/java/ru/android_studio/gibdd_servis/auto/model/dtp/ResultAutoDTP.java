@@ -3,7 +3,6 @@ package ru.android_studio.gibdd_servis.auto.model.dtp;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.android_studio.gibdd_servis.auto.model.Accidents;
 import ru.android_studio.gibdd_servis.auto.model.ResultAuto;
 
 /**

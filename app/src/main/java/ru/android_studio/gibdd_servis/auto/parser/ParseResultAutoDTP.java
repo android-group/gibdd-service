@@ -10,7 +10,7 @@ import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.android_studio.gibdd_servis.auto.model.Accidents;
+import ru.android_studio.gibdd_servis.auto.model.dtp.Accidents;
 import ru.android_studio.gibdd_servis.auto.model.dtp.ResultAutoDTP;
 
 public class ParseResultAutoDTP extends ParseResultAuto<ResultAutoDTP> {

@@ -20,22 +20,9 @@ public class ParseResultAutoHistoryTest {
     ParseResultAutoHistory parseResultAutoHistory = ParseResultAutoHistory.getInstance();
 
     @Test
-    public void testCaptchaNumberIsNotValid() {
+    public void testParseResult_SUCCESS_00000000000000000() {
         ResultAutoHistory result = new ResultAutoHistory();
-        parseResultAutoHistory.parseFailureResult(ResponseDataHistory.CAPTCHA_NUMBER_IS_NOT_VALID, result);
-        Assert.assertNotNull(result);
-
-        ResultAutoHistory expected = new ResultAutoHistory();
-        expected.setType(ResponseStatus.CAPTCHA_NOT_VALID);
-        expected.setMessage("Цифры с картинки введены неверно");
-
-        Assert.assertEquals(expected, result);
-    }
-
-    @Test
-    public void testParseResultIsSuccessMapping() {
-        ResultAutoHistory result = new ResultAutoHistory();
-        parseResultAutoHistory.mapSuccessResult(ResponseDataHistory.SUCCESS, result);
+        parseResultAutoHistory.mapSuccessResult(ResponseDataHistory.SUCCESS_00000000000000000, result);
         Assert.assertNotNull(result);
 
         ResultAutoHistory expected = new ResultAutoHistory();
@@ -57,9 +44,18 @@ public class ParseResultAutoHistoryTest {
     }
 
     @Test
-    public void testParseResultIsSuccessMapping2() {
+    public void testParseResult_SUCCESS_11111111111111111() {
         ResultAutoHistory result = new ResultAutoHistory();
-        String response = ResponseDataHistory.SUCCESS_2;
+        parseResultAutoHistory.mapSuccessResult(ResponseDataHistory.SUCCESS_11111111111111111, result);
+        Assert.assertNotNull(result);
+
+        Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void testParseResult_SUCCESS_WP1AB29PX4LA69033() {
+        ResultAutoHistory result = new ResultAutoHistory();
+        String response = ResponseDataHistory.SUCCESS_WP1AB29PX4LA69033;
         parseResultAutoHistory.mapSuccessResult(response, result);
         Assert.assertNotNull(result);
 
@@ -126,19 +122,6 @@ public class ParseResultAutoHistoryTest {
         ownershipPeriod6.setSimplePersonType(TypeOwner.NATURAL);
         ownershipPeriodList.add(ownershipPeriod6);
         expected.setOwnershipPeriodList(ownershipPeriodList);
-
-        Assert.assertEquals(expected, result);
-    }
-
-    @Test
-    public void testNoDataFound() {
-        ResultAutoHistory result = new ResultAutoHistory();
-        parseResultAutoHistory.parseFailureResult(ResponseDataHistory.NO_DATA_FOUND, result);
-        Assert.assertNotNull(result);
-
-        ResultAutoHistory expected = new ResultAutoHistory();
-        expected.setType(ResponseStatus.RESULT_HISTORY_404);
-        expected.setMessage("404:No data found");
 
         Assert.assertEquals(expected, result);
     }
