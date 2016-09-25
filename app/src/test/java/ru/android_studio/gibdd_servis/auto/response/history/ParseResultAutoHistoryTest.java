@@ -59,11 +59,14 @@ public class ParseResultAutoHistoryTest {
     @Test
     public void testParseResultIsSuccessMapping2() {
         ResultAutoHistory result = new ResultAutoHistory();
-        parseResultAutoHistory.mapSuccessResult(ResponseDataHistory.SUCCESS_2, result);
+        String response = ResponseDataHistory.SUCCESS_2;
+        parseResultAutoHistory.mapSuccessResult(response, result);
         Assert.assertNotNull(result);
 
         ResultAutoHistory expected = new ResultAutoHistory();
         expected.setType(ResponseStatus.SUCCESS);
+        expected.setResponse(response);
+        expected.setVin("00000000000000000");
 
         Vehicle vehicle = new Vehicle();
         vehicle.setColor("СЕРЫЙ");
@@ -134,7 +137,7 @@ public class ParseResultAutoHistoryTest {
         Assert.assertNotNull(result);
 
         ResultAutoHistory expected = new ResultAutoHistory();
-        expected.setType(ResponseStatus.NO_DATA_FOUND);
+        expected.setType(ResponseStatus.RESULT_HISTORY_404);
         expected.setMessage("404:No data found");
 
         Assert.assertEquals(expected, result);

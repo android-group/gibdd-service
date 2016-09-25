@@ -10,9 +10,6 @@ import com.google.gson.JsonPrimitive;
 import ru.android_studio.gibdd_servis.auto.model.ResultAuto;
 import ru.android_studio.gibdd_servis.auto.model.history.ResponseStatus;
 
-/**
- * Created by yuryandreev on 25/09/16.
- */
 public abstract class ParseResultAuto<T extends ResultAuto> {
     private static final String TAG = "ParseResultAuto";
 
@@ -41,12 +38,31 @@ public abstract class ParseResultAuto<T extends ResultAuto> {
 
     @Nullable
     public T mapSuccessResult(String resultText, T result) {
+        result.setResponse(resultText);
         JsonObject jsonObject = new JsonParser().parse(resultText).getAsJsonObject();
         String status = ParseResultAuto.getIfExists(jsonObject.getAsJsonPrimitive("status"));
         Log.i(TAG, "result status: " + status);
         ResponseStatus type = ResponseStatus.getByStatus(status);
         result.setType(type);
-        mapSuccessResult(jsonObject, result);
+
+        JsonObject requestResult = jsonObject.getAsJsonObject("RequestResult");
+
+        JsonPrimitive error = requestResult.getAsJsonPrimitive("error");
+        if(error != null && !error.isJsonNull()) {
+            result.setError(error.getAsString());
+        }
+
+        JsonPrimitive count = requestResult.getAsJsonPrimitive("count");
+        if (count != null && !count.isJsonNull()) {
+            result.setCount(count.getAsString());
+        }
+
+        JsonPrimitive vin = jsonObject.getAsJsonPrimitive("vin");
+        if (vin != null && !vin.isJsonNull()) {
+            result.setVin(vin.getAsString());
+        }
+
+        mapSuccessResult(requestResult, result);
         return result;
     }
 
@@ -61,7 +77,7 @@ public abstract class ParseResultAuto<T extends ResultAuto> {
         return result;
     }
 
-    public abstract void mapSuccessResult(JsonObject jsonObject, T result);
+    public abstract void mapSuccessResult(JsonObject requestResult, T result);
 
     public abstract void mapFailureResult(JsonObject jsonObject, T result);
 }

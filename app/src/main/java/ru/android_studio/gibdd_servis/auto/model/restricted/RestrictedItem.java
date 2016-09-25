@@ -6,14 +6,32 @@ package ru.android_studio.gibdd_servis.auto.model.restricted;
 public class RestrictedItem {
 
     private String dateadd;
+    /**
+     * Дата наложения ограничения
+     */
     private String dateogr;
     private String divid;
-    private String divtype;
+    /**
+     * Кем наложено ограничение
+     */
+    private Organs divtype;
     private String gid;
-    private String ogrkod;
+    /**
+     * Вид ограничения
+     */
+    private Ogrkod ogrkod;
     private String regid;
+    /**
+     * Регион инициатора ограничения:
+     */
     private String regname;
+    /**
+     * Марка (модель) ТС
+     */
     private String tsmodel;
+    /**
+     * Год выпуска ТС
+     */
     private String tsyear;
 
     public String getDateadd() {
@@ -40,11 +58,11 @@ public class RestrictedItem {
         this.divid = divid;
     }
 
-    public String getDivtype() {
+    public Organs getDivtype() {
         return divtype;
     }
 
-    public void setDivtype(String divtype) {
+    public void setDivtype(Organs divtype) {
         this.divtype = divtype;
     }
 
@@ -56,11 +74,11 @@ public class RestrictedItem {
         this.gid = gid;
     }
 
-    public String getOgrkod() {
+    public Ogrkod getOgrkod() {
         return ogrkod;
     }
 
-    public void setOgrkod(String ogrkod) {
+    public void setOgrkod(Ogrkod ogrkod) {
         this.ogrkod = ogrkod;
     }
 

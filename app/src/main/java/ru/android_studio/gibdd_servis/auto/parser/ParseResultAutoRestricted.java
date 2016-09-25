@@ -8,6 +8,8 @@ import com.google.gson.JsonPrimitive;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.android_studio.gibdd_servis.auto.model.restricted.Ogrkod;
+import ru.android_studio.gibdd_servis.auto.model.restricted.Organs;
 import ru.android_studio.gibdd_servis.auto.model.restricted.RestrictedItem;
 import ru.android_studio.gibdd_servis.auto.model.restricted.ResultAutoRestricted;
 
@@ -24,15 +26,7 @@ public class ParseResultAutoRestricted extends ParseResultAuto<ResultAutoRestric
     }
 
     @Override
-    public void mapSuccessResult(JsonObject jsonObject, ResultAutoRestricted result) {
-        JsonObject requestResult = jsonObject.getAsJsonObject("RequestResult");
-
-        JsonPrimitive error = requestResult.getAsJsonPrimitive("error");
-        result.setError(error.getAsString());
-
-        JsonPrimitive count = requestResult.getAsJsonPrimitive("count");
-        result.setCount(count.getAsString());
-
+    public void mapSuccessResult(JsonObject requestResult, ResultAutoRestricted result) {
         List<RestrictedItem> list = new ArrayList<>();
         JsonArray records = requestResult.getAsJsonArray("records");
 
@@ -56,13 +50,13 @@ public class ParseResultAutoRestricted extends ParseResultAuto<ResultAutoRestric
             item.setRegid(regid.getAsString());
 
             JsonPrimitive divtype = itemJsonObject.getAsJsonPrimitive("divtype");
-            item.setDivtype(divtype.getAsString());
+            item.setDivtype(Organs.getDivtype(divtype.getAsString()));
 
             JsonPrimitive dateogr = itemJsonObject.getAsJsonPrimitive("dateogr");
             item.setDateogr(dateogr.getAsString());
 
             JsonPrimitive ogrkod = itemJsonObject.getAsJsonPrimitive("ogrkod");
-            item.setOgrkod(ogrkod.getAsString());
+            item.setOgrkod(Ogrkod.getOgrkod(ogrkod.getAsString()));
 
             JsonPrimitive divid = itemJsonObject.getAsJsonPrimitive("divid");
             item.setDivid(divid.getAsString());
@@ -73,8 +67,6 @@ public class ParseResultAutoRestricted extends ParseResultAuto<ResultAutoRestric
             list.add(item);
         }
         result.setRestrictedItem(list);
-
-        result.setVin(jsonObject.getAsJsonPrimitive("vin").getAsString());
     }
 
     @Override

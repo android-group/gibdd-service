@@ -40,15 +40,8 @@ public class ParseResultAutoHistory extends ParseResultAuto<ResultAutoHistory> {
         target.setMessage(strMessage);
     }
 
-    public void mapSuccessResult(JsonObject source, ResultAutoHistory target) {
+    public void mapSuccessResult(JsonObject requestResult, ResultAutoHistory target) {
         Log.i(TAG, "parse success result");
-        JsonObject requestResult = source.getAsJsonObject("RequestResult");
-        if (requestResult == null || requestResult.isJsonNull()) {
-            System.err.println("requestResult == null");
-            Log.i(TAG, "Request result is null");
-            return;
-        }
-
         JsonObject ownershipPeriods = requestResult.getAsJsonObject("ownershipPeriods");
         if (ownershipPeriods == null || ownershipPeriods.isJsonNull()) {
             System.err.println("ownershipPeriods == null");

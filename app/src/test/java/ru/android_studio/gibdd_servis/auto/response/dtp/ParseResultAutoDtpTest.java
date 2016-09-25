@@ -9,7 +9,7 @@ public class ParseResultAutoDtpTest extends ParseResultAuto<ResultAutoDTP> {
 
 
     @Override
-    public void mapSuccessResult(JsonObject jsonObject, ResultAutoDTP result) {
+    public void mapSuccessResult(JsonObject requestResult, ResultAutoDTP result) {
 
     }
 
