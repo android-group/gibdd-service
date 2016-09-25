@@ -22,6 +22,7 @@ public class ResultAutoRestricted extends ResultAuto {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         ResultAutoRestricted that = (ResultAutoRestricted) o;
 
@@ -31,12 +32,14 @@ public class ResultAutoRestricted extends ResultAuto {
 
     @Override
     public int hashCode() {
-        return restrictedItem != null ? restrictedItem.hashCode() : 0;
+        int result = super.hashCode();
+        result = 31 * result + (restrictedItem != null ? restrictedItem.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
-        return "ResultAutoRestricted{" +
+        return super.toString() + "ResultAutoRestricted{" +
                 "restrictedItem=" + restrictedItem +
                 '}';
     }

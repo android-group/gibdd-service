@@ -124,9 +124,9 @@ public class RestrictedItem {
         if (dateadd != null ? !dateadd.equals(that.dateadd) : that.dateadd != null) return false;
         if (dateogr != null ? !dateogr.equals(that.dateogr) : that.dateogr != null) return false;
         if (divid != null ? !divid.equals(that.divid) : that.divid != null) return false;
-        if (divtype != null ? !divtype.equals(that.divtype) : that.divtype != null) return false;
+        if (divtype != that.divtype) return false;
         if (gid != null ? !gid.equals(that.gid) : that.gid != null) return false;
-        if (ogrkod != null ? !ogrkod.equals(that.ogrkod) : that.ogrkod != null) return false;
+        if (ogrkod != that.ogrkod) return false;
         if (regid != null ? !regid.equals(that.regid) : that.regid != null) return false;
         if (regname != null ? !regname.equals(that.regname) : that.regname != null) return false;
         if (tsmodel != null ? !tsmodel.equals(that.tsmodel) : that.tsmodel != null) return false;
@@ -155,9 +155,9 @@ public class RestrictedItem {
                 "dateadd='" + dateadd + '\'' +
                 ", dateogr='" + dateogr + '\'' +
                 ", divid='" + divid + '\'' +
-                ", divtype='" + divtype + '\'' +
+                ", divtype=" + divtype +
                 ", gid='" + gid + '\'' +
-                ", ogrkod='" + ogrkod + '\'' +
+                ", ogrkod=" + ogrkod +
                 ", regid='" + regid + '\'' +
                 ", regname='" + regname + '\'' +
                 ", tsmodel='" + tsmodel + '\'' +

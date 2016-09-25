@@ -40,8 +40,10 @@ public class ParseResultAutoRestricted extends ParseResultAuto<ResultAutoRestric
             JsonPrimitive gid = itemJsonObject.getAsJsonPrimitive("gid");
             item.setGid(gid.getAsString());
 
-            JsonPrimitive tsyear = itemJsonObject.getAsJsonPrimitive("tsyear");
-            item.setTsyear(tsyear.getAsString());
+            if (!itemJsonObject.get("tsyear").isJsonNull()) {
+                JsonPrimitive tsyear = itemJsonObject.getAsJsonPrimitive("tsyear");
+                item.setTsyear(tsyear.getAsString());
+            }
 
             JsonPrimitive dateadd = itemJsonObject.getAsJsonPrimitive("dateadd");
             item.setDateadd(dateadd.getAsString());
