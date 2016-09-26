@@ -17,7 +17,7 @@ public class ResultFineActivity extends ActivityWithMenuAndOCR {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auto_result);
+        setContentView(R.layout.activity_auto_history_result);
 
         ButterKnife.bind(this);
 

@@ -22,8 +22,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".common.NoDataFoundActivity"></activity>
-        <activity android:name=".common.CaptchaNumberIsNotValid"></activity>
         <activity
             android:name=".driver.activity.RequestDriverActivity"
             android:label="@string/check_driver">
@@ -46,7 +44,28 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".auto.activity.ResultAutoActivity"
+            android:name=".auto.activity.ResultAutoDtpActivity"
+            android:label="@string/check_auto">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".auto.activity.RequestAutoActivity" />
+        </activity>
+        <activity
+            android:name=".auto.activity.ResultAutoHistoryActivity"
+            android:label="@string/check_auto">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".auto.activity.RequestAutoActivity" />
+        </activity>
+        <activity
+            android:name=".auto.activity.ResultAutoRestrictActivity"
+            android:label="@string/check_auto">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".auto.activity.RequestAutoActivity" />
+        </activity>
+        <activity
+            android:name=".auto.activity.ResultAutoWantedActivity"
             android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

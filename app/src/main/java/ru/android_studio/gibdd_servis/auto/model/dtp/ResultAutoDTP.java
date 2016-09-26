@@ -8,7 +8,7 @@ import ru.android_studio.gibdd_servis.auto.model.ResultAuto;
 /**
  * Created by yuryandreev on 24/09/16.
  */
-public class ResultAutoDTP extends ResultAuto {
+public class ResultAutoDtp extends ResultAuto {
     List<Accidents> accidents = new ArrayList<>();
     String statusCode;
     String errorDescription;
@@ -43,7 +43,7 @@ public class ResultAutoDTP extends ResultAuto {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        ResultAutoDTP that = (ResultAutoDTP) o;
+        ResultAutoDtp that = (ResultAutoDtp) o;
 
         if (accidents != null ? !accidents.equals(that.accidents) : that.accidents != null)
             return false;
@@ -64,7 +64,7 @@ public class ResultAutoDTP extends ResultAuto {
 
     @Override
     public String toString() {
-        return "ResultAutoDTP{" +
+        return "ResultAutoDtp{" +
                 "accidents=" + accidents +
                 ", statusCode='" + statusCode + '\'' +
                 ", errorDescription='" + errorDescription + '\'' +

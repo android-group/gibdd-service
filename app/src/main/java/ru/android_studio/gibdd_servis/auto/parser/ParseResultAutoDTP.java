@@ -1,8 +1,5 @@
 package ru.android_studio.gibdd_servis.auto.parser;
 
-import android.support.annotation.Nullable;
-import android.util.Log;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -12,22 +9,22 @@ import java.util.List;
 
 import ru.android_studio.gibdd_servis.auto.model.dtp.Accidents;
 import ru.android_studio.gibdd_servis.auto.model.dtp.DamagePoints;
-import ru.android_studio.gibdd_servis.auto.model.dtp.ResultAutoDTP;
+import ru.android_studio.gibdd_servis.auto.model.dtp.ResultAutoDtp;
 
-public class ParseResultAutoDTP extends ParseResultAuto<ResultAutoDTP> {
+public class ParseResultAutoDtp extends ParseResultAuto<ResultAutoDtp> {
 
-    private static final String TAG = "ParseResultAutoDTP";
+    private static final String TAG = "ParseResultAutoDtp";
 
-    private ParseResultAutoDTP() {
+    private ParseResultAutoDtp() {
 
     }
 
-    public static ParseResultAutoDTP getInstance() {
-        return new ParseResultAutoDTP();
+    public static ParseResultAutoDtp getInstance() {
+        return new ParseResultAutoDtp();
     }
 
     @Override
-    public void mapSuccessResult(JsonObject requestResult, ResultAutoDTP result) {
+    public void mapSuccessResult(JsonObject requestResult, ResultAutoDtp result) {
         JsonArray accidents = requestResult.getAsJsonArray("Accidents");
         List<Accidents> list = new ArrayList<>();
         for (JsonElement accidentJsonElement : accidents) {
@@ -64,7 +61,7 @@ public class ParseResultAutoDTP extends ParseResultAuto<ResultAutoDTP> {
     }
 
     @Override
-    public void mapFailureResult(JsonObject jsonObject, ResultAutoDTP result) {
+    public void mapFailureResult(JsonObject jsonObject, ResultAutoDtp result) {
 
     }
 }

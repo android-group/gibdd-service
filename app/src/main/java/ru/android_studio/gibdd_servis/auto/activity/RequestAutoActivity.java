@@ -78,7 +78,7 @@ public class RequestAutoActivity extends ActivityWithCaptcha {
             requestAuto.setVin(vinEditText.getText().toString());
             requestAuto.setCheckAutoType(getCheckAutoType());
 
-            final RequestAutoAsyncTask requestAutoAsyncTask = new RequestAutoAsyncTask(this);
+            final RequestAutoAsyncTask requestAutoAsyncTask = new RequestAutoAsyncTask(this, requestAuto.getCheckAutoType());
             requestAutoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestAuto);
             Log.d(TAG, "END checkButton");
         }

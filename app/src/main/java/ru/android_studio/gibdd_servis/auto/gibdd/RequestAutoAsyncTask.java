@@ -9,7 +9,10 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-import ru.android_studio.gibdd_servis.auto.activity.ResultAutoActivity;
+import ru.android_studio.gibdd_servis.auto.activity.ResultAutoDtpActivity;
+import ru.android_studio.gibdd_servis.auto.activity.ResultAutoHistoryActivity;
+import ru.android_studio.gibdd_servis.auto.activity.ResultAutoRestrictActivity;
+import ru.android_studio.gibdd_servis.auto.activity.ResultAutoWantedActivity;
 import ru.android_studio.gibdd_servis.auto.model.RequestAuto;
 import ru.android_studio.gibdd_servis.auto.model.ResponseAuto;
 import ru.android_studio.gibdd_servis.auto.model.history.ResponseStatus;
@@ -24,20 +27,22 @@ public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseA
 
     private static final String TAG = "RequestDriverAsyncTask";
     private Context context;
+    private CheckAutoType checkAutoType;
+
     /**
      * Окно отображается при открытом асинх таске
      */
     private ProgressDialog progressDialog;
 
-    public RequestAutoAsyncTask(Context context) {
+    public RequestAutoAsyncTask(Context context, CheckAutoType checkAutoType) {
         this.context = context;
+        this.checkAutoType = checkAutoType;
     }
 
     @Override
     protected void onPreExecute() {
         Log.d(TAG, "START onPreExecute");
         progressDialog = new ProgressDialog(context);
-        // progressDialog.setMessage("Processing");
         progressDialog.show();
         Log.d(TAG, "END onPreExecute");
     }
@@ -76,7 +81,26 @@ public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseA
         }
 
         if (responseStatus == ResponseStatus.SUCCESS) {
-            Intent intent = new Intent(context, ResultAutoActivity.class);
+            Class<?> aClass = null;
+            switch (checkAutoType) {
+                case HISTORY:
+                    aClass = ResultAutoHistoryActivity.class;
+                    break;
+                case RESTRICT:
+                    aClass = ResultAutoRestrictActivity.class;
+                    break;
+                case WANTED:
+                    aClass = ResultAutoWantedActivity.class;
+                    break;
+                case DTP:
+                    aClass = ResultAutoDtpActivity.class;
+                    break;
+                default:
+                    // nothing
+                    break;
+            }
+
+            Intent intent = new Intent(context, aClass);
             intent.putExtra("result_text", resultText);
             context.startActivity(intent);
         } else {

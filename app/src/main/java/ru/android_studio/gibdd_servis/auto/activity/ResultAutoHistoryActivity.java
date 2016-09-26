@@ -16,7 +16,7 @@ import ru.android_studio.gibdd_servis.auto.model.history.Vehicle;
 import ru.android_studio.gibdd_servis.auto.parser.ParseResultAutoHistory;
 
 
-public class ResultAutoActivity extends ActivityWithMenu implements ItemFragment.OnListFragmentInteractionListener {
+public class ResultAutoHistoryActivity extends ActivityWithMenu implements ItemFragment.OnListFragmentInteractionListener {
 
     @BindView(R.id.color)
     TextView colorTextView;
@@ -41,19 +41,19 @@ public class ResultAutoActivity extends ActivityWithMenu implements ItemFragment
     @BindView(R.id.power_hp)
     TextView powerHpTextView;
 
-    ParseResultAutoHistory parseResultAutoHistory = ParseResultAutoHistory.getInstance();
+    ParseResultAutoHistory parseAutoHistory = ParseResultAutoHistory.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auto_result);
+        setContentView(R.layout.activity_auto_history_result);
 
         ButterKnife.bind(this);
 
         Bundle extras = getIntent().getExtras();
         String resultText = extras.getString("result_text");
         ResultAutoHistory result = new ResultAutoHistory();
-        parseResultAutoHistory.mapSuccessResult(resultText, result);
+        parseAutoHistory.mapSuccessResult(resultText, result);
         fillVehicle(result.getVehicle());
         fillOwnershipPeriodList(result.getOwnershipPeriodList());
 

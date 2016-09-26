@@ -8,33 +8,33 @@ import java.util.ArrayList;
 
 import ru.android_studio.gibdd_servis.auto.model.dtp.Accidents;
 import ru.android_studio.gibdd_servis.auto.model.dtp.DamagePoints;
-import ru.android_studio.gibdd_servis.auto.model.dtp.ResultAutoDTP;
+import ru.android_studio.gibdd_servis.auto.model.dtp.ResultAutoDtp;
 import ru.android_studio.gibdd_servis.auto.model.history.ResponseStatus;
-import ru.android_studio.gibdd_servis.auto.parser.ParseResultAutoDTP;
+import ru.android_studio.gibdd_servis.auto.parser.ParseResultAutoDtp;
 
 public class ParseResultAutoDtpTest {
 
-    ParseResultAutoDTP parseResultAutoDTP = ParseResultAutoDTP.getInstance();
+    ParseResultAutoDtp parseResultAutoDtp = ParseResultAutoDtp.getInstance();
 
     @Test
     public void mapSuccessResult_SUCCESS_00000000000000000() {
-        ResultAutoDTP expected = new ResultAutoDTP();
+        ResultAutoDtp expected = new ResultAutoDtp();
         expected.setType(ResponseStatus.SUCCESS);
         expected.setVin("00000000000000000");
         expected.setStatusCode("2");
         expected.setErrorDescription("Найдено большое количество ДТП, требуется уточнить параметры запроса");
 
-        ResultAutoDTP result = new ResultAutoDTP();
+        ResultAutoDtp result = new ResultAutoDtp();
         result.setType(ResponseStatus.SUCCESS);
         String resultText = ResponseDataDTP.SUCCESS_00000000000000000;
-        parseResultAutoDTP.mapSuccessResult(resultText, result);
+        parseResultAutoDtp.mapSuccessResult(resultText, result);
         expected.setResponse(resultText);
         Assert.assertEquals(expected, result);
     }
 
     @Test
     public void mapSuccessResult_SUCCESS_WP1AB29PX4LA69033() {
-        ResultAutoDTP expected = new ResultAutoDTP();
+        ResultAutoDtp expected = new ResultAutoDtp();
         expected.setType(ResponseStatus.SUCCESS);
         expected.setVin("WP1AB29PX4LA69033");
         expected.setStatusCode("1");
@@ -54,10 +54,10 @@ public class ParseResultAutoDtpTest {
         accidentsArrayList.add(accidents);
         expected.setAccidents(accidentsArrayList);
 
-        ResultAutoDTP result = new ResultAutoDTP();
+        ResultAutoDtp result = new ResultAutoDtp();
         result.setType(ResponseStatus.SUCCESS);
         String resultText = ResponseDataDTP.SUCCESS_WP1AB29PX4LA69033;
-        parseResultAutoDTP.mapSuccessResult(resultText, result);
+        parseResultAutoDtp.mapSuccessResult(resultText, result);
         expected.setResponse(resultText);
         Assert.assertEquals(expected, result);
     }
