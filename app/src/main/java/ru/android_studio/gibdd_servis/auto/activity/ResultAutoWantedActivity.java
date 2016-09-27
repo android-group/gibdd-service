@@ -10,6 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.auto.model.wanted.ResultAutoWanted;
+import ru.android_studio.gibdd_servis.auto.model.wanted.Wanted;
 import ru.android_studio.gibdd_servis.auto.parser.ParseResultAutoWanted;
 
 
@@ -18,8 +19,17 @@ public class ResultAutoWantedActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    @BindView(R.id.result)
-    TextView resultTextView;
+    @BindView(R.id.w_data_pu)
+    TextView w_data_puTV;
+
+    @BindView(R.id.w_god_vyp)
+    TextView w_god_vypTV;
+
+    @BindView(R.id.w_model)
+    TextView w_modelTV;
+
+    @BindView(R.id.w_reg_inic)
+    TextView w_reg_inicTV;
 
     ParseResultAutoWanted parseAutoWanted = ParseResultAutoWanted.getInstance();
 
@@ -32,9 +42,17 @@ public class ResultAutoWantedActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         String resultText = extras.getString("result_text");
+
         ResultAutoWanted result = new ResultAutoWanted();
         parseAutoWanted.mapSuccessResult(resultText, result);
-        resultTextView.setText(result.toString());
+
+        for (Wanted wanted : result.getWantedList()) {
+            w_data_puTV.setText(wanted.getW_data_pu());
+            w_god_vypTV.setText(wanted.getW_god_vyp());
+            w_modelTV.setText(wanted.getW_model());
+            w_reg_inicTV.setText(wanted.getW_reg_inic());
+        }
+
         addToolbarByIcon();
     }
 

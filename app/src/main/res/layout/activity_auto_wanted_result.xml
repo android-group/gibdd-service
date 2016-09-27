@@ -49,14 +49,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Марка (модель) ТС: "
-                    android:id="@+id/textView17"
+                    android:id="@+id/label_w_model"
                     android:textStyle="bold"
                     android:layout_weight="1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView18"
+                    android:id="@+id/w_model"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -70,14 +70,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Год выпуска ТС:"
-                    android:id="@+id/textView19"
+                    android:id="@+id/label_w_god_vyp"
                     android:textStyle="bold"
                     android:layout_weight="1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView20"
+                    android:id="@+id/w_god_vyp"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -91,14 +91,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Дата постоянного учета в розыске: "
-                    android:id="@+id/textView21"
+                    android:id="@+id/label_w_data_pu"
                     android:textStyle="bold"
                     android:layout_weight="1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView22"
+                    android:id="@+id/w_data_pu"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -112,14 +112,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Регион инициатора розыска: "
-                    android:id="@+id/textView23"
+                    android:id="@+id/label_w_reg_inic"
                     android:textStyle="bold"
                     android:layout_weight="1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView24"
+                    android:id="@+id/w_reg_inic"
                     android:layout_weight="1" />
             </LinearLayout>
 
