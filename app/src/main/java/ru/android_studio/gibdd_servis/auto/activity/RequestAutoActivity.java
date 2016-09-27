@@ -11,7 +11,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.android_studio.gibdd_servis.ActivityWithCaptcha;
+import ru.android_studio.gibdd_servis.CaptchaActivity;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.auto.gibdd.CheckAutoType;
 import ru.android_studio.gibdd_servis.auto.gibdd.RequestAutoAsyncTask;
@@ -32,7 +32,7 @@ import ru.android_studio.gibdd_servis.gibdd.NewCaptchaAsyncTask;
  * @author Yury Andreev
  * @version 0.1
  */
-public class RequestAutoActivity extends ActivityWithCaptcha {
+public class RequestAutoActivity extends CaptchaActivity {
 
     private static final String TAG = "RequestAutoActivity";
 
@@ -59,13 +59,16 @@ public class RequestAutoActivity extends ActivityWithCaptcha {
     @OnClick(R.id.check_button)
     void checkButton() {
         Log.d(TAG, "START checkButton");
-        if (captchaEditText.length() == 0 && vinEditText.length() == 0) {
+
+        boolean isCaptchaEmpty = captchaEditText.length() == 0;
+        boolean isVinEmpty = vinEditText.length() == 0;
+        if (isCaptchaEmpty && isVinEmpty) {
             Toast.makeText(this, "Пожалуйста, заполните все поля.", Toast.LENGTH_SHORT).show();
             return;
-        } else if (vinEditText.length() == 0) {
+        } else if (isVinEmpty) {
             Toast.makeText(this, "Пожалуйста, заполните поле VIN номер.", Toast.LENGTH_SHORT).show();
             return;
-        } else if (captchaEditText.length() == 0) {
+        } else if (isCaptchaEmpty) {
             Toast.makeText(this, "Пожалуйста, введите символы с картинки.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -74,14 +77,15 @@ public class RequestAutoActivity extends ActivityWithCaptcha {
         String sessionId = getSessionId();
         if (sessionId != null) {
             requestAuto.setJsessionid(sessionId);
-            requestAuto.setCaptchaWord(captchaEditText.getText().toString());
-            requestAuto.setVin(vinEditText.getText().toString());
+            requestAuto.setCaptchaWord(getCaptchaWord());
+            requestAuto.setVin(getVinText());
             requestAuto.setCheckAutoType(getCheckAutoType());
 
             final RequestAutoAsyncTask requestAutoAsyncTask = new RequestAutoAsyncTask(this, requestAuto.getCheckAutoType());
             requestAutoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestAuto);
-            Log.d(TAG, "END checkButton");
         }
+        loadCaptcha();
+        Log.d(TAG, "END checkButton");
     }
 
     private CheckAutoType getCheckAutoType() {
@@ -93,8 +97,12 @@ public class RequestAutoActivity extends ActivityWithCaptcha {
         return R.id.menu_car_btn;
     }
 
+    public String getVinText() {
+        return vinEditText.getText().toString();
+    }
+
     @Override
-    public BaseCaptchaAsyncTask getBaseCaptchaAsyncTask() {
+    public BaseCaptchaAsyncTask createCaptchaAsyncTask() {
         return new NewCaptchaAsyncTask(this, captchaImageView, CheckType.AUTO);
     }
 }

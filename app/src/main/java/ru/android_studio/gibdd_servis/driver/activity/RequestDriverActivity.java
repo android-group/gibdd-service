@@ -14,7 +14,7 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.android_studio.gibdd_servis.ActivityWithCaptcha;
+import ru.android_studio.gibdd_servis.CaptchaActivity;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.driver.gibdd.RequestDriverAsyncTask;
 import ru.android_studio.gibdd_servis.driver.model.RequestDriver;
@@ -32,7 +32,7 @@ import ru.android_studio.gibdd_servis.gibdd.NewCaptchaAsyncTask;
  * @author Ruslan Suleymanov
  * @version 0.1
  */
-public class RequestDriverActivity extends ActivityWithCaptcha {
+public class RequestDriverActivity extends CaptchaActivity {
 
     private static final String TAG = "RequestDriverActivity";
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
@@ -131,7 +131,7 @@ public class RequestDriverActivity extends ActivityWithCaptcha {
     }
 
     @Override
-    public BaseCaptchaAsyncTask getBaseCaptchaAsyncTask() {
+    public BaseCaptchaAsyncTask createCaptchaAsyncTask() {
         return new NewCaptchaAsyncTask(this, captchaImageView, CheckType.DRIVER);
     }
 }

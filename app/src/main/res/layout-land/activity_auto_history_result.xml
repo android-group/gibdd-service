@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/car_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:nestedScrollingEnabled="true">
+    android:orientation="vertical">
 
     <include layout="@layout/toolbar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Проверка истории регистрации в ГИБДД"
+        android:id="@+id/textView4"
+        android:textColor="@color/abc_btn_colored_borderless_text_material" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Получение основных сведений о транспортном средстве и периодах его регистрации в Госавтоинспекции за различными собственниками"
+        android:id="@+id/textView5"
+        android:textColor="@color/abc_background_cache_hint_selector_material_dark" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="При проверке учитываются совпадения только по идентификационному номеру транспортного средства (VIN)"
+        android:id="@+id/textView6"
+        android:textColor="@color/abc_secondary_text_material_light" />
 
     <LinearLayout
         android:id="@+id/vehicle"
@@ -14,14 +35,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         android:orientation="vertical"
-        android:layout_margin="20dp"
         android:nestedScrollingEnabled="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -44,7 +63,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -66,7 +84,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -88,7 +105,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -110,7 +126,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -132,7 +147,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -154,7 +168,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -176,7 +189,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -198,7 +210,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -220,7 +231,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -242,7 +252,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_weight="1">
 
             <TextView
@@ -269,5 +278,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/vehicle" />
-</RelativeLayout>
+        android:layout_below="@+id/vehicle"
+        tools:layout="@layout/fragment_item_list" />
+</LinearLayout>

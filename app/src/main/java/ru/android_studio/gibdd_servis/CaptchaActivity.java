@@ -12,7 +12,7 @@ import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.gibdd.BaseCaptchaAsyncTask;
 import ru.android_studio.gibdd_servis.gibdd.CaptchaResult;
 
-public abstract class ActivityWithCaptcha extends ActivityWithMenu {
+public abstract class CaptchaActivity extends ActivityWithMenu {
 
     private static final String TAG = "MenuAndOCRAndCaptcha";
 
@@ -22,9 +22,7 @@ public abstract class ActivityWithCaptcha extends ActivityWithMenu {
     @BindView(R.id.captcha_edit_text)
     protected EditText captchaEditText;
 
-    private BaseCaptchaAsyncTask captchaAsyncTask;
-
-    private CaptchaResult captchaResult;
+    private AsyncTask<String, Void, CaptchaResult> calledCaptchaAsyncTask;
 
     /**
      * Загрузить картинку капчи
@@ -32,23 +30,27 @@ public abstract class ActivityWithCaptcha extends ActivityWithMenu {
     @OnClick(R.id.captcha_image_view)
     protected void loadCaptcha() {
         Log.d(TAG, "START loadCaptcha");
-
-        captchaAsyncTask = getBaseCaptchaAsyncTask();
+        clearPrevResult();
 
         // if use execute when method in AsyncTask 'doInBackground' will not call
-        captchaAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        calledCaptchaAsyncTask = createCaptchaAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         Log.d(TAG, "END loadCaptcha");
     }
+
+    private void clearPrevResult() {
+        captchaEditText.getText().clear();
+    }
+
 
     /*
     * Нужно выбрать одну из реализаций, старая или новая версия запроса капчи
     * */
-    public abstract BaseCaptchaAsyncTask getBaseCaptchaAsyncTask();
+    public abstract BaseCaptchaAsyncTask createCaptchaAsyncTask();
 
     protected String getSessionId() {
         String sessionId = null;
         try {
-            CaptchaResult captchaResult = getCaptchaResult();
+            CaptchaResult captchaResult = calledCaptchaAsyncTask.get();
             if (captchaResult != null) {
                 sessionId = captchaResult.getSessionId();
             }
@@ -58,10 +60,7 @@ public abstract class ActivityWithCaptcha extends ActivityWithMenu {
         return sessionId;
     }
 
-    private CaptchaResult getCaptchaResult() throws ExecutionException, InterruptedException {
-        if (captchaResult == null) {
-            captchaResult = captchaAsyncTask.get();
-        }
-        return captchaResult;
+    public String getCaptchaWord() {
+        return captchaEditText.getText().toString();
     }
 }

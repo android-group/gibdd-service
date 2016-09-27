@@ -8,7 +8,7 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.android_studio.gibdd_servis.ActivityWithCaptcha;
+import ru.android_studio.gibdd_servis.CaptchaActivity;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.fine.gibdd.RequestFineAsyncTask;
 import ru.android_studio.gibdd_servis.fine.model.RequestFine;
@@ -25,7 +25,7 @@ import ru.android_studio.gibdd_servis.gibdd.OldCaptchaAsyncTask;
  * @author Ruslan Suleymanov
  * @version 0.1
  */
-public class RequestFineActivity extends ActivityWithCaptcha {
+public class RequestFineActivity extends CaptchaActivity {
 
     private static final String TAG = "RequestFineActivity";
 
@@ -51,7 +51,7 @@ public class RequestFineActivity extends ActivityWithCaptcha {
     }
 
     @Override
-    public BaseCaptchaAsyncTask getBaseCaptchaAsyncTask() {
+    public BaseCaptchaAsyncTask createCaptchaAsyncTask() {
         return new OldCaptchaAsyncTask(this, captchaImageView);
     }
 

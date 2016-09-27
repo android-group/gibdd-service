@@ -9,6 +9,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.android_studio.gibdd_servis.R;
+import ru.android_studio.gibdd_servis.auto.model.dtp.Accidents;
 import ru.android_studio.gibdd_servis.auto.model.dtp.ResultAutoDtp;
 import ru.android_studio.gibdd_servis.auto.parser.ParseResultAutoDtp;
 
@@ -18,8 +19,17 @@ public class ResultAutoDtpActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    @BindView(R.id.result)
-    TextView resultTextView;
+    @BindView(R.id.vehicle_mark)
+    TextView vehicleMarkTV;
+
+    @BindView(R.id.accident_dateTime)
+    TextView accidentDateTimeTV;
+
+    @BindView(R.id.accident_type)
+    TextView accidentTypeTV;
+
+    @BindView(R.id.region_name)
+    TextView regionNameTV;
 
     ParseResultAutoDtp parseAutoDtp = ParseResultAutoDtp.getInstance();
 
@@ -34,7 +44,14 @@ public class ResultAutoDtpActivity extends AppCompatActivity {
         String resultText = extras.getString("result_text");
         ResultAutoDtp result = new ResultAutoDtp();
         parseAutoDtp.mapSuccessResult(resultText, result);
-        resultTextView.setText(result.toString());
+
+        for (Accidents accidents : result.getAccidents()) {
+            vehicleMarkTV.setText(accidents.getVehicleMark());
+            accidentDateTimeTV.setText(accidents.getAccidentDateTime());
+            accidentTypeTV.setText(accidents.getAccidentType());
+            regionNameTV.setText(accidents.getRegionName());
+        }
+
         addToolbarByIcon();
     }
 
