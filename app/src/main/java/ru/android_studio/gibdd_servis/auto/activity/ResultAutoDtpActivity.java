@@ -3,33 +3,27 @@ package ru.android_studio.gibdd_servis.auto.activity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.android_studio.gibdd_servis.R;
-import ru.android_studio.gibdd_servis.auto.model.dtp.Accidents;
 import ru.android_studio.gibdd_servis.auto.model.dtp.ResultAutoDtp;
 import ru.android_studio.gibdd_servis.auto.parser.ParseResultAutoDtp;
-
 
 public class ResultAutoDtpActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    @BindView(R.id.vehicle_mark)
-    TextView vehicleMarkTV;
+    @BindView(R.id.accidents_recycler_view)
+    RecyclerView recyclerView;
 
-    @BindView(R.id.accident_dateTime)
-    TextView accidentDateTimeTV;
+    RecyclerView.Adapter adapter;
 
-    @BindView(R.id.accident_type)
-    TextView accidentTypeTV;
-
-    @BindView(R.id.region_name)
-    TextView regionNameTV;
+    RecyclerView.LayoutManager layoutManager;
 
     ParseResultAutoDtp parseAutoDtp = ParseResultAutoDtp.getInstance();
 
@@ -45,12 +39,14 @@ public class ResultAutoDtpActivity extends AppCompatActivity {
         ResultAutoDtp result = new ResultAutoDtp();
         parseAutoDtp.mapSuccessResult(resultText, result);
 
-        for (Accidents accidents : result.getAccidents()) {
-            vehicleMarkTV.setText(accidents.getVehicleMark());
-            accidentDateTimeTV.setText(accidents.getAccidentDateTime());
-            accidentTypeTV.setText(accidents.getAccidentType());
-            regionNameTV.setText(accidents.getRegionName());
-        }
+        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new AccidentsAdapter(result.getAccidents());
+        recyclerView.setAdapter(adapter);
+
 
         addToolbarByIcon();
     }

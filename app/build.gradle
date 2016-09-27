@@ -67,9 +67,11 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile 'com.android.support:gridlayout-v7:24.2.1'
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:recyclerview-v7:24.2.1'
+    compile 'com.android.support:gridlayout-v7:24.2.+'
+    compile 'com.android.support:appcompat-v7:24.2.+'
+
+    compile 'com.android.support:cardview-v7:24.2.+'
+    compile 'com.android.support:recyclerview-v7:24.2.+'
 
     // tess-two tool for Tesseract using on Android
     compile 'com.rmtheis:tess-two:5.4.1'
@@ -91,6 +93,7 @@ dependencies {
 
     // parallel run tests
     androidTestCompile 'com.squareup.spoon:spoon-client:1.5.4'
+
 
     // Unit testing
     testCompile "org.robolectric:robolectric:3.1"
