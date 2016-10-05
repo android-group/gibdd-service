@@ -60,7 +60,7 @@ public class RequestDriverActivity extends CaptchaActivity {
     EditText numberEditText;
 
     private void setDate(String date) {
-        dateOfIssueEditText.setHint(date);
+        dateOfIssueEditText.setText(date);
     }
 
     @OnClick(R.id.check_button)
