@@ -9,8 +9,8 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-import ru.android_studio.gibdd_servis.auto.activity.ResultAutoDtpActivity;
-import ru.android_studio.gibdd_servis.auto.activity.ResultAutoHistoryActivity;
+import ru.android_studio.gibdd_servis.auto.activity.dtp.ResultAutoDtpActivity;
+import ru.android_studio.gibdd_servis.auto.activity.history.ResultAutoHistoryActivity;
 import ru.android_studio.gibdd_servis.auto.activity.ResultAutoRestrictActivity;
 import ru.android_studio.gibdd_servis.auto.activity.ResultAutoWantedActivity;
 import ru.android_studio.gibdd_servis.auto.model.RequestAuto;

@@ -44,14 +44,14 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".auto.activity.ResultAutoDtpActivity"
+            android:name=".auto.activity.dtp.ResultAutoDtpActivity"
             android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".auto.activity.RequestAutoActivity" />
         </activity>
         <activity
-            android:name=".auto.activity.ResultAutoHistoryActivity"
+            android:name=".auto.activity.history.ResultAutoHistoryActivity"
             android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.auto.activity;
+package ru.android_studio.gibdd_servis.auto.activity.dtp;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;

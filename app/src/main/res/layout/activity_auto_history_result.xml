@@ -270,14 +270,10 @@
         </LinearLayout>
     </LinearLayout>
 
-    <fragment
-        android:name="ru.android_studio.gibdd_servis.ItemFragment"
-        android:id="@+id/article_fragment"
+    <!-- A RecyclerView with some commonly used attributes -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ownership_period_recycler_view"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/vehicle"
-        tools:layout="@layout/fragment_item_list" />
+        android:layout_height="match_parent"/>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package ru.android_studio.gibdd_servis.auto.activity;
+package ru.android_studio.gibdd_servis.auto.activity.dtp;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,6 +32,10 @@ public class AccidentsAdapter extends RecyclerView.Adapter<AccidentsAdapter.View
     @Override
     public void onBindViewHolder(AccidentsAdapter.ViewHolder holder, int position) {
         Accidents accidents = this.accidents.get(position);
+
+        if(accidents == null) {
+            return;
+        }
 
         holder.vehicleMarkTV.setText(accidents.getVehicleMark());
         holder.accidentDateTimeTV.setText(accidents.getAccidentDateTime());
