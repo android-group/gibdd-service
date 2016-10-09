@@ -5,11 +5,11 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCR;
+import ru.android_studio.gibdd_servis.ActivityWithToolbarAndOCR;
 import ru.android_studio.gibdd_servis.R;
 
 
-public class ResultFineActivity extends ActivityWithMenuAndOCR {
+public class ResultFineActivity extends ActivityWithToolbarAndOCR {
 
     @BindView(R.id.result_text_view)
     TextView textView;
@@ -25,10 +25,5 @@ public class ResultFineActivity extends ActivityWithMenuAndOCR {
         textView.setText(extras.getString("result_text"));
 
         addToolbarByIconId(R.mipmap.ic_fine);
-    }
-
-    @Override
-    protected int getCurrentMenuId() {
-        return R.id.menu_car_btn;
     }
 }

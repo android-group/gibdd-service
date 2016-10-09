@@ -23,15 +23,6 @@
             android:layout_margin="20dp"
             android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatSpinner
-                android:id="@+id/check_type_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:entries="@array/check_type"
-                android:textSize="18sp" />
-
             <TextView
                 android:id="@+id/vin_text_view"
                 android:layout_width="match_parent"

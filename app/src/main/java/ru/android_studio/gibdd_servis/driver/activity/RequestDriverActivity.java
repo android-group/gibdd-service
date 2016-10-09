@@ -126,11 +126,6 @@ public class RequestDriverActivity extends CaptchaActivity {
     }
 
     @Override
-    protected int getCurrentMenuId() {
-        return R.id.menu_driver_btn;
-    }
-
-    @Override
     public BaseCaptchaAsyncTask createCaptchaAsyncTask() {
         return new NewCaptchaAsyncTask(this, captchaImageView, CheckType.DRIVER);
     }

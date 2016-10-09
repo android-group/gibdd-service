@@ -19,7 +19,7 @@ import ru.android_studio.gibdd_servis.ocr.imp.TesseractOCRServiceImp;
  * @author Ruslan Suleymanov
  * @version 0.1
  */
-public abstract class ActivityWithMenuAndOCR extends ActivityWithMenu {
+public abstract class ActivityWithToolbarAndOCR extends ActivityWithToolbar {
 
     private OCRService serviceOCR;
 
@@ -27,7 +27,7 @@ public abstract class ActivityWithMenuAndOCR extends ActivityWithMenu {
         return serviceOCR;
     }
 
-    public ActivityWithMenuAndOCR setServiceOCR(OCRService serviceOCR) {
+    public ActivityWithToolbarAndOCR setServiceOCR(OCRService serviceOCR) {
         this.serviceOCR = serviceOCR;
         return this;
     }

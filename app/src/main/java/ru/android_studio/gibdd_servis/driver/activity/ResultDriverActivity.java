@@ -8,11 +8,11 @@ import com.google.gson.JsonParser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.android_studio.gibdd_servis.ActivityWithMenu;
+import ru.android_studio.gibdd_servis.ActivityWithToolbar;
 import ru.android_studio.gibdd_servis.R;
 
 
-public class ResultDriverActivity extends ActivityWithMenu {
+public class ResultDriverActivity extends ActivityWithToolbar {
 
     @BindView(R.id.result_text_view)
     TextView textView;
@@ -30,10 +30,5 @@ public class ResultDriverActivity extends ActivityWithMenu {
 
         addToolbarByIconId(R.mipmap.ic_driver);
 
-    }
-
-    @Override
-    protected int getCurrentMenuId() {
-        return R.id.menu_car_btn;
     }
 }

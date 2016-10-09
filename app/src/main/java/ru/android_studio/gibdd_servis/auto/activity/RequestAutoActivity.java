@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,17 +41,23 @@ public class RequestAutoActivity extends CaptchaActivity {
     @BindView(R.id.vin_text_view)
     TextView vinTextView;
 
-    @BindView(R.id.check_type_spinner)
-    Spinner checkTypeSpinner;
+    CheckAutoType checkAutoType;
+
+    public static final String CHECK_AUTO_TYPE = "check_auto_type";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle extras = getIntent().getExtras();
+        checkAutoType = (CheckAutoType) extras.get(CHECK_AUTO_TYPE);
+
         setContentView(R.layout.activity_auto);
 
         ButterKnife.bind(this);
 
         addToolbarByIconId(R.mipmap.ic_auto);
+        getSupportActionBar().setSubtitle(checkAutoType.getTitile());
         loadCaptcha();
     }
 
@@ -79,22 +84,13 @@ public class RequestAutoActivity extends CaptchaActivity {
             requestAuto.setJsessionid(sessionId);
             requestAuto.setCaptchaWord(getCaptchaWord());
             requestAuto.setVin(getVinText());
-            requestAuto.setCheckAutoType(getCheckAutoType());
+            requestAuto.setCheckAutoType(checkAutoType);
 
             final RequestAutoAsyncTask requestAutoAsyncTask = new RequestAutoAsyncTask(this, requestAuto.getCheckAutoType());
             requestAutoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestAuto);
         }
         loadCaptcha();
         Log.d(TAG, "END checkButton");
-    }
-
-    private CheckAutoType getCheckAutoType() {
-        return CheckAutoType.values()[checkTypeSpinner.getSelectedItemPosition()];
-    }
-
-    @Override
-    protected int getCurrentMenuId() {
-        return R.id.menu_car_btn;
     }
 
     public String getVinText() {

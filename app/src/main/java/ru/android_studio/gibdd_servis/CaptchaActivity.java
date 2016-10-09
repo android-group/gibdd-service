@@ -1,6 +1,7 @@
 package ru.android_studio.gibdd_servis;
 
 import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -12,7 +13,7 @@ import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.gibdd.BaseCaptchaAsyncTask;
 import ru.android_studio.gibdd_servis.gibdd.CaptchaResult;
 
-public abstract class CaptchaActivity extends ActivityWithMenu {
+public abstract class CaptchaActivity extends ActivityWithToolbar {
 
     private static final String TAG = "MenuAndOCRAndCaptcha";
 

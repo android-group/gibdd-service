@@ -3,7 +3,7 @@ package ru.android_studio.gibdd_servis.question.activity;
 import android.os.Bundle;
 
 import butterknife.ButterKnife;
-import ru.android_studio.gibdd_servis.ActivityWithMenu;
+import ru.android_studio.gibdd_servis.ActivityWithToolbar;
 import ru.android_studio.gibdd_servis.R;
 
 /**
@@ -11,7 +11,7 @@ import ru.android_studio.gibdd_servis.R;
  * <p/>
  * Прием обращений следующая страница
  */
-public class QuestionActivityNext extends ActivityWithMenu {
+public class QuestionActivityNext extends ActivityWithToolbar {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

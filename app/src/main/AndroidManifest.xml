@@ -34,7 +34,7 @@
             android:label="@string/check_driver">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".driver.activity.RequestDriverActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".auto.activity.RequestAutoActivity"
@@ -48,28 +48,28 @@
             android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".auto.activity.RequestAutoActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".auto.activity.history.ResultAutoHistoryActivity"
             android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".auto.activity.RequestAutoActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".auto.activity.ResultAutoRestrictActivity"
             android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".auto.activity.RequestAutoActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".auto.activity.ResultAutoWantedActivity"
             android:label="@string/check_auto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".auto.activity.RequestAutoActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".fine.activity.RequestFineActivity"

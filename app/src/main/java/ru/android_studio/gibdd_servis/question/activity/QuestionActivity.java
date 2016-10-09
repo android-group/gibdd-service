@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.android_studio.gibdd_servis.ActivityWithMenu;
+import ru.android_studio.gibdd_servis.ActivityWithToolbar;
 import ru.android_studio.gibdd_servis.R;
 
 /**
@@ -20,7 +20,7 @@ import ru.android_studio.gibdd_servis.R;
  * непосредственно в ГУОБДД МВД России.
  * Перед отправкой электронного обращения необходимо корректно заполнить анкету.
  */
-public class QuestionActivity extends ActivityWithMenu implements View.OnClickListener {
+public class QuestionActivity extends ActivityWithToolbar implements View.OnClickListener {
 
     @BindView(R.id.btn_next)
     Button nextBtn;
@@ -36,12 +36,6 @@ public class QuestionActivity extends ActivityWithMenu implements View.OnClickLi
 
         nextBtn.setOnClickListener(this);
     }
-
-    @Override
-    protected int getCurrentMenuId() {
-        return R.id.menu_question_btn;
-    }
-
 
     @Override
     public void onClick(View v) {

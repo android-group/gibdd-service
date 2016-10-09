@@ -15,7 +15,7 @@ import butterknife.BindView;
  * <p/>
  * Активити с Нижним меню
  */
-public abstract class ActivityWithMenu extends AppCompatActivity {
+public abstract class ActivityWithToolbar extends AppCompatActivity {
 
     protected final String TAG = getClass().getSimpleName();
 
@@ -24,9 +24,6 @@ public abstract class ActivityWithMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
-
-    @IdRes
-    protected abstract int getCurrentMenuId();
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;

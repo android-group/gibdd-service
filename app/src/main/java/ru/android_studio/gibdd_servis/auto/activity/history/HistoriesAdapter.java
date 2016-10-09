@@ -6,16 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.auto.model.history.OwnershipPeriod;
 
 public class HistoriesAdapter extends RecyclerView.Adapter<HistoriesAdapter.ViewHolder> {
 
-    List<OwnershipPeriod> ownershipPeriods;
+    private static final SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-DD");
+    private static final SimpleDateFormat targetFormat = new SimpleDateFormat("yyyy-MM-DD");
+    private List<OwnershipPeriod> ownershipPeriods;
 
     public HistoriesAdapter(List<OwnershipPeriod> ownershipPeriods) {
         this.ownershipPeriods = ownershipPeriods;
@@ -33,13 +35,16 @@ public class HistoriesAdapter extends RecyclerView.Adapter<HistoriesAdapter.View
     public void onBindViewHolder(HistoriesAdapter.ViewHolder holder, int position) {
         OwnershipPeriod ownershipPeriod = this.ownershipPeriods.get(position);
 
-        if(ownershipPeriod == null) {
+        if (ownershipPeriod == null) {
             return;
         }
 
-        holder.fromTV.setText(ownershipPeriod.getFrom());
-        holder.idTV.setText(ownershipPeriod.getId());
-        holder.toTV.setText(ownershipPeriod.getTo());
+        try {
+            holder.fromTV.setText(targetFormat.format(sourceFormat.parse(ownershipPeriod.getFrom())));
+            holder.toTV.setText(targetFormat.format(sourceFormat.parse(ownershipPeriod.getTo())));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         holder.personTypeTV.setText(ownershipPeriod.getSimplePersonType().getText());
     }
 
@@ -65,10 +70,10 @@ public class HistoriesAdapter extends RecyclerView.Adapter<HistoriesAdapter.View
         public ViewHolder(View v) {
             super(v);
             //ButterKnife.bind(v);
-            fromTV = (TextView)v.findViewById(R.id.from);
-            toTV = (TextView)v.findViewById(R.id.to);
-            idTV = (TextView)v.findViewById(R.id.id);
-            personTypeTV = (TextView)v.findViewById(R.id.person_type);
+            fromTV = (TextView) v.findViewById(R.id.from);
+            toTV = (TextView) v.findViewById(R.id.to);
+            idTV = (TextView) v.findViewById(R.id.id);
+            personTypeTV = (TextView) v.findViewById(R.id.person_type);
         }
     }
 }

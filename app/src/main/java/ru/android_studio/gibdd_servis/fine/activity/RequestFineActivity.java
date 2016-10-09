@@ -55,11 +55,6 @@ public class RequestFineActivity extends CaptchaActivity {
         return new OldCaptchaAsyncTask(this, captchaImageView);
     }
 
-    @Override
-    protected int getCurrentMenuId() {
-        return R.id.menu_fine_btn;
-    }
-
     @OnClick(R.id.check_button)
     void checkButton() {
         Log.d(TAG, "START checkButton");
