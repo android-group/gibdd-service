@@ -10,92 +10,75 @@ import com.google.android.gms.ads.MobileAds;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.auto.activity.RequestAutoActivity;
 import ru.android_studio.gibdd_servis.auto.gibdd.CheckAutoType;
 import ru.android_studio.gibdd_servis.driver.activity.RequestDriverActivity;
+import ru.android_studio.gibdd_servis.fine.activity.RequestFineActivity;
+import ru.android_studio.gibdd_servis.question.activity.QuestionActivity;
 
 public class MainActivity extends ActivityWithToolbar {
 
-    private static final String TAG = "MainActivity";
-
-    @BindView(R.id.menu_car_history_btn)
-    View menuCarHistoryBtn;
-
-    @BindView(R.id.menu_car_dtp_btn)
-    View menuCarDtpBtn;
-
-    @BindView(R.id.menu_car_restrict_btn)
-    View menuCarRestrictBtn;
-
-    @BindView(R.id.menu_car_wanted_btn)
-    View menuCarWantedBtn;
-
-    @BindView(R.id.menu_driver_btn)
-    View menuDriverBtn;
+    private static final String APP_ID = "ca-app-pub-7157276789419592~2989801067";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        View.OnClickListener menuOnClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    // Проверка штрафов
-                    /*case R.id.menu_fine_btn:
-                        Intent intentFineActivity = new Intent(getApplicationContext(), RequestFineActivity.class);
-                        startActivity(intentFineActivity);
-                        break;*/
-                    // Проверка водителя
-                    case R.id.menu_driver_btn:
-                        Intent intentDriverActivity = new Intent(getApplicationContext(), RequestDriverActivity.class);
-                        startActivity(intentDriverActivity);
-                        break;
-                    // Проверка истории регистрации в ГИБДД
-                    case R.id.menu_car_history_btn:
-                        Intent intentCarHistoryActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
-                        intentCarHistoryActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.HISTORY);
-                        startActivity(intentCarHistoryActivity);
-                        break;
-                    // Проверка на участие в дорожно-транспортных происшествиях
-                    case R.id.menu_car_dtp_btn:
-                        Intent intentCarDtpActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
-                        intentCarDtpActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.DTP);
-                        startActivity(intentCarDtpActivity);
-                        break;
-                    // Проверка наличия ограничений
-                    case R.id.menu_car_restrict_btn:
-                        Intent intentCarRestrictActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
-                        intentCarRestrictActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.RESTRICT);
-                        startActivity(intentCarRestrictActivity);
-                        break;
-                    // Проверка нахождения в розыске
-                    case R.id.menu_car_wanted_btn:
-                        Intent intentCarWantedActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
-                        intentCarWantedActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.WANTED);
-                        startActivity(intentCarWantedActivity);
-                        break;
-                    //прием обращений
-                    /*case R.id.menu_question_btn:
-                        Intent intentQuestionActivity = new Intent(getApplicationContext(), QuestionActivity.class);
-                        startActivity(intentQuestionActivity);
-                        break;*/
-                }
-            }
-        };
-
         ButterKnife.bind(this);
-
-        menuCarHistoryBtn.setOnClickListener(menuOnClickListener);
-        menuCarDtpBtn.setOnClickListener(menuOnClickListener);
-        menuCarRestrictBtn.setOnClickListener(menuOnClickListener);
-        menuCarWantedBtn.setOnClickListener(menuOnClickListener);
-        menuDriverBtn.setOnClickListener(menuOnClickListener);
 
         toolbar.setLogo(R.mipmap.ic_main);
 
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-7157276789419592~2989801067");
+        addMobBanner();
+    }
+
+    /*// Проверка истории регистрации в ГИБДД
+    @OnClick(R.id.menu_fine_btn)
+    void menuFineBtnOnClick() {
+        Intent intentFineActivity = new Intent(getApplicationContext(), RequestFineActivity.class);
+        startActivity(intentFineActivity);
+    }*/
+
+    // Проверка истории регистрации в ГИБДД
+    @OnClick(R.id.menu_car_history_btn)
+    void menuCarHistoryBtnOnClick() {
+        Intent intentCarHistoryActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intentCarHistoryActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.HISTORY);
+        startActivity(intentCarHistoryActivity);
+    }
+
+    // Проверка на участие в дорожно-транспортных происшествиях
+    @OnClick(R.id.menu_car_dtp_btn)
+    void menuCarDtpBtnOnClick() {
+        Intent intentCarDtpActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intentCarDtpActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.DTP);
+        startActivity(intentCarDtpActivity);
+    }
+    // Проверка наличия ограничений
+    @OnClick(R.id.menu_car_restrict_btn)
+    void menuCarRestrictBtnOnClick() {
+        Intent intentCarRestrictActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intentCarRestrictActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.RESTRICT);
+        startActivity(intentCarRestrictActivity);
+    }
+    // Проверка нахождения в розыске
+    @OnClick(R.id.menu_car_wanted_btn)
+    void menuCarWantedBtnOnClick() {
+        Intent intentCarWantedActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intentCarWantedActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.WANTED);
+        startActivity(intentCarWantedActivity);
+    }
+    // Проверка водителя
+    @OnClick(R.id.menu_driver_btn)
+    void menuDriverBtnOnClick() {
+        Intent intentQuestionActivity = new Intent(getApplicationContext(), QuestionActivity.class);
+        startActivity(intentQuestionActivity);
+    }
+
+    private void addMobBanner() {
+        MobileAds.initialize(getApplicationContext(), APP_ID);
+
         AdView mAdView = (AdView) findViewById(R.id.adView);
         /*AdRequest adRequest = new AdRequest.Builder().addTestDevice("63EC398B918CC0428A2236B4BCC113C3").build();*/
         AdRequest adRequest = new AdRequest.Builder().build();
