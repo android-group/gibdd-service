@@ -30,4 +30,5 @@
         <item>Проверка наличия ограничений</item>
         <item>Проверка на участие в дорожно-транспортных происшествиях</item>
     </string-array>
+    <string name="banner_ad_unit_id">ca-app-pub-7157276789419592/4466534265</string>
 </resources>

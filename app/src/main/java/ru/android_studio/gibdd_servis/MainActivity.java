@@ -2,8 +2,11 @@ package ru.android_studio.gibdd_servis;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -91,5 +94,11 @@ public class MainActivity extends ActivityWithToolbar {
         menuDriverBtn.setOnClickListener(menuOnClickListener);
 
         toolbar.setLogo(R.mipmap.ic_main);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-7157276789419592~2989801067");
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        /*AdRequest adRequest = new AdRequest.Builder().addTestDevice("63EC398B918CC0428A2236B4BCC113C3").build();*/
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

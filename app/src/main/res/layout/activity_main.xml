@@ -2,12 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/menu_activity"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ru.android_studio.gibdd_servis.MainActivity">
 
     <include layout="@layout/toolbar" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.AdView>
 
     <LinearLayout
         android:id="@+id/menuLinearLayout"
@@ -56,9 +67,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Список сервисов:"
+            android:paddingBottom="15dp"
+            android:textSize="20dp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Проверка водителя"
             android:id="@+id/menu_driver_btn"
-            android:paddingBottom="15dp"
             android:textSize="16dp" />
 
         <TextView
@@ -78,7 +96,6 @@
                 android:text="Проверка истории регистрации в ГИБДД"
                 android:id="@+id/menu_car_history_btn"
                 android:paddingLeft="15dp"
-                android:paddingTop="5dp"
                 android:textSize="16dp" />
 
             <TextView
