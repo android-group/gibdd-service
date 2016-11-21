@@ -33,12 +33,12 @@ public class MainActivity extends ActivityWithToolbar {
         addMobBanner();
     }
 
-    /*// Проверка истории регистрации в ГИБДД
-    @OnClick(R.id.menu_fine_btn)
-    void menuFineBtnOnClick() {
-        Intent intentFineActivity = new Intent(getApplicationContext(), RequestFineActivity.class);
-        startActivity(intentFineActivity);
-    }*/
+    // Проверка водителя
+    @OnClick(R.id.menu_driver_btn)
+    void menuDriverBtnOnClick() {
+        Intent intentDriverActivity = new Intent(getApplicationContext(), RequestDriverActivity.class);
+        startActivity(intentDriverActivity);
+    }
 
     // Проверка истории регистрации в ГИБДД
     @OnClick(R.id.menu_car_history_btn)
@@ -47,7 +47,6 @@ public class MainActivity extends ActivityWithToolbar {
         intentCarHistoryActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.HISTORY);
         startActivity(intentCarHistoryActivity);
     }
-
     // Проверка на участие в дорожно-транспортных происшествиях
     @OnClick(R.id.menu_car_dtp_btn)
     void menuCarDtpBtnOnClick() {
@@ -68,12 +67,6 @@ public class MainActivity extends ActivityWithToolbar {
         Intent intentCarWantedActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
         intentCarWantedActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.WANTED);
         startActivity(intentCarWantedActivity);
-    }
-    // Проверка водителя
-    @OnClick(R.id.menu_driver_btn)
-    void menuDriverBtnOnClick() {
-        Intent intentQuestionActivity = new Intent(getApplicationContext(), QuestionActivity.class);
-        startActivity(intentQuestionActivity);
     }
 
     private void addMobBanner() {

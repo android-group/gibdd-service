@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/menu_activity"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="ru.android_studio.gibdd_servis.MainActivity">
 
     <include layout="@layout/toolbar" />
@@ -14,11 +14,11 @@
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id">
-    </com.google.android.gms.ads.AdView>
+        ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
 
     <LinearLayout
         android:id="@+id/menuLinearLayout"
@@ -27,104 +27,95 @@
         android:orientation="vertical"
         android:padding="15dp">
 
-        <!--<LinearLayout
-            android:id="@+id/secondLineLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:gravity="center">
-
-
-            <Button
-                android:id="@+id/menu_fine_btn"
-                android:layout_width="100px"
-                android:layout_height="100px"
-                android:textSize="13sp"
-                android:background="@drawable/fine"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_gravity="center" />
-
-            <Button
-                android:id="@+id/menu_question_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:background="@drawable/message"
-                android:longClickable="false"
-                android:layout_weight="1"
-                android:layout_marginBottom="50dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_gravity="center" />
-        </LinearLayout>-->
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Список сервисов:"
             android:paddingBottom="15dp"
+            android:text="Список сервисов:"
             android:textSize="20dp"
             android:textStyle="normal|bold" />
 
-        <TextView
+        <Button
+            android:id="@+id/menu_driver_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Проверка водителя"
-            android:id="@+id/menu_driver_btn"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Проверка автомобиля"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:layout_margin="15dp"
+            android:textColor="@color/toolbarText"
+            android:paddingBottom="10dp"
+            android:background="@color/toolbarBackground" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Проверка истории регистрации в ГИБДД"
-                android:id="@+id/menu_car_history_btn"
-                android:paddingLeft="15dp"
-                android:textSize="16dp" />
+                android:text="Проверка автомобиля"
+                android:textSize="16dp"
+                android:paddingBottom="10dp"
+                android:textStyle="normal|bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Проверка нахождения в розыске"
-                android:id="@+id/menu_car_wanted_btn"
-                android:paddingLeft="15dp"
-                android:paddingTop="5dp"
-                android:textSize="16dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Проверка наличия ограничений"
-                android:id="@+id/menu_car_restrict_btn"
-                android:paddingLeft="15dp"
-                android:paddingTop="5dp"
-                android:textSize="16dp" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Проверка на участие в ДТП"
-                android:id="@+id/menu_car_dtp_btn"
-                android:paddingLeft="15dp"
-                android:paddingTop="5dp"
-                android:textSize="16dp" />
+                <Button
+                    android:id="@+id/menu_car_history_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/toolbarText"
+                    android:text="Проверка истории регистрации в ГИБДД"
+                    android:textSize="16dp"
+                    android:layout_margin="15dp"
+                    android:background="@color/toolbarBackground" />
+
+                <Button
+                    android:id="@+id/menu_car_wanted_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/toolbarText"
+                    android:text="Проверка нахождения в розыске"
+                    android:background="@color/toolbarBackground"
+                    android:textSize="16dp"
+                    android:layout_margin="15dp" />
+
+                <Button
+                    android:id="@+id/menu_car_restrict_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/toolbarText"
+                    android:text="Проверка наличия ограничений"
+                    android:background="@color/toolbarBackground"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/menu_car_dtp_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="15dp"
+                    android:layout_margin="15dp"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/toolbarText"
+                    android:text="Проверка на участие в ДТП"
+                    android:background="@color/toolbarBackground"
+                    android:textSize="16dp" />
+            </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 </LinearLayout>
