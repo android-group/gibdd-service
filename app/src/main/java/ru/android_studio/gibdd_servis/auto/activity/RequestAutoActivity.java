@@ -60,7 +60,7 @@ public class RequestAutoActivity extends CaptchaActivity {
         getSupportActionBar().setSubtitle(checkAutoType.getTitile());
         loadCaptcha();
         if(getSessionId() == null) {
-            finishWithResult();
+            finishCauseInternetNotAvailable();
         }
     }
 
@@ -92,6 +92,7 @@ public class RequestAutoActivity extends CaptchaActivity {
             final RequestAutoAsyncTask requestAutoAsyncTask = new RequestAutoAsyncTask(this, requestAuto.getCheckAutoType());
             requestAutoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestAuto);
         }
+
         loadCaptcha();
         Log.d(TAG, "END checkButton");
     }

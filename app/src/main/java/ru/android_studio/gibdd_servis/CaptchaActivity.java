@@ -2,10 +2,10 @@ package ru.android_studio.gibdd_servis;
 
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
 
@@ -51,18 +51,22 @@ public abstract class CaptchaActivity extends ActivityWithToolbar {
 
     protected String getSessionId() {
         String sessionId = null;
+        CaptchaResult captchaResult = null;
         try {
-            CaptchaResult captchaResult = calledCaptchaAsyncTask.get();
-            if (captchaResult != null) {
-                sessionId = captchaResult.getSessionId();
-            }
+            captchaResult = calledCaptchaAsyncTask.get();
         } catch (InterruptedException | ExecutionException e) {
-            Log.e(TAG, "can't get session id", e);
+            Toast.makeText(this, "Интернет не доступен", Toast.LENGTH_SHORT).show();
+        }
+
+        if (captchaResult != null) {
+            sessionId = captchaResult.getSessionId();
+        } else {
+            Toast.makeText(this, "Интернет не доступен", Toast.LENGTH_SHORT).show();
         }
         return sessionId;
     }
 
-    protected void finishWithResult() {
+    protected void finishCauseInternetNotAvailable() {
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);
         finish();

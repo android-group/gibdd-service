@@ -2,7 +2,6 @@ package ru.android_studio.gibdd_servis;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -39,13 +38,7 @@ public class MainActivity extends ActivityWithToolbar {
     @OnClick(R.id.menu_driver_btn)
     void menuDriverBtnOnClick() {
         Intent intent = new Intent(getApplicationContext(), RequestDriverActivity.class);
-        startActivityForResult(intent, 0);
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            Toast.makeText(this, "Интернет не доступен.", Toast.LENGTH_LONG).show();
-        }
+        startActivity(intent);
     }
 
     // Проверка истории регистрации в ГИБДД
@@ -53,7 +46,7 @@ public class MainActivity extends ActivityWithToolbar {
     void menuCarHistoryBtnOnClick() {
         Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
         intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.HISTORY);
-        startActivityForResult(intent, 0);
+        startActivity(intent);
     }
 
     // Проверка на участие в дорожно-транспортных происшествиях
@@ -61,7 +54,7 @@ public class MainActivity extends ActivityWithToolbar {
     void menuCarDtpBtnOnClick() {
         Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
         intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.DTP);
-        startActivityForResult(intent, 0);
+        startActivity(intent);
     }
 
     // Проверка наличия ограничений
@@ -69,7 +62,7 @@ public class MainActivity extends ActivityWithToolbar {
     void menuCarRestrictBtnOnClick() {
         Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
         intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.RESTRICT);
-        startActivityForResult(intent, 0);
+        startActivity(intent);
     }
 
     // Проверка нахождения в розыске
@@ -77,7 +70,7 @@ public class MainActivity extends ActivityWithToolbar {
     void menuCarWantedBtnOnClick() {
         Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
         intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.WANTED);
-        startActivityForResult(intent, 0);
+        startActivity(intent);
     }
 
     private void addMobBanner() {

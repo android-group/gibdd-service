@@ -59,7 +59,6 @@ public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseA
             return InfoAutoService.clientRequest(requestAuto);
         } catch (IOException e) {
             Log.e(TAG, "Error to get captcha", e);
-            Toast.makeText(context, "Can't load captcha image, please try again later", Toast.LENGTH_SHORT).show();
             return null;
         }
     }
@@ -70,6 +69,10 @@ public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseA
 
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
+        }
+
+        if(result == null) {
+            return;
         }
 
         String resultText = result.getResultText();

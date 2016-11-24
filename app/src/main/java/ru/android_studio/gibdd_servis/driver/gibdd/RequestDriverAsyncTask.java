@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
-
-import java.io.IOException;
 
 import ru.android_studio.gibdd_servis.driver.activity.ResultDriverActivity;
 import ru.android_studio.gibdd_servis.driver.model.RequestDriver;
@@ -20,15 +17,14 @@ public class RequestDriverAsyncTask extends AsyncTask<RequestDriver, Void, Respo
 
     private static final String TAG = "RequestDriverAsyncTask";
     private Context context;
-
-    public RequestDriverAsyncTask(Context context) {
-        this.context = context;
-    }
-
     /**
      * Окно отображается при открытом асинх таске
      */
     private ProgressDialog progressDialog;
+
+    public RequestDriverAsyncTask(Context context) {
+        this.context = context;
+    }
 
     @Override
     protected void onPreExecute() {
@@ -49,9 +45,7 @@ public class RequestDriverAsyncTask extends AsyncTask<RequestDriver, Void, Respo
 
         try {
             return InfoDriverService.clientRequest(requestDriver);
-        } catch (IOException e) {
-            Log.e(TAG, "Error client request", e);
-            Toast.makeText(context, "Can't to make client request, please try again later", Toast.LENGTH_SHORT).show();
+        } catch (Throwable throwable) {
             return null;
         }
     }
@@ -62,6 +56,10 @@ public class RequestDriverAsyncTask extends AsyncTask<RequestDriver, Void, Respo
 
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
+        }
+
+        if (result == null) {
+            return;
         }
 
         Intent intent = new Intent(context, ResultDriverActivity.class);

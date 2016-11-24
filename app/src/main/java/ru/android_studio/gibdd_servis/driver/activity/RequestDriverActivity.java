@@ -1,7 +1,6 @@
 package ru.android_studio.gibdd_servis.driver.activity;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -71,19 +70,19 @@ public class RequestDriverActivity extends CaptchaActivity {
                 seriesEditText.length() == 0 &&
                 numberEditText.length() == 0 &&
                 dateOfIssueEditText.length() == 0) {
-            Toast.makeText(this, "Пожалуйста, заполните все поля.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show();
             return;
         } else if (seriesEditText.length() == 0) {
-            Toast.makeText(this, "Пожалуйста, заполните серию.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Заполните серию", Toast.LENGTH_SHORT).show();
             return;
         } else if (numberEditText.length() == 0) {
-            Toast.makeText(this, "Пожалуйста, заполните номер", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Заполните номер", Toast.LENGTH_SHORT).show();
             return;
         } else if (dateOfIssueEditText.length() == 0) {
-            Toast.makeText(this, "Пожалуйста, заполните дату выдачи", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Заполните дату выдачи", Toast.LENGTH_SHORT).show();
             return;
         } else if (captchaEditText.length() == 0) {
-            Toast.makeText(this, "Пожалуйста, введите символы с картинки.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Введите символы с картинки", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -91,14 +90,17 @@ public class RequestDriverActivity extends CaptchaActivity {
         requestDriver.setJsessionid(getSessionId());
         requestDriver.setCaptchaWord(captchaEditText.getText().toString());
 
-        String number = numberEditText.getText().toString();
-        String series = seriesEditText.getText().toString();
+        final String number = numberEditText.getText().toString();
+        final String series = seriesEditText.getText().toString();
 
         requestDriver.setNum(series + number);
 
         requestDriver.setDate(dateOfIssueEditText.getText().toString());
+
         final RequestDriverAsyncTask requestDriverAsyncTask = new RequestDriverAsyncTask(this);
         requestDriverAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestDriver);
+
+        loadCaptcha();
         Log.d(TAG, "END checkButton");
     }
 
@@ -112,7 +114,7 @@ public class RequestDriverActivity extends CaptchaActivity {
         addToolbarByIconId(R.mipmap.ic_driver);
         loadCaptcha();
         if(getSessionId() == null) {
-            finishWithResult();
+            finishCauseInternetNotAvailable();
         }
 
         final Calendar c = Calendar.getInstance();

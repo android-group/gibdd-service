@@ -5,18 +5,19 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.IOException;
 
 public abstract class BaseCaptchaAsyncTask extends AsyncTask<String, Void, CaptchaResult> {
 
     private static final String TAG = "BaseCaptchaAsyncTask";
-    protected CheckType checkType;
+    CheckType checkType;
     private Context context;
     private ImageView captchaImageView;
     private ProgressDialog progressDialog;
 
-    public BaseCaptchaAsyncTask(Context context, ImageView captchaImageView) {
+    BaseCaptchaAsyncTask(Context context, ImageView captchaImageView) {
         if (context == null) {
             throw new IllegalArgumentException("context can't be null");
         } else if (captchaImageView == null) {
@@ -27,7 +28,7 @@ public abstract class BaseCaptchaAsyncTask extends AsyncTask<String, Void, Captc
         this.captchaImageView = captchaImageView;
     }
 
-    public BaseCaptchaAsyncTask(Context context, ImageView captchaImageView, CheckType checkType) {
+    BaseCaptchaAsyncTask(Context context, ImageView captchaImageView, CheckType checkType) {
         if (context == null) {
             throw new IllegalArgumentException("context can't be null");
         } else if (captchaImageView == null) {
@@ -51,8 +52,7 @@ public abstract class BaseCaptchaAsyncTask extends AsyncTask<String, Void, Captc
     protected CaptchaResult doInBackground(String... urls) {
         try {
             return captchaRequest();
-        } catch (IOException | NotFoundResult e) {
-            Log.e(TAG, "can't get captcha", e);
+        } catch (IOException e) {
             return null;
         }
     }
