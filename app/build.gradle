@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'spoon'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'realm-android'
-apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 24
@@ -17,6 +16,7 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         debug {
             testCoverageEnabled true
@@ -39,6 +39,7 @@ android {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
     }
+
     lintOptions {
         abortOnError false
     }
@@ -73,7 +74,11 @@ dependencies {
 
     compile 'com.android.support:cardview-v7:24.2.+'
     compile 'com.android.support:recyclerview-v7:24.2.+'
-    compile 'com.google.firebase:firebase-ads:9.8.0'
+
+    // firebase
+    compile 'com.google.firebase:firebase-core:10.0.0'
+    compile 'com.google.firebase:firebase-ads:10.0.0'
+    compile 'com.google.firebase:firebase-crash:10.0.0'
 
     // tess-two tool for Tesseract using on Android
     compile 'com.rmtheis:tess-two:5.4.1'
@@ -124,3 +129,4 @@ dependencies {
 }
 
 defaultTasks 'spoon', 'clean', 'run'
+apply plugin: 'com.google.gms.google-services'

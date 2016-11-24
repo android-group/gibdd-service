@@ -2,20 +2,17 @@ package ru.android_studio.gibdd_servis;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.crash.FirebaseCrash;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.auto.activity.RequestAutoActivity;
 import ru.android_studio.gibdd_servis.auto.gibdd.CheckAutoType;
 import ru.android_studio.gibdd_servis.driver.activity.RequestDriverActivity;
-import ru.android_studio.gibdd_servis.fine.activity.RequestFineActivity;
-import ru.android_studio.gibdd_servis.question.activity.QuestionActivity;
 
 public class MainActivity extends ActivityWithToolbar {
 
@@ -31,6 +28,8 @@ public class MainActivity extends ActivityWithToolbar {
         toolbar.setLogo(R.mipmap.ic_main);
 
         addMobBanner();
+        FirebaseCrash.log("MainActivity created");
+        FirebaseCrash.report(new Exception("My first Android non-fatal error"));
     }
 
     // Проверка водителя
@@ -47,6 +46,7 @@ public class MainActivity extends ActivityWithToolbar {
         intentCarHistoryActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.HISTORY);
         startActivity(intentCarHistoryActivity);
     }
+
     // Проверка на участие в дорожно-транспортных происшествиях
     @OnClick(R.id.menu_car_dtp_btn)
     void menuCarDtpBtnOnClick() {
@@ -54,6 +54,7 @@ public class MainActivity extends ActivityWithToolbar {
         intentCarDtpActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.DTP);
         startActivity(intentCarDtpActivity);
     }
+
     // Проверка наличия ограничений
     @OnClick(R.id.menu_car_restrict_btn)
     void menuCarRestrictBtnOnClick() {
@@ -61,6 +62,7 @@ public class MainActivity extends ActivityWithToolbar {
         intentCarRestrictActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.RESTRICT);
         startActivity(intentCarRestrictActivity);
     }
+
     // Проверка нахождения в розыске
     @OnClick(R.id.menu_car_wanted_btn)
     void menuCarWantedBtnOnClick() {
