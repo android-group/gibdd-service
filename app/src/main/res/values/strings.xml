@@ -25,10 +25,14 @@
     <string name="label_power_kwt">Мощность кВт</string>
     <string name="label_power_hp">Мощность л.с.</string>
     <string-array name="check_type">
-        <item>Проверка истории регистрации в ГИБДД</item>
-        <item>Проверка нахождения в розыске</item>
-        <item>Проверка наличия ограничений</item>
-        <item>Проверка на участие в дорожно-транспортных происшествиях</item>
+        <item>Истории регистрации в ГИБДД</item>
+        <item>Нахождения в розыске</item>
+        <item>Наличия ограничений</item>
+        <item>Участие в дорожно-транспортных происшествиях</item>
     </string-array>
     <string name="banner_ad_unit_id">ca-app-pub-7157276789419592/9556197466</string>
+    <string name="history">Истории регистрации в ГИБДД</string>
+    <string name="wanted">Нахождения в розыске</string>
+    <string name="restrict">Наличия ограничений</string>
+    <string name="dtp">Участие в ДТП</string>
 </resources>

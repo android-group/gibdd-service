@@ -30,9 +30,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="15dp"
-            android:text="Список сервисов:"
-            android:textSize="20dp"
+            android:text="Проверка водителя"
+            android:textSize="16dp"
+            android:paddingBottom="10dp"
             android:textStyle="normal|bold" />
 
         <Button
@@ -74,7 +74,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="10dp"
                     android:textColor="@color/toolbarText"
-                    android:text="Проверка истории регистрации в ГИБДД"
+                    android:text="@string/history"
                     android:textSize="16dp"
                     android:layout_margin="15dp"
                     android:background="@color/toolbarBackground" />
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/toolbarText"
-                    android:text="Проверка нахождения в розыске"
+                    android:text="@string/wanted"
                     android:background="@color/toolbarBackground"
                     android:textSize="16dp"
                     android:layout_margin="15dp" />
@@ -99,7 +99,7 @@
                     android:layout_margin="15dp"
                     android:paddingTop="5dp"
                     android:textColor="@color/toolbarText"
-                    android:text="Проверка наличия ограничений"
+                    android:text="@string/restrict"
                     android:background="@color/toolbarBackground"
                     android:textSize="16dp" />
 
@@ -112,7 +112,7 @@
                     android:layout_margin="15dp"
                     android:paddingTop="5dp"
                     android:textColor="@color/toolbarText"
-                    android:text="Проверка на участие в ДТП"
+                    android:text="@string/dtp"
                     android:background="@color/toolbarBackground"
                     android:textSize="16dp" />
             </LinearLayout>

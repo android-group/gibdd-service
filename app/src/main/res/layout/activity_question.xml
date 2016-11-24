@@ -19,7 +19,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar"
             android:layout_margin="20dp"
             android:orientation="vertical">
 
@@ -27,8 +26,8 @@
                 android:id="@+id/SurnameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_gravity="center_vertical"
+
                 android:layout_weight="1"
                 android:text="Фамилия"
                 android:textColor="@color/black"
@@ -113,6 +112,20 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="phone" />
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/check_btn_shadow"
+                android:text="@string/btn_next"
+                android:textColor="@drawable/text_button" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></View>
+
         </LinearLayout>
     </ScrollView>
 
@@ -120,17 +133,9 @@
     <LinearLayout
         android:id="@+id/NavigationLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/check_btn_shadow"
-            android:text="@string/btn_next"
-            android:textColor="@drawable/text_button" />
 
         <View
             android:id="@+id/bottom_menu_border"
