@@ -2,6 +2,7 @@ package ru.android_studio.gibdd_servis;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -37,40 +38,46 @@ public class MainActivity extends ActivityWithToolbar {
     // Проверка водителя
     @OnClick(R.id.menu_driver_btn)
     void menuDriverBtnOnClick() {
-        Intent intentDriverActivity = new Intent(getApplicationContext(), RequestDriverActivity.class);
-        startActivity(intentDriverActivity);
+        Intent intent = new Intent(getApplicationContext(), RequestDriverActivity.class);
+        startActivityForResult(intent, 0);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            Toast.makeText(this, "Интернет не доступен.", Toast.LENGTH_LONG).show();
+        }
     }
 
     // Проверка истории регистрации в ГИБДД
     @OnClick(R.id.menu_car_history_btn)
     void menuCarHistoryBtnOnClick() {
-        Intent intentCarHistoryActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
-        intentCarHistoryActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.HISTORY);
-        startActivity(intentCarHistoryActivity);
+        Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.HISTORY);
+        startActivityForResult(intent, 0);
     }
 
     // Проверка на участие в дорожно-транспортных происшествиях
     @OnClick(R.id.menu_car_dtp_btn)
     void menuCarDtpBtnOnClick() {
-        Intent intentCarDtpActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
-        intentCarDtpActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.DTP);
-        startActivity(intentCarDtpActivity);
+        Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.DTP);
+        startActivityForResult(intent, 0);
     }
 
     // Проверка наличия ограничений
     @OnClick(R.id.menu_car_restrict_btn)
     void menuCarRestrictBtnOnClick() {
-        Intent intentCarRestrictActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
-        intentCarRestrictActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.RESTRICT);
-        startActivity(intentCarRestrictActivity);
+        Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.RESTRICT);
+        startActivityForResult(intent, 0);
     }
 
     // Проверка нахождения в розыске
     @OnClick(R.id.menu_car_wanted_btn)
     void menuCarWantedBtnOnClick() {
-        Intent intentCarWantedActivity = new Intent(getApplicationContext(), RequestAutoActivity.class);
-        intentCarWantedActivity.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.WANTED);
-        startActivity(intentCarWantedActivity);
+        Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.WANTED);
+        startActivityForResult(intent, 0);
     }
 
     private void addMobBanner() {

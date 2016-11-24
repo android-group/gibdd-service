@@ -59,6 +59,9 @@ public class RequestAutoActivity extends CaptchaActivity {
         addToolbarByIconId(R.mipmap.ic_auto);
         getSupportActionBar().setSubtitle(checkAutoType.getTitile());
         loadCaptcha();
+        if(getSessionId() == null) {
+            finishWithResult();
+        }
     }
 
     @OnClick(R.id.check_button)

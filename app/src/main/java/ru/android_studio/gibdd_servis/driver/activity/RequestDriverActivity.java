@@ -1,6 +1,7 @@
 package ru.android_studio.gibdd_servis.driver.activity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -110,6 +111,9 @@ public class RequestDriverActivity extends CaptchaActivity {
 
         addToolbarByIconId(R.mipmap.ic_driver);
         loadCaptcha();
+        if(getSessionId() == null) {
+            finishWithResult();
+        }
 
         final Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);

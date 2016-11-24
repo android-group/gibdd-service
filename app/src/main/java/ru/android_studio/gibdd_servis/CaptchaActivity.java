@@ -1,6 +1,8 @@
 package ru.android_studio.gibdd_servis;
 
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -58,6 +60,12 @@ public abstract class CaptchaActivity extends ActivityWithToolbar {
             Log.e(TAG, "can't get session id", e);
         }
         return sessionId;
+    }
+
+    protected void finishWithResult() {
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     public String getCaptchaWord() {
