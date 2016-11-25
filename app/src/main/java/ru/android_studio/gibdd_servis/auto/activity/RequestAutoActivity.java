@@ -3,15 +3,14 @@ package ru.android_studio.gibdd_servis.auto.activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCRAndCaptcha;
+import ru.android_studio.gibdd_servis.CaptchaActivity;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.auto.gibdd.CheckAutoType;
 import ru.android_studio.gibdd_servis.auto.gibdd.RequestAutoAsyncTask;
@@ -26,77 +25,84 @@ import ru.android_studio.gibdd_servis.gibdd.NewCaptchaAsyncTask;
  * <p/>
  * Проверка машины
  * Проверка наличия неуплаченных штрафов по данным транспортного средства
+ *
  * @author olga
  * @author Ruslan Suleymanov
  * @author Yury Andreev
  * @version 0.1
  */
-public class RequestAutoActivity extends ActivityWithMenuAndOCRAndCaptcha {
+public class RequestAutoActivity extends CaptchaActivity {
 
     private static final String TAG = "RequestAutoActivity";
 
     @BindView(R.id.vin_edit_text)
     EditText vinEditText;
 
-    @BindView(R.id.vin_check_box)
-    CheckBox vinCheckBox;
-
     @BindView(R.id.vin_text_view)
     TextView vinTextView;
 
-    @BindView(R.id.check_type_spinner)
-    Spinner checkTypeSpinner;
+    CheckAutoType checkAutoType;
+
+    public static final String CHECK_AUTO_TYPE = "check_auto_type";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle extras = getIntent().getExtras();
+        checkAutoType = (CheckAutoType) extras.get(CHECK_AUTO_TYPE);
+
         setContentView(R.layout.activity_auto);
 
         ButterKnife.bind(this);
 
         addToolbarByIconId(R.mipmap.ic_auto);
-        setMenuConfig();
+        getSupportActionBar().setSubtitle(checkAutoType.getTitile());
         loadCaptcha();
+        if(getSessionId() == null) {
+            finishCauseInternetNotAvailable();
+        }
     }
 
     @OnClick(R.id.check_button)
     void checkButton() {
         Log.d(TAG, "START checkButton");
 
+        boolean isCaptchaEmpty = captchaEditText.length() == 0;
+        boolean isVinEmpty = vinEditText.length() == 0;
+        if (isCaptchaEmpty && isVinEmpty) {
+            Toast.makeText(this, "Пожалуйста, заполните все поля.", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (isVinEmpty) {
+            Toast.makeText(this, "Пожалуйста, заполните поле VIN номер.", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (isCaptchaEmpty) {
+            Toast.makeText(this, "Пожалуйста, введите символы с картинки.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         RequestAuto requestAuto = new RequestAuto();
         String sessionId = getSessionId();
-        if(sessionId != null) {
+        if (sessionId != null) {
             requestAuto.setJsessionid(sessionId);
-            requestAuto.setCaptchaWord(captchaEditText.getText().toString());
-            requestAuto.setVin(vinEditText.getText().toString());
-            requestAuto.setCheckAutoType(getCheckAutoType());
+            requestAuto.setCaptchaWord(getCaptchaWord());
+            requestAuto.setVin(getVinText());
+            requestAuto.setCheckAutoType(checkAutoType);
 
-            final RequestAutoAsyncTask requestAutoAsyncTask = new RequestAutoAsyncTask(this);
+            final RequestAutoAsyncTask requestAutoAsyncTask = new RequestAutoAsyncTask(this, requestAuto.getCheckAutoType());
             requestAutoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestAuto);
-            Log.d(TAG, "END checkButton");
         }
+
+        loadCaptcha();
+        Log.d(TAG, "END checkButton");
     }
 
-    private CheckAutoType getCheckAutoType() {
-        return CheckAutoType.values()[checkTypeSpinner.getSelectedItemPosition()];
-    }
-
-    @OnClick(R.id.vin_check_box)
-    void changeValue() {
-        if (vinCheckBox.isChecked()) {
-            vinTextView.setText("Номер шасси или кузова");
-        } else {
-            vinTextView.setText("Идентификационный номер (VIN)");
-        }
+    public String getVinText() {
+        return vinEditText.getText().toString();
     }
 
     @Override
-    protected int getCurrentMenuId() {
-        return R.id.menu_car_btn;
-    }
-
-    @Override
-    public BaseCaptchaAsyncTask getBaseCaptchaAsyncTask() {
+    public BaseCaptchaAsyncTask createCaptchaAsyncTask() {
         return new NewCaptchaAsyncTask(this, captchaImageView, CheckType.AUTO);
     }
 }

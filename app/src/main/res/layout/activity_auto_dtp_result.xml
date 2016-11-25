@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Проверка на участие в дорожно-транспортных происшествиях"
+        android:textColor="@color/abc_btn_colored_borderless_text_material" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Получение сведений о дорожно-транспортных происшествиях с участием транспортного средства с указанным идентификационным номером (VIN)"
+        android:textColor="@color/abc_background_cache_hint_selector_material_dark" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="При проверке учитываются только дорожно-транспортные происшествия, оформленные при участии сотрудников полиции и поставленные на соответствующий федеральный учет в АИУС ГИБДД"
+        android:textColor="@color/abc_secondary_text_material_light" />
+
+    <!-- A RecyclerView with some commonly used attributes -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/accidents_recycler_view"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--В результате обработки запроса к АИУС ГИБДД записи о дорожно-транспортных происшествиях не найдены.-->
+
+</LinearLayout>

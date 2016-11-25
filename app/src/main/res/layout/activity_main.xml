@@ -1,92 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/menu_activity"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="ru.android_studio.gibdd_servis.MainActivity">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
 
     <LinearLayout
         android:id="@+id/menuLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_gravity="center">
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Проверка водителя"
+            android:textSize="16dp"
+            android:paddingBottom="10dp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/menu_driver_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="По водительскому удостоверению"
+            android:textSize="16dp"
+            android:layout_margin="15dp"
+            android:textColor="@color/toolbarText"
+            android:paddingBottom="10dp"
+            android:background="@color/toolbarBackground" />
 
         <LinearLayout
-            android:id="@+id/firstLineLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_gravity="center">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/menu_fine_btn"
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:background="@drawable/fine"
-                android:layout_weight="1"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_gravity="center" />
+                android:text="Проверка автомобиля"
+                android:textSize="16dp"
+                android:paddingBottom="10dp"
+                android:textStyle="normal|bold" />
 
-            <Button
-                android:id="@+id/menu_driver_btn"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:background="@drawable/driver"
                 android:layout_weight="1"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_gravity="center" />
-        </LinearLayout>
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/secondLineLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:gravity="center">
+                <Button
+                    android:id="@+id/menu_car_history_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/toolbarText"
+                    android:text="@string/history"
+                    android:textSize="16dp"
+                    android:layout_margin="15dp"
+                    android:background="@color/toolbarBackground" />
 
-            <Button
-                android:id="@+id/menu_car_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:background="@drawable/car"
-                android:layout_weight="1"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_gravity="center" />
+                <Button
+                    android:id="@+id/menu_car_wanted_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/toolbarText"
+                    android:text="@string/wanted"
+                    android:background="@color/toolbarBackground"
+                    android:textSize="16dp"
+                    android:layout_margin="15dp" />
 
-            <Button
-                android:id="@+id/menu_question_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:background="@drawable/message"
-                android:longClickable="false"
-                android:layout_weight="1"
-                android:layout_marginBottom="50dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_gravity="center" />
+                <Button
+                    android:id="@+id/menu_car_restrict_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/toolbarText"
+                    android:text="@string/restrict"
+                    android:background="@color/toolbarBackground"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/menu_car_dtp_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="15dp"
+                    android:layout_margin="15dp"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/toolbarText"
+                    android:text="@string/dtp"
+                    android:background="@color/toolbarBackground"
+                    android:textSize="16dp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -8,7 +8,7 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.android_studio.gibdd_servis.ActivityWithMenuAndOCRAndCaptcha;
+import ru.android_studio.gibdd_servis.CaptchaActivity;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.fine.gibdd.RequestFineAsyncTask;
 import ru.android_studio.gibdd_servis.fine.model.RequestFine;
@@ -20,11 +20,12 @@ import ru.android_studio.gibdd_servis.gibdd.OldCaptchaAsyncTask;
  * <p/>
  * Проверка штрафов
  * Проверка наличия неуплаченных штрафов по данным транспортного средства
+ *
  * @author y.andreev
  * @author Ruslan Suleymanov
  * @version 0.1
  */
-public class RequestFineActivity extends ActivityWithMenuAndOCRAndCaptcha {
+public class RequestFineActivity extends CaptchaActivity {
 
     private static final String TAG = "RequestFineActivity";
 
@@ -37,14 +38,6 @@ public class RequestFineActivity extends ActivityWithMenuAndOCRAndCaptcha {
     @BindView(R.id.serial_number_edit_text)
     EditText serialNumberEditText;
 
-    /*
-    Bitmap captcha = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.c13249);
-    Log.i(TAG, "extract text from captcha...");
-    String text = asyncExtractText(captcha, OCRService.LANGUAGE.LANGUAGE_CODE_RUSSIAN);
-    Log.i(TAG, String.format("captcha text = %s", text));
-    Toast toast = Toast.makeText(RequestFineActivity.this, text, Toast.LENGTH_LONG).show();
-    */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,19 +46,13 @@ public class RequestFineActivity extends ActivityWithMenuAndOCRAndCaptcha {
         ButterKnife.bind(this);
 
         addToolbarByIconId(R.mipmap.ic_fine);
-        setMenuConfig();
 
         loadCaptcha();
     }
 
     @Override
-    public BaseCaptchaAsyncTask getBaseCaptchaAsyncTask() {
+    public BaseCaptchaAsyncTask createCaptchaAsyncTask() {
         return new OldCaptchaAsyncTask(this, captchaImageView);
-    }
-
-    @Override
-    protected int getCurrentMenuId() {
-        return R.id.menu_fine_btn;
     }
 
     @OnClick(R.id.check_button)

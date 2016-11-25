@@ -7,20 +7,20 @@ import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.android_studio.gibdd_servis.ActivityWithMenu;
+import ru.android_studio.gibdd_servis.ActivityWithToolbar;
 import ru.android_studio.gibdd_servis.R;
 
 /**
  * Created by y.andreev on 03.06.2016.
- *
+ * <p/>
  * Прием обращений
  * Направление обращения в госавтоинспекцию
  * Обращения, направленные в электронном виде через официальный сайт Госавтоинспекции (www.gibdd.ru),
  * поступают в выбранное подразделение Госавтоинспекции на региональном уровне или
  * непосредственно в ГУОБДД МВД России.
- Перед отправкой электронного обращения необходимо корректно заполнить анкету.
+ * Перед отправкой электронного обращения необходимо корректно заполнить анкету.
  */
-public class QuestionActivity  extends ActivityWithMenu implements View.OnClickListener {
+public class QuestionActivity extends ActivityWithToolbar implements View.OnClickListener {
 
     @BindView(R.id.btn_next)
     Button nextBtn;
@@ -33,21 +33,14 @@ public class QuestionActivity  extends ActivityWithMenu implements View.OnClickL
         ButterKnife.bind(this);
 
         addToolbarByIconId(R.mipmap.ic_question);
-        setMenuConfig();
 
         nextBtn.setOnClickListener(this);
     }
 
     @Override
-    protected int getCurrentMenuId() {
-        return R.id.menu_question_btn;
-    }
-
-
-    @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_next :
+            case R.id.btn_next:
                 Intent intent = new Intent(this, QuestionActivityNext.class);
                 startActivity(intent);
                 break;

@@ -14,19 +14,16 @@
         android:layout_above="@+id/NavigationLinearLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar"
-        android:scrollIndicators="right">
+        android:layout_below="@+id/toolbar">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
-
-        </LinearLayout>
+            android:id="@+id/result_text_view" />
     </ScrollView>
 
-    <LinearLayout
+
+    <!--<LinearLayout
         android:id="@+id/NavigationLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="75dp"
@@ -44,7 +41,7 @@
             android:layout_height="74dp"
             android:orientation="horizontal">
 
-            <View
+            &lt;!&ndash;<View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"></View>
@@ -56,7 +53,7 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:scaleType="centerInside"
-                android:src="@drawable/menu_fine_off" />
+                android:src="@drawable/menu_fine_off" />&ndash;&gt;
 
             <View
                 android:layout_width="0dp"
@@ -92,7 +89,7 @@
                 android:layout_height="1dp"
                 android:layout_weight="1"></View>
 
-            <ImageButton
+            &lt;!&ndash;<ImageButton
                 android:id="@+id/menu_question_btn"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
@@ -104,31 +101,19 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1"></View>
+                android:layout_weight="1"></View>&ndash;&gt;
 
         </LinearLayout>
-    </LinearLayout>
+    </LinearLayout>-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/result_text_view"
-        android:layout_below="@+id/include"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/check_button" />
-
-    <Button
+    <!--<Button
         android:id="@+id/check_button_back"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/check_btn_shadow"
-        android:text="back"
+        android:text="@string/btn_back"
         android:textColor="@drawable/text_button"
-        android:layout_above="@+id/NavigationLinearLayout"
+        android:layout_below="@+id/scrollView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true" />-->
 </RelativeLayout>

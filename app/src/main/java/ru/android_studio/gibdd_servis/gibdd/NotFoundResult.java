@@ -1,6 +1,8 @@
 package ru.android_studio.gibdd_servis.gibdd;
 
-public class NotFoundResult extends RuntimeException {
+import java.io.IOException;
+
+public class NotFoundResult extends IOException {
     public NotFoundResult(String message) {
         super(message);
     }

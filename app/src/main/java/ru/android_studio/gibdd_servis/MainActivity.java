@@ -1,18 +1,22 @@
 package ru.android_studio.gibdd_servis;
 
-import android.content.Context;
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.crash.FirebaseCrash;
 
 import butterknife.ButterKnife;
-import ru.android_studio.gibdd_servis.ocr.OCRService;
-import ru.android_studio.gibdd_servis.ocr.imp.TesseractOCRServiceImp;
+import butterknife.OnClick;
+import ru.android_studio.gibdd_servis.auto.activity.RequestAutoActivity;
+import ru.android_studio.gibdd_servis.auto.gibdd.CheckAutoType;
+import ru.android_studio.gibdd_servis.driver.activity.RequestDriverActivity;
 
-public class MainActivity extends ActivityWithMenu {
+public class MainActivity extends ActivityWithToolbar {
 
-    //public static TesseractOCRServiceImp ocrService;
-    private static final String TAG = "MainActivity";
+    private static final String APP_ID = "ca-app-pub-7157276789419592~2989801067";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,47 +26,59 @@ public class MainActivity extends ActivityWithMenu {
         ButterKnife.bind(this);
 
         toolbar.setLogo(R.mipmap.ic_main);
-        setSupportActionBar(toolbar);
+        toolbar.setTitle("Сервисы ГИБДД");
 
-        setMenuConfig();
+        addMobBanner();
 
-        /*if (ocrService == null) {
-            PrepareOCRAsyncTask ocrAsyncTask = new PrepareOCRAsyncTask();
-            try {
-                ocrAsyncTask.execute(this);
-            } catch (Exception e) {
-                Log.e(TAG, e.getMessage(), e);
-            }
-        }*/
+        FirebaseCrash.log("MainActivity created");
+        FirebaseCrash.report(new Exception("My first Android non-fatal error"));
     }
 
-    /*@Override
-    protected void onDestroy() {
-        if (ocrService != null) {
-            try {
-                ocrService.close();
-            } catch (Throwable e) {
-                Log.e(TAG, "Error by Tesseract OCR service closing", e);
-            }
-        }
-        super.onDestroy();
-    }*/
-
-
-    @Override
-    protected int getCurrentMenuId() {
-        return 0;
+    // Проверка водителя
+    @OnClick(R.id.menu_driver_btn)
+    void menuDriverBtnOnClick() {
+        Intent intent = new Intent(getApplicationContext(), RequestDriverActivity.class);
+        startActivity(intent);
     }
 
-    /*private class PrepareOCRAsyncTask extends AsyncTask<Context, Void, OCRService> {
+    // Проверка истории регистрации в ГИБДД
+    @OnClick(R.id.menu_car_history_btn)
+    void menuCarHistoryBtnOnClick() {
+        Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.HISTORY);
+        startActivity(intent);
+    }
 
-        @Override
-        protected OCRService doInBackground(Context... params) {
-            ocrService = TesseractOCRServiceImp.getInstance(params[0]);
-            ocrService.prepare();
-            return ocrService;
-        }
+    // Проверка на участие в дорожно-транспортных происшествиях
+    @OnClick(R.id.menu_car_dtp_btn)
+    void menuCarDtpBtnOnClick() {
+        Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.DTP);
+        startActivity(intent);
+    }
 
-    }*/
+    // Проверка наличия ограничений
+    @OnClick(R.id.menu_car_restrict_btn)
+    void menuCarRestrictBtnOnClick() {
+        Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.RESTRICT);
+        startActivity(intent);
+    }
 
+    // Проверка нахождения в розыске
+    @OnClick(R.id.menu_car_wanted_btn)
+    void menuCarWantedBtnOnClick() {
+        Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
+        intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.WANTED);
+        startActivity(intent);
+    }
+
+    private void addMobBanner() {
+        MobileAds.initialize(getApplicationContext(), APP_ID);
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        /*AdRequest adRequest = new AdRequest.Builder().addTestDevice("63EC398B918CC0428A2236B4BCC113C3").build();*/
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+    }
 }

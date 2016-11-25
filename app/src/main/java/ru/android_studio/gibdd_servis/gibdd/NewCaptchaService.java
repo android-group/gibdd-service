@@ -24,7 +24,7 @@ public class NewCaptchaService {
      * @return CaptchaResult image captcha with jsessionid
      * @throws IOException
      */
-    public static CaptchaResult captchaRequest(CheckType checkType) throws IOException, NotFoundResult {
+    public static CaptchaResult captchaRequest(CheckType checkType) throws IOException {
         Log.d(TAG, "START captchaRequest");
 
         URL url = new URL("http://check.gibdd.ru/proxy/captcha.jpg");
@@ -32,7 +32,7 @@ public class NewCaptchaService {
         urlConnection.setRequestMethod("GET");
         urlConnection.setRequestProperty("User-Agent", CommonRequest.USER_AGENT);
         urlConnection.setRequestProperty("X-Compress", "0");
-        urlConnection.setRequestProperty("Referer", "http://www.gibdd.ru/check/"+ checkType.getTitle() +"/");
+        urlConnection.setRequestProperty("Referer", "http://www.gibdd.ru/check/" + checkType.getTitle() + "/");
         urlConnection.setRequestProperty("Host", "www.gibdd.ru");
         urlConnection.setRequestProperty("Accept", "image/webp,image/*,*/*;q=0.8");
         urlConnection.setRequestProperty("Accept-Encoding", "gzip, deflate, sdch");
@@ -55,7 +55,7 @@ public class NewCaptchaService {
         return captchaResult;
     }
 
-    private static String getSessionIdByURLConnection(URLConnection urlConnection) {
+    private static String getSessionIdByURLConnection(URLConnection urlConnection) throws NotFoundResult {
         Log.d(TAG, "START getSessionIdByURLConnection");
 
         Map<String, List<String>> headerFields = urlConnection.getHeaderFields();
@@ -71,7 +71,7 @@ public class NewCaptchaService {
         throw new NotFoundResult(String.format("can't find %s id", CommonRequest.JSESSIONID));
     }
 
-    private static String findSessionId(List<String> value) {
+    private static String findSessionId(List<String> value) throws NotFoundResult {
         Log.d(TAG, "findSessionId");
 
         for (String s : value) {

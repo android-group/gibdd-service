@@ -2,13 +2,11 @@ package ru.android_studio.gibdd_servis.fine.gibdd;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -18,7 +16,6 @@ import java.util.Map;
 
 import ru.android_studio.gibdd_servis.fine.model.RequestFine;
 import ru.android_studio.gibdd_servis.fine.model.ResponseFine;
-import ru.android_studio.gibdd_servis.gibdd.CaptchaResult;
 import ru.android_studio.gibdd_servis.gibdd.CommonRequest;
 
 /**

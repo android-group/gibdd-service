@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "74926271214",
+    "firebase_url": "https://api-8323200757949193714-998457.firebaseio.com",
+    "project_id": "api-8323200757949193714-998457",
+    "storage_bucket": "api-8323200757949193714-998457.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74926271214:android:eaf33ee4a3ba6cbc",
+        "android_client_info": {
+          "package_name": "ru.android_studio.gibdd_servis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74926271214-nvsvvoe0u7j48t7kgc5km2dqmodk8qf5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [{ "current_key": "" }],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

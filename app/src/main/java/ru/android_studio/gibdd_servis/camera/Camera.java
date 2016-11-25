@@ -38,7 +38,7 @@ public abstract class Camera {
     public static Bitmap showResult(int requestCode, int resultCode, Context context) {
         Log.d(TAG, "method showResult");
         Log.d(TAG, "requestCode: " + requestCode);
-        Log.d(TAG, "resultCode" +  resultCode);
+        Log.d(TAG, "resultCode" + resultCode);
 
         if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">GIBDD-servis</string>
     <string name="check_driver">Проверка водителя</string>
-    <string name="check_auto">Проверка машины</string>
+    <string name="check_auto">Проверка автомобиля</string>
     <string name="choose_service">Выберите сервис</string>
     <string name="btn_check">Проверить</string>
     <string name="check_fine">Проверка штрафов</string>
@@ -12,10 +12,27 @@
     <string name="image_preview">image preview</string>
     <string name="camera_detection">Распознование</string>
     <string name="btn_back">BACK</string>
+    <string name="label_result">результат</string>
+    <string name="label_color">цвет</string>
+    <string name="label_engine_number">номер двигателя</string>
+    <string name="label_engine_volume">объем двигателя</string>
+    <string name="label_body_number">номер</string>
+    <string name="label_year">год</string>
+    <string name="label_vin">vin</string>
+    <string name="label_model">модель</string>
+    <string name="label_category">категория</string>
+    <string name="label_type">тип</string>
+    <string name="label_power_kwt">Мощность кВт</string>
+    <string name="label_power_hp">Мощность л.с.</string>
     <string-array name="check_type">
-        <item>Проверка истории регистрации в ГИБДД</item>
-        <item>Проверка нахождения в розыске</item>
-        <item>Проверка наличия ограничений</item>
-        <item>Проверка на участие в дорожно-транспортных происшествиях</item>
+        <item>Истории регистрации в ГИБДД</item>
+        <item>Нахождения в розыске</item>
+        <item>Наличия ограничений</item>
+        <item>Участие в дорожно-транспортных происшествиях</item>
     </string-array>
+    <string name="banner_ad_unit_id">ca-app-pub-7157276789419592/9556197466</string>
+    <string name="history">Истории регистрации в ГИБДД</string>
+    <string name="wanted">Нахождения в розыске</string>
+    <string name="restrict">Наличия ограничений</string>
+    <string name="dtp">Участие в ДТП</string>
 </resources>

@@ -3,15 +3,15 @@ package ru.android_studio.gibdd_servis.question.activity;
 import android.os.Bundle;
 
 import butterknife.ButterKnife;
-import ru.android_studio.gibdd_servis.ActivityWithMenu;
+import ru.android_studio.gibdd_servis.ActivityWithToolbar;
 import ru.android_studio.gibdd_servis.R;
 
 /**
  * Created by olga on 02.07.2016.
- *
+ * <p/>
  * Прием обращений следующая страница
  */
-public class QuestionActivityNext extends ActivityWithMenu {
+public class QuestionActivityNext extends ActivityWithToolbar {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,6 @@ public class QuestionActivityNext extends ActivityWithMenu {
         ButterKnife.bind(this);
 
         addToolbarByIconId(R.mipmap.ic_question);
-        setMenuConfig();
     }
 
     protected int getCurrentMenuId() {

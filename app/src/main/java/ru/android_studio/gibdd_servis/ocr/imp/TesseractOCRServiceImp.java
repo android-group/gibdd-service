@@ -19,7 +19,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import java.util.logging.Logger;
 
 import ru.android_studio.gibdd_servis.ocr.OCRService;
 
@@ -27,6 +26,7 @@ import ru.android_studio.gibdd_servis.ocr.OCRService;
  * Сервис для работы с Tesseract OCR
  * <br>см. https://github.com/bieliaievays/Tess-two_example/blob/master/app/src/main/java/com/ashomok/tesseractsample/MainActivity.java
  * <br>Created by Ruslan Suleymanov on 21.06.16.
+ *
  * @author Ruslan Suleymanov
  * @version 0.2
  */
@@ -41,7 +41,7 @@ public class TesseractOCRServiceImp implements OCRService, Closeable {
     private static final String TAG = TesseractOCRServiceImp.class.getSimpleName();
 
     public static final String DATA_PATH =
-        (Environment.getExternalStorageDirectory() != null ? Environment.getExternalStorageDirectory().toString() : "") + "/TesseractSample/";
+            (Environment.getExternalStorageDirectory() != null ? Environment.getExternalStorageDirectory().toString() : "") + "/TesseractSample/";
     public static final String TESSDATA = "tessdata";
 
     private volatile Context context;
