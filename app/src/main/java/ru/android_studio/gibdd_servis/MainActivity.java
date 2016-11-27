@@ -29,9 +29,6 @@ public class MainActivity extends ActivityWithToolbar {
         toolbar.setTitle("Сервисы ГИБДД");
 
         addMobBanner();
-
-        FirebaseCrash.log("MainActivity created");
-        FirebaseCrash.report(new Exception("My first Android non-fatal error"));
     }
 
     // Проверка водителя
