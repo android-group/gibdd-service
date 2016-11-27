@@ -10,6 +10,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ru.android_studio.gibdd_servis.AdMob;
 import ru.android_studio.gibdd_servis.CaptchaActivity;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.auto.gibdd.CheckAutoType;
@@ -62,6 +63,8 @@ public class RequestAutoActivity extends CaptchaActivity {
         if(getSessionId() == null) {
             finishCauseInternetNotAvailable();
         }
+
+        AdMob.addMobBanner(this);
     }
 
     @OnClick(R.id.check_button)

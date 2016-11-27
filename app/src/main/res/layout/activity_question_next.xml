@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingTop="0dp"
-                android:text="Введите символы с картинки"
+                android:text="@string/label_captcha"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 

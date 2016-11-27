@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'spoon'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'realm-android'
+apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 24
@@ -63,7 +64,9 @@ spoon {
 dependencies {
     // bind view by R.id
     // http://jakewharton.github.io/butterknife/
-    compile 'com.jakewharton:butterknife:8.1.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0' // bind @BindView
+
     // http://projects.spring.io/spring-android/
     // compile 'org.springframework.android:spring-android-rest-template:2.0.0.M3'
 
@@ -118,7 +121,7 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
 
-    apt 'com.jakewharton:butterknife-compiler:8.0.1' // bind @BindView
+
     provided "org.projectlombok:lombok:1.16.8"
     compile 'com.squareup.picasso:picasso:2.5.2' // для загрузки изображений с сервера
     compile 'com.squareup.okhttp:okhttp:2.4.0'

@@ -16,8 +16,6 @@ import ru.android_studio.gibdd_servis.driver.activity.RequestDriverActivity;
 
 public class MainActivity extends ActivityWithToolbar {
 
-    private static final String APP_ID = "ca-app-pub-7157276789419592~2989801067";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +26,7 @@ public class MainActivity extends ActivityWithToolbar {
         toolbar.setLogo(R.mipmap.ic_main);
         toolbar.setTitle("Сервисы ГИБДД");
 
-        addMobBanner();
+        AdMob.addMobBanner(this);
     }
 
     // Проверка водителя
@@ -68,14 +66,5 @@ public class MainActivity extends ActivityWithToolbar {
         Intent intent = new Intent(getApplicationContext(), RequestAutoActivity.class);
         intent.putExtra(RequestAutoActivity.CHECK_AUTO_TYPE, CheckAutoType.WANTED);
         startActivity(intent);
-    }
-
-    private void addMobBanner() {
-        MobileAds.initialize(getApplicationContext(), APP_ID);
-
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        /*AdRequest adRequest = new AdRequest.Builder().addTestDevice("63EC398B918CC0428A2236B4BCC113C3").build();*/
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
     }
 }
