@@ -9,10 +9,10 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView32"
+            android:id="@+id/title_accident_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Информация о происшествии №"
+            android:text="@string/title_accident_info"
             android:textColor="@color/abc_btn_colored_borderless_text_material" />
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -95,6 +95,7 @@
                             android:id="@+id/accident_dateTime"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_weight="1" />
                     </LinearLayout>
 

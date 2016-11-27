@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">GIBDD-servis</string>
-    <string name="check_driver">Проверка водителя</string>
-    <string name="check_auto">Проверка автомобиля</string>
     <string name="choose_service">Выберите сервис</string>
     <string name="btn_check">Проверить</string>
+    <string name="check_driver">Проверка водителя</string>
+    <string name="check_auto">Проверка автомобиля</string>
     <string name="check_fine">Проверка штрафов</string>
     <string name="check_question">Прием обращений</string>
     <string name="btn_next">Далее</string>
@@ -24,15 +24,27 @@
     <string name="label_type">тип</string>
     <string name="label_power_kwt">Мощность кВт</string>
     <string name="label_power_hp">Мощность л.с.</string>
+
     <string-array name="check_type">
-        <item>Истории регистрации в ГИБДД</item>
+        <item>Истории регистрации</item>
         <item>Нахождения в розыске</item>
         <item>Наличия ограничений</item>
         <item>Участие в дорожно-транспортных происшествиях</item>
     </string-array>
-    <string name="banner_ad_unit_id">ca-app-pub-7157276789419592/9556197466</string>
-    <string name="history">Истории регистрации в ГИБДД</string>
+
+    <string name="banner_main">ca-app-pub-7157276789419592/9556197466</string>
+    <string name="banner_driver">ca-app-pub-7157276789419592/5125997869</string>
+    <string name="banner_history">ca-app-pub-7157276789419592/8345855863</string>
+    <string name="banner_wanted">ca-app-pub-7157276789419592/9822589069</string>
+    <string name="banner_restrict">ca-app-pub-7157276789419592/2299322263</string>
+    <string name="banner_dtp">ca-app-pub-7157276789419592/3776055462</string>
+
+    <string name="history">Истории регистрации</string>
     <string name="wanted">Нахождения в розыске</string>
     <string name="restrict">Наличия ограничений</string>
     <string name="dtp">Участие в ДТП</string>
+    <string name="label_captcha">Введите символы с картинки</string>
+    <string name="title_dtp">Проверка на участие в дорожно-транспортных происшествиях</string>
+    <string name="title_accident_info">Информация о происшествии №</string>
+    <string name="check_history_registration">Проверка истории регистрации в ГИБДД</string>
 </resources>

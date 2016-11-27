@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/driver_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="ru.android_studio.gibdd_servis.MainActivity">
+    android:orientation="vertical">
 
     <include layout="@layout/toolbar" />
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_main"></com.google.android.gms.ads.AdView>
+
     <ScrollView
-        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/NavigationLinearLayout"
+        android:scrollIndicators="right"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar"
-        android:scrollIndicators="right">
+        android:layout_below="@+id/toolbar">
 
         <LinearLayout
             android:id="@+id/menuLinearLayout"
@@ -42,18 +51,6 @@
                 android:maxLength="4"
                 android:maxLines="1" />
 
-            <!--<Button-->
-            <!--android:id="@+id/recognize_series_camera"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="right"-->
-            <!--android:text="С камеры" />-->
-
-            <!--<ImageView
-                android:id="@+id/result_camera"
-                android:layout_width="50dp"
-                android:layout_height="50dp" />-->
-
             <TextView
                 android:id="@+id/number_license_text_view"
                 android:layout_width="match_parent"
@@ -70,13 +67,6 @@
                 android:inputType="number"
                 android:maxLength="6"
                 android:maxLines="1" />
-
-            <!--<Button-->
-            <!--android:id="@+id/recognize_number_camera"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="right"-->
-            <!--android:text="С камеры" />-->
 
             <TextView
                 android:id="@+id/DateOfIssueTextView"
@@ -95,7 +85,8 @@
 
                 <EditText
                     android:id="@+id/date_of_issue_edit_text"
-                    android:layout_width="250dp"
+                    android:text="27.11.2016"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
@@ -104,18 +95,20 @@
 
                 <ImageButton
                     android:id="@+id/calendar"
-                    android:layout_width="54dp"
-                    android:layout_height="45dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:cropToPadding="true"
                     android:scaleType="centerInside"
-                    android:src="@drawable/calendar" />
+                    android:src="@drawable/calendar"
+                    android:elevation="0dp"
+                    android:background="@android:drawable/screen_background_light_transparent" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/CuptureTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Введите символы с картинки"
+                android:text="@string/label_captcha"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -136,94 +129,10 @@
                 android:id="@+id/check_button"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_gravity="bottom|center"
                 android:background="@drawable/check_btn_shadow"
-                android:paddingTop="10dp"
                 android:text="@string/btn_check"
                 android:textColor="@drawable/text_button" />
 
         </LinearLayout>
     </ScrollView>
-
-    <!--<LinearLayout
-        android:id="@+id/NavigationLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-
-        <View
-            android:id="@+id/bottom_menu_border"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/bottom_menu_border" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:orientation="horizontal">
-
-            &lt;!&ndash;<View&ndash;&gt;
-                &lt;!&ndash;android:layout_width="0dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_height="1dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_weight="1"></View>&ndash;&gt;
-
-            &lt;!&ndash;<ImageButton&ndash;&gt;
-                &lt;!&ndash;android:id="@+id/menu_fine_btn"&ndash;&gt;
-                &lt;!&ndash;android:layout_width="60dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
-                &lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;
-                &lt;!&ndash;android:background="@android:color/transparent"&ndash;&gt;
-                &lt;!&ndash;android:scaleType="centerInside"&ndash;&gt;
-                &lt;!&ndash;android:src="@drawable/menu_fine_off" />&ndash;&gt;
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"></View>
-
-            <ImageButton
-                android:id="@+id/menu_driver_btn"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                android:src="@drawable/menu_driver_on" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"></View>
-
-            <ImageButton
-                android:id="@+id/menu_car_btn"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                android:src="@drawable/menu_auto_off" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"></View>
-
-            &lt;!&ndash;<ImageButton&ndash;&gt;
-                &lt;!&ndash;android:id="@+id/menu_question_btn"&ndash;&gt;
-                &lt;!&ndash;android:layout_width="60dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
-                &lt;!&ndash;android:adjustViewBounds="true"&ndash;&gt;
-                &lt;!&ndash;android:background="@android:color/transparent"&ndash;&gt;
-                &lt;!&ndash;android:scaleType="centerInside"&ndash;&gt;
-                &lt;!&ndash;android:src="@drawable/menu_question_off" />&ndash;&gt;
-
-            &lt;!&ndash;<View&ndash;&gt;
-                &lt;!&ndash;android:layout_width="0dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_height="1dp"&ndash;&gt;
-                &lt;!&ndash;android:layout_weight="1"></View>&ndash;&gt;
-
-        </LinearLayout>
-    </LinearLayout>-->
 </RelativeLayout>

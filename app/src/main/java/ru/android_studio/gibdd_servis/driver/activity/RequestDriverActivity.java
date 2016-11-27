@@ -14,6 +14,7 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ru.android_studio.gibdd_servis.AdMob;
 import ru.android_studio.gibdd_servis.CaptchaActivity;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.driver.gibdd.RequestDriverAsyncTask;
@@ -102,6 +103,7 @@ public class RequestDriverActivity extends CaptchaActivity {
 
         loadCaptcha();
         Log.d(TAG, "END checkButton");
+        AdMob.addMobBanner(this);
     }
 
     @Override
