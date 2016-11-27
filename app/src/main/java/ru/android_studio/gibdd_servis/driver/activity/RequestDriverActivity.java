@@ -101,9 +101,13 @@ public class RequestDriverActivity extends CaptchaActivity {
         final RequestDriverAsyncTask requestDriverAsyncTask = new RequestDriverAsyncTask(this);
         requestDriverAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, requestDriver);
 
+        // ВАЖНО НЕ МЕНЯТЬ ПОРЯДОК СТРОК
+        // 1. AdMob.addMobBanner(this);
+        // 2. loadCaptcha();
+        // AdMob.addMobBanner(this);
+
         loadCaptcha();
         Log.d(TAG, "END checkButton");
-        AdMob.addMobBanner(this);
     }
 
     @Override

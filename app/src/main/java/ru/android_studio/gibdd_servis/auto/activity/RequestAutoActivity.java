@@ -58,13 +58,18 @@ public class RequestAutoActivity extends CaptchaActivity {
         ButterKnife.bind(this);
 
         addToolbarByIconId(R.mipmap.ic_auto);
-        getSupportActionBar().setSubtitle(checkAutoType.getTitile());
+        getSupportActionBar().setTitle(checkAutoType.getTitle());
+
+        // ВАЖНО НЕ МЕНЯТЬ ПОРЯДОК СТРОК
+        // 1. AdMob.addMobBanner(this);
+        // 2. loadCaptcha();
+        String adUnitId = getResources().getString(checkAutoType.getAdUnitId());
+        AdMob.addMobBanner(this, adUnitId);
+
         loadCaptcha();
         if(getSessionId() == null) {
             finishCauseInternetNotAvailable();
         }
-
-        AdMob.addMobBanner(this);
     }
 
     @OnClick(R.id.check_button)

@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/driver_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <include layout="@layout/toolbar" />
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_main"></com.google.android.gms.ads.AdView>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,10 +17,9 @@
         android:layout_below="@+id/toolbar">
 
         <LinearLayout
-            android:id="@+id/menuLinearLayout"
+            android:id="@+id/body_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar"
             android:layout_margin="20dp"
             android:orientation="vertical">
 
@@ -115,7 +103,8 @@
             <ImageView
                 android:id="@+id/captcha_image_view"
                 android:layout_width="182dp"
-                android:layout_height="50dp" />
+                android:layout_height="50dp"
+                android:contentDescription="@string/contentDescr_captcha_image" />
 
             <EditText
                 android:id="@+id/captcha_edit_text"
