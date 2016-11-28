@@ -29,12 +29,13 @@ class AccidentsAdapter extends RecyclerView.Adapter<AccidentsAdapter.ViewHolder>
     public AccidentsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == HEADER_TYPE) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.accidents, parent, false);
-            return new ViewHolder(view, viewType);
+            return new ViewHolder(view);
 
         } else if (viewType == ROW_TYPE) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.accidents, parent, false);
-            return new ViewHolder(view, viewType);
+            return new ViewHolder(view);
         }
+
         return null;
     }
 
@@ -60,7 +61,7 @@ class AccidentsAdapter extends RecyclerView.Adapter<AccidentsAdapter.ViewHolder>
         return accidents.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.title_accident_info)
         TextView titleAccidentInfo;
@@ -80,7 +81,7 @@ class AccidentsAdapter extends RecyclerView.Adapter<AccidentsAdapter.ViewHolder>
         @BindView(R.id.region_name)
         TextView regionNameTV;
 
-        public ViewHolder(View itemView, int viewType) {
+        ViewHolder(View itemView) {
             super(itemView);
 
             ButterKnife.bind(this, itemView);
