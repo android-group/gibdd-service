@@ -12,8 +12,8 @@ android {
         applicationId "ru.android_studio.gibdd_servis"
         minSdkVersion 15
         targetSdkVersion 24
-        versionName "1.0.5"
-        versionCode 5
+        versionName "1.0.6"
+        versionCode 6
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
