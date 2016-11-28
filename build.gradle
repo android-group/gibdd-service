@@ -21,14 +21,9 @@ allprojects {
         jcenter()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
         mavenCentral()
+        mavenLocal()
     }
 }
-
-/*repositories {
-    maven {
-        url 'https://repo.spring.io/libs-milestone'
-    }
-}*/
 
 task clean(type: Delete) {
     delete rootProject.buildDir
