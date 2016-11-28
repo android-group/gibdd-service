@@ -19,7 +19,73 @@
           "client_type": 3
         }
       ],
-      "api_key": [{ "current_key": "" }],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQlEbJ1tsfV105TeUb8iut2RirsJW0P98"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74926271214:android:701ea817021a0fc1",
+        "android_client_info": {
+          "package_name": "com.joinlang.yury.checkpassportbyfms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74926271214-nvsvvoe0u7j48t7kgc5km2dqmodk8qf5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQlEbJ1tsfV105TeUb8iut2RirsJW0P98"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74926271214:android:c513ed0773cf18a9",
+        "android_client_info": {
+          "package_name": "ru.android_studio.check_passport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74926271214-nvsvvoe0u7j48t7kgc5km2dqmodk8qf5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQlEbJ1tsfV105TeUb8iut2RirsJW0P98"
+        }
+      ],
       "services": {
         "analytics_service": {
           "status": 1
