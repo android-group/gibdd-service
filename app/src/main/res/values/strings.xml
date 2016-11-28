@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GIBDD-servis</string>
+    <string name="app_name">Сервисы ГИБДД</string>
     <string name="choose_service">Выберите сервис</string>
     <string name="btn_check">Проверить</string>
     <string name="check_driver">Проверка водителя</string>
