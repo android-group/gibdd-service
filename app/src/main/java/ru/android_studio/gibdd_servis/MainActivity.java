@@ -3,11 +3,6 @@ package ru.android_studio.gibdd_servis;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.firebase.crash.FirebaseCrash;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.auto.activity.RequestAutoActivity;
@@ -24,7 +19,7 @@ public class MainActivity extends ActivityWithToolbar {
         ButterKnife.bind(this);
 
         toolbar.setLogo(R.mipmap.ic_main);
-        toolbar.setTitle("Сервисы ГИБДД");
+        toolbar.setTitle(R.string.app_name);
 
         AdMob.addMobBanner(this);
     }
