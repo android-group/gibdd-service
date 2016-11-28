@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,7 +27,10 @@ public class ResultDriverActivity extends ActivityWithToolbar {
 
         Bundle extras = getIntent().getExtras();
         JsonObject jsonObject = new JsonParser().parse(extras.getString("result_text")).getAsJsonObject();
-        textView.setText(jsonObject.getAsJsonPrimitive("message").getAsString());
+        JsonPrimitive message = jsonObject.getAsJsonPrimitive("message");
+        if(message != null && !message.isJsonNull()) {
+            textView.setText(message.getAsString());
+        }
 
         addToolbarByIconId(R.mipmap.ic_driver);
 

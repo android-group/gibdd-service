@@ -13,13 +13,12 @@ import java.util.List;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.auto.model.history.OwnershipPeriod;
 
-public class HistoriesAdapter extends RecyclerView.Adapter<HistoriesAdapter.ViewHolder> {
+class HistoriesAdapter extends RecyclerView.Adapter<HistoriesAdapter.ViewHolder> {
 
-    private static final SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-DD");
-    private static final SimpleDateFormat targetFormat = new SimpleDateFormat("yyyy-MM-DD");
+    private static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-DD");
     private List<OwnershipPeriod> ownershipPeriods;
 
-    public HistoriesAdapter(List<OwnershipPeriod> ownershipPeriods) {
+    HistoriesAdapter(List<OwnershipPeriod> ownershipPeriods) {
         this.ownershipPeriods = ownershipPeriods;
     }
 
@@ -40,8 +39,17 @@ public class HistoriesAdapter extends RecyclerView.Adapter<HistoriesAdapter.View
         }
 
         try {
-            holder.fromTV.setText(targetFormat.format(sourceFormat.parse(ownershipPeriod.getFrom())));
-            holder.toTV.setText(targetFormat.format(sourceFormat.parse(ownershipPeriod.getTo())));
+            String from = ownershipPeriod.getFrom();
+            if(from != null && !from.isEmpty()) {
+                String fromDate = format.format(format.parse(from));
+                holder.fromTV.setText(fromDate);
+            }
+
+            String to = ownershipPeriod.getTo();
+            if(to != null && !to.isEmpty()) {
+                String toDate = format.format(format.parse(to));
+                holder.toTV.setText(toDate);
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -53,7 +61,7 @@ public class HistoriesAdapter extends RecyclerView.Adapter<HistoriesAdapter.View
         return ownershipPeriods.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
 
         //@BindView(R.id.from)
         TextView fromTV;
@@ -67,7 +75,7 @@ public class HistoriesAdapter extends RecyclerView.Adapter<HistoriesAdapter.View
         //@BindView(R.id.person_type)
         TextView personTypeTV;
 
-        public ViewHolder(View v) {
+        ViewHolder(View v) {
             super(v);
             //ButterKnife.bind(v);
             fromTV = (TextView) v.findViewById(R.id.from);
