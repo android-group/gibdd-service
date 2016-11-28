@@ -50,7 +50,7 @@ public class RequestDriverActivity extends CaptchaActivity {
             year = years;
             month = monthOfYear;
             day = dayOfMonth;
-            setDate(String.format("%d.%d.%d", day, month, year));
+            setDate(String.format("%d.%d.%d", day, month + 1, year));
         }
     };
 
