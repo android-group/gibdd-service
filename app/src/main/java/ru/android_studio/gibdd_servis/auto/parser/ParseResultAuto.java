@@ -48,7 +48,7 @@ public abstract class ParseResultAuto<T extends ResultAuto> {
         JsonObject requestResult = jsonObject.getAsJsonObject("RequestResult");
 
         JsonPrimitive error = requestResult.getAsJsonPrimitive("error");
-        if(error != null && !error.isJsonNull()) {
+        if (error != null && !error.isJsonNull()) {
             result.setError(error.getAsString());
         }
 

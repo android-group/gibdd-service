@@ -30,7 +30,7 @@ public enum Organs {
     }
 
     public static Organs getDivtype(String type) {
-        if(type == null || type.isEmpty()) {
+        if (type == null || type.isEmpty()) {
             return a0;
         }
         for (Organs organs : values()) {

@@ -28,7 +28,7 @@ public class ResultDriverActivity extends ActivityWithToolbar {
         Bundle extras = getIntent().getExtras();
         JsonObject jsonObject = new JsonParser().parse(extras.getString("result_text")).getAsJsonObject();
         JsonPrimitive message = jsonObject.getAsJsonPrimitive("message");
-        if(message != null && !message.isJsonNull()) {
+        if (message != null && !message.isJsonNull()) {
             textView.setText(message.getAsString());
         }
 

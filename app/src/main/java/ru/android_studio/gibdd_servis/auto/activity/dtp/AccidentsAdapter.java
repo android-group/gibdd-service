@@ -1,7 +1,6 @@
 package ru.android_studio.gibdd_servis.auto.activity.dtp;
 
 import android.support.v7.widget.RecyclerView;
-import android.text.AlteredCharSequence;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +42,7 @@ class AccidentsAdapter extends RecyclerView.Adapter<AccidentsAdapter.ViewHolder>
     public void onBindViewHolder(AccidentsAdapter.ViewHolder holder, int position) {
         Accidents accidents = this.accidents.get(position);
 
-        if(accidents == null) {
+        if (accidents == null) {
             return;
         }
 

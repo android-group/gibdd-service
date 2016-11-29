@@ -71,7 +71,7 @@ public class RequestAutoAsyncTask extends AsyncTask<RequestAuto, Void, ResponseA
             progressDialog.dismiss();
         }
 
-        if(result == null) {
+        if (result == null) {
             return;
         }
 

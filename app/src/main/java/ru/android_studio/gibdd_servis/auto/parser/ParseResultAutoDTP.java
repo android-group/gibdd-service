@@ -41,7 +41,7 @@ public class ParseResultAutoDtp extends ParseResultAuto<ResultAutoDtp> {
             itemAccidents.setVehicleYear(accidentJsonObject.getAsJsonPrimitive("VehicleYear").getAsString());
 
             JsonArray damagePointsArray = accidentJsonObject.getAsJsonArray("DamagePoints");
-            if(damagePointsArray != null && !damagePointsArray.isJsonNull()) {
+            if (damagePointsArray != null && !damagePointsArray.isJsonNull()) {
                 ArrayList<DamagePoints> damagePoints = new ArrayList<>();
                 for (JsonElement damagePointElement : damagePointsArray) {
                     DamagePoints item = new DamagePoints();

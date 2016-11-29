@@ -14,7 +14,6 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.android_studio.gibdd_servis.AdMob;
 import ru.android_studio.gibdd_servis.CaptchaActivity;
 import ru.android_studio.gibdd_servis.R;
 import ru.android_studio.gibdd_servis.driver.gibdd.RequestDriverAsyncTask;
@@ -119,7 +118,7 @@ public class RequestDriverActivity extends CaptchaActivity {
 
         addToolbarByIconId(R.mipmap.ic_driver);
         loadCaptcha();
-        if(getSessionId() == null) {
+        if (getSessionId() == null) {
             finishCauseInternetNotAvailable();
         }
 

@@ -67,7 +67,7 @@ public class RequestAutoActivity extends CaptchaActivity {
         AdMob.addMobBanner(this, adUnitId);
 
         loadCaptcha();
-        if(getSessionId() == null) {
+        if (getSessionId() == null) {
             finishCauseInternetNotAvailable();
         }
     }

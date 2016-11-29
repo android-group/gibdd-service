@@ -21,3 +21,5 @@ android:
     - extra-google-google_play_services
     - extra-google-m2repository
     - sys-img-armeabi-v7a-android-25
+    - ANDROID_ABI=google_apis/armeabi-v7a
+    - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL

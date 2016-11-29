@@ -40,13 +40,13 @@ class HistoriesAdapter extends RecyclerView.Adapter<HistoriesAdapter.ViewHolder>
 
         try {
             String from = ownershipPeriod.getFrom();
-            if(from != null && !from.isEmpty()) {
+            if (from != null && !from.isEmpty()) {
                 String fromDate = format.format(format.parse(from));
                 holder.fromTV.setText(fromDate);
             }
 
             String to = ownershipPeriod.getTo();
-            if(to != null && !to.isEmpty()) {
+            if (to != null && !to.isEmpty()) {
                 String toDate = format.format(format.parse(to));
                 holder.toTV.setText(toDate);
             }

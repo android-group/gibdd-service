@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include layout="@layout/toolbar" />
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_wanted"></com.google.android.gms.ads.AdView>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Информация о постановке в розыск"
-        android:id="@+id/textView3"
         android:textColor="@color/abc_btn_colored_borderless_text_material" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Получение сведений о федеральном розыске транспортного средства правоохранительными органами"
-        android:id="@+id/textView25"
-        android:textColor="@color/abc_background_cache_hint_selector_material_dark" />
+        android:textColor="@color/abc_btn_colored_borderless_text_material"
+         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="При проверке учитываются совпадения с идентификационным номером транспортного средства (VIN), номером кузова или шасси"
-        android:id="@+id/textView26"
-        android:textColor="@color/abc_secondary_text_material_light" />
+        android:textColor="@color/abc_btn_colored_borderless_text_material"
+         />
 
     <LinearLayout
         android:orientation="vertical"

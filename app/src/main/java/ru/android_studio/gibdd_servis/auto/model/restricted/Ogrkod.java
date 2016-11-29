@@ -33,7 +33,7 @@ public enum Ogrkod {
         }
 
         for (Ogrkod ogrkod : values()) {
-            if(ogrkod.getNumType().equals(numType)) {
+            if (ogrkod.getNumType().equals(numType)) {
                 return ogrkod;
             }
         }

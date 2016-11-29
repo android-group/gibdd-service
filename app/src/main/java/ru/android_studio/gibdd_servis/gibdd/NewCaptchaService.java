@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * Получить капчу и jsessionid
  */
-public class NewCaptchaService {
+class NewCaptchaService {
 
     private final static String TAG = "NewCaptchaService";
 
@@ -24,7 +24,7 @@ public class NewCaptchaService {
      * @return CaptchaResult image captcha with jsessionid
      * @throws IOException
      */
-    public static CaptchaResult captchaRequest(CheckType checkType) throws IOException {
+    static CaptchaResult captchaRequest(CheckType checkType) throws IOException {
         Log.d(TAG, "START captchaRequest");
 
         URL url = new URL("http://check.gibdd.ru/proxy/captcha.jpg");
@@ -55,10 +55,16 @@ public class NewCaptchaService {
         return captchaResult;
     }
 
-    private static String getSessionIdByURLConnection(URLConnection urlConnection) throws NotFoundResult {
+    private static String getSessionIdByURLConnection(URLConnection urlConnection) throws IOException {
+        if(urlConnection == null) {
+            throw new IOException("Connection can't be null");
+        }
         Log.d(TAG, "START getSessionIdByURLConnection");
 
         Map<String, List<String>> headerFields = urlConnection.getHeaderFields();
+        if(headerFields == null) {
+            throw new IOException("headerFields is null");
+        }
 
         Log.d(TAG, "find session id in headerFields");
         for (Map.Entry<String, List<String>> next : headerFields.entrySet()) {
