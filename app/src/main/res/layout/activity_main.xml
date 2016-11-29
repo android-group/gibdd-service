@@ -43,8 +43,10 @@
             android:textSize="16dp"
             android:layout_margin="15dp"
             android:textColor="@color/toolbarText"
-            android:paddingBottom="10dp"
-            android:background="@color/toolbarBackground" />
+            android:background="@color/toolbarBackground"
+            android:textAlignment="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,7 +79,8 @@
                     android:text="@string/history"
                     android:textSize="16dp"
                     android:layout_margin="15dp"
-                    android:background="@color/toolbarBackground" />
+                    android:background="@color/toolbarBackground"
+                    android:paddingRight="10dp" />
 
                 <Button
                     android:id="@+id/menu_car_wanted_btn"
@@ -88,33 +91,35 @@
                     android:text="@string/wanted"
                     android:background="@color/toolbarBackground"
                     android:textSize="16dp"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="15dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
 
                 <Button
                     android:id="@+id/menu_car_restrict_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
+                    android:paddingLeft="10dp"
                     android:layout_weight="1"
                     android:layout_margin="15dp"
-                    android:paddingTop="5dp"
                     android:textColor="@color/toolbarText"
                     android:text="@string/restrict"
                     android:background="@color/toolbarBackground"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:paddingRight="10dp" />
 
                 <Button
                     android:id="@+id/menu_car_dtp_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingLeft="15dp"
+                    android:paddingLeft="10dp"
                     android:layout_margin="15dp"
-                    android:paddingTop="5dp"
                     android:textColor="@color/toolbarText"
                     android:text="@string/dtp"
                     android:background="@color/toolbarBackground"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:paddingRight="10dp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
