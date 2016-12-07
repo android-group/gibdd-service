@@ -2,14 +2,17 @@ package ru.android_studio.gibdd_servis;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.android_studio.gibdd_servis.auto.activity.RequestAutoActivity;
 import ru.android_studio.gibdd_servis.auto.gibdd.CheckAutoType;
 import ru.android_studio.gibdd_servis.driver.activity.RequestDriverActivity;
 
-public class MainActivity extends ActivityWithToolbar {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +20,6 @@ public class MainActivity extends ActivityWithToolbar {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
-
-        toolbar.setLogo(R.mipmap.ic_main);
-        toolbar.setTitle(R.string.app_name);
 
         AdMob.addMobBanner(this);
     }

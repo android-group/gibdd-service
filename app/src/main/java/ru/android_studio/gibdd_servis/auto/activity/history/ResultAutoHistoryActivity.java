@@ -89,7 +89,6 @@ public class ResultAutoHistoryActivity extends AppCompatActivity {
 
     private void addToolbarByIcon() {
         toolbar.setNavigationIcon(R.mipmap.ic_action_back);
-        toolbar.setLogo(R.mipmap.ic_auto);
         setSupportActionBar(toolbar);
         ActionBar supportActionBar = getSupportActionBar();
         supportActionBar.setDisplayHomeAsUpEnabled(true);

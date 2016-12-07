@@ -53,5 +53,13 @@
     <string name="title_dtp">Проверка на участие в дорожно-транспортных происшествиях</string>
     <string name="title_accident_info">Информация о происшествии №</string>
     <string name="check_history_registration">Проверка истории регистрации в ГИБДД</string>
-    <string name="contentDescr_captcha_image">captcha image</string>
+    <string name="content_descr_captcha_image">captcha image</string>
+    <string name="not_internet_msg">Нет соединения к Интернету. Следующая попытка подключения будет через N сек</string>
+    <string name="DateOfIssue">Дата выдачи</string>
+    <string name="calendar">calendar</string>
+    <string name="series_license_label">Серия водительского удостоверения</string>
+    <string name="series_license_hint">77AA</string>
+    <string name="number_license_label">Номер водительского удостоверения</string>
+    <string name="number_license_hint">000000</string>
+    <string name="date_of_issue_edit_value">27.11.2016</string>
 </resources>

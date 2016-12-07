@@ -10,7 +10,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollIndicators="right"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -27,7 +26,7 @@
                 android:id="@+id/series_license_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Серия водительского удостоверения"
+                android:text="@string/series_license_label"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -35,7 +34,7 @@
                 android:id="@+id/series_license_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="77AA"
+                android:hint="@string/series_license_hint"
                 android:maxLength="4"
                 android:maxLines="1" />
 
@@ -43,7 +42,7 @@
                 android:id="@+id/number_license_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Номер водительского удостоверения"
+                android:text="@string/number_license_label"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -51,7 +50,7 @@
                 android:id="@+id/number_license_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="000000"
+                android:hint="@string/number_license_hint"
                 android:inputType="number"
                 android:maxLength="6"
                 android:maxLines="1" />
@@ -60,7 +59,7 @@
                 android:id="@+id/DateOfIssueTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Дата выдачи"
+                android:text="@string/DateOfIssue"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -73,14 +72,14 @@
 
                 <EditText
                     android:id="@+id/date_of_issue_edit_text"
-                    android:text="27.11.2016"
+                    android:text="@string/date_of_issue_edit_value"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:inputType="date"
                     android:maxLength="10"
-                    android:maxLines="1"></EditText>
+                    android:maxLines="1"/>
 
                 <ImageButton
                     android:id="@+id/calendar"
@@ -89,8 +88,8 @@
                     android:cropToPadding="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/calendar"
-                    android:elevation="0dp"
-                    android:background="@android:drawable/screen_background_light_transparent" />
+                    android:background="@android:drawable/screen_background_light_transparent"
+                    android:contentDescription="@string/calendar" />
             </LinearLayout>
 
             <TextView
@@ -105,7 +104,7 @@
                 android:id="@+id/captcha_image_view"
                 android:layout_width="182dp"
                 android:layout_height="50dp"
-                android:contentDescription="@string/contentDescr_captcha_image" />
+                android:contentDescription="@string/content_descr_captcha_image" />
 
             <EditText
                 android:id="@+id/captcha_edit_text"
