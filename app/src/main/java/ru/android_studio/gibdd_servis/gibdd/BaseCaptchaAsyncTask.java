@@ -2,6 +2,7 @@ package ru.android_studio.gibdd_servis.gibdd;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
@@ -11,7 +12,6 @@ import java.io.IOException;
 public abstract class BaseCaptchaAsyncTask extends AsyncTask<String, Void, CaptchaResult> {
 
     private static final String TAG = "BaseCaptchaAsyncTask";
-    CheckType checkType;
     private Context context;
     private ImageView captchaImageView;
     private ProgressDialog progressDialog;
@@ -19,24 +19,15 @@ public abstract class BaseCaptchaAsyncTask extends AsyncTask<String, Void, Captc
     BaseCaptchaAsyncTask(Context context, ImageView captchaImageView) {
         if (context == null) {
             throw new IllegalArgumentException("context can't be null");
-        } else if (captchaImageView == null) {
-            throw new IllegalArgumentException("captchaImageView can't be null");
         }
+        /*
+        because captcha ImageView can be null for check connection
+        else if (captchaImageView == null) {
+            throw new IllegalArgumentException("captchaImageView can't be null");
+        }*/
 
         this.context = context;
         this.captchaImageView = captchaImageView;
-    }
-
-    BaseCaptchaAsyncTask(Context context, ImageView captchaImageView, CheckType checkType) {
-        if (context == null) {
-            throw new IllegalArgumentException("context can't be null");
-        } else if (captchaImageView == null) {
-            throw new IllegalArgumentException("captchaImageView can't be null");
-        }
-
-        this.context = context;
-        this.captchaImageView = captchaImageView;
-        this.checkType = checkType;
     }
 
     @Override
@@ -63,7 +54,7 @@ public abstract class BaseCaptchaAsyncTask extends AsyncTask<String, Void, Captc
         Log.d(TAG, "START onPostExecute");
 
         if (result != null) {
-            captchaImageView.setImageBitmap(result.getImage());
+            setCaptchaImage(result.getImage());
         }
 
         if (progressDialog.isShowing()) {
@@ -71,6 +62,12 @@ public abstract class BaseCaptchaAsyncTask extends AsyncTask<String, Void, Captc
         }
 
         Log.d(TAG, "END onPostExecute");
+    }
+
+    private void setCaptchaImage(Bitmap image) {
+        if(captchaImageView != null) {
+            captchaImageView.setImageBitmap(image);
+        }
     }
 }
 

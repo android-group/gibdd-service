@@ -16,6 +16,7 @@ import ru.android_studio.gibdd_servis.driver.model.ResponseDriver;
 public class RequestDriverAsyncTask extends AsyncTask<RequestDriver, Void, ResponseDriver> {
 
     private static final String TAG = "RequestDriverAsyncTask";
+    public static final String RESULT_TEXT = "result_text";
     private Context context;
     /**
      * Окно отображается при открытом асинх таске
@@ -58,12 +59,12 @@ public class RequestDriverAsyncTask extends AsyncTask<RequestDriver, Void, Respo
             progressDialog.dismiss();
         }
 
-        if (result == null) {
+        if (result == null || result.getResultText() == null) {
             return;
         }
 
         Intent intent = new Intent(context, ResultDriverActivity.class);
-        intent.putExtra("result_text", result.getResultText());
+        intent.putExtra(RESULT_TEXT, result.getResultText());
         context.startActivity(intent);
 
         Log.d(TAG, "END onPostExecute");

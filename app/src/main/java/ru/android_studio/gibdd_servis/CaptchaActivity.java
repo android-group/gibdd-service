@@ -51,18 +51,18 @@ public abstract class CaptchaActivity extends ActivityWithToolbar {
 
     protected String getSessionId() {
         String sessionId = null;
-        CaptchaResult captchaResult = null;
         try {
-            captchaResult = calledCaptchaAsyncTask.get();
+            CaptchaResult captchaResult = calledCaptchaAsyncTask.get();
+
+            if (captchaResult != null) {
+                sessionId = captchaResult.getSessionId();
+            } else {
+                Toast.makeText(this, R.string.internet_not_available, Toast.LENGTH_SHORT).show();
+            }
         } catch (InterruptedException | ExecutionException e) {
-            Toast.makeText(this, "Интернет не доступен", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.internet_not_available, Toast.LENGTH_SHORT).show();
         }
 
-        if (captchaResult != null) {
-            sessionId = captchaResult.getSessionId();
-        } else {
-            Toast.makeText(this, "Интернет не доступен", Toast.LENGTH_SHORT).show();
-        }
         return sessionId;
     }
 
