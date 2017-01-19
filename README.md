@@ -6,6 +6,11 @@
 
 **Continuous integration:** [![Build Status](https://travis-ci.org/android-group/gibdd-service.svg?branch=master)](https://travis-ci.org/android-group/gibdd-service)
 
+
+**android-studio.ru Members chat: [![][gitter img]][gitter]
+**Contributors chat: [![https://gitter.im/android-studio-github/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/checkstyle/checkstyle?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
 **Development Board:** https://trello.com/invite/b/RvHdnYnM/794e67145bd1d1acf3af285bd5780096/-
 
 ### Описание
